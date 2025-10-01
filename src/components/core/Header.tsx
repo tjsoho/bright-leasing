@@ -54,11 +54,11 @@ const Header = ({ homePage }: HeaderProps) => {
 							className="block text-3xl font-bold tracking-wider text-white my-1 sm:my-2"
 						>
 							<Image
-								src="/images/logo1.png"
+								src="/placeholder.jpg"
 								alt="Logo"
 								width={550}
 								height={100}
-								className="w-[300px] sm:w-[300px] md:w-[400px] lg:w-[550px] h-auto hover:cursor-pointer"
+								className="w-[300px] sm:w-[300px] md:w-[400px] lg:w-[150px] h-auto hover:cursor-pointer"
 							/>
 						</Link>
 						<h2 className="text-xs sm:text-base md:text-lg font-semibold text-white mb-2 sm:mb-4">

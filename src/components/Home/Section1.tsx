@@ -89,7 +89,7 @@ export default function Section1({ content }: Section1Props) {
                 >
                     <div className="w-6 h-6 flex-shrink-0">
                         <Image
-                            src='/images/icon1.png'
+                            src='/placeholder.jpg'
                             alt="Feature 1 illustration"
                             className="w-full h-full object-cover rounded-lg"
                             aria-label="Visual representation of feature 1"
@@ -114,7 +114,7 @@ export default function Section1({ content }: Section1Props) {
                 >
                     <div className="w-6 h-6 flex-shrink-0">
                         <Image
-                            src='/images/icon4.png'
+                            src='/placeholder.jpg'
                             alt="Feature 2 illustration"
                             className="w-full h-full object-cover rounded-lg"
                             aria-label="Visual representation of feature 2"
@@ -139,7 +139,7 @@ export default function Section1({ content }: Section1Props) {
                 >
                     <div className="w-6 h-6 flex-shrink-0">
                         <Image
-                            src='/images/icon2.png'
+                            src='/placeholder.jpg'
                             alt="Feature 3 illustration"
                             className="w-full h-full object-cover rounded-lg"
                             aria-label="Visual representation of feature 3"
@@ -164,7 +164,7 @@ export default function Section1({ content }: Section1Props) {
                 >
                     <div className="w-6 h-6 flex-shrink-0">
                         <Image
-                            src='/images/icon3.png'
+                            src='/placeholder.jpg'
                             alt="Feature 4 illustration"
                             className="w-full h-full object-cover rounded-lg"
                             aria-label="Visual representation of feature 4"

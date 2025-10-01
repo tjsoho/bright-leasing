@@ -30,6 +30,25 @@ export default function EditableImage({
         openImageLibrary(onImageChange, usage);
     };
 
+    // Validate and fix image URL
+    const getValidImageSrc = (src: string) => {
+        if (!src || src === '' || src === 'undefined' || src === 'null') {
+            return '/placeholder.jpg';
+        }
+
+        // Check if it's a valid URL or path
+        try {
+            new URL(src);
+            return src;
+        } catch {
+            // If it's not a valid URL, check if it starts with /
+            if (src.startsWith('/')) {
+                return src;
+            }
+            return '/placeholder.jpg';
+        }
+    };
+
     return (
         <div
             className="relative cursor-pointer group"
@@ -38,7 +57,7 @@ export default function EditableImage({
             onClick={handleClick}
         >
             <Image
-                src={src}
+                src={getValidImageSrc(src)}
                 alt={alt}
                 width={width}
                 height={height}

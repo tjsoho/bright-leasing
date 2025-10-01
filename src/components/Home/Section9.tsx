@@ -26,7 +26,7 @@ const highlightPhrases = (text: string) => {
 
     return result;
 };
-import Image from "next/image";
+
 import { motion, useInView, easeOut } from "framer-motion";
 import React from "react";
 
@@ -111,15 +111,7 @@ export default function Section9({ content }: Section9Props) {
                                 className="flex lg:items-center lg:justify-center gap-3"
                                 variants={featureVariants}
                             >
-                                <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
-                                    <Image
-                                        src={feature.icon || "/images/next.svg"}
-                                        alt={`Feature ${index + 1} icon`}
-                                        width={32}
-                                        height={32}
-                                        className="w-full h-full object-contain p-1"
-                                    />
-                                </div>
+                                
                                 <span
                                     className="text-sm font-medium text-white/70 whitespace-pre-wrap"
                                     dangerouslySetInnerHTML={{ __html: highlightPhrases(feature.text) }}

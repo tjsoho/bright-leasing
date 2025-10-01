@@ -134,31 +134,31 @@ export default function About() {
 		{
 			key: "process",
 			title: aboutPage.content.tab1title,
-			imageSrc: aboutPage.content.tab1image || "/images/next.svg",
+			imageSrc: aboutPage.content.tab1image || "/placeholder.jpg",
 			content: aboutPage.content.tab1content,
 		},
 		{
 			key: "for-men",
 			title: aboutPage.content.tab2title,
-			imageSrc: aboutPage.content.tab2image || "/images/next.svg",
+			imageSrc: aboutPage.content.tab2image || "/placeholder.jpg",
 			content: aboutPage.content.tab2content,
 		},
 		{
 			key: "for-women",
 			title: aboutPage.content.tab3title,
-			imageSrc: aboutPage.content.tab3image || "/images/next.svg",
+			imageSrc: aboutPage.content.tab3image || "/placeholder.jpg",
 			content: aboutPage.content.tab3content,
 		},
 		{
 			key: "final-product",
 			title: aboutPage.content.tab4title,
-			imageSrc: aboutPage.content.tab4image || "/images/next.svg",
+			imageSrc: aboutPage.content.tab4image || "/placeholder.jpg",
 			content: aboutPage.content.tab4content,
 		},
 		{
 			key: "who-for",
 			title: aboutPage.content.tab5title,
-			imageSrc: aboutPage.content.tab5image || "/images/next.svg",
+			imageSrc: aboutPage.content.tab5image || "/placeholder.jpg",
 			content: aboutPage.content.tab5content,
 		},
 	];
@@ -180,7 +180,7 @@ export default function About() {
 								animate={isSection1InView ? "show" : "hidden"}
 							>
 								<Image
-									src={aboutPage.content.heroImage || "/images/next.svg"}
+									src={aboutPage.content.heroImage || "/placeholder.jpg"}
 									alt="Mission image"
 									width={1920}
 									height={1080}

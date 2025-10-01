@@ -106,7 +106,7 @@ export default function Section8({ content }: Section8Props) {
                         animate={isInView ? "show" : "hidden"}
                     >
                         <Image
-                            src={content.section8Image || "/images/next.svg"}
+                            src={content.section8Image || "/placeholder.jpg"}
                             alt="Mission visualization"
                             width={1920}
                             height={1080}

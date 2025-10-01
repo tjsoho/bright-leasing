@@ -26,7 +26,7 @@ export default function Section2({ content }: Section2Props) {
                         {content.section2title}
                     </h2>
                     <Image
-                        src='/images/pillMob.png'
+                        src='/placeholder.jpg'
                         alt="Product highlight visualization"
                         className="w-full rounded-lg block lg:hidden -mt-8"
                         aria-label="Visual representation of our product features"
@@ -35,7 +35,7 @@ export default function Section2({ content }: Section2Props) {
                         height={1000}
                     />
                     <Image
-                        src='/images/pill.png'
+                        src='/placeholder.jpg'
                         alt="Product highlight visualization"
                         className="w-full rounded-lg hidden lg:block"
                         aria-label="Visual representation of our product features"

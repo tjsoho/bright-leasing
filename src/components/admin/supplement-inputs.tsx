@@ -20,7 +20,7 @@ export default function SupplementAdminInputs(props: Props) {
 	const [heroTitle, setHeroTitle] = useState(props.content?.heroTitle || '');
 	const [heroSubtitle, setHeroSubtitle] = useState(props.content?.heroSubtitle || '');
 	const [heroContent, setHeroContent] = useState(props.content?.heroContent || '');
-	const [heroImage, setHeroImage] = useState(props.content?.heroImage || "/images/supplement/hero.jpg");
+	const [heroImage, setHeroImage] = useState(props.content?.heroImage || "/placeholder.jpg");
 	const [featuredProductIds, setFeaturedProductIds] = useState<string[]>(props.content?.featuredProductIds || []);
 	const [selectedProducts, setSelectedProducts] = useState<ShopifyProduct[]>([]);
 	const [isLoading, setIsLoading] = useState(false);

@@ -50,7 +50,7 @@ export default function Section3({ content }: Section3Props) {
     const images = [1, 2, 3, 4, 5, 6].map((index) => (
         <div key={index} className="relative aspect-[9/16] px-1">
             <Image
-                src={content.section3Images?.[`profile${index}` as keyof typeof content.section3Images] || '/images/next.svg'}
+                src={content.section3Images?.[`profile${index}` as keyof typeof content.section3Images] || '/placeholder.jpg'}
                 alt={`Profile ${index}`}
                 className="w-full h-full object-cover"
                 aria-label={`Community member profile ${index}`}

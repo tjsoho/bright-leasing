@@ -10,7 +10,7 @@ import useUpdatePage from "@/utils/hooks/useUpdatePage";
 export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 	const [titleHero, setTitleHero] = useState(props.content.title);
 	const [youtubeVideoId, setYoutubeVideoId] = useState(props.content.youtubeVideoId || "");
-	const [heroImage, setHeroImage] = useState(props.content.heroImage || "/images/next.svg");
+	const [heroImage, setHeroImage] = useState(props.content.heroImage || "/placeholder.jpg");
 	const [ourStoryParagraph, setOurStoryParagraph] = useState(
 		props.content.ourStoryParagraph,
 	);
@@ -19,19 +19,19 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 	);
 	const [tab1title, setTab1title] = useState(props.content.tab1title);
 	const [tab1content, setTab1content] = useState(props.content.tab1content);
-	const [tab1image, setTab1image] = useState(props.content.tab1image || "/images/next.svg");
+	const [tab1image, setTab1image] = useState(props.content.tab1image || "/placeholder.jpg");
 	const [tab2title, setTab2title] = useState(props.content.tab2title);
 	const [tab2content, setTab2content] = useState(props.content.tab2content);
-	const [tab2image, setTab2image] = useState(props.content.tab2image || "/images/next.svg");
+	const [tab2image, setTab2image] = useState(props.content.tab2image || "/placeholder.jpg");
 	const [tab3title, setTab3title] = useState(props.content.tab3title);
 	const [tab3content, setTab3content] = useState(props.content.tab3content);
-	const [tab3image, setTab3image] = useState(props.content.tab3image || "/images/next.svg");
+	const [tab3image, setTab3image] = useState(props.content.tab3image || "/placeholder.jpg");
 	const [tab4title, setTab4title] = useState(props.content.tab4title);
 	const [tab4content, setTab4content] = useState(props.content.tab4content);
-	const [tab4image, setTab4image] = useState(props.content.tab4image || "/images/next.svg");
+	const [tab4image, setTab4image] = useState(props.content.tab4image || "/placeholder.jpg");
 	const [tab5title, setTab5title] = useState(props.content.tab5title);
 	const [tab5content, setTab5content] = useState(props.content.tab5content);
-	const [tab5image, setTab5image] = useState(props.content.tab5image || "/images/next.svg");
+	const [tab5image, setTab5image] = useState(props.content.tab5image || "/placeholder.jpg");
 
 	const { isSaving, updatePage } =
 		useUpdatePage<AboutUsPageContent>("about-us");

@@ -7,13 +7,13 @@ import { HomePageContent, HomePageProps } from "@/app/_config";
 import useUpdatePage from "@/utils/hooks/useUpdatePage";
 
 export default function HomeAdminInputs(props: HomePageProps) {
-	const [heroImageMobile, setHeroImageMobile] = useState(props.content.heroImageMobile || "/images/heromob.png");
-	const [heroImageDesktop, setHeroImageDesktop] = useState(props.content.heroImageDesktop || "/images/homehero.png");
+	const [heroImageMobile, setHeroImageMobile] = useState(props.content.heroImageMobile || "/placeholder.jpg");
+	const [heroImageDesktop, setHeroImageDesktop] = useState(props.content.heroImageDesktop || "/placeholder.jpg");
 	const [section1Images, setSection1Images] = useState({
-		icon1: props.content.section1Images?.icon1 || "/images/file.svg",
-		icon2: props.content.section1Images?.icon2 || "/images/globe.svg",
-		icon3: props.content.section1Images?.icon3 || "/images/window.svg",
-		icon4: props.content.section1Images?.icon4 || "/images/next.svg",
+		icon1: props.content.section1Images?.icon1 || "/placeholder.jpg",
+		icon2: props.content.section1Images?.icon2 || "/placeholder.jpg",
+		icon3: props.content.section1Images?.icon3 || "/placeholder.jpg",
+		icon4: props.content.section1Images?.icon4 || "/placeholder.jpg",
 	});
 	const [descriptionHero, setDescriptionHero] = useState(
 		props.content.descriptionHero,
@@ -37,38 +37,38 @@ export default function HomeAdminInputs(props: HomePageProps) {
 	);
 	const [section1paragraph, setSection1paragraph] = useState(props.content.section1paragraph);
 	const [section2title, setSection2title] = useState(props.content.section2title);
-	const [section2ImageDesktop, setSection2ImageDesktop] = useState(props.content.section2ImageDesktop || "/images/pill.png");
-	const [section2ImageMobile, setSection2ImageMobile] = useState(props.content.section2ImageMobile || "/images/pillMob.png");
+	const [section2ImageDesktop, setSection2ImageDesktop] = useState(props.content.section2ImageDesktop || "/placeholder.jpg");
+	const [section2ImageMobile, setSection2ImageMobile] = useState(props.content.section2ImageMobile || "/placeholder.jpg");
 	const [section3title, setSection3title] = useState(props.content.section3title);
 	const [section3paragraph, setSection3paragraph] = useState(props.content.section3paragraph);
 	const [section3Images, setSection3Images] = useState(props.content.section3Images || {
-		profile1: "/images/next.svg",
-		profile2: "/images/vercel.svg",
-		profile3: "/images/file.svg",
-		profile4: "/images/globe.svg",
-		profile5: "/images/window.svg",
-		profile6: "/images/next.svg",
+		profile1: "/placeholder.jpg",
+		profile2: "/placeholder.jpg",
+		profile3: "/placeholder.jpg",
+		profile4: "/placeholder.jpg",
+		profile5: "/placeholder.jpg",
+		profile6: "/placeholder.jpg",
 	});
-	const [section4ImageDesktop, setSection4ImageDesktop] = useState(props.content.section4ImageDesktop || "/images/pill.png");
-	const [section4ImageMobile, setSection4ImageMobile] = useState(props.content.section4ImageMobile || "/images/pillMob.png");
+	const [section4ImageDesktop, setSection4ImageDesktop] = useState(props.content.section4ImageDesktop || "/placeholder.jpg");
+	const [section4ImageMobile, setSection4ImageMobile] = useState(props.content.section4ImageMobile || "/placeholder.jpg");
 	const [section5title, setSection5title] = useState(props.content.section5title);
 	const [section5paragraph1, setSection5paragraph1] = useState(props.content.section5paragraph1);
-	const [section5DetailImage, setSection5DetailImage] = useState(props.content.section5DetailImage || "/images/next.svg");
-	const [section5FeatureImage, setSection5FeatureImage] = useState(props.content.section5FeatureImage || "/images/next.svg");
+	const [section5DetailImage, setSection5DetailImage] = useState(props.content.section5DetailImage || "/placeholder.jpg");
+	const [section5FeatureImage, setSection5FeatureImage] = useState(props.content.section5FeatureImage || "/placeholder.jpg");
 	const [section6title, setSection6title] = useState(props.content.section6title);
 	const [section6logos, setSection6logos] = useState<string[]>(props.content.section6logos || []);
 	const [section7title, setSection7title] = useState(props.content.section7title);
 	const [section8title, setSection8title] = useState(props.content.section8title);
 	const [section8paragraph, setSection8paragraph] = useState(props.content.section8paragraph);
 	const [section8buttonText, setSection8buttonText] = useState(props.content.section8buttonText);
-	const [section8Image, setSection8Image] = useState(props.content.section8Image || "/images/next.svg");
+	const [section8Image, setSection8Image] = useState(props.content.section8Image || "/placeholder.jpg");
 	const [section9title, setSection9title] = useState(props.content.section9title);
 	const [section10title, setSection10title] = useState(props.content.section10title);
 	const [section10paragraph, setSection10paragraph] = useState(props.content.section10paragraph);
 	const [section11title, setSection11title] = useState(props.content.section11title);
 	const [section11paragraph, setSection11paragraph] = useState(props.content.section11paragraph);
 	const [section11buttonText, setSection11buttonText] = useState(props.content.section11buttonText);
-	const [section11Image, setSection11Image] = useState(props.content.section11Image || "/images/next.svg");
+	const [section11Image, setSection11Image] = useState(props.content.section11Image || "/placeholder.jpg");
 
 	// ************************** Section 5 icons and text **************************/
 
@@ -643,7 +643,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 									Section Logos
 								</label>
 								<button
-									onClick={() => setSection6logos([...section6logos, "/images/next.svg"])}
+									onClick={() => setSection6logos([...section6logos, "/placeholder.jpg"])}
 									className="px-4 py-2 bg-white text-black rounded hover:bg-gray-100 transition-colors"
 								>
 									+ Add Logo

@@ -40,7 +40,7 @@ export default function Section11({ content }: Section11Props) {
                 <motion.div
                     className="relative h-[400px] w-full bg-cover bg-[55%] bg-no-repeat"
                     style={{
-                        backgroundImage: `url(${content.section11Image || "/images/next.svg"})`,
+                        backgroundImage: `url(${content.section11Image || "/placeholder.jpg"})`,
                     }}
                     initial={{ opacity: 0, scale: 1.1 }}
                     animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.1 }}
@@ -68,7 +68,7 @@ export default function Section11({ content }: Section11Props) {
             <motion.div
                 className="relative hidden md:flex h-[400px] w-full items-center justify-start bg-cover bg-center p-4 text-white overflow-hidden"
                 style={{
-                    backgroundImage: `url(${content.section11Image || "/images/next.svg"})`,
+                    backgroundImage: `url(${content.section11Image || "/placeholder.jpg"})`,
                 }}
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}

@@ -31,7 +31,7 @@ export default function GivingBackAdminInputs(props: GivingBackPageProps) {
         setBusinesses([
             ...businesses,
             {
-                image: "/images/next.svg",
+                image: "/placeholder.jpg",
                 title: "New Business",
                 subheading: "Enter subheading",
                 paragraph: "Enter description"

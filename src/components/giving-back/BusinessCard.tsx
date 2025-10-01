@@ -16,7 +16,7 @@ export default function BusinessCard({ business }: BusinessCardProps) {
                 {/* Background border image */}
                 <div
                     className="absolute inset-0 bg-no-repeat bg-contain"
-                    style={{ backgroundImage: "url('/images/border.png')" }}
+                    style={{ backgroundImage: "url('/placeholder.jpg')" }}
                 >
                     {/* Business logo centered */}
                     <div className="absolute inset-0 flex items-center justify-center -mt-60">

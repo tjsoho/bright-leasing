@@ -91,7 +91,7 @@ export default function Section2({ content }: Section2Props) {
                         className="block lg:hidden"
                     >
                         <Image
-                            src='/images/pillMob.png'
+                            src='/placeholder.jpg'
                             alt="Product highlight visualization"
                             className="w-full rounded-lg -mt-8"
                             aria-label="Visual representation of our product features"
@@ -107,7 +107,7 @@ export default function Section2({ content }: Section2Props) {
                         className="hidden lg:block"
                     >
                         <Image
-                            src='/images/pill.png'
+                            src='/placeholder.jpg'
                             alt="Product highlight visualization"
                             className="w-full rounded-lg"
                             aria-label="Visual representation of our product features"

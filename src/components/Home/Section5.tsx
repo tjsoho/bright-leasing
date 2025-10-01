@@ -164,7 +164,7 @@ export default function Section5({ content, showImage = true, centerContent = fa
                             >
                                 <div className="w-6 h-6 rounded-full overflow-hidden">
                                     <Image
-                                        src={feature.icon || "/images/next.svg"}
+                                        src={feature.icon || "/placeholder.jpg"}
                                         alt={`Feature ${index + 1} icon`}
                                         width={24}
                                         height={24}
@@ -184,7 +184,7 @@ export default function Section5({ content, showImage = true, centerContent = fa
                         animate={isInView ? "show" : "hidden"}
                     >
                         <Image
-                            src={content.section5DetailImage || "/images/next.svg"}
+                            src={content.section5DetailImage || "/placeholder.jpg"}
                             alt="Product showcase detail"
                             className="lg:w-4/5 h-auto object-cover"
                             aria-label="Detailed view of product features"
@@ -206,7 +206,7 @@ export default function Section5({ content, showImage = true, centerContent = fa
                     >
                         <div className="relative">
                             <Image
-                                src={content.section5FeatureImage || "/images/next.svg"}
+                                src={content.section5FeatureImage || "/placeholder.jpg"}
                                 alt="Athlete in recovery"
                                 className="w-full h-auto object-cover"
                                 aria-label="Athlete demonstrating product benefits"

@@ -86,7 +86,7 @@ execute procedure update_updated_at_column();
 ```sql
 -- Allow public read access to all files
 CREATE POLICY "Give public access to all files" ON storage.objects
-FOR SELECT USING (bucket_id = 'site-images');
+bucket_id = 'site-images';
 
 -- Allow authenticated users to insert files
 CREATE POLICY "Allow authenticated uploads" ON storage.objects

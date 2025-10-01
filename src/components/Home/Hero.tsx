@@ -65,7 +65,7 @@ export default function Hero({ content }: HeroProps) {
                     animate={isInView ? "animate" : "initial"}
                     variants={imageVariants}
                     className="absolute inset-0 bg-cover bg-center lg:hidden"
-                    style={{ backgroundImage: `url(${content.heroImageMobile || '/images/heromob.png'})` }}
+                    style={{ backgroundImage: `url(${content.heroImageMobile || '/placeholder.jpg'})` }}
                 />
 
                 {/* Desktop Background */}
@@ -74,7 +74,7 @@ export default function Hero({ content }: HeroProps) {
                     animate={isInView ? "animate" : "initial"}
                     variants={imageVariants}
                     className="absolute inset-0 bg-cover bg-center hidden lg:block"
-                    style={{ backgroundImage: `url(${content.heroImageDesktop || '/images/homehero.png'})` }}
+                    style={{ backgroundImage: `url(${content.heroImageDesktop || '/placeholder.jpg'})` }}
                 />
 
                 {/* Dark Overlay */}

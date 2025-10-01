@@ -115,7 +115,7 @@ export default function Section3({ content }: Section3Props) {
             variants={imageVariants}
         >
             <Image
-                src={content.section3Images?.[`profile${index}` as keyof typeof content.section3Images] || '/images/next.svg'}
+                src={content.section3Images?.[`profile${index}` as keyof typeof content.section3Images] || '/placeholder.jpg'}
                 alt={`Profile ${index}`}
                 className="w-full h-full object-cover"
                 aria-label={`Community member profile ${index}`}

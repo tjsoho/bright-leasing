@@ -32,7 +32,7 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
   content: {
     youtubeVideoId: "",
     title: "OUR STORY",
-    heroImage: "/images/next.svg",
+    heroImage: "/placeholder.jpg",
     ourStoryParagraph:
       "STAIT was born in 2018 with the aim of giving anyone the best chance of being an elite performer in any and every area of life. It all started with Shaun Sargent, our co-founder. Approaching his 50s, and busy with a demanding corporate career, Shaun was aware that ageing might start to affect his performance day-to-day. Whilst most people might consider this a normal part of the ageing process, Shaun chose differently. Why give up on feeling and being your best just because you're getting older? As a busy CEO, Shaun had always been determined to outperform himself each day. Having failed to find a product to support his health in the way he needed, it was his wife and co-founder Samantha who suggested he should create something for himself. 'Instead of moaning about it, if it's such an issue for you, why don't you find a solution?' she said. Which is exactly what he did.",
     AboutUsbuttonText: "Keep Reading",
@@ -52,10 +52,10 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
     tab5title: "Who is STAIT for",
     tab5content:
       "STAIT is for anyone who wants to outperform themselves, whether you're a CEO, a builder or an athlete. We all want to be the best version of ourselves, but becoming that person takes time and effort. Nothing worth having ever happens without having to put in consistent work. STAIT works best if you're already healthy—it's not a substitute for a bad lifestyle. So, you need to be prepared to push yourself to the limit. But if you want to change things for the better, then this is the supplement for you. Not only does STAIT give you the energy and endurance to perform, it also gives you the mental clarity and focus you need to achieve your goals. We believe it's imperative that you start putting your health first. STAIT will get you halfway there. The rest is up to you.",
-    tab1image: "/images/next.svg",
-    tab2image: "/images/next.svg",
-    tab3image: "/images/next.svg",
-    tab4image: "/images/next.svg",
-    tab5image: "/images/next.svg",
+    tab1image: "/placeholder.jpg",
+    tab2image: "/placeholder.jpg",
+    tab3image: "/placeholder.jpg",
+    tab4image: "/placeholder.jpg",
+    tab5image: "/placeholder.jpg",
   },
 };

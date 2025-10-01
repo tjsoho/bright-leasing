@@ -23,7 +23,7 @@ export default function Hero({ content }: HeroProps) {
                 {/* Right Column - Image */}
                 <div className="relative aspect-square">
                     <Image
-                        src={content.heroImage || '/images/supplement/hero.jpg'}
+                        src={content.heroImage || '/placeholder.jpg'}
                         alt="STAIT Supplements"
                         fill
                         className="object-cover"
