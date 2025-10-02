@@ -10,9 +10,6 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@shopify/admin-api-client": "^1.1.1",
-    "@shopify/shopify-api": "^11.14.1",
-    "@shopify/storefront-api-client": "^1.0.9",
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.50.0",
     "@tiptap/extension-bubble-menu": "^3.4.4",
