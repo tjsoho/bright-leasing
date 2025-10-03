@@ -1,184 +1,213 @@
-'use client';
-
-{/* ***************************************************************
-   SECTION 3 COMPONENT
-   Features section with:
-   - Section title and descriptive paragraph
-   - Grid of 6 profile images
-   Used to showcase team, customers, or community
-****************************************************************/}
+"use client";
 
 import { HomePageProps } from "@/app/_config";
-
-const highlightPhrases = (text: string) => {
-    const phrases = [
-        "STAIT",
-        "science-backed formulas"
-    ];
-
-    let result = text;
-    phrases.forEach(phrase => {
-        const regex = new RegExp(`(${phrase})`, 'gi');
-        result = result.replace(regex, '<span class="text-white">$1</span>');
-    });
-
-    return result;
-};
-import Image from "next/image";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { motion, useInView, easeOut } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 
 interface Section3Props {
-    content: HomePageProps['content'];
+	content: HomePageProps["content"];
 }
 
 export default function Section3({ content }: Section3Props) {
-    const ref = React.useRef(null);
-    const isInView = useInView(ref, {
-        amount: 0.3,
-    });
+	const ref = React.useRef(null);
+	const isInView = useInView(ref, {
+		amount: 0.3,
+	});
 
-    const titleVariants = {
-        hidden: {
-            opacity: 0,
-            y: 20
-        },
-        show: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.8,
-                ease: easeOut
-            }
-        }
-    };
+	const [currentSlide, setCurrentSlide] = useState(0);
 
-    const paragraphVariants = {
-        hidden: {
-            opacity: 0,
-            y: 20
-        },
-        show: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.8,
-                ease: easeOut,
-                delay: 0.3
-            }
-        }
-    };
+	const titleVariants = {
+		hidden: {
+			opacity: 0,
+			y: 20,
+		},
+		show: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+				ease: easeOut,
+			},
+		},
+	};
 
-    const containerVariants = {
-        hidden: {},
-        show: {
-            transition: {
-                staggerChildren: 0.15
-            }
-        }
-    };
+	const tileVariants = {
+		hidden: {
+			opacity: 0,
+			x: 20,
+		},
+		show: {
+			opacity: 1,
+			x: 0,
+			transition: {
+				duration: 0.6,
+				ease: easeOut,
+			},
+		},
+	};
 
-    const imageVariants = {
-        hidden: {
-            opacity: 0,
-            scale: 0.95
-        },
-        show: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                duration: 0.8,
-                ease: easeOut
-            }
-        }
-    };
-    const sliderSettings = {
-        dots: false,
-        infinite: true,
-        speed: 5000,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 0,
-        cssEase: "linear",
-        pauseOnHover: false,
-        arrows: false,
-    };
+	const nextSlide = () => {
+		setCurrentSlide((prev) => (prev + 1) % 3);
+	};
 
-    const images = [1, 2, 3, 4, 5, 6].map((index) => (
-        <motion.div
-            key={index}
-            className="relative aspect-[9/16] px-1"
-            variants={imageVariants}
-        >
-            <Image
-                src={content.section3Images?.[`profile${index}` as keyof typeof content.section3Images] || '/placeholder.jpg'}
-                alt={`Profile ${index}`}
-                className="w-full h-full object-cover"
-                aria-label={`Community member profile ${index}`}
-                width={180}
-                height={320}
-            />
-        </motion.div>
-    ));
+	const prevSlide = () => {
+		setCurrentSlide((prev) => (prev - 1 + 3) % 3);
+	};
 
-    return (
-        <section className="py-8 lg:py-16" ref={ref}>
-            <div className="">
-                <div className="space-y-8">
-                    <motion.h2
-                        className="text-4xl font-bold text-white mb-6 w-4/5 lg:w-full lg:text-center px-2"
-                        variants={titleVariants}
-                        initial="hidden"
-                        animate={isInView ? "show" : "hidden"}
-                    >
-                        {content.section3title}
-                    </motion.h2>
-                    <motion.p
-                        className="text-sm text-white/70 leading-relaxed mb-6 text-center hidden lg:block whitespace-pre-wrap"
-                        dangerouslySetInnerHTML={{ __html: highlightPhrases(content.section3paragraph) }}
-                        variants={paragraphVariants}
-                        initial="hidden"
-                        animate={isInView ? "show" : "hidden"}
-                    />
-                    {/* Mobile Slider */}
-                    <motion.div
-                        className="md:hidden overflow-hidden"
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate={isInView ? "show" : "hidden"}
-                    >
-                        <Slider {...sliderSettings}>
-                            {images}
-                            {/* Duplicate images for seamless infinite loop */}
-                            {images}
-                            {images}
-                        </Slider>
-                    </motion.div>
+	const goToSlide = (index: number) => {
+		setCurrentSlide(index);
+	};
 
-                    {/* Desktop Grid */}
-                    <motion.div
-                        className="hidden md:grid md:grid-cols-6 gap-4"
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate={isInView ? "show" : "hidden"}
-                    >
-                        {images}
-                    </motion.div>
-                    <motion.p
-                        className="text-sm text-gray-300 leading-relaxed mb-6 text-center lg:hidden whitespace-pre-wrap"
-                        dangerouslySetInnerHTML={{ __html: highlightPhrases(content.section3paragraph) }}
-                        variants={paragraphVariants}
-                        initial="hidden"
-                        animate={isInView ? "show" : "hidden"}
-                    />
-                </div>
-            </div>
-        </section>
-    );
+	return (
+		<section className="py-16 bg-white" ref={ref}>
+			<div className="max-w-7xl mx-auto px-4">
+				<div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16">
+					{/* Title Section */}
+					<motion.div
+						className="flex-1"
+						variants={titleVariants}
+						initial="hidden"
+						animate={isInView ? "show" : "hidden"}
+					>
+						<h2 className="text-4xl lg:text-5xl font-bold text-black leading-tight">
+							{content.section3title}
+						</h2>
+					</motion.div>
+
+					{/* Tiles Carousel */}
+					<div className="flex-1 w-full lg:w-auto">
+						<div className="relative">
+							{/* Tiles Container */}
+							<div className="overflow-hidden">
+								<div
+									className="flex transition-transform duration-500 ease-in-out"
+									style={{
+										transform: `translateX(-${currentSlide * 100}%)`,
+									}}
+								>
+									{/* Tile 1 */}
+									<motion.div
+										className="w-full flex-shrink-0 px-2"
+										variants={tileVariants}
+										initial="hidden"
+										animate={isInView ? "show" : "hidden"}
+										transition={{ delay: 0 * 0.1 }}
+									>
+										<div
+											className={`bg-yellow-400 rounded-lg p-6 h-48 flex flex-col justify-center text-black`}
+										>
+											<h3 className="text-xl font-bold mb-3">
+												{content.section3tile1title}
+											</h3>
+											<p className="text-sm leading-relaxed">
+												{content.section3tile1description}
+											</p>
+										</div>
+									</motion.div>
+
+									{/* Tile 2 */}
+									<motion.div
+										className="w-full flex-shrink-0 px-2"
+										variants={tileVariants}
+										initial="hidden"
+										animate={isInView ? "show" : "hidden"}
+										transition={{ delay: 1 * 0.1 }}
+									>
+										<div
+											className={`bg-teal-500 rounded-lg p-6 h-48 flex flex-col justify-center text-black`}
+										>
+											<h3 className="text-xl font-bold mb-3">
+												{content.section3tile2title}
+											</h3>
+											<p className="text-sm leading-relaxed">
+												{content.section3tile2description}
+											</p>
+										</div>
+									</motion.div>
+
+									{/* Tile 3 */}
+									<motion.div
+										className="w-full flex-shrink-0 px-2"
+										variants={tileVariants}
+										initial="hidden"
+										animate={isInView ? "show" : "hidden"}
+										transition={{ delay: 2 * 0.1 }}
+									>
+										<div
+											className={`bg-gray-400 rounded-lg p-6 h-48 flex flex-col justify-center text-black`}
+										>
+											<h3 className="text-xl font-bold mb-3">
+												{content.section3tile3title}
+											</h3>
+											<p className="text-sm leading-relaxed">
+												{content.section3tile3description}
+											</p>
+										</div>
+									</motion.div>
+								</div>
+							</div>
+
+							{/* Navigation Dots */}
+							<div className="flex justify-center mt-6">
+								<div className="flex space-x-2 bg-gray-200 rounded-full p-1">
+									{[0, 1, 2].map((index) => (
+										<button
+											key={index}
+											onClick={() => goToSlide(index)}
+											className={`w-2 h-2 rounded-full transition-colors ${
+												index === currentSlide ? "bg-gray-600" : "bg-gray-300"
+											}`}
+											aria-label={`Go to slide ${index + 1}`}
+										/>
+									))}
+								</div>
+							</div>
+
+							{/* Navigation Arrows */}
+							<div className="flex justify-end mt-4 space-x-2">
+								<button
+									onClick={prevSlide}
+									className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-gray-600 transition-colors"
+									aria-label="Previous slide"
+								>
+									<svg
+										className="w-4 h-4 text-gray-600"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M15 19l-7-7 7-7"
+										/>
+									</svg>
+								</button>
+								<button
+									onClick={nextSlide}
+									className="w-10 h-10 rounded-full border-2 border-gray-600 flex items-center justify-center hover:border-gray-800 transition-colors"
+									aria-label="Next slide"
+								>
+									<svg
+										className="w-4 h-4 text-gray-600"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M9 5l7 7-7 7"
+										/>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 }
-
-
