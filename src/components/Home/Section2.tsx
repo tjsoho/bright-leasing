@@ -24,6 +24,9 @@ export default function Section2({ content }: Section2Props) {
 		amount: 0.3,
 	});
 
+	/* ************************************************************
+							ANIMATION VARIANTS
+	************************************************************ */
 	const titleVariants = {
 		hidden: {
 			opacity: 0,
@@ -39,19 +42,22 @@ export default function Section2({ content }: Section2Props) {
 		},
 	};
 
+	/* ************************************************************
+							RENDER
+	************************************************************ */
 	return (
-		<section className="py-16 bg-gray-100" ref={ref}>
-			<div className="max-w-4xl mx-auto px-4">
+		<section className="py-16 bg-brand-cream rounded-2xl" ref={ref}>
+			<div className="max-w-5xl mx-auto px-4">
 				<motion.div
 					className="text-center"
 					variants={titleVariants}
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
 				>
-					<p className="text-sm font-medium text-gray-600 uppercase tracking-wide mb-4">
+					<p className="text-small uppercase tracking-wide mb-4 text-left">
 						{content.section2title}
 					</p>
-					<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+					<h2 className=" text-gray-900 leading-tight text-left">
 						{content.section2paragraph}
 					</h2>
 				</motion.div>

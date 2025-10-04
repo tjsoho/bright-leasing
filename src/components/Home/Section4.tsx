@@ -3,6 +3,7 @@
 import { HomePageProps } from "@/app/_config";
 import { motion, useInView, easeOut } from "framer-motion";
 import React from "react";
+import Image from "next/image";
 
 interface Section4Props {
 	content: HomePageProps["content"];
@@ -57,35 +58,35 @@ export default function Section4({ content }: Section4Props) {
 		{
 			title: content.section4step1title,
 			description: content.section4step1description,
-			icon: "🚗",
+			icon: content.section4step1icon,
 			number: "01",
 		},
 		{
 			title: content.section4step2title,
 			description: content.section4step2description,
-			icon: "📋",
+			icon: content.section4step2icon,
 			number: "02",
 		},
 		{
 			title: content.section4step3title,
 			description: content.section4step3description,
-			icon: "💰",
+			icon: content.section4step3icon,
 			number: "03",
 		},
 		{
 			title: content.section4step4title,
 			description: content.section4step4description,
-			icon: "😊",
+			icon: content.section4step4icon,
 			number: "04",
 		},
 	];
 
 	return (
-		<section className="py-16 bg-gray-100" ref={ref}>
+		<section className="py-16 bg-gray-100 rounded-2xl" ref={ref}>
 			<div className="max-w-6xl mx-auto px-4">
 				{/* Section Title */}
 				<motion.h2
-					className="text-4xl lg:text-5xl font-bold text-black text-center mb-16"
+					className=" text-black text-left mb-16"
 					variants={titleVariants}
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
@@ -106,26 +107,32 @@ export default function Section4({ content }: Section4Props) {
 							className="bg-white rounded-2xl p-6 relative overflow-hidden h-full"
 							variants={stepVariants}
 						>
-							<div className="flex flex-col items-center text-center h-full">
+							<div className="flex flex-col items-center text-center h-[300px]">
 								{/* Icon */}
 								<div className="mb-4">
-									<div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center text-2xl">
-										{step.icon}
+									<div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center overflow-hidden">
+										<Image
+											src={step.icon}
+											alt={`${step.title} icon`}
+											width={32}
+											height={32}
+											className="object-contain"
+										/>
 									</div>
 								</div>
 
 								{/* Content */}
-								<div className="flex-1 flex flex-col justify-center">
-									<h3 className="text-xl font-bold text-black mb-3">
+								<div className="flex-1 flex flex-col justify-start">
+									<h4 className=" text-black mb-3">
 										{step.title}
-									</h3>
-									<p className="text-gray-600 text-sm leading-relaxed">
+									</h4>
+									<p className="text-small text-gray-600 text-left leading-relaxed">
 										{step.description}
 									</p>
 								</div>
 
 								{/* Step Number */}
-								<div className="absolute bottom-2 right-2 text-4xl font-bold text-gray-200 leading-none opacity-30">
+								<div className="absolute -bottom-4 -left-3 text-[92px] text-gray-300 leading-none opacity-30" style={{ fontFamily: 'var(--font-avant-garde-bold)', fontWeight: 700 }}>
 									{step.number}
 								</div>
 							</div>

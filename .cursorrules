@@ -1,0 +1,145 @@
+# Cursor AI Global Rules for Bright Leasing Project
+
+## Code Formatting Rules
+
+### Component Structure
+Every React component file MUST follow this exact format:
+
+```typescript
+/* ************************************************************
+                        NOTES
+************************************************************ */
+// Brief description of the component and its purpose
+// Key features and functionality
+// Layout and positioning details
+/* ************************************************************
+                        IMPORTS
+************************************************************ */
+// All import statements organized here
+/* ************************************************************
+                        INTERFACES
+************************************************************ */
+// TypeScript interfaces and type definitions
+/* ************************************************************
+                        COMPONENTS
+************************************************************ */
+// Main component declaration
+export default function ComponentName({ props }: PropsInterface) {
+    /* ************************************************************
+                            HOOKS
+    ************************************************************ */
+    // All React hooks (useState, useEffect, useRef, etc.)
+    
+    /* ************************************************************
+                            FUNCTIONS
+    ************************************************************ */
+    // All component functions and methods
+    
+    /* ************************************************************
+                            ANIMATION VARIANTS
+    ************************************************************ */
+    // Framer Motion variants and animations
+    
+    /* ************************************************************
+                            RENDER
+    ************************************************************ */
+    return (
+        // JSX with clear container documentation
+        <div>
+            {/* ************************************************************
+                LEFT CONTAINER - Description
+            ************************************************************ */}
+            // Left side content
+            
+            {/* ************************************************************
+                RIGHT CONTAINER - Description  
+            ************************************************************ */}
+            // Right side content
+        </div>
+    );
+}
+
+/* ************************************************************
+                        EXPORTS
+************************************************************ */
+// Export statements (if any additional exports)
+```
+
+### Required Sections
+- NOTES: Always at the top with component description
+- IMPORTS: All import statements
+- INTERFACES: TypeScript interfaces (omit if not used)
+- COMPONENTS: Main component declaration
+- HOOKS: React hooks (omit if not used)
+- FUNCTIONS: Component functions (omit if not used)
+- ANIMATION VARIANTS: Framer Motion variants (omit if not used)
+- RENDER: Main JSX return with container documentation
+- EXPORTS: Export statements (omit if not used)
+
+### Container Documentation
+Within the RENDER section, always document:
+- LEFT CONTAINER: Left side content description
+- RIGHT CONTAINER: Right side content description
+- Any other major containers with clear descriptions
+
+### Large Container Notes
+For major sections within containers, use this format:
+```typescript
+{/********************** Section Name - Description ************************/}
+```
+
+Examples:
+- `{/********************** Card 1 - Brand Yellow ************************/}`
+- `{/********************** Navigation - Main Menu ************************/}`
+- `{/********************** Footer - Contact Info ************************/}`
+
+### Brand Colors
+Always use these CSS classes:
+- `bg-brand-yellow` for yellow (#FFBD34)
+- `bg-brand-teal` for teal (#52BAC7) 
+- `bg-brand-black` for black (#121717)
+- `bg-brand-cream` for cream (#FCF9F1)
+- `text-brand-yellow`, `text-brand-teal`, `text-brand-black`, `text-brand-cream` for text colors
+
+### Typography
+Use these global classes:
+- `h1` - 48px (ITC Avant Garde Gothic CE Book)
+- `h2` - 40px (ITC Avant Garde Gothic CE Book)
+- `h3` - 32px (ITC Avant Garde Gothic CE Book)
+- `h4` - 26px (ITC Avant Garde Gothic CE Book)
+- `p` - 24px (ITC Avant Garde Gothic CE Book, weight 300)
+- `.text-small` - 16px (ITC Avant Garde Gothic CE Book, weight 300)
+
+### Animation Standards
+- Use Framer Motion for all animations
+- Consistent easing: `easeOut` for most transitions
+- Duration: 0.6s for standard animations, 0.8s for complex ones
+- Always include `useInView` for scroll-triggered animations
+
+### File Organization
+- Components in `src/components/`
+- Pages in `src/app/`
+- Styles in `src/app/globals.css`
+- Images in `public/images/`
+- Fonts in `public/fonts/`
+
+### Performance Rules
+- Keep components under 50 lines when possible
+- Use proper memoization with React.memo when needed
+- Implement proper loading states
+- Use Next.js Image component for all images
+
+### Accessibility
+- Always include proper ARIA labels
+- Use semantic HTML elements
+- Ensure keyboard navigation
+- Maintain proper color contrast
+
+## Enforcement
+When creating or modifying any component, Cursor AI MUST:
+1. Apply this exact format structure
+2. Include all relevant sections
+3. Document containers within render
+4. Use brand colors and typography
+5. Follow performance and accessibility guidelines
+6. Maintain consistency across all files

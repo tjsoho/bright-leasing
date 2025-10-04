@@ -50,11 +50,17 @@ export default function HomeAdminInputs(props: HomePageProps) {
 	const [section4step1description, setSection4step1description] = useState(
 		props.content.section4step1description,
 	);
+	const [section4step1icon, setSection4step1icon] = useState(
+		props.content.section4step1icon || "/placeholder.jpg",
+	);
 	const [section4step2title, setSection4step2title] = useState(
 		props.content.section4step2title,
 	);
 	const [section4step2description, setSection4step2description] = useState(
 		props.content.section4step2description,
+	);
+	const [section4step2icon, setSection4step2icon] = useState(
+		props.content.section4step2icon || "/placeholder.jpg",
 	);
 	const [section4step3title, setSection4step3title] = useState(
 		props.content.section4step3title,
@@ -62,11 +68,17 @@ export default function HomeAdminInputs(props: HomePageProps) {
 	const [section4step3description, setSection4step3description] = useState(
 		props.content.section4step3description,
 	);
+	const [section4step3icon, setSection4step3icon] = useState(
+		props.content.section4step3icon || "/placeholder.jpg",
+	);
 	const [section4step4title, setSection4step4title] = useState(
 		props.content.section4step4title,
 	);
 	const [section4step4description, setSection4step4description] = useState(
 		props.content.section4step4description,
+	);
+	const [section4step4icon, setSection4step4icon] = useState(
+		props.content.section4step4icon || "/placeholder.jpg",
 	);
 	const [section5title, setSection5title] = useState(
 		props.content.section5title,
@@ -151,12 +163,16 @@ export default function HomeAdminInputs(props: HomePageProps) {
 				section4title,
 				section4step1title,
 				section4step1description,
+				section4step1icon,
 				section4step2title,
 				section4step2description,
+				section4step2icon,
 				section4step3title,
 				section4step3description,
+				section4step3icon,
 				section4step4title,
 				section4step4description,
+				section4step4icon,
 				section5title,
 				section5description,
 				section5buttonText,
@@ -471,6 +487,19 @@ export default function HomeAdminInputs(props: HomePageProps) {
 											/>
 										</div>
 									</div>
+									<div className="mt-4">
+										<label className="block text-gray-300 text-xs mb-1">
+											Icon
+										</label>
+										<EditableImage
+											src={section4step1icon}
+											alt="Step 1 Icon"
+											width={64}
+											height={64}
+											onImageChange={setSection4step1icon}
+											className="w-16 h-16 rounded-lg object-cover"
+										/>
+									</div>
 								</div>
 
 								{/* Step 2 */}
@@ -499,6 +528,19 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												defaultValue={section4step2description}
 											/>
 										</div>
+									</div>
+									<div className="mt-4">
+										<label className="block text-gray-300 text-xs mb-1">
+											Icon
+										</label>
+										<EditableImage
+											src={section4step2icon}
+											alt="Step 2 Icon"
+											width={64}
+											height={64}
+											onImageChange={setSection4step2icon}
+											className="w-16 h-16 rounded-lg object-cover"
+										/>
 									</div>
 								</div>
 
@@ -529,6 +571,19 @@ export default function HomeAdminInputs(props: HomePageProps) {
 											/>
 										</div>
 									</div>
+									<div className="mt-4">
+										<label className="block text-gray-300 text-xs mb-1">
+											Icon
+										</label>
+										<EditableImage
+											src={section4step3icon}
+											alt="Step 3 Icon"
+											width={64}
+											height={64}
+											onImageChange={setSection4step3icon}
+											className="w-16 h-16 rounded-lg object-cover"
+										/>
+									</div>
 								</div>
 
 								{/* Step 4 */}
@@ -557,6 +612,19 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												defaultValue={section4step4description}
 											/>
 										</div>
+									</div>
+									<div className="mt-4">
+										<label className="block text-gray-300 text-xs mb-1">
+											Icon
+										</label>
+										<EditableImage
+											src={section4step4icon}
+											alt="Step 4 Icon"
+											width={64}
+											height={64}
+											onImageChange={setSection4step4icon}
+											className="w-16 h-16 rounded-lg object-cover"
+										/>
 									</div>
 								</div>
 							</div>

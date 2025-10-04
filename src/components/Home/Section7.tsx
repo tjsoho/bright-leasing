@@ -2,7 +2,13 @@
 
 import { HomePageProps } from "@/app/_config";
 import { motion, useInView, easeOut } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface Section7Props {
 	content: HomePageProps["content"];
@@ -13,8 +19,6 @@ export default function Section7({ content }: Section7Props) {
 	const isInView = useInView(ref, {
 		amount: 0.3,
 	});
-
-	const [openIndex, setOpenIndex] = useState(0); // First FAQ open by default
 
 	const titleVariants = {
 		hidden: {
@@ -78,16 +82,12 @@ export default function Section7({ content }: Section7Props) {
 		},
 	];
 
-	const toggleFAQ = (index: number) => {
-		setOpenIndex(openIndex === index ? -1 : index);
-	};
-
 	return (
 		<section className="py-16 bg-white" ref={ref}>
 			<div className="max-w-4xl mx-auto px-4">
 				{/* Section Title */}
 				<motion.h2
-					className="text-4xl lg:text-5xl font-bold text-gray-800 mb-12"
+					className=" text-gray-800 mb-12"
 					variants={titleVariants}
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
@@ -95,73 +95,43 @@ export default function Section7({ content }: Section7Props) {
 					{content.section7title}
 				</motion.h2>
 
-				{/* FAQ Items */}
+				{/* FAQ Accordion */}
 				<motion.div
-					className="space-y-4"
 					variants={containerVariants}
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
 				>
-					{faqs.map((faq, index) => (
-						<motion.div
-							key={index}
-							className="border border-gray-200 rounded-lg overflow-hidden"
-							variants={faqVariants}
-						>
-							{/* Question Header */}
-							<button
-								onClick={() => toggleFAQ(index)}
-								className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-							>
-								<div className="flex items-center space-x-4">
-									<span className="text-orange-500 font-bold text-lg">
-										{faq.number}
-									</span>
-									<h3 className="text-lg font-semibold text-gray-800">
-										{faq.question}
-									</h3>
-								</div>
-								<div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-									<motion.svg
-										className="w-4 h-4 text-white"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-										animate={{
-											rotate: openIndex === index ? 45 : 0,
-										}}
-										transition={{ duration: 0.2 }}
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-										/>
-									</motion.svg>
-								</div>
-							</button>
-
-							{/* Answer Content */}
+					<Accordion type="single" collapsible className="w-full">
+						{faqs.map((faq, index) => (
 							<motion.div
-								initial={false}
-								animate={{
-									height: openIndex === index ? "auto" : 0,
-									opacity: openIndex === index ? 1 : 0,
-								}}
-								transition={{ duration: 0.3, ease: "easeInOut" }}
-								className="overflow-hidden"
+								key={index}
+								variants={faqVariants}
 							>
-								<div className="px-6 pb-6">
-									<div className="ml-12">
-										<p className="text-gray-600 leading-relaxed">
-											{faq.answer}
-										</p>
-									</div>
-								</div>
+								<AccordionItem
+									value={`item-${index}`}
+									className="border-b border-gray-200 bg-white data-[state=open]:bg-brand-cream px-4 py-4"
+								>
+									<AccordionTrigger className="hover:no-underline [&>svg]:bg-brand-yellow [&>svg]:text-white [&>svg]:rounded-full [&>svg]:border-2 [&>svg]:border-brand-yellow [&>svg]:p-2 [&>svg]:w-8 [&>svg]:h-8">
+										<div className="flex items-center space-x-4 text-left">
+											<span className="text-brand-yellow font-bold text-lg">
+												{faq.number}
+											</span>
+											<h4 className=" text-gray-800">
+												{faq.question}
+											</h4>
+										</div>
+									</AccordionTrigger>
+									<AccordionContent className="text-muted-foreground">
+										<div className="ml-12">
+											<p className="text-gray-600 leading-relaxed">
+												{faq.answer}
+											</p>
+										</div>
+									</AccordionContent>
+								</AccordionItem>
 							</motion.div>
-						</motion.div>
-					))}
+						))}
+					</Accordion>
 				</motion.div>
 			</div>
 		</section>
