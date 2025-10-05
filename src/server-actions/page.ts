@@ -1,5 +1,4 @@
 import { supabase } from "@/utils/supabase";
-import { revalidatePath } from "next/cache";
 
 export default async function getPage<TContent>(
   slug: string,
@@ -21,10 +20,4 @@ export default async function getPage<TContent>(
   }
 
   return response.data;
-}
-
-export async function revalidatePage(slug: string) {
-  revalidatePath(`/`);
-  revalidatePath(`/${slug}`);
-  revalidatePath(`/admin/${slug}`);
 }
