@@ -84,7 +84,7 @@ const Footer = () => {
         show: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6, ease: "easeOut" }
+            transition: { duration: 0.6 }
         }
     };
 
@@ -126,7 +126,7 @@ const Footer = () => {
               NAVIGATION COLUMNS - Right section
           ************************************************************ */}
                     <div className="lg:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-8">
-                        {footerColumns.map((column, columnIndex) => (
+                        {footerColumns.map((column) => (
                             <motion.div
                                 key={column.title}
                                 variants={itemVariants}
@@ -142,7 +142,7 @@ const Footer = () => {
                                     variants={containerVariants}
                                     className="space-y-3"
                                 >
-                                    {column.links.map((link, linkIndex) => (
+                                    {column.links.map((link) => (
                                         <motion.li
                                             key={link.href}
                                             variants={itemVariants}
