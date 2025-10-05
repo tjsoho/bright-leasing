@@ -30,7 +30,7 @@ interface Gallery6Props {
 
 const Gallery6 = ({
   onCarouselApiChange,
-  
+
   items = [
     {
       id: "item-1",
@@ -93,12 +93,12 @@ const Gallery6 = ({
               },
             },
           }}
-          className="relative"
+          className="relative w-full flex justify-center md:justify-start"
         >
           <CarouselContent className="-ml-2">
             {items.map((item) => (
-              <CarouselItem key={item.id} className="pl-4 max-w-xs">
-                <div className={`group flex flex-col justify-start h-80 rounded-2xl p-8 ${item.color || 'bg-brand-yellow text-brand-black'}`}>
+              <CarouselItem key={item.id} className="pl-4 max-w-[300px] sm:max-w-sm mx-auto md:mx-0">
+                <div className={`group flex flex-col justify-start h-80 rounded-2xl p-6 sm:p-8 ${item.color || 'bg-brand-yellow text-brand-black'}`}>
                   <div className="text-center justify-between h-full">
                     <h5 className="leading-relaxed text-left">
                       {item.summary}

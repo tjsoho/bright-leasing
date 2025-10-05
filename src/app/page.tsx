@@ -7,12 +7,13 @@ import Section5 from "../components/Home/Section5";
 import Section4 from "@/components/Home/Section4";
 import Section6 from "@/components/Home/Section6";
 import Section7 from "@/components/Home/Section7";
+import Footer from "@/components/core/Footer";
 export default async function Home() {
 	const homePage = await getPage<HomePageProps>("home", homePageFallbackData);
 
 	return (
 		<main className="min-h-screen">
-			<div className="max-w-[1920px] mx-auto lg:px-8 py-16">
+			<div className="max-w-[1920px] mx-auto lg:px-8 py-4">
 				{/* ***************************************************************
 				   HERO 
         ****************************************************************/}
@@ -44,6 +45,10 @@ export default async function Home() {
 					<Section7 content={homePage.content} />
 				</div>
 			</div>
+			{/* ***************************************************************
+			   FOOTER 
+        ****************************************************************/}
+			<Footer />
 		</main>
 	);
 }

@@ -31,7 +31,7 @@ export default function Section5({ content }: Section5Props) {
 			{/* ***************************************************************
                SECTION 5 CONTAINER - Flex layout with content left, image right
             ****************************************************************/}
-			<div className="flex h-[600px] w-full items-center py-16">
+			<div className="flex flex-col lg:flex-row h-auto lg:h-[600px] w-full items-center bg-white px-2">
 				{/* ***************************************************************
                     CONTENT SECTION - Left side
                 ****************************************************************/}
@@ -59,14 +59,16 @@ export default function Section5({ content }: Section5Props) {
 					initial="initial"
 					animate={isInView ? "animate" : "initial"}
 					variants={imageVariants}
-					className="flex-1 h-full rounded-2xl relative"
+					className="flex-1 relative h-64 sm:h-80 md:h-96 lg:h-full order-2 w-full flex justify-center items-center"
 				>
-					<Image
-						src={content.section5image}
-						alt="Promotional Image"
-						fill
-						className="object-cover"
-					/>
+					<div className="relative w-[500px] h-[300px] lg:w-full lg:h-full">
+						<Image
+							src={content.section5image}
+							alt="Promotional Image"
+							fill
+							className="object-cover rounded-2xl"
+						/>
+					</div>
 				</motion.div>
 			</div>
 		</section>

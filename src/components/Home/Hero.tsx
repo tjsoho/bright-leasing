@@ -26,7 +26,7 @@ export default function Hero({ content }: HeroProps) {
             {/* ***************************************************************
                HERO CONTAINER - Flex layout with content left, image right
             ****************************************************************/}
-            <div className="flex h-[600px] w-full items-center bg-white">
+            <div className="flex flex-col lg:flex-row h-auto lg:h-[600px] w-full items-center bg-white px-2">
                 {/* ***************************************************************
                     CONTENT SECTION - Left side
                 ****************************************************************/}
@@ -34,7 +34,7 @@ export default function Hero({ content }: HeroProps) {
                     initial="initial"
                     animate={isInView ? "animate" : "initial"}
                     variants={textVariants}
-                    className="flex-1 flex items-center justify-center p-4 md:p-12"
+                    className="flex-1 flex items-center justify-center px-4 md:p-12 order-2 lg:order-1 mb-12 lg:mb-0"
                 >
                     <div className="max-w-xl">
                         <h1 className=" text-brand-black mb-4 leading-none">
@@ -52,13 +52,13 @@ export default function Hero({ content }: HeroProps) {
                 {/* ***************************************************************
                     IMAGE SECTION - Right side
                 ****************************************************************/}
-                <div className="flex-1 relative h-full">
+                <div className="flex-1 relative h-64 sm:h-80 md:h-96 lg:h-full order-2 w-full flex justify-center items-center">
                     <Image
                         src={content.heroImage}
                         alt="Hero Image"
-                        fill
-                        className="object-cover rounded-2xl"
-
+                        width={400}
+                        height={300}
+                        className="w-[500px] h-[300px] lg:w-full lg:h-full object-cover rounded-2xl"
                     />
                 </div>
             </div>

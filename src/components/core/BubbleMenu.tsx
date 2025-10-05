@@ -43,10 +43,10 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                     <motion.div
                         className="bg-brand-yellow rounded-2xl relative z-10 flex flex-col"
                         style={{
-                            width: '95vw',
-                            height: '95vh',
+                            width: '98vw',
+                            height: '98vh',
                             position: 'fixed',
-                            top: '49.5%',
+                            top: '50%',
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
                             zIndex: 10
@@ -57,8 +57,8 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                             opacity: 0
                         }}
                         animate={{
-                            width: '95vw',
-                            height: '95vh',
+                            width: '98vw',
+                            height: '98vh',
                             opacity: 1
                         }}
                         exit={{
@@ -102,14 +102,14 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
 
                         {/* Menu Content - Middle */}
                         <motion.div
-                            className="flex flex-col items-center justify-center h-full text-brand-black px-8"
+                            className="flex flex-col items-center justify-center h-full text-brand-black px-4 sm:px-8"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 20, transition: { delay: 0.1, duration: 0.2 } }}
                             transition={{ delay: 0.2, duration: 0.4 }}
                         >
                             <motion.h2
-                                className="text-5xl font-bold mb-16 text-center text-brand-black"
+                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 lg:mb-16 text-center text-brand-black"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: 20, transition: { delay: 0.1, duration: 0.2 } }}
@@ -120,7 +120,7 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
 
                             {/* Navigation Links */}
                             <motion.div
-                                className="flex gap-8 max-w-6xl w-full"
+                                className="flex flex-col lg:flex-row gap-4 lg:gap-8 max-w-6xl w-full"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0, transition: { delay: 0.1, duration: 0.2 } }}
@@ -142,7 +142,7 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className="block text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-6 rounded-2xl hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20"
+                                                className="block text-lg lg:text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-4 lg:px-6 rounded-2xl hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20 text-center lg:text-left"
                                                 onClick={onClose}
                                             >
                                                 {link.label}
@@ -152,7 +152,7 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                                 </div>
 
                                 {/* First Divider */}
-                                <div className="w-px bg-brand-black/20"></div>
+                                <div className="hidden lg:block w-px bg-brand-black/20"></div>
 
                                 {/* Middle Column */}
                                 <div className="flex-1 flex flex-col gap-4">
@@ -170,7 +170,7 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className="block text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-6 rounded-2xl hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20"
+                                                className="block text-lg lg:text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-4 lg:px-6 rounded-2xl hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20 text-center lg:text-left"
                                                 onClick={onClose}
                                             >
                                                 {link.label}
@@ -180,7 +180,7 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                                 </div>
 
                                 {/* Second Divider */}
-                                <div className="w-px bg-brand-black/20"></div>
+                                <div className="hidden lg:block w-px bg-brand-black/20"></div>
 
                                 {/* Right Column */}
                                 <div className="flex-1 flex flex-col gap-4">
@@ -198,7 +198,7 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className="block text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-6 rounded-2xl hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20"
+                                                className="block text-lg lg:text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-4 lg:px-6 rounded-2xl hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20 text-center lg:text-left"
                                                 onClick={onClose}
                                             >
                                                 {link.label}

@@ -81,7 +81,7 @@ export default function Section3({ content }: Section3Props) {
 	************************************************************ */
 	return (
 		<section className="py-16 " ref={ref}>
-			<div className="max-w-7xl mx-auto px-4">
+			<div className="max-w-7xl mx-auto ">
 				{/* ************************************************************
 					TOP ROW - 2 Columns
 				************************************************************ */}
@@ -90,7 +90,7 @@ export default function Section3({ content }: Section3Props) {
 						LEFT COLUMN - Title Section (1/3 width)
 					************************************************************ */}
 					<motion.div
-						className="flex-1 lg:w-1/4"
+						className="flex-1 lg:w-1/4 px-4"
 						variants={titleVariants}
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
@@ -140,7 +140,7 @@ export default function Section3({ content }: Section3Props) {
 				{/* ************************************************************
 					BOTTOM ROW - Pagination and Navigation
 				************************************************************ */}
-				<div className="flex justify-between items-center">
+				<div className="flex justify-between items-center px-4">
 					{/* ************************************************************
 						LEFT COLUMN - Empty space (1/3 width)
 					************************************************************ */}

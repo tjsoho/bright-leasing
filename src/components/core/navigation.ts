@@ -12,18 +12,12 @@ export const navigationLinks: NavigationLink[] = [
     href: "/services",
     label: "SERVICES",
   },
-  {
-    href: "/work",
-    label: "WORK",
-  },
+  
   {
     href: "/reviews",
     label: "REVIEWS",
   },
-  {
-    href: "/science",
-    label: "Custom Articles Page",
-  },
+ 
   {
     href: "/team",
     label: "TEAM Page",
@@ -32,10 +26,7 @@ export const navigationLinks: NavigationLink[] = [
     href: "/blog",
     label: "Blog Page",
   },
-  {
-    href: "/podcasts",
-    label: "PODCASTS",
-  },
+  
   {
     href: "/faqs",
     label: "FAQS",

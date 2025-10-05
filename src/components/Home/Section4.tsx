@@ -96,7 +96,7 @@ export default function Section4({ content }: Section4Props) {
 
 				{/* Steps Container */}
 				<motion.div
-					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6  "
 					variants={containerVariants}
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
@@ -104,7 +104,7 @@ export default function Section4({ content }: Section4Props) {
 					{steps.map((step, index) => (
 						<motion.div
 							key={index}
-							className="bg-white rounded-2xl p-6 relative overflow-hidden h-full"
+							className="bg-white rounded-2xl p-6 relative overflow-hidden h-full w-[300px] lg:w-full mx-auto"
 							variants={stepVariants}
 						>
 							<div className="flex flex-col items-center text-center h-[300px]">
@@ -126,13 +126,13 @@ export default function Section4({ content }: Section4Props) {
 									<h4 className=" text-black mb-3">
 										{step.title}
 									</h4>
-									<p className="text-small text-gray-600 text-left leading-relaxed">
+									<p className="lg:text-small text-gray-600 text-left leading-relaxed">
 										{step.description}
 									</p>
 								</div>
 
 								{/* Step Number */}
-								<div className="absolute -bottom-4 -left-3 text-[92px] text-gray-300 leading-none opacity-30" style={{ fontFamily: 'var(--font-avant-garde-bold)', fontWeight: 700 }}>
+								<div className="absolute -bottom-4 -left-3 text-[112px] lg:text-[92px] text-gray-300 leading-none opacity-30" style={{ fontFamily: 'var(--font-avant-garde-bold)', fontWeight: 700 }}>
 									{step.number}
 								</div>
 							</div>
