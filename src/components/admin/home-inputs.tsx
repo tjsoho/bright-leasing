@@ -41,6 +41,15 @@ export default function HomeAdminInputs(props: HomePageProps) {
 	const [section3tile3description, setSection3tile3description] = useState(
 		props.content.section3tile3description,
 	);
+	const [section3tile1image, setSection3tile1image] = useState(
+		props.content.section3tile1image || "/placeholder.jpg",
+	);
+	const [section3tile2image, setSection3tile2image] = useState(
+		props.content.section3tile2image || "/placeholder.jpg",
+	);
+	const [section3tile3image, setSection3tile3image] = useState(
+		props.content.section3tile3image || "/placeholder.jpg",
+	);
 	const [section4title, setSection4title] = useState(
 		props.content.section4title,
 	);
@@ -113,6 +122,15 @@ export default function HomeAdminInputs(props: HomePageProps) {
 	const [section6tile3description, setSection6tile3description] = useState(
 		props.content.section6tile3description,
 	);
+	const [section6tile1image, setSection6tile1image] = useState(
+		props.content.section6tile1image || "/placeholder.jpg",
+	);
+	const [section6tile2image, setSection6tile2image] = useState(
+		props.content.section6tile2image || "/placeholder.jpg",
+	);
+	const [section6tile3image, setSection6tile3image] = useState(
+		props.content.section6tile3image || "/placeholder.jpg",
+	);
 	const [section7title, setSection7title] = useState(
 		props.content.section7title,
 	);
@@ -156,10 +174,13 @@ export default function HomeAdminInputs(props: HomePageProps) {
 				section3title,
 				section3tile1title,
 				section3tile1description,
+				section3tile1image,
 				section3tile2title,
 				section3tile2description,
+				section3tile2image,
 				section3tile3title,
 				section3tile3description,
+				section3tile3image,
 				section4title,
 				section4step1title,
 				section4step1description,
@@ -180,10 +201,13 @@ export default function HomeAdminInputs(props: HomePageProps) {
 				section6title,
 				section6tile1title,
 				section6tile1description,
+				section6tile1image,
 				section6tile2title,
 				section6tile2description,
+				section6tile2image,
 				section6tile3title,
 				section6tile3description,
+				section6tile3image,
 				section7title,
 				section7faq1question,
 				section7faq1answer,
@@ -370,6 +394,22 @@ export default function HomeAdminInputs(props: HomePageProps) {
 											/>
 										</div>
 									</div>
+									<div className="mt-4">
+										<label className="block text-gray-300 text-xs mb-2">
+											Card Image
+										</label>
+										<EditableImage
+											src={section3tile1image}
+											alt="Section 3 Tile 1 Image"
+											width={200}
+											height={150}
+											className="w-full h-32 object-cover rounded border border-gray-600"
+											onImageChange={setSection3tile1image}
+										/>
+										<p className="text-gray-400 text-xs mt-1">
+											Click image to change. Recommended size: 400x300px
+										</p>
+									</div>
 								</div>
 
 								{/* Tile 2 */}
@@ -399,6 +439,22 @@ export default function HomeAdminInputs(props: HomePageProps) {
 											/>
 										</div>
 									</div>
+									<div className="mt-4">
+										<label className="block text-gray-300 text-xs mb-2">
+											Card Image
+										</label>
+										<EditableImage
+											src={section3tile2image}
+											alt="Section 3 Tile 2 Image"
+											width={200}
+											height={150}
+											className="w-full h-32 object-cover rounded border border-gray-600"
+											onImageChange={setSection3tile2image}
+										/>
+										<p className="text-gray-400 text-xs mt-1">
+											Click image to change. Recommended size: 400x300px
+										</p>
+									</div>
 								</div>
 
 								{/* Tile 3 */}
@@ -427,6 +483,22 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												defaultValue={section3tile3description}
 											/>
 										</div>
+									</div>
+									<div className="mt-4">
+										<label className="block text-gray-300 text-xs mb-2">
+											Card Image
+										</label>
+										<EditableImage
+											src={section3tile3image}
+											alt="Section 3 Tile 3 Image"
+											width={200}
+											height={150}
+											className="w-full h-32 object-cover rounded border border-gray-600"
+											onImageChange={setSection3tile3image}
+										/>
+										<p className="text-gray-400 text-xs mt-1">
+											Click image to change. Recommended size: 400x300px
+										</p>
 									</div>
 								</div>
 							</div>
@@ -760,6 +832,22 @@ export default function HomeAdminInputs(props: HomePageProps) {
 											/>
 										</div>
 									</div>
+									<div className="mt-4">
+										<label className="block text-gray-300 text-xs mb-2">
+											Card Image
+										</label>
+										<EditableImage
+											src={section6tile1image}
+											alt="Section 6 Tile 1 Image"
+											width={200}
+											height={150}
+											className="w-full h-32 object-cover rounded border border-gray-600"
+											onImageChange={setSection6tile1image}
+										/>
+										<p className="text-gray-400 text-xs mt-1">
+											Click image to change. Recommended size: 400x300px
+										</p>
+									</div>
 								</div>
 
 								{/* Tile 2 */}
@@ -789,6 +877,22 @@ export default function HomeAdminInputs(props: HomePageProps) {
 											/>
 										</div>
 									</div>
+									<div className="mt-4">
+										<label className="block text-gray-300 text-xs mb-2">
+											Card Image
+										</label>
+										<EditableImage
+											src={section6tile2image}
+											alt="Section 6 Tile 2 Image"
+											width={200}
+											height={150}
+											className="w-full h-32 object-cover rounded border border-gray-600"
+											onImageChange={setSection6tile2image}
+										/>
+										<p className="text-gray-400 text-xs mt-1">
+											Click image to change. Recommended size: 400x300px
+										</p>
+									</div>
 								</div>
 
 								{/* Tile 3 */}
@@ -817,6 +921,22 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												defaultValue={section6tile3description}
 											/>
 										</div>
+									</div>
+									<div className="mt-4">
+										<label className="block text-gray-300 text-xs mb-2">
+											Card Image
+										</label>
+										<EditableImage
+											src={section6tile3image}
+											alt="Section 6 Tile 3 Image"
+											width={200}
+											height={150}
+											className="w-full h-32 object-cover rounded border border-gray-600"
+											onImageChange={setSection6tile3image}
+										/>
+										<p className="text-gray-400 text-xs mt-1">
+											Click image to change. Recommended size: 400x300px
+										</p>
 									</div>
 								</div>
 							</div>

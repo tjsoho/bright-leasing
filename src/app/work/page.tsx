@@ -1,6 +1,10 @@
 import getPage from "@/server-actions/page";
 import { workPageFallbackData, WorkPageProps } from "./_config";
 
+// Disable caching for this page to ensure fresh content
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function WorkPage() {
   const workPage = await getPage<WorkPageProps>("work", workPageFallbackData);
 

@@ -9,10 +9,13 @@ export type HomePageContent = {
   section3title: string;
   section3tile1title: string;
   section3tile1description: string;
+  section3tile1image: string;
   section3tile2title: string;
   section3tile2description: string;
+  section3tile2image: string;
   section3tile3title: string;
   section3tile3description: string;
+  section3tile3image: string;
   section4title: string;
   section4step1title: string;
   section4step1description: string;
@@ -33,10 +36,13 @@ export type HomePageContent = {
   section6title: string;
   section6tile1title: string;
   section6tile1description: string;
+  section6tile1image: string;
   section6tile2title: string;
   section6tile2description: string;
+  section6tile2image: string;
   section6tile3title: string;
   section6tile3description: string;
+  section6tile3image: string;
   section7title: string;
   section7faq1question: string;
   section7faq1answer: string;
@@ -66,11 +72,14 @@ export const homePageFallbackData: HomePageProps = {
     section3tile1title: "Great value, zero fluff",
     section3tile1description:
       "Industry-leading inclusions and sharp fees without the upsell.",
+    section3tile1image: "/placeholder.jpg",
     section3tile2title: "Human when it matters",
     section3tile2description: "Talk to a real expert, not a call centre.",
+    section3tile2image: "/placeholder.jpg",
     section3tile3title: "Flexible and transparent",
     section3tile3description:
       "Clear terms, no hidden fees, and options that work for you.",
+    section3tile3image: "/placeholder.jpg",
     section4title: "How It Works",
     section4step1title: "Choose Your Car",
     section4step1description: "Bring your dream car or pick from our network.",
@@ -96,12 +105,15 @@ export const homePageFallbackData: HomePageProps = {
     section6tile1title: "Sarah's Journey",
     section6tile1description:
       "Saved $3,000 annually with our novated lease program while driving her dream Tesla.",
+    section6tile1image: "/placeholder.jpg",
     section6tile2title: "Mike's Experience",
     section6tile2description:
       "Seamless setup process and excellent customer support throughout his lease term.",
+    section6tile2image: "/placeholder.jpg",
     section6tile3title: "Lisa's Savings",
     section6tile3description:
       "Reduced her car expenses by 40% with our comprehensive salary packaging solution.",
+    section6tile3image: "/placeholder.jpg",
     section7title: "Frequently Asked Questions",
     section7faq1question: "Who can salary-package a novated lease?",
     section7faq1answer:

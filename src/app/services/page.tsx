@@ -1,6 +1,10 @@
 import getPage from "@/server-actions/page";
 import { servicesPageFallbackData, ServicesPageProps } from "./_config";
 
+// Disable caching for this page to ensure fresh content
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function Services() {
   const servicesPage = await getPage<ServicesPageProps>(
     "services",

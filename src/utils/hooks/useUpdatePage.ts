@@ -3,6 +3,7 @@
 import { BasePage } from "@/app/types";
 import { createClient } from "@supabase/supabase-js";
 import { useState } from "react";
+import { revalidateAllPages } from "@/server-actions/revalidate";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -46,6 +47,14 @@ export default function useUpdatePage<TContent>(slug: string) {
       }
 
       console.log("useUpdatePage - Save successful:", data);
+
+      // Trigger revalidation to update the frontend
+      try {
+        await revalidateAllPages();
+        console.log("useUpdatePage - Revalidation triggered for all pages");
+      } catch (revalidateError) {
+        console.error("useUpdatePage - Revalidation error:", revalidateError);
+      }
     } catch (error) {
       console.error("useUpdatePage - Error:", error);
       setIsSaving(false);

@@ -85,7 +85,7 @@ export default function Section6({ content }: Section6Props) {
 									title: content.section6tile1title,
 									summary: content.section6tile1description,
 									url: "#",
-									image: "/placeholder.jpg",
+									image: content.section6tile1image,
 									color: "bg-brand-yellow text-brand-black"
 								},
 								{
@@ -93,7 +93,7 @@ export default function Section6({ content }: Section6Props) {
 									title: content.section6tile2title,
 									summary: content.section6tile2description,
 									url: "#",
-									image: "/placeholder.jpg",
+									image: content.section6tile2image,
 									color: "bg-brand-teal text-white"
 								},
 								{
@@ -101,7 +101,7 @@ export default function Section6({ content }: Section6Props) {
 									title: content.section6tile3title,
 									summary: content.section6tile3description,
 									url: "#",
-									image: "/placeholder.jpg",
+									image: content.section6tile3image,
 									color: "bg-gray-300 text-brand-black"
 								}
 							]}

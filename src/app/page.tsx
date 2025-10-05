@@ -8,6 +8,10 @@ import Section4 from "@/components/Home/Section4";
 import Section6 from "@/components/Home/Section6";
 import Section7 from "@/components/Home/Section7";
 import Footer from "@/components/core/Footer";
+
+// Disable caching for this page to ensure fresh content
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 export default async function Home() {
 	const homePage = await getPage<HomePageProps>("home", homePageFallbackData);
 
