@@ -11,7 +11,7 @@
 }
 
 import { HomePageProps } from "@/app/_config";
-import { motion, useInView, easeOut } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import React from "react";
 
 interface Section2Props {
@@ -37,7 +37,7 @@ export default function Section2({ content }: Section2Props) {
 			y: 0,
 			transition: {
 				duration: 0.8,
-				ease: easeOut,
+				ease: [0.4, 0, 0.2, 1] as const,
 			},
 		},
 	};

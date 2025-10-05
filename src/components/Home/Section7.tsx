@@ -1,7 +1,7 @@
 "use client";
 
 import { HomePageProps } from "@/app/_config";
-import { motion, useInView, easeOut } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import React from "react";
 import {
 	Accordion,
@@ -23,14 +23,16 @@ export default function Section7({ content }: Section7Props) {
 	const titleVariants = {
 		hidden: {
 			opacity: 0,
-			y: 20,
+			y: 40,
+			scale: 0.95,
 		},
 		show: {
 			opacity: 1,
 			y: 0,
+			scale: 1,
 			transition: {
-				duration: 0.8,
-				ease: easeOut,
+				duration: 1.2,
+				ease: [0.4, 0, 0.2, 1] as const,
 			},
 		},
 	};
@@ -38,14 +40,18 @@ export default function Section7({ content }: Section7Props) {
 	const faqVariants = {
 		hidden: {
 			opacity: 0,
-			y: 20,
+			y: 30,
+			scale: 0.9,
+			rotateX: -10,
 		},
 		show: {
 			opacity: 1,
 			y: 0,
+			scale: 1,
+			rotateX: 0,
 			transition: {
-				duration: 0.6,
-				ease: easeOut,
+				duration: 1.0,
+				ease: [0.4, 0, 0.2, 1] as const,
 			},
 		},
 	};

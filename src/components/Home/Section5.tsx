@@ -1,7 +1,7 @@
 "use client";
 
 import { HomePageProps } from "@/app/_config";
-import { motion, useInView, easeOut } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import React from "react";
 import Image from "next/image";
 import { BWestSmallButton } from "../ui/b-west-small";
@@ -17,13 +17,75 @@ export default function Section5({ content }: Section5Props) {
 	});
 
 	const textVariants = {
-		initial: { opacity: 0, y: 20 },
-		animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut } },
+		initial: { opacity: 0, y: 40, x: -30, scale: 0.95 },
+		animate: {
+			opacity: 1,
+			y: 0,
+			x: 0,
+			scale: 1,
+			transition: {
+				duration: 1.2,
+				ease: [0.4, 0, 0.2, 1] as const,
+				staggerChildren: 0.2
+			}
+		},
+	};
+
+	const titleVariants = {
+		initial: { opacity: 0, y: 30, scale: 0.9 },
+		animate: {
+			opacity: 1,
+			y: 0,
+			scale: 1,
+			transition: {
+				duration: 1.0,
+				ease: [0.4, 0, 0.2, 1] as const,
+				delay: 0.2
+			}
+		},
+	};
+
+	const paragraphVariants = {
+		initial: { opacity: 0, y: 20, x: -20 },
+		animate: {
+			opacity: 1,
+			y: 0,
+			x: 0,
+			transition: {
+				duration: 1.0,
+				ease: [0.4, 0, 0.2, 1] as const,
+				delay: 0.4
+			}
+		},
+	};
+
+	const buttonVariants = {
+		initial: { opacity: 0, y: 20, scale: 0.8 },
+		animate: {
+			opacity: 1,
+			y: 0,
+			scale: 1,
+			transition: {
+				duration: 0.8,
+				ease: [0.4, 0, 0.2, 1] as const,
+				delay: 0.6
+			}
+		},
 	};
 
 	const imageVariants = {
-		initial: { opacity: 0, scale: 0.9 },
-		animate: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: easeOut } },
+		initial: { opacity: 0, scale: 0.8, rotateY: 15, x: 30 },
+		animate: {
+			opacity: 1,
+			scale: 1,
+			rotateY: 0,
+			x: 0,
+			transition: {
+				duration: 1.4,
+				ease: [0.4, 0, 0.2, 1] as const,
+				delay: 0.3
+			}
+		},
 	};
 
 	return (
@@ -42,13 +104,23 @@ export default function Section5({ content }: Section5Props) {
 					className="flex-1 flex items-center justify-center p-4 md:p-12"
 				>
 					<div className="max-w-lg">
-						<h2 className=" text-gray-800 mb-4">
+						<motion.h2
+							variants={titleVariants}
+							className=" text-gray-800 mb-4"
+						>
 							{content.section5title}
-						</h2>
-						<p className="text-gray-600 text-left w-full leading-relaxed mb-6">
+						</motion.h2>
+						<motion.p
+							variants={paragraphVariants}
+							className="text-gray-600 text-left w-full leading-relaxed mb-6"
+						>
 							{content.section5description}
-						</p>
-						<BWestSmallButton text={content.section5buttonText} />
+						</motion.p>
+						<motion.div
+							variants={buttonVariants}
+						>
+							<BWestSmallButton text={content.section5buttonText} />
+						</motion.div>
 					</div>
 				</motion.div>
 

@@ -10,7 +10,7 @@
 "use client";
 
 import { HomePageProps } from "@/app/_config";
-import { motion, useInView, easeOut } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import React from "react";
 import { Gallery6 } from "@/components/blocks/gallery6";
 import { CarouselApi } from "@/components/ui/carousel";
@@ -62,14 +62,52 @@ export default function Section3({ content }: Section3Props) {
 	const titleVariants = {
 		hidden: {
 			opacity: 0,
-			y: 20,
+			y: 40,
+			scale: 0.95,
 		},
 		show: {
 			opacity: 1,
 			y: 0,
+			scale: 1,
+			transition: {
+				duration: 1.2,
+				ease: [0.4, 0, 0.2, 1] as const,
+			},
+		},
+	};
+
+	const carouselVariants = {
+		hidden: {
+			opacity: 0,
+			y: 30,
+			scale: 0.9,
+		},
+		show: {
+			opacity: 1,
+			y: 0,
+			scale: 1,
+			transition: {
+				duration: 1.0,
+				ease: [0.4, 0, 0.2, 1] as const,
+				delay: 0.3,
+			},
+		},
+	};
+
+	const paginationVariants = {
+		hidden: {
+			opacity: 0,
+			y: 20,
+			scale: 0.8,
+		},
+		show: {
+			opacity: 1,
+			y: 0,
+			scale: 1,
 			transition: {
 				duration: 0.8,
-				ease: easeOut,
+				ease: [0.4, 0, 0.2, 1] as const,
+				delay: 0.6,
 			},
 		},
 	};
@@ -103,7 +141,12 @@ export default function Section3({ content }: Section3Props) {
 					{/* ************************************************************
 						RIGHT COLUMN - Cards Carousel (2/3 width)
 					************************************************************ */}
-					<div className="flex-1 lg:w-3/4 overflow-hidden">
+					<motion.div
+						variants={carouselVariants}
+						initial="hidden"
+						animate={isInView ? "show" : "hidden"}
+						className="flex-1 lg:w-3/4 overflow-hidden"
+					>
 						<Gallery6
 							heading=""
 							onCarouselApiChange={setCarouselApi}
@@ -134,13 +177,18 @@ export default function Section3({ content }: Section3Props) {
 								}
 							]}
 						/>
-					</div>
+					</motion.div>
 				</div>
 
 				{/* ************************************************************
 					BOTTOM ROW - Pagination and Navigation
 				************************************************************ */}
-				<div className="flex justify-between items-center px-4">
+				<motion.div
+					variants={paginationVariants}
+					initial="hidden"
+					animate={isInView ? "show" : "hidden"}
+					className="flex justify-between items-center px-4"
+				>
 					{/* ************************************************************
 						LEFT COLUMN - Empty space (1/3 width)
 					************************************************************ */}
@@ -187,7 +235,7 @@ export default function Section3({ content }: Section3Props) {
 							</button>
 						</div>
 					</div>
-				</div>
+				</motion.div>
 
 			</div>
 		</section>
