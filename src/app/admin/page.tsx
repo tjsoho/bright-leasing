@@ -1,185 +1,93 @@
-'use client';
+/* ************************************************************
+						NOTES
+************************************************************ */
+// Admin dashboard page with home page styling
+// Features brand-consistent design with animated tiles
+/* ************************************************************
+						IMPORTS
+************************************************************ */
+"use client";
 
-import Link from "next/link";
-import { motion, easeOut } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import React from "react";
+import Image from "next/image";
+import AdminTiles from "@/components/admin/AdminTiles";
+import AdminNavigation from "@/components/admin/AdminNavigation";
 
+/* ************************************************************
+						COMPONENTS
+************************************************************ */
 export default function Admin() {
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		show: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.1,
-				delayChildren: 0.3
-			}
-		}
-	};
+	const ref = React.useRef(null);
+	const isInView = useInView(ref, {
+		amount: 0.3,
+	});
 
-	const itemVariants = {
+	/* ************************************************************
+							ANIMATION VARIANTS
+	************************************************************ */
+	const titleVariants = {
 		hidden: {
 			opacity: 0,
-			y: 20,
-			scale: 0.95
+			y: 40,
+			scale: 0.95,
 		},
 		show: {
 			opacity: 1,
 			y: 0,
 			scale: 1,
 			transition: {
-				duration: 0.5,
-				ease: easeOut
-			}
-		}
+				duration: 1.2,
+				ease: [0.4, 0, 0.2, 1] as const,
+			},
+		},
 	};
 
+	/* ************************************************************
+							RENDER
+	************************************************************ */
 	return (
-		<main className="min-h-screen bg-black">
-			<div className="max-w-6xl mx-auto px-8 py-16">
-				<h1 className="text-6xl font-bold text-white mb-16 tracking-tight">
-					Admin Dashboard
-				</h1>
+		<main className=" bg-white">
+			<div className="max-w-7xl mx-auto px-4 pt-8">
+
+				{/* ************************************************************
+                    TITLE SECTION WITH LOGO
+                ************************************************************ */}
 				<motion.div
-					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-					variants={containerVariants}
+					ref={ref}
+					variants={titleVariants}
 					initial="hidden"
-					animate="show"
+					animate={isInView ? "show" : "hidden"}
+					className="text-center mb-8"
 				>
-					<motion.div variants={itemVariants}>
-						<Link
-							href="/admin/blog"
-							className="group bg-white/10 backdrop-blur-sm border border-white/20 p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-xl block"
-						>
-							<div className="text-center">
-								<div className="w-12 h-12 mx-auto mb-4 bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-									<span className="text-2xl">📝</span>
-								</div>
-								<h2 className="text-xl font-semibold text-white mb-2">Articles</h2>
-								<p className="text-white/70 text-sm">Manage blog posts and content</p>
-							</div>
-						</Link>
-					</motion.div>
-
-					<motion.div variants={itemVariants}>
-						<Link
-							href="/admin/supplement"
-							className="group bg-white/10 backdrop-blur-sm border border-white/20 p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-xl block"
-						>
-							<div className="text-center">
-								<div className="w-12 h-12 mx-auto mb-4 bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-									<span className="text-2xl">⚙️</span>
-								</div>
-								<h2 className="text-xl font-semibold text-white mb-2">SUPPLEMENT</h2>
-								<p className="text-white/70 text-sm">Manage service offerings</p>
-							</div>
-						</Link>
-					</motion.div>
-
-					<motion.div variants={itemVariants}>
-						<Link
-							href="/admin/about-us"
-							className="group bg-white/10 backdrop-blur-sm border border-white/20 p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-xl block"
-						>
-							<div className="text-center">
-								<div className="w-12 h-12 mx-auto mb-4 bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-									<span className="text-2xl">👥</span>
-								</div>
-								<h2 className="text-xl font-semibold text-white mb-2">About Us</h2>
-								<p className="text-white/70 text-sm">Manage company information</p>
-							</div>
-						</Link>
-					</motion.div>
-
-					<motion.div variants={itemVariants}>
-						<Link
-							href="/admin/home"
-							className="group bg-white/10 backdrop-blur-sm border border-white/20 p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-xl block"
-						>
-							<div className="text-center">
-								<div className="w-12 h-12 mx-auto mb-4 bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-									<span className="text-2xl">🏠</span>
-								</div>
-								<h2 className="text-xl font-semibold text-white mb-2">Home</h2>
-								<p className="text-white/70 text-sm">Manage homepage content</p>
-							</div>
-						</Link>
-					</motion.div>
-
-					<motion.div variants={itemVariants}>
-						<Link
-							href="/admin/team"
-							className="group bg-white/10 backdrop-blur-sm border border-white/20 p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-xl block"
-						>
-							<div className="text-center">
-								<div className="w-12 h-12 mx-auto mb-4 bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-									<span className="text-2xl">👥</span>
-								</div>
-								<h2 className="text-xl font-semibold text-white mb-2">Team</h2>
-								<p className="text-white/70 text-sm">Manage team members</p>
-							</div>
-						</Link>
-					</motion.div>
-
-					<motion.div variants={itemVariants}>
-						<Link
-							href="/admin/science"
-							className="group bg-white/10 backdrop-blur-sm border border-white/20 p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-xl block"
-						>
-							<div className="text-center">
-								<div className="w-12 h-12 mx-auto mb-4 bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-									<span className="text-2xl">🧬</span>
-								</div>
-								<h2 className="text-xl font-semibold text-white mb-2">Stait Science</h2>
-								<p className="text-white/70 text-sm">Manage science articles</p>
-							</div>
-						</Link>
-					</motion.div>
-
-					<motion.div variants={itemVariants}>
-						<Link
-							href="/admin/podcasts"
-							className="group bg-white/10 backdrop-blur-sm border border-white/20 p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-xl block"
-						>
-							<div className="text-center">
-								<div className="w-12 h-12 mx-auto mb-4 bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-									<span className="text-2xl">🎙️</span>
-								</div>
-								<h2 className="text-xl font-semibold text-white mb-2">Podcasts</h2>
-								<p className="text-white/70 text-sm">Manage podcast links</p>
-							</div>
-						</Link>
-					</motion.div>
-
-					<motion.div variants={itemVariants}>
-						<Link
-							href="/admin/faqs"
-							className="group bg-white/10 backdrop-blur-sm border border-white/20 p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-xl block"
-						>
-							<div className="text-center">
-								<div className="w-12 h-12 mx-auto mb-4 bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-									<span className="text-2xl">❓</span>
-								</div>
-								<h2 className="text-xl font-semibold text-white mb-2">FAQs</h2>
-								<p className="text-white/70 text-sm">Manage FAQs and categories</p>
-							</div>
-						</Link>
-					</motion.div>
-
-					<motion.div variants={itemVariants}>
-						<Link
-							href="/admin/giving-back"
-							className="group bg-white/10 backdrop-blur-sm border border-white/20 p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-xl block"
-						>
-							<div className="text-center">
-								<div className="w-12 h-12 mx-auto mb-4 bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-									<span className="text-2xl">❓</span>
-								</div>
-								<h2 className="text-xl font-semibold text-white mb-2">Giving Back</h2>
-								<p className="text-white/70 text-sm">Manage Giving Back content</p>
-							</div>
-						</Link>
-					</motion.div>
+					<div className="flex flex-col items-center justify-center gap-4 mb-4">
+						<Image
+							src="/images/brightlogo.png"
+							alt="Bright Leasing Logo"
+							width={100}
+							height={50}
+							className="w-[150px] h-auto"
+						/>
+						<h1 className="text-brand-black leading-tight">
+							Content Management
+						</h1>
+					</div>
+					<p className="text-brand-black/70 text-small max-w-2xl mx-auto">
+						Take control of your website content and make updates in real-time
+					</p>
 				</motion.div>
+
+				{/* ************************************************************
+                    NAVIGATION SECTION
+                ************************************************************ */}
+				<div className="mb-12">
+					<AdminNavigation />
+				</div>
+
+				{/* ************************************************************
+                    TILES SECTION
+                ************************************************************ */}
+				<AdminTiles />
 			</div>
 		</main>
 	);

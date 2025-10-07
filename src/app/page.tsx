@@ -17,7 +17,7 @@ export default async function Home() {
 
 	return (
 		<main className="min-h-screen">
-			<div className="max-w-[1920px] mx-auto lg:px-8 py-4">
+			<div className="max-w-[1920px] mx-auto lg:px-8 py-4 pt-24">
 				{/* ***************************************************************
 				   HERO 
         ****************************************************************/}

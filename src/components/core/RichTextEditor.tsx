@@ -23,7 +23,7 @@ const RichTextEditor = ({ content, onChange, className }: RichTextEditorProps) =
         editable: true,
         editorProps: {
             attributes: {
-                class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-xl focus:outline-none prose-headings:text-white prose-p:text-white prose-strong:text-white prose-img:rounded-none prose-a:text-blue-400 prose-invert [&_a]:text-blue-400 [&_a]:underline [&_a]:hover:text-blue-300 [&_p]:mb-6',
+                class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-xl focus:outline-none prose-headings:text-brand-black prose-p:text-brand-black prose-strong:text-brand-black prose-img:rounded-none prose-a:text-brand-teal [&_a]:text-brand-teal [&_a]:underline [&_a]:hover:text-brand-yellow [&_p]:mb-6',
             },
         },
         extensions: [
@@ -35,7 +35,7 @@ const RichTextEditor = ({ content, onChange, className }: RichTextEditorProps) =
             Link.configure({
                 openOnClick: false,
                 HTMLAttributes: {
-                    class: 'text-blue-400 underline cursor-pointer hover:text-blue-300 transition-colors !text-inherit',
+                    class: 'text-brand-teal underline cursor-pointer hover:text-brand-yellow transition-colors !text-inherit',
                     ondblclick: 'window.__handleLinkDoubleClick && window.__handleLinkDoubleClick(this)',
                 },
             }),
@@ -161,17 +161,17 @@ const RichTextEditor = ({ content, onChange, className }: RichTextEditorProps) =
     }, [content, editor]);
 
     if (!editor || !isMounted) {
-        return <div className="border border-white/20 h-[400px] animate-pulse bg-black" />;
+        return <div className="border border-brand-black/20 h-[400px] animate-pulse bg-brand-cream/30" />;
     }
 
     const buttonStyle = (isActive: boolean) => `
         px-3 py-1.5 text-sm font-medium transition-colors
-        ${isActive ? 'bg-white/10 text-white border border-white/20' : 'text-white/70 hover:bg-white/5 border border-transparent'}
+        ${isActive ? 'bg-brand-teal/20 text-brand-black border border-brand-teal' : 'text-brand-black/70 hover:bg-brand-cream/50 border border-transparent'}
     `;
 
     return (
-        <div className={`relative border border-white/20 overflow-hidden bg-black ${className || ''}`}>
-            <div className="sticky top-0 z-10 flex flex-wrap gap-1 p-2 bg-black border-b border-white/20">
+        <div className={`relative border border-brand-black/20 rounded-lg overflow-hidden bg-white ${className || ''}`}>
+            <div className="sticky top-0 z-10 flex flex-wrap gap-1 p-2 bg-white border-b border-brand-black/20">
                 <button
                     type="button"
                     onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
@@ -200,7 +200,7 @@ const RichTextEditor = ({ content, onChange, className }: RichTextEditorProps) =
                 >
                     P
                 </button>
-                <div className="w-px h-6 bg-white/20 mx-1 self-center" />
+                <div className="w-px h-6 bg-brand-black/20 mx-1 self-center" />
                 <button
                     type="button"
                     onClick={() => editor.chain().focus().toggleBold().run()}
@@ -222,7 +222,7 @@ const RichTextEditor = ({ content, onChange, className }: RichTextEditorProps) =
                 >
                     <u>U</u>
                 </button>
-                <div className="w-px h-6 bg-white/20 mx-1 self-center" />
+                <div className="w-px h-6 bg-brand-black/20 mx-1 self-center" />
                 <button
                     type="button"
                     onClick={setLink}
@@ -233,7 +233,7 @@ const RichTextEditor = ({ content, onChange, className }: RichTextEditorProps) =
                 <button
                     type="button"
                     onClick={addImage}
-                    className="px-3 py-1.5 text-sm font-medium text-white/70 hover:bg-white/5 transition-colors border border-transparent"
+                    className="px-3 py-1.5 text-sm font-medium text-brand-black/70 hover:bg-brand-cream/50 transition-colors border border-transparent"
                 >
                     Image
                 </button>

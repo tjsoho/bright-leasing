@@ -46,9 +46,13 @@ export default function Blog() {
   };
 
   return (
-    <section className="py-16 bg-black min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-white mb-12">Latest Posts</h1>
+    <section className="py-16 bg-white min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+        <span className="text-[92px]  text-brand-black mb-6">Articles.</span>
+        <p className="text-brand-black/70  mx-auto mb-24">
+          Stay informed with our latest insights, tips, and updates on novated leasing and automotive finance.
+        </p>
+      
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"

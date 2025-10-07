@@ -31,7 +31,7 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                 <div className="fixed inset-0 z-50 flex items-center justify-center">
                     {/* Overlay */}
                     <motion.div
-                        className="absolute inset-0 bg-black bg-opacity-50"
+                        className="absolute inset-0 bg-black bg-opacity-70"
                         onClick={onClose}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -57,8 +57,8 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                             opacity: 0
                         }}
                         animate={{
-                            width: '98vw',
-                            height: '98vh',
+                            width: '95vw',
+                            height: '95vh',
                             opacity: 1
                         }}
                         exit={{
@@ -142,7 +142,7 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className="block text-lg lg:text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-4 lg:px-6 rounded-2xl hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20 text-center lg:text-left"
+                                                className="block text-lg lg:text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-4 lg:px-6 rounded-full hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20 text-center lg:text-left"
                                                 onClick={onClose}
                                             >
                                                 {link.label}
@@ -170,7 +170,7 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className="block text-lg lg:text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-4 lg:px-6 rounded-2xl hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20 text-center lg:text-left"
+                                                className="block text-lg lg:text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-4 lg:px-6 rounded-full hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20 text-center lg:text-left"
                                                 onClick={onClose}
                                             >
                                                 {link.label}
@@ -198,7 +198,7 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className="block text-lg lg:text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-4 lg:px-6 rounded-2xl hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20 text-center lg:text-left"
+                                                className="block text-lg lg:text-xl font-medium text-brand-black hover:text-brand-teal transition-all duration-300 py-3 px-4 lg:px-6 rounded-full hover:bg-brand-teal/10 hover:scale-105 border-2 border-transparent hover:border-brand-teal/20 text-center lg:text-left"
                                                 onClick={onClose}
                                             >
                                                 {link.label}

@@ -118,16 +118,16 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
 
     return (
         <div className="max-w-4xl mx-auto">
-            <div className="bg-black border border-white/20 p-8">
-                <h1 className="text-3xl font-bold text-white mb-8">
+            <div className="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
+                <h2 className="text-2xl font-bold text-brand-black mb-6">
                     {initialData ? 'Edit Blog Post' : 'Create New Blog Post'}
-                </h1>
+                </h2>
 
                 {submitMessage && (
                     <div
-                        className={`mb-6 p-4 border ${submitMessage.type === "success"
-                            ? "bg-black border-green-500 text-green-500"
-                            : "bg-black border-red-500 text-red-500"
+                        className={`mb-6 p-4 border rounded-lg ${submitMessage.type === "success"
+                            ? "bg-brand-teal/10 border-brand-teal text-brand-teal"
+                            : "bg-red-50 border-red-200 text-red-600"
                             }`}
                     >
                         {submitMessage.message}
@@ -141,34 +141,34 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                         <div className="space-y-6">
                             {/* Title */}
                             <div>
-                                <label htmlFor="title" className="block text-sm font-medium text-white mb-2">
+                                <label htmlFor="title" className="block text-sm font-medium text-brand-black mb-2">
                                     Title *
                                 </label>
                                 <input
                                     {...register("title", { required: "Title is required" })}
                                     type="text"
                                     id="title"
-                                    className="w-full px-3 py-2 bg-black border border-white/20 text-white focus:border-white focus:outline-none transition-colors"
+                                    className="w-full px-3 py-2 bg-white border border-brand-black/20 text-brand-black focus:border-brand-teal focus:outline-none transition-colors rounded-lg"
                                     placeholder="Enter blog post title"
                                 />
                                 {errors.title && (
                                     <p className="mt-1 text-sm text-red-600">{errors.title.message}</p>
                                 )}
                                 {title && (
-                                    <p className="mt-1 text-sm text-white/50">Slug: {createSlug(title)}</p>
+                                    <p className="mt-1 text-sm text-brand-black/60">Slug: {createSlug(title)}</p>
                                 )}
                             </div>
 
                             {/* Excerpt */}
                             <div>
-                                <label htmlFor="excerpt" className="block text-sm font-medium text-white mb-2">
+                                <label htmlFor="excerpt" className="block text-sm font-medium text-brand-black mb-2">
                                     Excerpt
                                 </label>
                                 <textarea
                                     {...register("excerpt")}
                                     id="excerpt"
                                     rows={3}
-                                    className="w-full px-3 py-2 bg-black border border-white/20 text-white focus:border-white focus:outline-none transition-colors"
+                                    className="w-full px-3 py-2 bg-white border border-brand-black/20 text-brand-black focus:border-brand-teal focus:outline-none transition-colors rounded-lg"
                                     placeholder="Brief description of the blog post"
                                 />
                             </div>
@@ -177,14 +177,14 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                         {/* Right Column - Author & Cover Image */}
                         <div className="space-y-6">
                             <div>
-                                <label htmlFor="author" className="block text-sm font-medium text-white mb-2">
+                                <label htmlFor="author" className="block text-sm font-medium text-brand-black mb-2">
                                     Author *
                                 </label>
                                 <input
                                     {...register("author", { required: "Author is required" })}
                                     type="text"
                                     id="author"
-                                    className="w-full px-3 py-2 bg-black border border-white/20 text-white focus:border-white focus:outline-none transition-colors"
+                                    className="w-full px-3 py-2 bg-white border border-brand-black/20 text-brand-black focus:border-brand-teal focus:outline-none transition-colors rounded-lg"
                                     placeholder="Enter author name"
                                 />
                                 {errors.author && (
@@ -194,18 +194,18 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
 
                             {/* Cover Image */}
                             <div>
-                                <label className="block text-sm font-medium text-white mb-2">
+                                <label className="block text-sm font-medium text-brand-black mb-2">
                                     Cover Image
                                 </label>
                                 <div className="mt-1">
                                     {selectedImage ? (
-                                        <div className="relative group">
+                                        <div className="relative group rounded-lg overflow-hidden border-2 border-brand-yellow">
                                             <img
                                                 src={selectedImage}
                                                 alt="Blog cover"
                                                 className="w-full h-32 object-cover"
                                             />
-                                            <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <div className="absolute inset-0 bg-brand-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                                 <button
                                                     type="button"
                                                     onClick={() => {
@@ -218,7 +218,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                                                             }
                                                         }, "blog-cover");
                                                     }}
-                                                    className="px-4 py-2 bg-black text-white border border-white/20 text-sm font-medium hover:border-white transition-colors"
+                                                    className="px-4 py-2 bg-brand-yellow text-brand-black border border-brand-yellow text-sm font-medium hover:bg-brand-yellow/80 transition-colors rounded-lg"
                                                 >
                                                     Change Image
                                                 </button>
@@ -226,7 +226,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                                         </div>
                                     ) : (
                                         <div
-                                            className="w-full h-32 border border-dashed border-white/20 flex flex-col items-center justify-center bg-black hover:border-white transition-colors cursor-pointer"
+                                            className="w-full h-32 border border-dashed border-brand-yellow flex flex-col items-center justify-center bg-brand-cream/30 hover:border-brand-yellow transition-colors cursor-pointer rounded-lg bg-white hover:cursor-pointer "
                                             onClick={() => {
                                                 openImageLibrary((url) => {
                                                     if (url) {
@@ -239,7 +239,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                                             }}
                                         >
                                             <svg
-                                                className="w-8 h-8 text-white/50 mb-2"
+                                                className="w-8 h-8 text-brand-black/50 mb-2"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"
@@ -253,13 +253,11 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                                             </svg>
                                             <button
                                                 type="button"
-                                                className="text-sm font-medium text-white hover:text-white/80"
+                                                className="text-sm font-medium text-brand-black hover:text-brand-teal"
                                             >
                                                 Upload Cover Image
                                             </button>
-                                            <p className="text-xs text-white/50 mt-1">
-                                                Recommended size: 1200 x 675 pixels
-                                            </p>
+                                            
                                         </div>
                                     )}
                                 </div>
@@ -270,7 +268,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                     {/* Bottom Section - Content */}
                     <div className="space-y-6">
                         <div>
-                            <label htmlFor="content" className="block text-sm font-medium text-white mb-2">
+                            <label htmlFor="content" className="block text-sm font-medium text-brand-black mb-2">
                                 Content
                             </label>
                             <RichTextEditor
@@ -289,7 +287,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                                 <button
                                     type="button"
                                     onClick={onCancel}
-                                    className="px-6 py-2 border border-white/20 text-white hover:bg-white/5 transition-colors"
+                                    className="px-6 py-2 border border-brand-black/20 text-brand-black hover:bg-brand-cream/50 transition-colors rounded-full"
                                 >
                                     Cancel
                                 </button>
@@ -297,6 +295,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                             <LuxeButton
                                 type="submit"
                                 isLoading={isSubmitting}
+                                className="bg-brand-teal text-white hover:bg-brand-teal/80 rounded-full"
                             >
                                 {initialData ? 'Update Post' : 'Create Post'}
                             </LuxeButton>

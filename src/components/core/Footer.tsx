@@ -142,9 +142,9 @@ const Footer = () => {
                                     variants={containerVariants}
                                     className="space-y-3"
                                 >
-                                    {column.links.map((link) => (
+                                    {column.links.map((link, index) => (
                                         <motion.li
-                                            key={link.href}
+                                            key={`${link.label}-${link.href}-${index}`}
                                             variants={itemVariants}
                                         >
                                             <Link

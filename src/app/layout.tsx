@@ -46,7 +46,7 @@ export default function RootLayout({
 						}}
 					/>
 					<Header />
-					<main className="pt-24">{children}</main>
+					<main className="">{children}</main>
 				
 			</body>
 		</html>

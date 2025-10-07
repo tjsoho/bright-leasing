@@ -41,15 +41,6 @@ export default function HomeAdminInputs(props: HomePageProps) {
 	const [section3tile3description, setSection3tile3description] = useState(
 		props.content.section3tile3description,
 	);
-	const [section3tile1image, setSection3tile1image] = useState(
-		props.content.section3tile1image || "/placeholder.jpg",
-	);
-	const [section3tile2image, setSection3tile2image] = useState(
-		props.content.section3tile2image || "/placeholder.jpg",
-	);
-	const [section3tile3image, setSection3tile3image] = useState(
-		props.content.section3tile3image || "/placeholder.jpg",
-	);
 	const [section4title, setSection4title] = useState(
 		props.content.section4title,
 	);
@@ -122,15 +113,6 @@ export default function HomeAdminInputs(props: HomePageProps) {
 	const [section6tile3description, setSection6tile3description] = useState(
 		props.content.section6tile3description,
 	);
-	const [section6tile1image, setSection6tile1image] = useState(
-		props.content.section6tile1image || "/placeholder.jpg",
-	);
-	const [section6tile2image, setSection6tile2image] = useState(
-		props.content.section6tile2image || "/placeholder.jpg",
-	);
-	const [section6tile3image, setSection6tile3image] = useState(
-		props.content.section6tile3image || "/placeholder.jpg",
-	);
 	const [section7title, setSection7title] = useState(
 		props.content.section7title,
 	);
@@ -174,13 +156,10 @@ export default function HomeAdminInputs(props: HomePageProps) {
 				section3title,
 				section3tile1title,
 				section3tile1description,
-				section3tile1image,
 				section3tile2title,
 				section3tile2description,
-				section3tile2image,
 				section3tile3title,
 				section3tile3description,
-				section3tile3image,
 				section4title,
 				section4step1title,
 				section4step1description,
@@ -201,13 +180,10 @@ export default function HomeAdminInputs(props: HomePageProps) {
 				section6title,
 				section6tile1title,
 				section6tile1description,
-				section6tile1image,
 				section6tile2title,
 				section6tile2description,
-				section6tile2image,
 				section6tile3title,
 				section6tile3description,
-				section6tile3image,
 				section7title,
 				section7faq1question,
 				section7faq1answer,
@@ -228,42 +204,38 @@ export default function HomeAdminInputs(props: HomePageProps) {
 				onSave={handleSave}
 				isSaving={isSaving}
 			/>
-			<div className="min-h-screen bg-black">
-				<div className="max-w-6xl mx-auto px-8 py-16">
+			<div className="min-h-screen bg-white">
+				<div className="max-w-7xl mx-auto px-4 py-4">
 					{/* ************************** Header Section **************************/}
 
-					<header className="mb-16">
-						<h1 className="text-6xl font-bold text-white mb-8 tracking-tight">
-							Home
-						</h1>
-					</header>
+
 
 					{/* ***************************************************************
 					   HERO SECTION
 					****************************************************************/}
-					<section className="bg-gray-900 p-8 rounded-lg mb-12">
-						<h2 className="text-2xl text-white font-bold mb-8">Hero Section</h2>
+					<section className="bg-brand-yellow/10 border border-brand-yellow/20 p-6 rounded-2xl mb-8">
+						<h2 className="text-xl text-brand-black font-bold mb-4">Hero Section</h2>
 
 						{/* Background Images */}
-						<div className="grid md:grid-cols-2 gap-8 mb-8">
+						<div className="grid md:grid-cols-2 gap-6 mb-6">
 							{/* Desktop Background */}
-							<div className="space-y-4">
-								<label className="block text-white text-sm font-medium mb-2">
+							<div className="space-y-3">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Desktop Hero Image
 								</label>
-								<div className="aspect-video bg-gray-800 rounded-lg overflow-hidden">
+								<div className="aspect-video bg-white rounded-lg overflow-hidden h-48">
 									<EditableImage
 										src={heroImage}
 										alt="Hero Desktop Background"
 										width={1920}
 										height={1080}
-										className="w-full h-full object-cover hover:opacity-90 transition-opacity"
+										className="w-full h-48 object-cover hover:opacity-90 transition-opacity border-2 p-1 border-brand-yellow"
 										onImageChange={setHeroImage}
 										usage="desktop"
 									/>
 								</div>
 								<p className="text-gray-400 text-xs">
-									Click image to change. Recommended size: 1920x1080px
+									Click image to change
 								</p>
 							</div>
 
@@ -271,24 +243,24 @@ export default function HomeAdminInputs(props: HomePageProps) {
 
 							<div className="space-y-6">
 								<div>
-									<label className="block text-white text-sm font-medium mb-2">
+									<label className="block text-brand-black text-sm font-medium mb-2">
 										Hero Title
 									</label>
 									<EditableElement
 										as="textarea"
-										className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+										className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 										onTextChange={setHeroTitle}
 										defaultValue={heroTitle}
 									/>
 								</div>
 
 								<div>
-									<label className="block text-white text-sm font-medium mb-2">
+									<label className="block text-brand-black text-sm font-medium mb-2">
 										Hero Paragraph
 									</label>
 									<EditableElement
 										as="input"
-										className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+										className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 										onTextChange={setHeroParagraph}
 										defaultValue={heroParagraph}
 									/>
@@ -300,19 +272,19 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* ***************************************************************
 						SECTION 2: WHAT IS NOVATED LEASING
 					****************************************************************/}
-					<section className="bg-gray-900 p-8 rounded-lg mb-12">
-						<h2 className="text-2xl text-white font-bold mb-8">
+					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
+						<h2 className="text-xl text-brand-black font-bold mb-4">
 							Section 2 - What is Novated Leasing
 						</h2>
 
 						<div className="space-y-6">
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Section Title
 								</label>
 								<EditableElement
 									as="input"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setSection2title}
 									defaultValue={section2title}
 								/>
@@ -323,12 +295,12 @@ export default function HomeAdminInputs(props: HomePageProps) {
 							</div>
 
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Main Paragraph
 								</label>
 								<EditableElement
 									as="textarea"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors h-32"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors h-32"
 									onTextChange={setSection2paragraph}
 									defaultValue={section2paragraph}
 								/>
@@ -343,20 +315,20 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* ***************************************************************
 						SECTION 3: WHY CHOOSE BRIGHT LEASING TILES
 					****************************************************************/}
-					<section className="bg-gray-900 p-8 rounded-lg mb-12">
-						<h2 className="text-2xl text-white font-bold mb-8">
+					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
+						<h2 className="text-xl text-brand-black font-bold mb-4">
 							Section 3 - Why Choose Bright Leasing
 						</h2>
 
 						<div className="space-y-6">
 							{/* Section Title */}
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Section Title
 								</label>
 								<EditableElement
 									as="input"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setSection3title}
 									defaultValue={section3title}
 								/>
@@ -368,137 +340,89 @@ export default function HomeAdminInputs(props: HomePageProps) {
 							{/* Tiles */}
 							<div className="space-y-6">
 								{/* Tile 1 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
 									<h4 className="text-white font-medium mb-4">Tile 1</h4>
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Title
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection3tile1title}
 												defaultValue={section3tile1title}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Description
 											</label>
 											<EditableElement
 												as="textarea"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-16"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm h-16"
 												onTextChange={setSection3tile1description}
 												defaultValue={section3tile1description}
 											/>
 										</div>
 									</div>
-									<div className="mt-4">
-										<label className="block text-gray-300 text-xs mb-2">
-											Card Image
-										</label>
-										<EditableImage
-											src={section3tile1image}
-											alt="Section 3 Tile 1 Image"
-											width={200}
-											height={150}
-											className="w-full h-32 object-cover rounded border border-gray-600"
-											onImageChange={setSection3tile1image}
-										/>
-										<p className="text-gray-400 text-xs mt-1">
-											Click image to change. Recommended size: 400x300px
-										</p>
-									</div>
 								</div>
 
 								{/* Tile 2 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
 									<h4 className="text-white font-medium mb-4">Tile 2</h4>
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Title
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection3tile2title}
 												defaultValue={section3tile2title}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Description
 											</label>
 											<EditableElement
 												as="textarea"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-16"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm h-16"
 												onTextChange={setSection3tile2description}
 												defaultValue={section3tile2description}
 											/>
 										</div>
 									</div>
-									<div className="mt-4">
-										<label className="block text-gray-300 text-xs mb-2">
-											Card Image
-										</label>
-										<EditableImage
-											src={section3tile2image}
-											alt="Section 3 Tile 2 Image"
-											width={200}
-											height={150}
-											className="w-full h-32 object-cover rounded border border-gray-600"
-											onImageChange={setSection3tile2image}
-										/>
-										<p className="text-gray-400 text-xs mt-1">
-											Click image to change. Recommended size: 400x300px
-										</p>
-									</div>
 								</div>
 
 								{/* Tile 3 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
 									<h4 className="text-white font-medium mb-4">Tile 3</h4>
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Title
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection3tile3title}
 												defaultValue={section3tile3title}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Description
 											</label>
 											<EditableElement
 												as="textarea"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-16"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm h-16"
 												onTextChange={setSection3tile3description}
 												defaultValue={section3tile3description}
 											/>
 										</div>
-									</div>
-									<div className="mt-4">
-										<label className="block text-gray-300 text-xs mb-2">
-											Card Image
-										</label>
-										<EditableImage
-											src={section3tile3image}
-											alt="Section 3 Tile 3 Image"
-											width={200}
-											height={150}
-											className="w-full h-32 object-cover rounded border border-gray-600"
-											onImageChange={setSection3tile3image}
-										/>
-										<p className="text-gray-400 text-xs mt-1">
-											Click image to change. Recommended size: 400x300px
-										</p>
 									</div>
 								</div>
 							</div>
@@ -508,20 +432,20 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* ***************************************************************
 						SECTION 4: HOW IT WORKS
 					****************************************************************/}
-					<section className="bg-gray-900 p-8 rounded-lg mb-12">
-						<h2 className="text-2xl text-white font-bold mb-8">
+					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
+						<h2 className="text-xl text-brand-black font-bold mb-4">
 							Section 4 - How It Works
 						</h2>
 
 						<div className="space-y-6">
 							{/* Section Title */}
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Section Title
 								</label>
 								<EditableElement
 									as="input"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setSection4title}
 									defaultValue={section4title}
 								/>
@@ -533,169 +457,169 @@ export default function HomeAdminInputs(props: HomePageProps) {
 							{/* Steps */}
 							<div className="space-y-6">
 								{/* Step 1 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
-									<h4 className="text-white font-medium mb-4">Step 1</h4>
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
+									<h4 className="text-white font-medium mb-3">Step 1</h4>
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Title
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection4step1title}
 												defaultValue={section4step1title}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Description
 											</label>
 											<EditableElement
 												as="textarea"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-16"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm h-16"
 												onTextChange={setSection4step1description}
 												defaultValue={section4step1description}
 											/>
 										</div>
 									</div>
 									<div className="mt-4">
-										<label className="block text-gray-300 text-xs mb-1">
+										<label className="block text-brand-black/70 text-xs mb-1">
 											Icon
 										</label>
 										<EditableImage
 											src={section4step1icon}
 											alt="Step 1 Icon"
-											width={64}
-											height={64}
+											width={48}
+											height={48}
 											onImageChange={setSection4step1icon}
-											className="w-16 h-16 rounded-lg object-cover"
+											className="w-16 h-16 rounded-lg object-cover border-2 p-1 border-brand-yellow"
 										/>
 									</div>
 								</div>
 
 								{/* Step 2 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
-									<h4 className="text-white font-medium mb-4">Step 2</h4>
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
+									<h4 className="text-white font-medium mb-3">Step 2</h4>
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Title
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection4step2title}
 												defaultValue={section4step2title}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Description
 											</label>
 											<EditableElement
 												as="textarea"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-16"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm h-16"
 												onTextChange={setSection4step2description}
 												defaultValue={section4step2description}
 											/>
 										</div>
 									</div>
 									<div className="mt-4">
-										<label className="block text-gray-300 text-xs mb-1">
+										<label className="block text-brand-black/70 text-xs mb-1">
 											Icon
 										</label>
 										<EditableImage
 											src={section4step2icon}
 											alt="Step 2 Icon"
-											width={64}
-											height={64}
+											width={48}
+											height={48}
 											onImageChange={setSection4step2icon}
-											className="w-16 h-16 rounded-lg object-cover"
+											className="w-16 h-16 rounded-lg object-cover border-2 p-1 border-brand-yellow"
 										/>
 									</div>
 								</div>
 
 								{/* Step 3 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
-									<h4 className="text-white font-medium mb-4">Step 3</h4>
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
+									<h4 className="text-white font-medium mb-3">Step 3</h4>
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Title
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection4step3title}
 												defaultValue={section4step3title}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Description
 											</label>
 											<EditableElement
 												as="textarea"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-16"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm h-16"
 												onTextChange={setSection4step3description}
 												defaultValue={section4step3description}
 											/>
 										</div>
 									</div>
 									<div className="mt-4">
-										<label className="block text-gray-300 text-xs mb-1">
+										<label className="block text-brand-black/70 text-xs mb-1">
 											Icon
 										</label>
 										<EditableImage
 											src={section4step3icon}
 											alt="Step 3 Icon"
-											width={64}
-											height={64}
+											width={48}
+											height={48}
 											onImageChange={setSection4step3icon}
-											className="w-16 h-16 rounded-lg object-cover"
+											className="w-16 h-16 rounded-lg object-cover border-2 p-1 border-brand-yellow"
 										/>
 									</div>
 								</div>
 
 								{/* Step 4 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
-									<h4 className="text-white font-medium mb-4">Step 4</h4>
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
+									<h4 className="text-white font-medium mb-3">Step 4</h4>
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Title
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection4step4title}
 												defaultValue={section4step4title}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Description
 											</label>
 											<EditableElement
 												as="textarea"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-16"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm h-16"
 												onTextChange={setSection4step4description}
 												defaultValue={section4step4description}
 											/>
 										</div>
 									</div>
 									<div className="mt-4">
-										<label className="block text-gray-300 text-xs mb-1">
+										<label className="block text-brand-black/70 text-xs mb-1">
 											Icon
 										</label>
 										<EditableImage
 											src={section4step4icon}
 											alt="Step 4 Icon"
-											width={64}
-											height={64}
+											width={48}
+											height={48}
 											onImageChange={setSection4step4icon}
-											className="w-16 h-16 rounded-lg object-cover"
+											className="w-16 h-16 rounded-lg object-cover border-2 p-1 border-brand-yellow"
 										/>
 									</div>
 								</div>
@@ -706,32 +630,32 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* ***************************************************************
 						SECTION 5: PROMOTIONAL BANNER
 					****************************************************************/}
-					<section className="bg-gray-900 p-8 rounded-lg mb-12">
-						<h2 className="text-2xl text-white font-bold mb-8">
+					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
+						<h2 className="text-xl text-brand-black font-bold mb-4">
 							Section 5 - Promotional Banner
 						</h2>
 
 						<div className="space-y-6">
 							{/* Background Images */}
-							<div className="grid md:grid-cols-2 gap-8 mb-8">
+							<div className="grid md:grid-cols-2 gap-6 mb-6">
 								{/* Promotional Image */}
-								<div className="space-y-4">
-									<label className="block text-white text-sm font-medium mb-2">
+								<div className="space-y-3">
+									<label className="block text-brand-black text-sm font-medium mb-2">
 										Promotional Image
 									</label>
-									<div className="aspect-video bg-gray-800 rounded-lg overflow-hidden">
+									<div className="aspect-video bg-brand-black rounded-lg overflow-hidden h-48">
 										<EditableImage
 											src={section5image}
 											alt="Section 5 Promotional Image"
 											width={1920}
 											height={1080}
-											className="w-full h-full object-cover hover:opacity-90 transition-opacity"
+											className="w-full h-48 object-cover hover:opacity-90 transition-opacity border-2 p-1 border-brand-yellow"
 											onImageChange={setSection5image}
 											usage="section5"
 										/>
 									</div>
 									<p className="text-gray-400 text-xs">
-										Click image to change. Recommended size: 1920x1080px
+										Click image to change
 									</p>
 								</div>
 
@@ -739,36 +663,36 @@ export default function HomeAdminInputs(props: HomePageProps) {
 
 								<div className="space-y-6">
 									<div>
-										<label className="block text-white text-sm font-medium mb-2">
+										<label className="block text-brand-black text-sm font-medium mb-2">
 											Title
 										</label>
 										<EditableElement
 											as="textarea"
-											className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+											className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 											onTextChange={setSection5title}
 											defaultValue={section5title}
 										/>
 									</div>
 
 									<div>
-										<label className="block text-white text-sm font-medium mb-2">
+										<label className="block text-brand-black text-sm font-medium mb-2">
 											Description
 										</label>
 										<EditableElement
 											as="textarea"
-											className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors h-24"
+											className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors h-24"
 											onTextChange={setSection5description}
 											defaultValue={section5description}
 										/>
 									</div>
 
 									<div>
-										<label className="block text-white text-sm font-medium mb-2">
+										<label className="block text-brand-black text-sm font-medium mb-2">
 											Button Text
 										</label>
 										<EditableElement
 											as="input"
-											className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+											className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 											onTextChange={setSection5buttonText}
 											defaultValue={section5buttonText}
 										/>
@@ -781,20 +705,20 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* ***************************************************************
 						SECTION 6: CUSTOMER SUCCESS STORIES
 					****************************************************************/}
-					<section className="bg-gray-900 p-8 rounded-lg mb-12">
-						<h2 className="text-2xl text-white font-bold mb-8">
+					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
+						<h2 className="text-xl text-brand-black font-bold mb-4">
 							Section 6 - Customer Success Stories
 						</h2>
 
 						<div className="space-y-6">
 							{/* Section Title */}
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Section Title
 								</label>
 								<EditableElement
 									as="input"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setSection6title}
 									defaultValue={section6title}
 								/>
@@ -806,137 +730,89 @@ export default function HomeAdminInputs(props: HomePageProps) {
 							{/* Tiles */}
 							<div className="space-y-6">
 								{/* Tile 1 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
 									<h4 className="text-white font-medium mb-4">Tile 1</h4>
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Title
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection6tile1title}
 												defaultValue={section6tile1title}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Description
 											</label>
 											<EditableElement
 												as="textarea"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-16"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm h-16"
 												onTextChange={setSection6tile1description}
 												defaultValue={section6tile1description}
 											/>
 										</div>
 									</div>
-									<div className="mt-4">
-										<label className="block text-gray-300 text-xs mb-2">
-											Card Image
-										</label>
-										<EditableImage
-											src={section6tile1image}
-											alt="Section 6 Tile 1 Image"
-											width={200}
-											height={150}
-											className="w-full h-32 object-cover rounded border border-gray-600"
-											onImageChange={setSection6tile1image}
-										/>
-										<p className="text-gray-400 text-xs mt-1">
-											Click image to change. Recommended size: 400x300px
-										</p>
-									</div>
 								</div>
 
 								{/* Tile 2 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
 									<h4 className="text-white font-medium mb-4">Tile 2</h4>
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Title
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection6tile2title}
 												defaultValue={section6tile2title}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Description
 											</label>
 											<EditableElement
 												as="textarea"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-16"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm h-16"
 												onTextChange={setSection6tile2description}
 												defaultValue={section6tile2description}
 											/>
 										</div>
 									</div>
-									<div className="mt-4">
-										<label className="block text-gray-300 text-xs mb-2">
-											Card Image
-										</label>
-										<EditableImage
-											src={section6tile2image}
-											alt="Section 6 Tile 2 Image"
-											width={200}
-											height={150}
-											className="w-full h-32 object-cover rounded border border-gray-600"
-											onImageChange={setSection6tile2image}
-										/>
-										<p className="text-gray-400 text-xs mt-1">
-											Click image to change. Recommended size: 400x300px
-										</p>
-									</div>
 								</div>
 
 								{/* Tile 3 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
 									<h4 className="text-white font-medium mb-4">Tile 3</h4>
 									<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Title
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection6tile3title}
 												defaultValue={section6tile3title}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Description
 											</label>
 											<EditableElement
 												as="textarea"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-16"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm h-16"
 												onTextChange={setSection6tile3description}
 												defaultValue={section6tile3description}
 											/>
 										</div>
-									</div>
-									<div className="mt-4">
-										<label className="block text-gray-300 text-xs mb-2">
-											Card Image
-										</label>
-										<EditableImage
-											src={section6tile3image}
-											alt="Section 6 Tile 3 Image"
-											width={200}
-											height={150}
-											className="w-full h-32 object-cover rounded border border-gray-600"
-											onImageChange={setSection6tile3image}
-										/>
-										<p className="text-gray-400 text-xs mt-1">
-											Click image to change. Recommended size: 400x300px
-										</p>
 									</div>
 								</div>
 							</div>
@@ -946,20 +822,20 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* ***************************************************************
 						SECTION 7: FAQ ACCORDION
 					****************************************************************/}
-					<section className="bg-gray-900 p-8 rounded-lg mb-12">
-						<h2 className="text-2xl text-white font-bold mb-8">
+					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
+						<h2 className="text-xl text-brand-black font-bold mb-4">
 							Section 7 - FAQ Accordion
 						</h2>
 
 						<div className="space-y-6">
 							{/* Section Title */}
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Section Title
 								</label>
 								<EditableElement
 									as="input"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setSection7title}
 									defaultValue={section7title}
 								/>
@@ -971,22 +847,22 @@ export default function HomeAdminInputs(props: HomePageProps) {
 							{/* FAQ Items */}
 							<div className="space-y-6">
 								{/* FAQ 1 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
-									<h4 className="text-white font-medium mb-4">FAQ 1</h4>
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
+									<h4 className="text-white font-medium mb-3">FAQ 1</h4>
 									<div className="grid grid-cols-1 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Question
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection7faq1question}
 												defaultValue={section7faq1question}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Answer
 											</label>
 											<EditableElement
@@ -1000,22 +876,22 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</div>
 
 								{/* FAQ 2 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
-									<h4 className="text-white font-medium mb-4">FAQ 2</h4>
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
+									<h4 className="text-white font-medium mb-3">FAQ 2</h4>
 									<div className="grid grid-cols-1 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Question
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection7faq2question}
 												defaultValue={section7faq2question}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Answer
 											</label>
 											<EditableElement
@@ -1029,22 +905,22 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</div>
 
 								{/* FAQ 3 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
-									<h4 className="text-white font-medium mb-4">FAQ 3</h4>
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
+									<h4 className="text-white font-medium mb-3">FAQ 3</h4>
 									<div className="grid grid-cols-1 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Question
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection7faq3question}
 												defaultValue={section7faq3question}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Answer
 											</label>
 											<EditableElement
@@ -1058,22 +934,22 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</div>
 
 								{/* FAQ 4 */}
-								<div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
-									<h4 className="text-white font-medium mb-4">FAQ 4</h4>
+								<div className="bg-brand-black p-3 rounded-lg border border-gray-700">
+									<h4 className="text-white font-medium mb-3">FAQ 4</h4>
 									<div className="grid grid-cols-1 gap-4">
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Question
 											</label>
 											<EditableElement
 												as="input"
-												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection7faq4question}
 												defaultValue={section7faq4question}
 											/>
 										</div>
 										<div>
-											<label className="block text-gray-300 text-xs mb-1">
+											<label className="block text-brand-black/70 text-xs mb-1">
 												Answer
 											</label>
 											<EditableElement
@@ -1093,17 +969,17 @@ export default function HomeAdminInputs(props: HomePageProps) {
 						SECTION 1: FEATURES
 					****************************************************************/}
 					{/* <section className="bg-gray-900 p-8 rounded-lg mb-12">
-						<h2 className="text-2xl text-white font-bold mb-8">Section 1</h2>
+						<h2 className="text-xl text-brand-black font-bold mb-4">Section 1</h2>
 						<div className="space-y-6">
 							
 
 							<div className="grid grid-cols-2 md:grid-cols-4 gap-8">
 								{[1, 2, 3, 4].map((num, index) => (
 									<div key={num} className="space-y-4">
-										<label className="block text-white text-sm font-medium mb-2">
+										<label className="block text-brand-black text-sm font-medium mb-2">
 											Feature {num}
 										</label>
-										<div className="aspect-square bg-gray-800 rounded-lg overflow-hidden">
+										<div className="aspect-square bg-brand-black rounded-lg overflow-hidden">
 											<EditableImage
 												src={
 													section1Images[
@@ -1125,7 +1001,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 										</div>
 										<EditableElement
 											as="textarea"
-											className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+											className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 											onTextChange={
 												[
 													setSection1tile1,
@@ -1150,12 +1026,12 @@ export default function HomeAdminInputs(props: HomePageProps) {
 							
 
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Section Summary
 								</label>
 								<EditableElement
 									as="textarea"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setSection1paragraph}
 									defaultValue={section1paragraph}
 								/>
@@ -1166,12 +1042,12 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* <section className="bg-gray-900 p-8 rounded-lg mb-12">
 						<div className="space-y-6">
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Section Title
 								</label>
 								<EditableElement
 									as="input"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									defaultValue={section2title}
 									onTextChange={setSection2title}
 								/>
@@ -1182,11 +1058,11 @@ export default function HomeAdminInputs(props: HomePageProps) {
 							<div className="grid md:grid-cols-2 gap-8">
 								
 
-								<div className="space-y-4">
-									<label className="block text-white text-sm font-medium mb-2">
+								<div className="space-y-3">
+									<label className="block text-brand-black text-sm font-medium mb-2">
 										Desktop Image
 									</label>
-									<div className="aspect-square bg-gray-800 rounded-lg overflow-hidden">
+									<div className="aspect-square bg-brand-black rounded-lg overflow-hidden">
 										<EditableImage
 											src={section2ImageDesktop}
 											alt="Section 2 Desktop Image"
@@ -1198,7 +1074,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 										/>
 									</div>
 									<p className="text-gray-400 text-xs">
-										Click image to change. Recommended size: 1000x1000px
+										Click image to change
 									</p>
 								</div>
 							</div>
@@ -1211,23 +1087,23 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* <section className="bg-gray-900 p-8 rounded-lg mb-12">
 						<div className="space-y-6">
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Section Title
 								</label>
 								<EditableElement
 									as="input"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									defaultValue={section3title}
 									onTextChange={setSection3title}
 								/>
 							</div>
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Section Paragraph
 								</label>
 								<EditableElement
 									as="textarea"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									defaultValue={section3paragraph}
 									onTextChange={setSection3paragraph}
 								/>
@@ -1236,13 +1112,13 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* ************************** Profile Images **************************/}
 
 					{/* <div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Profile Images
 								</label>
 								<div className="grid grid-cols-3 md:grid-cols-6 gap-4">
 									{[1, 2, 3, 4, 5, 6].map((index) => (
 										<div key={index} className="space-y-2">
-											<div className="aspect-[9/16] bg-gray-800 rounded-lg overflow-hidden">
+											<div className="aspect-[9/16] bg-brand-black rounded-lg overflow-hidden">
 												<EditableImage
 													src={
 														section3Images[
@@ -1269,7 +1145,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 									))}
 								</div>
 								<p className="text-gray-400 text-xs mt-2">
-									Click images to change. Recommended size: 180x320px
+									Click images to change
 								</p>
 							</div>
 						</div>
@@ -1287,10 +1163,10 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* ************************** Desktop Image **************************/}
 
 					{/* <div className="space-y-4 flex flex-col justify-start items-start h-full w-full">
-									<label className="block text-white text-sm font-medium mb-2">
+									<label className="block text-brand-black text-sm font-medium mb-2">
 										Mobile Image
 									</label>
-									<div className=" bg-gray-800  overflow-hidden">
+									<div className=" bg-brand-black  overflow-hidden">
 										<EditableImage
 											src={section4ImageDesktop}
 											alt="Section 4 Desktop Image"
@@ -1316,23 +1192,23 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* <section className="bg-gray-900 p-8 rounded-lg mb-12">
 						<div className="space-y-6">
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									Section Title
 								</label>
 								<EditableElement
 									as="input"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									defaultValue={section5title}
 									onTextChange={setSection5title}
 								/>
 							</div>
 							<div>
-								<label className="block text-white text-sm font-medium mb-2">
+								<label className="block text-brand-black text-sm font-medium mb-2">
 									First Paragraph
 								</label>
 								<EditableElement
 									as="textarea"
-									className="w-full p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									defaultValue={section5paragraph1}
 									onTextChange={setSection5paragraph1}
 								/>
@@ -1342,11 +1218,11 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
 								{[...Array(8)].map((_, index) => (
 									<div key={index} className="space-y-4">
-										<label className="block text-white text-sm font-medium mb-2">
+										<label className="block text-brand-black text-sm font-medium mb-2">
 											Feature {index + 1}
 										</label>
 										<div className="flex space-x-2">
-											<div className="w-12 h-12 bg-gray-800 rounded-lg overflow-hidden">
+											<div className="w-12 h-12 bg-brand-black rounded-lg overflow-hidden">
 												<EditableImage
 													src={section5Features.icons[index]}
 													alt={`Feature ${index + 1} icon`}
@@ -1366,7 +1242,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 											</div>
 											<EditableElement
 												as="input"
-												className="flex-1 p-3 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+												className="flex-1 p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 												defaultValue={section5Features.texts[index]}
 												onTextChange={(value) => {
 													const newTexts = [...section5Features.texts];
@@ -1387,10 +1263,10 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* <div className="grid md:grid-cols-2 gap-8"> */}
 					{/* Detail Image */}
 					{/* <div className="space-y-4">
-									<label className="block text-white text-sm font-medium mb-2">
+									<label className="block text-brand-black text-sm font-medium mb-2">
 										Detail Image
 									</label>
-									<div className="aspect-video bg-gray-800 rounded-lg overflow-hidden">
+									<div className="aspect-video bg-brand-black rounded-lg overflow-hidden">
 										<EditableImage
 											src={section5DetailImage}
 											alt="Section 5 Detail Image"
@@ -1402,16 +1278,16 @@ export default function HomeAdminInputs(props: HomePageProps) {
 										/>
 									</div>
 									<p className="text-gray-400 text-xs">
-										Click image to change. Recommended size: 800x600px
+										Click image to change
 									</p>
 								</div> */}
 
 					{/* ************************** Feature Image **************************/}
 					{/* <div className="space-y-4">
-									<label className="block text-white text-sm font-medium mb-2">
+									<label className="block text-brand-black text-sm font-medium mb-2">
 										Feature Image
 									</label>
-									<div className="aspect-video bg-gray-800 rounded-lg overflow-hidden">
+									<div className="aspect-video bg-brand-black rounded-lg overflow-hidden">
 										<EditableImage
 											src={section5FeatureImage}
 											alt="Section 5 Feature Image"
@@ -1423,7 +1299,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 										/>
 									</div>
 									<p className="text-gray-400 text-xs">
-										Click image to change. Recommended size: 1000x800px
+										Click image to change
 									</p>
 								</div>
 							</div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -11,10 +12,16 @@ import BubbleMenuMobile from "./BubbleMenuMobile";
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isLoaded, setIsLoaded] = useState(false);
+	const pathname = usePathname();
 
 	useEffect(() => {
 		setIsLoaded(true);
 	}, []);
+
+	// Don't render header on admin pages
+	if (pathname?.startsWith('/admin')) {
+		return null;
+	}
 
 	// coding notes format
 
