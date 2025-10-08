@@ -119,7 +119,10 @@ export default function Section5({ content }: Section5Props) {
 						<motion.div
 							variants={buttonVariants}
 						>
-							<BWestSmallButton text={content.section5buttonText} />
+							<BWestSmallButton
+								text={content.section5buttonText}
+								onClick={() => window.location.href = '/contact'}
+							/>
 						</motion.div>
 					</div>
 				</motion.div>

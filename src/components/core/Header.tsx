@@ -83,7 +83,10 @@ const Header = () => {
 						Right Column - Action Buttons (Hidden on mobile)
 					************************************************************/}
 					<div className="hidden lg:flex items-center gap-4 bg-brand-cream rounded-full px-6 py-5">
-						<BWestSmallButton text="Start in 60 seconds" />
+						<BWestSmallButton
+							text="Start in 60 seconds"
+							onClick={() => window.location.href = '/contact'}
+						/>
 						<button className=" border border-brand-black rounded-full text-brand-black hover:bg-brand-black hover:text-white transition-colors text-sm px-8 py-2">
 							How it works
 						</button>

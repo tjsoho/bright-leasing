@@ -52,7 +52,7 @@ export default function Blog() {
         <p className="text-brand-black/70  mx-auto mb-24">
           Stay informed with our latest insights, tips, and updates on novated leasing and automotive finance.
         </p>
-      
+
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"

@@ -7,7 +7,6 @@ import Section5 from "../components/Home/Section5";
 import Section4 from "@/components/Home/Section4";
 import Section6 from "@/components/Home/Section6";
 import Section7 from "@/components/Home/Section7";
-import Footer from "@/components/core/Footer";
 
 // Disable caching for this page to ensure fresh content
 export const dynamic = 'force-dynamic';
@@ -49,10 +48,6 @@ export default async function Home() {
 					<Section7 content={homePage.content} />
 				</div>
 			</div>
-			{/* ***************************************************************
-			   FOOTER 
-        ****************************************************************/}
-			<Footer />
 		</main>
 	);
 }

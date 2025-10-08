@@ -107,7 +107,10 @@ export default function Hero({ content }: HeroProps) {
                             variants={buttonVariants}
                             className="flex flex-col gap-4 max-w-xs"
                         >
-                            <BWestButton text='Start in 60 Seconds' />
+                            <BWestButton
+                                text='Start in 60 Seconds'
+                                onClick={() => window.location.href = '/contact'}
+                            />
                         </motion.div>
                     </div>
                 </motion.div>
