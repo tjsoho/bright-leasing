@@ -138,7 +138,7 @@ const BubbleMenuMobile = ({ isOpen, onClose }: BubbleMenuMobileProps) => {
                                 exit={{ opacity: 0, y: 20, transition: { delay: 0.1, duration: 0.2 } }}
                                 transition={{ delay: 0.8, duration: 0.3 }}
                             >
-                                <BWestSmallButton text="Start In 60 Seconds" variant="inverted" />
+                                <BWestSmallButton text="Start In 60 Seconds" variant="inverted" onClick={() => window.location.href = '/contact'}/>
                             </motion.div>
                         </motion.div>
 

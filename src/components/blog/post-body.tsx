@@ -4,22 +4,20 @@ type Props = {
 
 export function PostBody({ content }: Props) {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div
-        className="prose prose-lg prose-invert mx-auto
-          prose-headings:text-white
-          prose-p:text-white/80
-          prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300
-          prose-strong:text-white
-          prose-ul:text-white/80
-          prose-ol:text-white/80
-          prose-blockquote:text-white/60 prose-blockquote:border-white/20
-          prose-hr:border-white/20
-          prose-img:rounded-none
-          prose-code:text-white/80
-          prose-pre:bg-white/5 prose-pre:border prose-pre:border-white/20"
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
-    </div>
+    <div
+      className="prose prose-lg mx-auto
+        prose-headings:text-brand-black
+        prose-p:text-brand-black
+        prose-a:text-brand-teal prose-a:no-underline hover:prose-a:text-brand-yellow
+        prose-strong:text-brand-black
+        prose-ul:text-brand-black
+        prose-ol:text-brand-black
+        prose-blockquote:text-brand-black/70 prose-blockquote:border-brand-black/20
+        prose-hr:border-brand-black/20
+        prose-img:rounded-lg prose-img:shadow-lg
+        prose-code:text-brand-black prose-code:bg-brand-cream/50
+        prose-pre:bg-brand-cream/30 prose-pre:border prose-pre:border-brand-black/20"
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
   );
 }
