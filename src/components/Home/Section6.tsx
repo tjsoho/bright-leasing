@@ -191,17 +191,17 @@ export default function Section6({ content }: Section6Props) {
 						<div className="flex gap-2">
 							<button
 								onClick={() => carouselApi?.scrollPrev()}
-								className="w-10 h-10  border border-brand-yellow/50 rounded-full flex items-center justify-center hover:bg-brand-teal/10 hover:border-brand-teal/40 transition-all duration-300 group"
+								className="w-10 h-10  border border-gray-400 rounded-full flex items-center justify-center hover:border-black transition-all duration-300 group"
 							>
-								<svg className="w-5 h-5 text-brand-yellow group-hover:text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<svg className="w-5 h-5 text-gray-400 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
 								</svg>
 							</button>
 							<button
 								onClick={() => carouselApi?.scrollNext()}
-								className="w-10 h-10  border border-brand-yellow/50 rounded-full flex items-center justify-center hover:bg-brand-teal/10 hover:border-brand-teal/40 transition-all duration-300 group"
+								className="w-10 h-10  border border-gray-400 rounded-full flex items-center justify-center hover:border-black transition-all duration-300 group"
 							>
-								<svg className="w-5 h-5 text-brand-yellow group-hover:text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<svg className="w-5 h-5 text-gray-400 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
 								</svg>
 							</button>

@@ -162,6 +162,29 @@ const Footer = () => {
                 </motion.div>
 
                 {/* ************************************************************
+                            COMPANY CONTACT DETAILS - Horizontal row
+                        ************************************************************ */}
+                <motion.div
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate={isInView ? "show" : "hidden"}
+                    className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 text-sm mt-8"
+                >
+                    <div className="text-white/70">
+                        <span className="font-semibold text-white">Phone:</span> 1300 988 938
+                    </div>
+                    <div className="text-white/70">
+                        <span className="font-semibold text-white">Address:</span> PO Box 3107, Putney NSW 2112
+                    </div>
+                    <div className="text-white/70">
+                        <span className="font-semibold text-white">ABN:</span> 20 668 482 975
+                    </div>
+                    <div className="text-white/70">
+                        <span className="font-semibold text-white">ACN:</span> 668 482 975
+                    </div>
+                </motion.div>
+
+                {/* ************************************************************
             COPYRIGHT - Bottom section
         ************************************************************ */}
                 <motion.div

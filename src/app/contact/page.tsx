@@ -11,7 +11,9 @@ export default function Contact() {
         email: '',
         phone: '',
         subject: '',
-        message: ''
+        message: '',
+        userType: '',
+        companyName: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -42,6 +44,8 @@ export default function Contact() {
                     phone: formData.phone,
                     subject: formData.subject,
                     message: formData.message,
+                    userType: formData.userType,
+                    companyName: formData.companyName,
                     from_name: 'Bright Leasing Contact Form',
                     reply_to: formData.email,
                 }),
@@ -56,7 +60,9 @@ export default function Contact() {
                     email: '',
                     phone: '',
                     subject: '',
-                    message: ''
+                    message: '',
+                    userType: '',
+                    companyName: ''
                 });
             } else {
                 setSubmitStatus('error');
@@ -204,6 +210,60 @@ export default function Contact() {
                                                 placeholder="your@email.com"
                                             />
                                         </div>
+                                    </div>
+
+                                    {/* ************************************************************
+                                            USER TYPE SELECTION
+                                    ************************************************************ */}
+                                    <div>
+                                        <label className="block text-sm font-medium text-brand-black mb-3">
+                                            I am a: *
+                                        </label>
+                                        <div className="flex flex-col sm:flex-row gap-4">
+                                            <label className="flex items-center space-x-3 cursor-pointer">
+                                                <input
+                                                    type="radio"
+                                                    name="userType"
+                                                    value="Employee"
+                                                    checked={formData.userType === 'Employee'}
+                                                    onChange={handleInputChange}
+                                                    required
+                                                    className="w-4 h-4 text-brand-yellow border-brand-yellow/30 focus:ring-brand-yellow focus:ring-2"
+                                                />
+                                                <span className="text-brand-black font-medium">Employee</span>
+                                            </label>
+                                            <label className="flex items-center space-x-3 cursor-pointer">
+                                                <input
+                                                    type="radio"
+                                                    name="userType"
+                                                    value="Employer"
+                                                    checked={formData.userType === 'Employer'}
+                                                    onChange={handleInputChange}
+                                                    required
+                                                    className="w-4 h-4 text-brand-yellow border-brand-yellow/30 focus:ring-brand-yellow focus:ring-2"
+                                                />
+                                                <span className="text-brand-black font-medium">Employer</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    {/* ************************************************************
+                                            COMPANY NAME FIELD
+                                    ************************************************************ */}
+                                    <div>
+                                        <label htmlFor="companyName" className="block text-sm font-medium text-brand-black mb-2">
+                                            Company Name *
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="companyName"
+                                            name="companyName"
+                                            value={formData.companyName}
+                                            onChange={handleInputChange}
+                                            required
+                                            className="w-full px-4 py-3 border border-brand-yellow/30 rounded-xl focus:border-brand-yellow focus:outline-none bg-brand-cream/30 transition-colors"
+                                            placeholder="Your company name"
+                                        />
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

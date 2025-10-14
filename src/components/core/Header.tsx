@@ -58,23 +58,20 @@ const Header = () => {
 							</div>
 							{/* Navigation Tabs - Hidden on mobile */}
 							<div className="hidden lg:flex bg-brand-teal rounded-full p-1">
-								<button className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 hover:bg-white hover:text-brand-black hover:scale-105 group"
-								>
+								<Link href="/contact" className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 hover:bg-brand-yellow hover:text-brand-black hover:scale-105 group">
 									Employees
 									{/* add a plus icon to the right of the text */}
 									<svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
 									</svg>
-								</button>
-								<button
-									className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 hover:bg-brand-yellow hover:text-brand-black hover:scale-105 group"
-								>
+								</Link>
+								<Link href="/contact" className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 hover:bg-brand-yellow hover:text-brand-black hover:scale-105 group">
 									Employers
 									{/* add a plus icon to the right of the text */}
 									<svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
 									</svg>
-								</button>
+								</Link>
 							</div>
 						</motion.div>
 					</motion.div>
@@ -87,11 +84,11 @@ const Header = () => {
 							text="Start in 60 seconds"
 							onClick={() => window.location.href = '/contact'}
 						/>
-						<button className=" border border-brand-black rounded-full text-brand-black hover:bg-brand-black hover:text-white transition-colors text-sm px-8 py-2">
-							How it works
-						</button>
+						{/* <button className=" border border-brand-black rounded-full text-brand-black hover:bg-brand-black hover:text-white transition-colors text-sm px-8 py-2">
+							Login
+						</button> */}
 						<div className="relative ">
-							<button
+							{/* <button
 								onClick={() => setIsMenuOpen(true)}
 								className="w-10 h-10 border border-brand-black rounded-full flex items-center justify-center hover:bg-brand-black hover:text-white transition-colors relative z-20"
 								aria-label="Open menu"
@@ -99,7 +96,7 @@ const Header = () => {
 								<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
 								</svg>
-							</button>
+							</button> */}
 
 							{/* Desktop Bubble Menu */}
 							<BubbleMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
