@@ -37,16 +37,16 @@ const Footer = () => {
         {
             title: "Company",
             links: [
-                { label: "About Us", href: "/about-us" },
-                { label: "Team", href: "/team" },
+                
                 { label: "Blog", href: "/blog" }
             ]
         },
         {
             title: "Services",
             links: [
-                { label: "Employees", href: "/services" },
-                { label: "Employers", href: "/services" }
+                { label: "Employees", href: "/contact" },
+                { label: "Employers", href: "/contact" },
+                { label: "Admin", href: "/admin" }
             ]
         },
         {
