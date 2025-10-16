@@ -9,238 +9,114 @@
 ************************************************************ */
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { SaveBanner } from "@/components/core/save-banner";
 import { EditableElement } from "@/components/core/input";
-import { supabase } from "@/lib/supabase";
+import useUpdatePage from "@/utils/hooks/useUpdatePage";
 
 /* ************************************************************
                         INTERFACES
 ************************************************************ */
-interface PrivacyPolicyData {
-    id: string;
-    content: string;
-    updated_at: string;
+interface PrivacyPolicyContent {
+    section1: string;
+    section2: string;
+    section3: string;
+    section4: string;
+    section5: string;
+    section6: string;
+    section7: string;
+    section8: string;
+    section9: string;
+    section10: string;
+    section11: string;
+    section12: string;
+    section13: string;
+    section14: string;
+    section15: string;
+    section16: string;
+    section17: string;
+    section18: string;
+    section19: string;
+    section20: string;
+    section21: string;
+    section22: string;
+    section23: string;
+}
+
+interface PrivacyPolicyProps {
+    title: string;
+    description: string;
+    slug: string;
+    content: PrivacyPolicyContent;
 }
 
 /* ************************************************************
                         COMPONENTS
 ************************************************************ */
-export default function PrivacyPolicyInputs() {
+export default function PrivacyPolicyInputs(props: PrivacyPolicyProps) {
     /* ************************************************************
                             HOOKS
     ************************************************************ */
-    const [section1, setSection1] = useState("We may collect personal information including identity, employment, financial, vehicle, communications, analytics and supporting documents.");
-    const [section2, setSection2] = useState("We collect information directly from you, your employer, dealers, lenders, insurers and via website cookies.");
-    const [section3, setSection3] = useState("To provide novated leasing services, verify identity, manage payroll, communicate and comply with legal obligations.");
-    const [section4, setSection4] = useState("Handled in accordance with the Privacy Act and relevant credit reporting rules.");
-    const [section5, setSection5] = useState("We may disclose information to lenders, dealers, employers, IT providers and regulators.");
-    const [section6, setSection6] = useState("Some service providers may store or access data outside Australia.");
-    const [section7, setSection7] = useState("We may send you updates about products, offers and tips. You can opt out at any time.");
-    const [section8, setSection8] = useState("We use cookies and similar technologies to operate and improve the site.");
-    const [section9, setSection9] = useState("We use reasonable measures to protect information from misuse or unauthorised access.");
-    const [section10, setSection10] = useState("You may request access to or correction of your personal information.");
-    const [section11, setSection11] = useState("We keep information as needed to meet legal and operational requirements.");
-    const [section12, setSection12] = useState("If a data breach is likely to cause serious harm, we will notify affected individuals and the OAIC.");
-    const [section13, setSection13] = useState("If you are concerned about privacy, contact us. You may also contact OAIC if unsatisfied.");
-    const [section14, setSection14] = useState("We may update this Privacy Policy from time to time.");
-    const [section15, setSection15] = useState("Brightwork Group Pty Ltd trading as Bright Leasing (ABN 20 688 482 975)\nEmail: privacy@brightleasing.com.au\nPhone: 1300 988 938\nAddress: PO Box 3107, Putney NSW 2112");
-    const [section16, setSection16] = useState("You agree to indemnify Bright Leasing and its officers, employees and agents against all claims, losses, damages, costs (including legal costs) arising out of your breach of these Terms or misuse of our services.");
-    const [section17, setSection17] = useState("You must not use robots, spiders, data-mining tools or other automated means to access, extract or copy content from our website or services without our prior written consent.");
-    const [section18, setSection18] = useState("We may change these Terms, Privacy Policy or Terms of Use at any time by publishing a revised version on our Site with an updated effective date. Continued use after the revision indicates your acceptance. We may also notify you via email or site banner.");
-    const [section19, setSection19] = useState("Clauses such as liability, indemnity, confidentiality, intellectual property, and governing law survive termination or expiry of these agreements.");
-    const [section20, setSection20] = useState("All notices under these agreements must be in writing, and delivered via email (to your registered email), or by post to the address provided. Notices are effective on receipt (or 3 business days if by post).");
-    const [section21, setSection21] = useState("If a provision is invalid or unenforceable, it must be read down or severed, and the rest of the Terms remain in force.");
-    const [section22, setSection22] = useState("These Terms, together with any proposal or documentation expressly referring to them, constitute the entire agreement. In the event of conflict, these Terms prevail unless otherwise stated in the proposal.");
-    const [section23, setSection23] = useState("If a data breach is likely to result in serious harm, we will notify affected individuals and the OAIC in accordance with the Notifiable Data Breaches scheme under the Privacy Act.");
+    const [section1, setSection1] = useState(props.content.section1);
+    const [section2, setSection2] = useState(props.content.section2);
+    const [section3, setSection3] = useState(props.content.section3);
+    const [section4, setSection4] = useState(props.content.section4);
+    const [section5, setSection5] = useState(props.content.section5);
+    const [section6, setSection6] = useState(props.content.section6);
+    const [section7, setSection7] = useState(props.content.section7);
+    const [section8, setSection8] = useState(props.content.section8);
+    const [section9, setSection9] = useState(props.content.section9);
+    const [section10, setSection10] = useState(props.content.section10);
+    const [section11, setSection11] = useState(props.content.section11);
+    const [section12, setSection12] = useState(props.content.section12);
+    const [section13, setSection13] = useState(props.content.section13);
+    const [section14, setSection14] = useState(props.content.section14);
+    const [section15, setSection15] = useState(props.content.section15);
+    const [section16, setSection16] = useState(props.content.section16);
+    const [section17, setSection17] = useState(props.content.section17);
+    const [section18, setSection18] = useState(props.content.section18);
+    const [section19, setSection19] = useState(props.content.section19);
+    const [section20, setSection20] = useState(props.content.section20);
+    const [section21, setSection21] = useState(props.content.section21);
+    const [section22, setSection22] = useState(props.content.section22);
+    const [section23, setSection23] = useState(props.content.section23);
 
-    const [isLoading, setIsLoading] = useState(true);
-    const [isSaving, setIsSaving] = useState(false);
-    const [saveStatus, setSaveStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
+    const { isSaving, updatePage } = useUpdatePage<PrivacyPolicyContent>("privacy-policy");
 
     /* ************************************************************
                             FUNCTIONS
     ************************************************************ */
-    useEffect(() => {
-        const fetchPrivacyPolicy = async () => {
-            try {
-                const { data, error } = await supabase
-                    .from('privacy_policy')
-                    .select('*')
-                    .single();
-
-                if (error) {
-                    if (error.code === 'PGRST116') {
-                        // No rows found - this is expected for new installations
-                        console.log('No privacy policy found, using default content');
-                        setContent("");
-                    } else if (error.code === '42P01') {
-                        // Table doesn't exist - need to run migration
-                        console.error('Privacy policy table does not exist. Please run the database migration.');
-                        setContent("");
-                    } else {
-                        console.error('Error fetching privacy policy:', error);
-                        setContent("");
-                    }
-                } else {
-                    setContent(data?.content || "");
-                }
-            } catch (error) {
-                console.error('Unexpected error:', error);
-                setContent("");
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchPrivacyPolicy();
-    }, []);
-
     const handleSave = async () => {
-        setIsSaving(true);
-        setSaveStatus('idle');
-
-        try {
-            // Create HTML content from all sections
-            const htmlContent = `
-        <div class="space-y-8">
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">1. What We Collect</h2>
-            <p class="text-brand-black/80">${section1}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">2. How We Collect Information</h2>
-            <p class="text-brand-black/80">${section2}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">3. Why We Collect, Use & Disclose</h2>
-            <p class="text-brand-black/80">${section3}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">4. Credit-Related Information</h2>
-            <p class="text-brand-black/80">${section4}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">5. Disclosures to Third Parties</h2>
-            <p class="text-brand-black/80">${section5}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">6. Overseas Disclosures</h2>
-            <p class="text-brand-black/80">${section6}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">7. Marketing</h2>
-            <p class="text-brand-black/80">${section7}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">8. Cookies & Website Analytics</h2>
-            <p class="text-brand-black/80">${section8}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">9. Security</h2>
-            <p class="text-brand-black/80">${section9}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">10. Access & Correction</h2>
-            <p class="text-brand-black/80">${section10}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">11. Retention</h2>
-            <p class="text-brand-black/80">${section11}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">12. Notifiable Data Breaches</h2>
-            <p class="text-brand-black/80">${section12}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">13. Complaints</h2>
-            <p class="text-brand-black/80">${section13}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">14. Changes to this Policy</h2>
-            <p class="text-brand-black/80">${section14}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">15. Contact Us</h2>
-            <p class="text-brand-black/80">${section15.replace(/\n/g, '<br />')}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">16. Indemnity</h2>
-            <p class="text-brand-black/80">${section16}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">17. Prohibited Conduct</h2>
-            <p class="text-brand-black/80">${section17}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">18. Variation of Terms</h2>
-            <p class="text-brand-black/80">${section18}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">19. Survival Clause</h2>
-            <p class="text-brand-black/80">${section19}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">20. Notices</h2>
-            <p class="text-brand-black/80">${section20}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">21. Severability</h2>
-            <p class="text-brand-black/80">${section21}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">22. Entire Agreement</h2>
-            <p class="text-brand-black/80">${section22}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">23. Data Breach Notification</h2>
-            <p class="text-brand-black/80">${section23}</p>
-          </div>
-        </div>
-      `;
-
-            const { error } = await supabase
-                .from('privacy_policy')
-                .upsert({
-                    id: 'privacy-policy-1',
-                    content: htmlContent,
-                    updated_at: new Date().toISOString()
-                });
-
-            if (error) {
-                if (error.code === '42P01') {
-                    console.error('Privacy policy table does not exist. Please run the database migration first.');
-                    setSaveStatus('error');
-                } else {
-                    console.error('Error saving privacy policy:', error);
-                    setSaveStatus('error');
-                }
-            } else {
-                setSaveStatus('success');
-                setTimeout(() => setSaveStatus('idle'), 3000);
+        await updatePage({
+            title: props.title,
+            description: props.description,
+            slug: props.slug,
+            content: {
+                section1,
+                section2,
+                section3,
+                section4,
+                section5,
+                section6,
+                section7,
+                section8,
+                section9,
+                section10,
+                section11,
+                section12,
+                section13,
+                section14,
+                section15,
+                section16,
+                section17,
+                section18,
+                section19,
+                section20,
+                section21,
+                section22,
+                section23,
             }
-        } catch (error) {
-            console.error('Unexpected error:', error);
-            setSaveStatus('error');
-        } finally {
-            setIsSaving(false);
-        }
-    };
-
-    /* ************************************************************
-                            ANIMATION VARIANTS
-    ************************************************************ */
-    const containerVariants = {
-        hidden: { opacity: 0, y: 20 },
-        show: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                ease: [0.4, 0, 0.2, 1] as const
-            }
-        }
+        });
     };
 
     /* ************************************************************
@@ -252,7 +128,6 @@ export default function PrivacyPolicyInputs() {
                 pageTitle="Privacy Policy"
                 onSave={handleSave}
                 isSaving={isSaving}
-                saveStatus={saveStatus}
             />
 
             <div className="min-h-screen bg-white">
@@ -297,7 +172,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section2}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    Methods we use to collect personal information
+                                    Methods and sources of data collection
                                 </p>
                             </div>
                         </div>
@@ -343,7 +218,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section4}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    How we handle credit-related information
+                                    Handling of credit-related information
                                 </p>
                             </div>
                         </div>
@@ -389,7 +264,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section6}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    Information about overseas data transfers
+                                    International data transfers and storage
                                 </p>
                             </div>
                         </div>
@@ -412,7 +287,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section7}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    How we use information for marketing purposes
+                                    Marketing communications and opt-out options
                                 </p>
                             </div>
                         </div>
@@ -435,7 +310,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section8}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    How we use cookies and analytics
+                                    Use of cookies and website tracking
                                 </p>
                             </div>
                         </div>
@@ -458,7 +333,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section9}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    How we protect your personal information
+                                    Data security measures and protections
                                 </p>
                             </div>
                         </div>
@@ -481,7 +356,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section10}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    Your rights to access and correct your information
+                                    User rights to access and correct personal information
                                 </p>
                             </div>
                         </div>
@@ -504,7 +379,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section11}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    How long we keep your information
+                                    How long we keep personal information
                                 </p>
                             </div>
                         </div>
@@ -527,7 +402,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section12}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    Our obligations regarding data breaches
+                                    Data breach notification procedures
                                 </p>
                             </div>
                         </div>
@@ -550,7 +425,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section13}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    How to make a privacy complaint
+                                    How to make privacy complaints
                                 </p>
                             </div>
                         </div>
@@ -573,7 +448,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section14}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    How we notify you of policy changes
+                                    How we notify users of policy changes
                                 </p>
                             </div>
                         </div>
@@ -596,7 +471,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section15}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    How to contact us about privacy matters
+                                    Contact information for privacy inquiries
                                 </p>
                             </div>
                         </div>
@@ -605,7 +480,7 @@ export default function PrivacyPolicyInputs() {
                     {/* ***************************************************************
               SECTION 16: INDEMNITY
           ****************************************************************/}
-                    <section className="bg-brand-yellow/10 border border-brand-yellow/20 p-8 rounded-2xl mb-12">
+                    <section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
                         <h2 className="text-xl text-brand-black font-bold mb-4">Section 16 - Indemnity</h2>
                         <div className="space-y-6">
                             <div>
@@ -619,7 +494,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section16}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    Indemnity clause for terms and conditions
+                                    Indemnity clauses
                                 </p>
                             </div>
                         </div>
@@ -628,7 +503,7 @@ export default function PrivacyPolicyInputs() {
                     {/* ***************************************************************
               SECTION 17: PROHIBITED CONDUCT
           ****************************************************************/}
-                    <section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
+                    <section className="bg-brand-yellow/10 border border-brand-yellow/20 p-8 rounded-2xl mb-12">
                         <h2 className="text-xl text-brand-black font-bold mb-4">Section 17 - Prohibited Conduct</h2>
                         <div className="space-y-6">
                             <div>
@@ -642,7 +517,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section17}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    Prohibited uses of our services
+                                    Prohibited uses of the website
                                 </p>
                             </div>
                         </div>
@@ -651,7 +526,7 @@ export default function PrivacyPolicyInputs() {
                     {/* ***************************************************************
               SECTION 18: VARIATION OF TERMS
           ****************************************************************/}
-                    <section className="bg-brand-yellow/10 border border-brand-yellow/20 p-8 rounded-2xl mb-12">
+                    <section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
                         <h2 className="text-xl text-brand-black font-bold mb-4">Section 18 - Variation of Terms</h2>
                         <div className="space-y-6">
                             <div>
@@ -665,7 +540,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section18}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    How we can change our terms
+                                    How terms may be changed
                                 </p>
                             </div>
                         </div>
@@ -674,7 +549,7 @@ export default function PrivacyPolicyInputs() {
                     {/* ***************************************************************
               SECTION 19: SURVIVAL CLAUSE
           ****************************************************************/}
-                    <section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
+                    <section className="bg-brand-yellow/10 border border-yellow/20 p-8 rounded-2xl mb-12">
                         <h2 className="text-xl text-brand-black font-bold mb-4">Section 19 - Survival Clause</h2>
                         <div className="space-y-6">
                             <div>
@@ -688,7 +563,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section19}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    Which clauses survive termination
+                                    Clauses that survive termination
                                 </p>
                             </div>
                         </div>
@@ -697,7 +572,7 @@ export default function PrivacyPolicyInputs() {
                     {/* ***************************************************************
               SECTION 20: NOTICES
           ****************************************************************/}
-                    <section className="bg-brand-yellow/10 border border-brand-yellow/20 p-8 rounded-2xl mb-12">
+                    <section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
                         <h2 className="text-xl text-brand-black font-bold mb-4">Section 20 - Notices</h2>
                         <div className="space-y-6">
                             <div>
@@ -711,7 +586,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section20}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    How we send notices to you
+                                    How notices are delivered
                                 </p>
                             </div>
                         </div>
@@ -720,7 +595,7 @@ export default function PrivacyPolicyInputs() {
                     {/* ***************************************************************
               SECTION 21: SEVERABILITY
           ****************************************************************/}
-                    <section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
+                    <section className="bg-brand-yellow/10 border border-brand-yellow/20 p-8 rounded-2xl mb-12">
                         <h2 className="text-xl text-brand-black font-bold mb-4">Section 21 - Severability</h2>
                         <div className="space-y-6">
                             <div>
@@ -734,7 +609,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section21}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    What happens if part of the terms is invalid
+                                    Severability of terms
                                 </p>
                             </div>
                         </div>
@@ -743,7 +618,7 @@ export default function PrivacyPolicyInputs() {
                     {/* ***************************************************************
               SECTION 22: ENTIRE AGREEMENT
           ****************************************************************/}
-                    <section className="bg-brand-yellow/10 border border-brand-yellow/20 p-8 rounded-2xl mb-12">
+                    <section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
                         <h2 className="text-xl text-brand-black font-bold mb-4">Section 22 - Entire Agreement</h2>
                         <div className="space-y-6">
                             <div>
@@ -757,7 +632,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section22}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    This agreement constitutes the entire agreement
+                                    Entire agreement clause
                                 </p>
                             </div>
                         </div>
@@ -766,7 +641,7 @@ export default function PrivacyPolicyInputs() {
                     {/* ***************************************************************
               SECTION 23: DATA BREACH NOTIFICATION
           ****************************************************************/}
-                    <section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
+                    <section className="bg-brand-yellow/10 border border-brand-yellow/20 p-8 rounded-2xl mb-12">
                         <h2 className="text-xl text-brand-black font-bold mb-4">Section 23 - Data Breach Notification</h2>
                         <div className="space-y-6">
                             <div>
@@ -780,7 +655,7 @@ export default function PrivacyPolicyInputs() {
                                     defaultValue={section23}
                                 />
                                 <p className="text-gray-400 text-xs mt-1">
-                                    Our data breach notification obligations
+                                    Data breach notification requirements
                                 </p>
                             </div>
                         </div>
@@ -794,4 +669,3 @@ export default function PrivacyPolicyInputs() {
 /* ************************************************************
                         EXPORTS
 ************************************************************ */
-// Default export is already declared above

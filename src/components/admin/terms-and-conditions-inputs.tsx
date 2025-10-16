@@ -9,274 +9,123 @@
 ************************************************************ */
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { SaveBanner } from "@/components/core/save-banner";
 import { EditableElement } from "@/components/core/input";
-import { supabase } from "@/lib/supabase";
+import useUpdatePage from "@/utils/hooks/useUpdatePage";
 
 /* ************************************************************
                         INTERFACES
 ************************************************************ */
-interface TermsAndConditionsData {
-    id: string;
-    content: string;
-    updated_at: string;
+interface TermsAndConditionsContent {
+    section1: string;
+    section2: string;
+    section3: string;
+    section4: string;
+    section5: string;
+    section6: string;
+    section7: string;
+    section8: string;
+    section9: string;
+    section10: string;
+    section11: string;
+    section12: string;
+    section13: string;
+    section14: string;
+    section15: string;
+    section16: string;
+    section17: string;
+    section18: string;
+    section19: string;
+    section20: string;
+    section21: string;
+    section22: string;
+    section23: string;
+    section24: string;
+    section25: string;
+    section26: string;
+}
+
+interface TermsAndConditionsProps {
+    title: string;
+    description: string;
+    slug: string;
+    content: TermsAndConditionsContent;
 }
 
 /* ************************************************************
                         COMPONENTS
 ************************************************************ */
-export default function TermsAndConditionsInputs() {
+export default function TermsAndConditionsInputs(props: TermsAndConditionsProps) {
     /* ************************************************************
                             HOOKS
     ************************************************************ */
-    const [section1, setSection1] = useState("These Terms & Conditions (Terms) apply to quotes, products and services provided by Brightwork Group Pty Ltd trading as Bright Leasing (Bright Leasing, we, us) including novated leasing and related salary-packaging services. By requesting or accepting a quote, proceeding with an application, or using our services, you agree to these Terms.");
-    const [section2, setSection2] = useState("We arrange novated leasing solutions and related services and may act as an introducer or broker to lenders, salary-packaging providers, dealers and insurers (Third Parties). We do not provide legal, tax or financial advice. Consider your circumstances and seek independent advice.");
-    const [section3, setSection3] = useState("Eligibility is subject to your employment status, employer participation in salary packaging, credit assessment, lending criteria and vehicle availability. You confirm information you provide is true, complete and not misleading.");
-    const [section4, setSection4] = useState("Quotes are illustrative only and subject to change until final approval and documentation by the relevant Third Parties.");
-    const [section5, setSection5] = useState("Fees and charges may be payable to us and/or Third Parties. We may receive commissions or other benefits from Third Parties. You may request details of such benefits.");
-    const [section6, setSection6] = useState("Novated leasing requires a deed of novation with your employer. If your employer does not participate or withdraws participation, your quote or arrangement may not proceed.");
-    const [section7, setSection7] = useState("Vehicle images and specifications are for illustration. Availability, price, specifications and delivery timeframes are set by dealers/manufacturers and are subject to change.");
-    const [section8, setSection8] = useState("Comprehensive insurance is typically required for financed vehicles. Inclusion of running costs in a budget does not guarantee coverage of actual expenses.");
-    const [section9, setSection9] = useState("Changes in employment, remuneration, tax rates, usage, interest rates or supplier pricing may affect your arrangement.");
-    const [section10, setSection10] = useState("Nothing in these Terms excludes or limits consumer guarantees under the Australian Consumer Law (ACL).");
-    const [section11, setSection11] = useState("To the maximum extent permitted by law, we are not liable for indirect or consequential loss.");
-    const [section12, setSection12] = useState("You must provide accurate and timely information and notify us of changes to your employment or contact details.");
-    const [section13, setSection13] = useState("We handle personal information in accordance with our Privacy Policy.");
-    const [section14, setSection14] = useState("We and/or our partners may be required to verify your identity and report certain transactions under Australian law.");
-    const [section15, setSection15] = useState("If you have a concern, contact us. We'll aim to resolve it promptly and may refer you to external dispute resolution schemes.");
-    const [section16, setSection16] = useState("We may update these Terms from time to time.");
-    const [section17, setSection17] = useState("These Terms are governed by the laws of New South Wales, Australia.");
-    const [section18, setSection18] = useState("Brightwork Group Pty Ltd trading as Bright Leasing (ABN 20 688 482 975)\nEmail: hello@brightleasing.com.au\nPhone: 1300 988 938\nAddress: PO Box 3107, Putney NSW 2112");
-    const [section19, setSection19] = useState("You agree to indemnify Bright Leasing and its officers, employees and agents against all claims, losses, damages, costs (including legal costs) arising out of your breach of these Terms or misuse of our services.");
-    const [section20, setSection20] = useState("You must not use robots, spiders, data-mining tools or other automated means to access, extract or copy content from our website or services without our prior written consent.");
-    const [section21, setSection21] = useState("We may change these Terms, Privacy Policy or Terms of Use at any time by publishing a revised version on our Site with an updated effective date. Continued use after the revision indicates your acceptance. We may also notify you via email or site banner.");
-    const [section22, setSection22] = useState("Clauses such as liability, indemnity, confidentiality, intellectual property, and governing law survive termination or expiry of these agreements.");
-    const [section23, setSection23] = useState("All notices under these agreements must be in writing, and delivered via email (to your registered email), or by post to the address provided. Notices are effective on receipt (or 3 business days if by post).");
-    const [section24, setSection24] = useState("If a provision is invalid or unenforceable, it must be read down or severed, and the rest of the Terms remain in force.");
-    const [section25, setSection25] = useState("These Terms, together with any proposal or documentation expressly referring to them, constitute the entire agreement. In the event of conflict, these Terms prevail unless otherwise stated in the proposal.");
-    const [section26, setSection26] = useState("If a data breach is likely to result in serious harm, we will notify affected individuals and the OAIC in accordance with the Notifiable Data Breaches scheme under the Privacy Act.");
+    const [section1, setSection1] = useState(props.content.section1 || "These Terms & Conditions (Terms) apply to quotes, products and services provided by Brightwork Group Pty Ltd trading as Bright Leasing (Bright Leasing, we, us) including novated leasing and related salary-packaging services. By requesting or accepting a quote, proceeding with an application, or using our services, you agree to these Terms.");
+    const [section2, setSection2] = useState(props.content.section2 || "We arrange novated leasing solutions and related services and may act as an introducer or broker to lenders, salary-packaging providers, dealers and insurers (Third Parties). We do not provide legal, tax or financial advice. Consider your circumstances and seek independent advice.");
+    const [section3, setSection3] = useState(props.content.section3 || "Eligibility is subject to your employment status, employer participation in salary packaging, credit assessment, lending criteria and vehicle availability. You confirm information you provide is true, complete and not misleading.");
+    const [section4, setSection4] = useState(props.content.section4 || "Quotes are illustrative only and subject to change until final approval and documentation by the relevant Third Parties.");
+    const [section5, setSection5] = useState(props.content.section5 || "Fees and charges may be payable to us and/or Third Parties. We may receive commissions or other benefits from Third Parties. You may request details of such benefits.");
+    const [section6, setSection6] = useState(props.content.section6 || "Novated leasing requires a deed of novation with your employer. If your employer does not participate or withdraws participation, your quote or arrangement may not proceed.");
+    const [section7, setSection7] = useState(props.content.section7 || "Vehicle images and specifications are for illustration. Availability, price, specifications and delivery timeframes are set by dealers/manufacturers and are subject to change.");
+    const [section8, setSection8] = useState(props.content.section8 || "Comprehensive insurance is typically required for financed vehicles. Inclusion of running costs in a budget does not guarantee coverage of actual expenses.");
+    const [section9, setSection9] = useState(props.content.section9 || "Changes in employment, remuneration, tax rates, usage, interest rates or supplier pricing may affect your arrangement.");
+    const [section10, setSection10] = useState(props.content.section10 || "Nothing in these Terms excludes or limits consumer guarantees under the Australian Consumer Law (ACL).");
+    const [section11, setSection11] = useState(props.content.section11 || "To the maximum extent permitted by law, we are not liable for indirect or consequential loss.");
+    const [section12, setSection12] = useState(props.content.section12 || "You must provide accurate and timely information and notify us of changes to your employment or contact details.");
+    const [section13, setSection13] = useState(props.content.section13 || "We handle personal information in accordance with our Privacy Policy.");
+    const [section14, setSection14] = useState(props.content.section14 || "We and/or our partners may be required to verify your identity and report certain transactions under Australian law.");
+    const [section15, setSection15] = useState(props.content.section15 || "If you have a concern, contact us. We'll aim to resolve it promptly and may refer you to external dispute resolution schemes.");
+    const [section16, setSection16] = useState(props.content.section16 || "We may update these Terms from time to time.");
+    const [section17, setSection17] = useState(props.content.section17 || "These Terms are governed by the laws of New South Wales, Australia.");
+    const [section18, setSection18] = useState(props.content.section18 || "Brightwork Group Pty Ltd trading as Bright Leasing (ABN 20 688 482 975)\nEmail: hello@brightleasing.com.au\nPhone: 1300 988 938\nAddress: PO Box 3107, Putney NSW 2112");
+    const [section19, setSection19] = useState(props.content.section19 || "You agree to indemnify Bright Leasing and its officers, employees and agents against all claims, losses, damages, costs (including legal costs) arising out of your breach of these Terms or misuse of our services.");
+    const [section20, setSection20] = useState(props.content.section20 || "You must not use robots, spiders, data-mining tools or other automated means to access, extract or copy content from our website or services without our prior written consent.");
+    const [section21, setSection21] = useState(props.content.section21 || "We may change these Terms, Privacy Policy or Terms of Use at any time by publishing a revised version on our Site with an updated effective date. Continued use after the revision indicates your acceptance. We may also notify you via email or site banner.");
+    const [section22, setSection22] = useState(props.content.section22 || "Clauses such as liability, indemnity, confidentiality, intellectual property, and governing law survive termination or expiry of these agreements.");
+    const [section23, setSection23] = useState(props.content.section23 || "All notices under these agreements must be in writing, and delivered via email (to your registered email), or by post to the address provided. Notices are effective on receipt (or 3 business days if by post).");
+    const [section24, setSection24] = useState(props.content.section24 || "If a provision is invalid or unenforceable, it must be read down or severed, and the rest of the Terms remain in force.");
+    const [section25, setSection25] = useState(props.content.section25 || "These Terms, together with any proposal or documentation expressly referring to them, constitute the entire agreement. In the event of conflict, these Terms prevail unless otherwise stated in the proposal.");
+    const [section26, setSection26] = useState(props.content.section26 || "If a data breach is likely to result in serious harm, we will notify affected individuals and the OAIC in accordance with the Notifiable Data Breaches scheme under the Privacy Act.");
 
-    const [isLoading, setIsLoading] = useState(true);
-    const [isSaving, setIsSaving] = useState(false);
-    const [saveStatus, setSaveStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const { isSaving, updatePage } = useUpdatePage<TermsAndConditionsContent>("terms-and-conditions");
 
     /* ************************************************************
                             FUNCTIONS
     ************************************************************ */
-    useEffect(() => {
-        const fetchTermsAndConditions = async () => {
-            try {
-                const { data, error } = await supabase
-                    .from('terms_and_conditions')
-                    .select('content')
-                    .eq('id', 'terms-and-conditions-1')
-                    .single();
-
-                if (error) {
-                    if (error.code === 'PGRST116') {
-                        console.log('No terms and conditions found, using default content');
-                    } else if (error.code === '42P01') {
-                        console.log('Terms and conditions table does not exist, using default content');
-                    } else {
-                        console.error('Error fetching terms and conditions:', error);
-                    }
-                } else if (data?.content) {
-                    // Parse the HTML content and extract individual sections
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(data.content, 'text/html');
-                    const sections = doc.querySelectorAll('div[class*="bg-brand-"]');
-
-                    sections.forEach((section, index) => {
-                        const paragraph = section.querySelector('p');
-                        if (paragraph && index < 26) {
-                            const content = paragraph.textContent || '';
-                            const sectionNumber = index + 1;
-
-                            // Update the corresponding state variable
-                            switch (sectionNumber) {
-                                case 1: setSection1(content); break;
-                                case 2: setSection2(content); break;
-                                case 3: setSection3(content); break;
-                                case 4: setSection4(content); break;
-                                case 5: setSection5(content); break;
-                                case 6: setSection6(content); break;
-                                case 7: setSection7(content); break;
-                                case 8: setSection8(content); break;
-                                case 9: setSection9(content); break;
-                                case 10: setSection10(content); break;
-                                case 11: setSection11(content); break;
-                                case 12: setSection12(content); break;
-                                case 13: setSection13(content); break;
-                                case 14: setSection14(content); break;
-                                case 15: setSection15(content); break;
-                                case 16: setSection16(content); break;
-                                case 17: setSection17(content); break;
-                                case 18: setSection18(content); break;
-                                case 19: setSection19(content); break;
-                                case 20: setSection20(content); break;
-                                case 21: setSection21(content); break;
-                                case 22: setSection22(content); break;
-                                case 23: setSection23(content); break;
-                                case 24: setSection24(content); break;
-                                case 25: setSection25(content); break;
-                                case 26: setSection26(content); break;
-                            }
-                        }
-                    });
-                    console.log('Terms and conditions loaded from database');
-                }
-            } catch (error) {
-                console.error('Unexpected error:', error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchTermsAndConditions();
-    }, []);
-
     const handleSave = async () => {
-        setIsSaving(true);
-        setSaveStatus('idle');
-
-        try {
-            // Create HTML content from all sections
-            const htmlContent = `
-        <div class="space-y-8">
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">1. About these Terms</h2>
-            <p class="text-brand-black/80">${section1}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">2. Our Role</h2>
-            <p class="text-brand-black/80">${section2}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">3. Eligibility & Applications</h2>
-            <p class="text-brand-black/80">${section3}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">4. Quotes & Estimates</h2>
-            <p class="text-brand-black/80">${section4}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">5. Fees, Charges & Commissions</h2>
-            <p class="text-brand-black/80">${section5}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">6. Employer Participation</h2>
-            <p class="text-brand-black/80">${section6}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">7. Vehicles, Delivery & Title</h2>
-            <p class="text-brand-black/80">${section7}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">8. Insurance & Running Costs</h2>
-            <p class="text-brand-black/80">${section8}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">9. Changes, Cancellations & Early Termination</h2>
-            <p class="text-brand-black/80">${section9}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">10. Consumer Guarantees</h2>
-            <p class="text-brand-black/80">${section10}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">11. Liability</h2>
-            <p class="text-brand-black/80">${section11}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">12. Your Obligations</h2>
-            <p class="text-brand-black/80">${section12}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">13. Privacy</h2>
-            <p class="text-brand-black/80">${section13}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">14. Anti-Money Laundering & Counter-Terrorism Financing</h2>
-            <p class="text-brand-black/80">${section14}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">15. Complaints</h2>
-            <p class="text-brand-black/80">${section15}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">16. Amendments</h2>
-            <p class="text-brand-black/80">${section16}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">17. Governing Law</h2>
-            <p class="text-brand-black/80">${section17}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">18. Contact Us</h2>
-            <p class="text-brand-black/80">${section18.replace(/\n/g, '<br />')}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">19. Indemnity</h2>
-            <p class="text-brand-black/80">${section19}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">20. Prohibited Conduct</h2>
-            <p class="text-brand-black/80">${section20}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">21. Variation of Terms</h2>
-            <p class="text-brand-black/80">${section21}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">22. Survival Clause</h2>
-            <p class="text-brand-black/80">${section22}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">23. Notices</h2>
-            <p class="text-brand-black/80">${section23}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">24. Severability</h2>
-            <p class="text-brand-black/80">${section24}</p>
-          </div>
-          <div class="bg-brand-yellow/10 border border-brand-yellow/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">25. Entire Agreement</h2>
-            <p class="text-brand-black/80">${section25}</p>
-          </div>
-          <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-brand-black mb-4">26. Data Breach Notification</h2>
-            <p class="text-brand-black/80">${section26}</p>
-          </div>
-        </div>
-      `;
-
-            const { error } = await supabase
-                .from('terms_and_conditions')
-                .upsert({
-                    id: 'terms-and-conditions-1',
-                    content: htmlContent,
-                    updated_at: new Date().toISOString()
-                });
-
-            if (error) {
-                if (error.code === '42P01') {
-                    console.error('Terms and conditions table does not exist. Please run the database migration first.');
-                    setSaveStatus('error');
-                } else {
-                    console.error('Error saving terms and conditions:', error);
-                    setSaveStatus('error');
-                }
-            } else {
-                setSaveStatus('success');
-                setTimeout(() => setSaveStatus('idle'), 3000);
+        await updatePage({
+            title: props.title,
+            description: props.description,
+            slug: props.slug,
+            content: {
+                section1,
+                section2,
+                section3,
+                section4,
+                section5,
+                section6,
+                section7,
+                section8,
+                section9,
+                section10,
+                section11,
+                section12,
+                section13,
+                section14,
+                section15,
+                section16,
+                section17,
+                section18,
+                section19,
+                section20,
+                section21,
+                section22,
+                section23,
+                section24,
+                section25,
+                section26,
             }
-        } catch (error) {
-            console.error('Unexpected error:', error);
-            setSaveStatus('error');
-        } finally {
-            setIsSaving(false);
-        }
+        });
     };
 
     /* ************************************************************
@@ -288,7 +137,6 @@ export default function TermsAndConditionsInputs() {
                 pageTitle="Terms & Conditions"
                 onSave={handleSave}
                 isSaving={isSaving}
-                saveStatus={saveStatus}
             />
 
             <div className="min-h-screen bg-white">

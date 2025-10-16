@@ -118,7 +118,7 @@ export default function Section3({ content }: Section3Props) {
 							RENDER
 	************************************************************ */
 	return (
-		<section  className="py-16 " ref={ref}>
+		<section className="py-16 " ref={ref}>
 			<div className="max-w-7xl mx-auto ">
 				{/* ************************************************************
 					TOP ROW - 2 Columns
@@ -146,7 +146,7 @@ export default function Section3({ content }: Section3Props) {
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
 						className="flex-1 lg:w-3/4 overflow-hidden"
-						
+
 					>
 						<Gallery6
 							heading=""
