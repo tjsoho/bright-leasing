@@ -6,11 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { BWestSmallButton } from "../ui/b-west-small";
-import BubbleMenu from "./BubbleMenu";
-import BubbleMenuMobile from "./BubbleMenuMobile";
+// import BubbleMenu from "./BubbleMenu";
+// import BubbleMenuMobile from "./BubbleMenuMobile";
 
 const Header = () => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	// const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isLoaded, setIsLoaded] = useState(false);
 	const pathname = usePathname();
 
@@ -88,18 +88,23 @@ const Header = () => {
 							Login
 						</button> */}
 						<div className="relative ">
-							{/* <button
-								onClick={() => setIsMenuOpen(true)}
+							<button
+								onClick={() => {
+									const section3 = document.getElementById('section3');
+									if (section3) {
+										section3.scrollIntoView({ behavior: 'smooth' });
+									}
+								}}
 								className="w-10 h-10 border border-brand-black rounded-full flex items-center justify-center hover:bg-brand-black hover:text-white transition-colors relative z-20"
-								aria-label="Open menu"
+								aria-label="Scroll to Section 3"
 							>
 								<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
 								</svg>
-							</button> */}
+							</button>
 
-							{/* Desktop Bubble Menu */}
-							<BubbleMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+							{/* Desktop Bubble Menu - Temporarily disabled */}
+							{/* <BubbleMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
 						</div>
 					</div>
 
@@ -108,17 +113,22 @@ const Header = () => {
 					************************************************************/}
 					<div className="lg:hidden relative bg-brand-teal rounded-full p-2">
 						<button
-							onClick={() => setIsMenuOpen(true)}
+							onClick={() => {
+								const section3 = document.getElementById('section3');
+								if (section3) {
+									section3.scrollIntoView({ behavior: 'smooth' });
+								}
+							}}
 							className=" p-2 rounded-full  flex items-center justify-center hover:bg-brand-teal/80 transition-colors relative z-20"
-							aria-label="Open menu"
+							aria-label="Scroll to Section 3"
 						>
 							<svg className="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4 6h16M4 12h16M4 18h16" />
 							</svg>
 						</button>
 
-						{/* Mobile Bubble Menu */}
-						<BubbleMenuMobile isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+						{/* Mobile Bubble Menu - Temporarily disabled */}
+						{/* <BubbleMenuMobile isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
 					</div>
 				</div>
 			</header>

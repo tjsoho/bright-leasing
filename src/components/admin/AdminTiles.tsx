@@ -104,6 +104,27 @@ const AdminTiles = () => {
             description: "Manage FAQs and categories",
             color: "bg-brand-yellow text-brand-black"
         },
+        {
+            href: "/admin/privacy-policy",
+            icon: "🔒",
+            title: "Privacy Policy",
+            description: "Manage privacy policy content",
+            color: "bg-brand-teal text-white"
+        },
+        {
+            href: "/admin/terms-and-conditions",
+            icon: "📋",
+            title: "Terms & Conditions",
+            description: "Manage terms and conditions content",
+            color: "bg-brand-yellow text-brand-black"
+        },
+        {
+            href: "/admin/terms-of-use",
+            icon: "📄",
+            title: "Terms of Use",
+            description: "Manage terms of use content",
+            color: "bg-brand-teal text-white"
+        },
 
     ];
 
@@ -128,7 +149,7 @@ const AdminTiles = () => {
                                 <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
                                     <span className="text-3xl">{tile.icon}</span>
                                 </div>
-                                <h2 className="text-xl font-semibold mb-2">{tile.title}</h2>
+                                <h2 className="text-lg font-semibold mb-2">{tile.title}</h2>
                                 <p className="text-sm opacity-80">{tile.description}</p>
                             </div>
                         </Link>

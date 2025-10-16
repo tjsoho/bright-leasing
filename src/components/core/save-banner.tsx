@@ -8,6 +8,7 @@ interface SaveBannerProps {
   pageTitle: string;
   onSave: () => void;
   isSaving?: boolean;
+  saveStatus?: 'idle' | 'success' | 'error';
 }
 
 const adminPages = [
@@ -16,6 +17,9 @@ const adminPages = [
   { href: "/admin/team", label: "Team", description: "Team members" },
   { href: "/admin/blog", label: "Articles", description: "Blog posts" },
   { href: "/admin/faqs", label: "FAQs", description: "Frequently asked questions" },
+  { href: "/admin/privacy-policy", label: "Privacy Policy", description: "Privacy policy content" },
+  { href: "/admin/terms-and-conditions", label: "Terms & Conditions", description: "Terms and conditions content" },
+  { href: "/admin/terms-of-use", label: "Terms of Use", description: "Terms of use content" },
 
 ];
 
@@ -23,6 +27,7 @@ export function SaveBanner({
   pageTitle,
   onSave,
   isSaving = false,
+  saveStatus = 'idle',
 }: SaveBannerProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -73,10 +78,15 @@ export function SaveBanner({
           <button
             onClick={onSave}
             disabled={isSaving}
-            className="flex items-center gap-2 px-6 py-2 bg-brand-yellow text-brand-black rounded-lg font-semibold hover:bg-brand-yellow/80 disabled:opacity-50 transition-colors duration-300 shadow-md"
+            className={`flex items-center gap-2 px-6 py-2 rounded-lg font-semibold transition-colors duration-300 shadow-md ${saveStatus === 'success'
+              ? 'bg-green-500 text-white'
+              : saveStatus === 'error'
+                ? 'bg-red-500 text-white'
+                : 'bg-brand-yellow text-brand-black hover:bg-brand-yellow/80'
+              } disabled:opacity-50`}
           >
             <Save className="w-4 h-4" />
-            {isSaving ? "Saving..." : "Save Page"}
+            {isSaving ? "Saving..." : saveStatus === 'success' ? "Saved!" : saveStatus === 'error' ? "Error" : "Save Page"}
           </button>
         </div>
       </div>

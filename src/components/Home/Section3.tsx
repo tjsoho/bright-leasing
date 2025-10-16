@@ -118,7 +118,7 @@ export default function Section3({ content }: Section3Props) {
 							RENDER
 	************************************************************ */
 	return (
-		<section className="py-16 " ref={ref}>
+		<section  className="py-16 " ref={ref}>
 			<div className="max-w-7xl mx-auto ">
 				{/* ************************************************************
 					TOP ROW - 2 Columns
@@ -133,7 +133,7 @@ export default function Section3({ content }: Section3Props) {
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
 					>
-						<h2 className="text-brand-black leading-tight lg:pr-72">
+						<h2 className="text-brand-black leading-tight lg:pr-72" >
 							{content.section3title}
 						</h2>
 					</motion.div>
@@ -146,6 +146,7 @@ export default function Section3({ content }: Section3Props) {
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
 						className="flex-1 lg:w-3/4 overflow-hidden"
+						
 					>
 						<Gallery6
 							heading=""
@@ -192,7 +193,7 @@ export default function Section3({ content }: Section3Props) {
 					{/* ************************************************************
 						LEFT COLUMN - Empty space (1/3 width)
 					************************************************************ */}
-					<div className="flex-1 lg:w-1/3"></div>
+					<div className="flex-1 lg:w-1/3" id="section3"></div>
 
 					{/* ************************************************************
 						CENTER COLUMN - Pagination Icons (1/3 width)

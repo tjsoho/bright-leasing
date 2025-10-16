@@ -37,7 +37,7 @@ const Footer = () => {
         {
             title: "Company",
             links: [
-                
+
                 { label: "Blog", href: "/blog" }
             ]
         },
@@ -52,9 +52,9 @@ const Footer = () => {
         {
             title: "Legal",
             links: [
-                { label: "Terms & Conditions", href: "/terms" },
-                { label: "Privacy", href: "/privacy" },
-                { label: "Terms of Use", href: "/terms" }
+                { label: "Terms & Conditions", href: "/terms-and-conditions" },
+                { label: "Privacy Policy", href: "/privacy-policy" },
+                { label: "Terms of Use", href: "/terms-of-use" }
             ]
         },
         {
@@ -108,8 +108,8 @@ const Footer = () => {
                             <Image
                                 src="/images/bwlogo.png"
                                 alt="Bright Leasing Logo"
-                                width={120}
-                                height={80}
+                                width={320}
+                                height={240}
                                 className="w-auto h-16"
                             />
                         </Link>
@@ -177,10 +177,10 @@ const Footer = () => {
                         <span className="font-semibold text-white">Address:</span> PO Box 3107, Putney NSW 2112
                     </div>
                     <div className="text-white/70">
-                        <span className="font-semibold text-white">ABN:</span> 20 668 482 975
+                        <span className="font-semibold text-white">ABN:</span> 20 688 482 975
                     </div>
                     <div className="text-white/70">
-                        <span className="font-semibold text-white">ACN:</span> 668 482 975
+                        <span className="font-semibold text-white">ACN:</span> 688 482 975
                     </div>
                 </motion.div>
 

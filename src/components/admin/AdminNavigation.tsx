@@ -66,6 +66,21 @@ const AdminNavigation = () => {
             href: "/faqs",
             label: "FAQs",
             description: "Frequently asked questions"
+        },
+        {
+            href: "/privacy-policy",
+            label: "Privacy Policy",
+            description: "Privacy policy and terms"
+        },
+        {
+            href: "/terms-and-conditions",
+            label: "Terms & Conditions",
+            description: "Terms and conditions"
+        },
+        {
+            href: "/terms-of-use",
+            label: "Terms of Use",
+            description: "Website terms of use"
         }
     ];
 
