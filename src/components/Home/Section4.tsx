@@ -119,7 +119,7 @@ export default function Section4({ content }: Section4Props) {
 					{steps.map((step, index) => (
 						<motion.div
 							key={index}
-							className="bg-white rounded-2xl p-6 relative overflow-hidden h-full w-[300px] lg:w-full mx-auto"
+							className="bg-white rounded-2xl p-6 relative overflow-hidden h-[400px] w-[300px] lg:w-full mx-auto"
 							variants={stepVariants}
 						>
 							<div className="flex flex-col items-center text-center h-[300px]">
