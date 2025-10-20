@@ -4,6 +4,7 @@ import { HomePageProps } from "@/app/_config";
 import { motion, useInView } from "framer-motion";
 import React from "react";
 import Image from "next/image";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 interface Section4Props {
 	content: HomePageProps["content"];
@@ -105,7 +106,7 @@ export default function Section4({ content }: Section4Props) {
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
 				>
-					{content.section4title}
+					<RenderLineBreaks text={content.section4title} />
 				</motion.h2>
 
 				{/* Steps Container */}
@@ -138,10 +139,10 @@ export default function Section4({ content }: Section4Props) {
 								{/* Content */}
 								<div className="flex-1 flex flex-col justify-start">
 									<h4 className={`text-black mb-3 ${step.titleBold ? 'h4-bold' : ''}`}>
-										{step.title}
+										<RenderLineBreaks text={step.title} />
 									</h4>
 									<p className={`lg:text-small text-gray-600 text-left leading-relaxed ${step.descriptionBold ? 'p-bold' : ''}`}>
-										{step.description}
+										<RenderLineBreaks text={step.description} />
 									</p>
 								</div>
 

@@ -10,6 +10,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 interface GalleryItem {
   id: string;
@@ -84,7 +85,7 @@ const Gallery6 = ({
     }
   }, [carouselApi, onCarouselApiChange]);
   return (
-    <section className="">
+    <section className="w-full overflow-hidden">
       <div className="w-full">
         <Carousel
           setApi={setCarouselApi}
@@ -97,18 +98,18 @@ const Gallery6 = ({
           }}
           className="relative w-full flex justify-center md:justify-start"
         >
-          <CarouselContent className="-ml-2">
+          <CarouselContent className="-ml-2 w-full">
             {items.map((item) => (
-              <CarouselItem key={item.id} className="pl-4 max-w-[300px] sm:max-w-sm mx-auto md:mx-0">
-                <div className={`group flex flex-col justify-start h-80 rounded-2xl p-6 sm:p-8 ${item.color || 'bg-brand-yellow text-brand-black'}`}>
+              <CarouselItem key={item.id} className="pl-4 max-w-[300px] sm:max-w-sm mx-auto md:mx-0 w-full">
+                <div className={`group flex flex-col justify-start h-80 rounded-2xl p-6 sm:p-8 w-full ${item.color || 'bg-brand-yellow text-brand-black'}`}>
                   <div>
                     <h5 className={`leading-relaxed text-left mb-3 ${item.titleBold ? 'font-bold-500' : ''}`}>
-                      {item.title}
+                      <RenderLineBreaks text={item.title} />
                     </h5>
                   </div>
                   <div className="flex-1">
                     <h5 className={`leading-relaxed text-left ${item.summaryBold ? 'font-bold-500' : ''}`}>
-                      {item.summary}
+                      <RenderLineBreaks text={item.summary} />
                     </h5>
                   </div>
                 </div>

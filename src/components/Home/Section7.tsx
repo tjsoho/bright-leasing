@@ -9,6 +9,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 interface Section7Props {
 	content: HomePageProps["content"];
@@ -106,7 +107,7 @@ export default function Section7({ content }: Section7Props) {
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
 				>
-					{content.section7title}
+					<RenderLineBreaks text={content.section7title} />
 				</motion.h2>
 
 				{/* FAQ Accordion */}
@@ -131,14 +132,14 @@ export default function Section7({ content }: Section7Props) {
 												{faq.number}
 											</span>
 											<h4 className={`text-gray-800 ${faq.questionBold ? 'h4-bold' : ''}`}>
-												{faq.question}
+												<RenderLineBreaks text={faq.question} />
 											</h4>
 										</div>
 									</AccordionTrigger>
 									<AccordionContent className="text-muted-foreground">
 										<div className="ml-12">
 											<p className={`text-gray-600 leading-relaxed ${faq.answerBold ? 'p-bold' : ''}`}>
-												{faq.answer}
+												<RenderLineBreaks text={faq.answer} />
 											</p>
 										</div>
 									</AccordionContent>

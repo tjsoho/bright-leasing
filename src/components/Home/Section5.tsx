@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import React from "react";
 import Image from "next/image";
 import { BWestSmallButton } from "../ui/b-west-small";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 interface Section5Props {
 	content: HomePageProps["content"];
@@ -108,13 +109,13 @@ export default function Section5({ content }: Section5Props) {
 							variants={titleVariants}
 							className={`text-gray-800 mb-4 ${content.section5titleBold ? 'h2-bold' : ''}`}
 						>
-							{content.section5title}
+							<RenderLineBreaks text={content.section5title} />
 						</motion.h2>
 						<motion.p
 							variants={paragraphVariants}
 							className={`text-gray-600 text-left w-full leading-relaxed mb-6 ${content.section5descriptionBold ? 'p-bold' : ''}`}
 						>
-							{content.section5description}
+							<RenderLineBreaks text={content.section5description} />
 						</motion.p>
 						<motion.div
 							variants={buttonVariants}

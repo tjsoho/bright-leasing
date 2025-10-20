@@ -8,6 +8,8 @@ interface EditableElementProps {
 	className?: string;
 	defaultValue?: string;
 	onTextChange?: (newText: string) => void;
+	style?: React.CSSProperties;
+	onInput?: (e: React.FormEvent<HTMLTextAreaElement>) => void;
 }
 
 export const EditableElement = React.forwardRef<
@@ -15,7 +17,7 @@ export const EditableElement = React.forwardRef<
 	EditableElementProps
 >(
 	(
-		{ as: Component = "input", className, defaultValue = '', onTextChange },
+		{ as: Component = "input", className, defaultValue = '', onTextChange, style, onInput },
 		ref,
 	) => {
 		const ComponentType = Component as React.ElementType;
@@ -36,7 +38,8 @@ export const EditableElement = React.forwardRef<
 						className={cn("w-full outline-none bg-transparent", className)}
 						value={text}
 						onChange={handleTextChange}
-						rows={3}
+						onInput={onInput}
+						style={style}
 					/>
 				</div>
 			);

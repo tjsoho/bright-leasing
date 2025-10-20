@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import React from "react";
 import Image from "next/image";
 import { BWestButton } from "@/components/ui/b-west-button";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 interface HeroProps {
     content: HomePageProps["content"];
@@ -95,13 +96,13 @@ export default function Hero({ content }: HeroProps) {
                             variants={titleVariants}
                             className={`text-brand-black mb-4 leading-none ${content.heroTitleBold ? 'h1-bold' : 'h1'}`}
                         >
-                            {content.heroTitle}
+                            <RenderLineBreaks text={content.heroTitle} />
                         </motion.h1>
                         <motion.p
                             variants={paragraphVariants}
                             className={`text-left w-full leading-relaxed mb-6 ${content.heroParagraphBold ? 'p-bold' : 'p'}`}
                         >
-                            {content.heroParagraph}
+                            <RenderLineBreaks text={content.heroParagraph} />
                         </motion.p>
                         <motion.div
                             variants={buttonVariants}
@@ -122,7 +123,7 @@ export default function Hero({ content }: HeroProps) {
                     initial="initial"
                     animate={isInView ? "animate" : "initial"}
                     variants={imageVariants}
-                    className="flex-1 relative h-64 sm:h-80 md:h-96 lg:h-full order-2 w-full flex justify-center items-center"
+                    className="flex-1 relative h-64 sm:h-80 md:h-96 lg:h-full order-2 w-full flex justify-center items-center rounded-2xl"
                 >
                     <Image
                         src={content.heroImage}

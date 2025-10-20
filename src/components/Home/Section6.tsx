@@ -6,6 +6,7 @@ import React from "react";
 
 import { CarouselApi } from "@/components/ui/carousel";
 import { Gallery7 } from "../blocks/gallery7";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 interface Section6Props {
 	content: HomePageProps["content"];
@@ -90,12 +91,12 @@ export default function Section6({ content }: Section6Props) {
 	};
 
 	return (
-		<section className="py-16 " ref={ref}>
+		<section className="py-16 overflow-hidden" ref={ref}>
 			<div className="max-w-7xl mx-auto px-4">
 				{/* ************************************************************
 					TOP ROW - 2 Columns
 				************************************************************ */}
-				<div className="flex flex-col lg:flex-row items-start lg:items-start gap-8 ">
+				<div className="flex flex-col lg:flex-row items-start lg:items-start gap-8">
 					{/* ************************************************************
 						LEFT COLUMN - Title Section (1/3 width)
 					************************************************************ */}
@@ -106,7 +107,7 @@ export default function Section6({ content }: Section6Props) {
 						animate={isInView ? "show" : "hidden"}
 					>
 						<h2 className={`text-brand-black leading-tight lg:pr-72 ${content.section6titleBold ? 'h2-bold' : ''}`}>
-							{content.section6title}
+							<RenderLineBreaks text={content.section6title} />
 						</h2>
 					</motion.div>
 
@@ -117,7 +118,7 @@ export default function Section6({ content }: Section6Props) {
 						variants={carouselVariants}
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
-						className="flex-1 lg:w-3/4 overflow-hidden"
+						className="flex-1 lg:w-3/4 w-full overflow-hidden"
 					>
 						<Gallery7
 							heading=""
@@ -178,7 +179,7 @@ export default function Section6({ content }: Section6Props) {
 					variants={paginationVariants}
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
-					className="flex justify-between items-center"
+					className="flex justify-between items-center w-full overflow-hidden"
 				>
 					{/* ************************************************************
 						LEFT COLUMN - Empty space (1/3 width)

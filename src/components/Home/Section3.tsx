@@ -14,6 +14,7 @@ import { motion, useInView } from "framer-motion";
 import React from "react";
 import { Gallery6 } from "@/components/blocks/gallery6";
 import { CarouselApi } from "@/components/ui/carousel";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 /* ************************************************************
 						INTERFACES
@@ -118,23 +119,23 @@ export default function Section3({ content }: Section3Props) {
 							RENDER
 	************************************************************ */
 	return (
-		<section className="py-16 " ref={ref}>
-			<div className="max-w-7xl mx-auto ">
+		<section className="py-16 overflow-hidden" ref={ref}>
+			<div className="max-w-7xl mx-auto px-4">
 				{/* ************************************************************
 					TOP ROW - 2 Columns
 				************************************************************ */}
-				<div className="flex flex-col lg:flex-row items-start lg:items-start gap-8 ">
+				<div className="flex flex-col lg:flex-row items-start lg:items-start gap-8">
 					{/* ************************************************************
 						LEFT COLUMN - Title Section (1/3 width)
 					************************************************************ */}
 					<motion.div
-						className="flex-1 lg:w-1/4 px-4"
+						className="flex-1 lg:w-1/4"
 						variants={titleVariants}
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
 					>
 						<h2 className={`text-brand-black leading-tight lg:pr-72 ${content.section3titleBold ? 'h2-bold' : 'h2'}`} >
-							{content.section3title}
+							<RenderLineBreaks text={content.section3title} />
 						</h2>
 					</motion.div>
 
@@ -145,7 +146,7 @@ export default function Section3({ content }: Section3Props) {
 						variants={carouselVariants}
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
-						className="flex-1 lg:w-3/4 overflow-hidden"
+						className="flex-1 lg:w-3/4 w-full overflow-hidden"
 
 					>
 						<Gallery6
@@ -206,7 +207,7 @@ export default function Section3({ content }: Section3Props) {
 					variants={paginationVariants}
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
-					className="flex justify-between items-center px-4"
+					className="flex justify-between items-center w-full overflow-hidden"
 				>
 					{/* ************************************************************
 						LEFT COLUMN - Empty space (1/3 width)

@@ -396,7 +396,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 										Hero Paragraph
 									</label>
 									<EditableElement
-										as="input"
+										as="textarea"
 										className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 										onTextChange={setHeroParagraph}
 										defaultValue={heroParagraph}
@@ -421,7 +421,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 									Header Button Text
 								</label>
 								<EditableElement
-									as="input"
+									as="textarea"
 									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setHeaderButtonText}
 									defaultValue={headerButtonText}
@@ -444,7 +444,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 									Section Title
 								</label>
 								<EditableElement
-									as="input"
+									as="textarea"
 									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setSection2title}
 									defaultValue={section2title}
@@ -510,7 +510,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 									Section Title
 								</label>
 								<EditableElement
-									as="input"
+									as="textarea"
 									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setSection3title}
 									defaultValue={section3title}
@@ -542,7 +542,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Title
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection3tile1title}
 												defaultValue={section3tile1title}
@@ -593,7 +593,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Title
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection3tile2title}
 												defaultValue={section3tile2title}
@@ -644,7 +644,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Title
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection3tile3title}
 												defaultValue={section3tile3title}
@@ -705,7 +705,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Title
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={(value) => {
 													const updatedTiles = additionalSection3Tiles.map(t =>
@@ -825,7 +825,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 									Section Title
 								</label>
 								<EditableElement
-									as="input"
+									as="textarea"
 									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setSection4title}
 									defaultValue={section4title}
@@ -857,7 +857,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Title
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection4step1title}
 												defaultValue={section4step1title}
@@ -921,7 +921,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Title
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection4step2title}
 												defaultValue={section4step2title}
@@ -985,7 +985,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Title
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection4step3title}
 												defaultValue={section4step3title}
@@ -1049,7 +1049,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Title
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection4step4title}
 												defaultValue={section4step4title}
@@ -1272,7 +1272,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 									Section Title
 								</label>
 								<EditableElement
-									as="input"
+									as="textarea"
 									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setSection6title}
 									defaultValue={section6title}
@@ -1304,7 +1304,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Title
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection6tile1title}
 												defaultValue={section6tile1title}
@@ -1355,7 +1355,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Title
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection6tile2title}
 												defaultValue={section6tile2title}
@@ -1406,7 +1406,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Title
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection6tile3title}
 												defaultValue={section6tile3title}
@@ -1587,7 +1587,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 									Section Title
 								</label>
 								<EditableElement
-									as="input"
+									as="textarea"
 									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									onTextChange={setSection7title}
 									defaultValue={section7title}
@@ -1619,7 +1619,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Question
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection7faq1question}
 												defaultValue={section7faq1question}
@@ -1670,7 +1670,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Question
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection7faq2question}
 												defaultValue={section7faq2question}
@@ -1721,7 +1721,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Question
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection7faq3question}
 												defaultValue={section7faq3question}
@@ -1772,7 +1772,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 												Question
 											</label>
 											<EditableElement
-												as="input"
+												as="textarea"
 												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 												onTextChange={setSection7faq4question}
 												defaultValue={section7faq4question}

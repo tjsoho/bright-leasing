@@ -13,6 +13,7 @@
 import { HomePageProps } from "@/app/_config";
 import { motion, useInView } from "framer-motion";
 import React from "react";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 interface Section2Props {
 	content: HomePageProps["content"];
@@ -54,11 +55,11 @@ export default function Section2({ content }: Section2Props) {
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
 				>
-					<h2 className={`text-gray-900 leading-tight text-left ${content.section2titleBold ? 'h2-bold' : 'h2'}`}>
-						{content.section2title}
-					</h2>
-					<p className={`text-gray-600 leading-relaxed text-left ${content.section2paragraphBold ? 'p-bold' : 'p'}`}>
-						{content.section2paragraph}
+					<h5 className={`text-black/50 leading-tight text-left uppercase ${content.section2titleBold ? 'h5-bold' : 'h5'}`}>
+						<RenderLineBreaks text={content.section2title} />
+					</h5>
+					<p className={`text-black leading-relaxed text-left ${content.section2paragraphBold ? 'p-bold' : 'p'}`}>
+						<RenderLineBreaks text={content.section2paragraph} />
 					</p>
 				</motion.div>
 			</div>
