@@ -15,6 +15,7 @@ export type HomePageContent = {
   heroTitleBold: boolean;
   heroParagraph: string;
   heroParagraphBold: boolean;
+  headerButtonText: string;
   section2title: string;
   section2titleBold: boolean;
   section2paragraph: string;
@@ -193,6 +194,7 @@ export const homePageFallbackData: HomePageProps = {
     heroParagraph:
       "Novated leasing made easy — save money, skip the hassle, and enjoy the car you really want.",
     heroParagraphBold: false,
+    headerButtonText: "Start in 60 Seconds",
     section2title: "What is novated leasing?",
     section2titleBold: false,
     section2paragraph:

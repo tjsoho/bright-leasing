@@ -16,6 +16,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 		props.content.heroParagraph,
 	);
 	const [heroParagraphBold, setHeroParagraphBold] = useState(props.content.heroParagraphBold ?? false);
+	const [headerButtonText, setHeaderButtonText] = useState(props.content.headerButtonText);
 	const [section2title, setSection2title] = useState(
 		props.content.section2title,
 	);
@@ -194,6 +195,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 				heroTitleBold,
 				heroParagraph,
 				heroParagraphBold,
+				headerButtonText,
 				section2title,
 				section2titleBold,
 				section2paragraph,
@@ -411,6 +413,19 @@ export default function HomeAdminInputs(props: HomePageProps) {
 										</label>
 									</div>
 								</div>
+							</div>
+
+							{/* Header Button Text */}
+							<div>
+								<label className="block text-brand-black text-sm font-medium mb-2">
+									Header Button Text
+								</label>
+								<EditableElement
+									as="input"
+									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
+									onTextChange={setHeaderButtonText}
+									defaultValue={headerButtonText}
+								/>
 							</div>
 						</div>
 					</section>

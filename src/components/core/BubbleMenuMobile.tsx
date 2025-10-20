@@ -19,12 +19,13 @@ import { BWestSmallButton } from "../ui/b-west-small";
 interface BubbleMenuMobileProps {
     isOpen: boolean;
     onClose: () => void;
+    headerButtonText?: string;
 }
 
 /* ************************************************************
                         COMPONENTS
 ************************************************************ */
-const BubbleMenuMobile = ({ isOpen, onClose }: BubbleMenuMobileProps) => {
+const BubbleMenuMobile = ({ isOpen, onClose, headerButtonText = "Start In 60 Seconds" }: BubbleMenuMobileProps) => {
     return (
         <AnimatePresence>
             {isOpen && (
@@ -97,7 +98,7 @@ const BubbleMenuMobile = ({ isOpen, onClose }: BubbleMenuMobileProps) => {
                             exit={{ opacity: 0, y: 20, transition: { delay: 0.1, duration: 0.2 } }}
                             transition={{ delay: 0.2, duration: 0.4 }}
                         >
-                           
+
 
                             {/* Navigation Links - Mobile Optimized */}
                             <motion.div
@@ -138,7 +139,7 @@ const BubbleMenuMobile = ({ isOpen, onClose }: BubbleMenuMobileProps) => {
                                 exit={{ opacity: 0, y: 20, transition: { delay: 0.1, duration: 0.2 } }}
                                 transition={{ delay: 0.8, duration: 0.3 }}
                             >
-                                <BWestSmallButton text="Start In 60 Seconds" variant="inverted" onClick={() => window.location.href = '/contact'}/>
+                                <BWestSmallButton text={headerButtonText} variant="inverted" onClick={() => window.location.href = '/contact'} />
                             </motion.div>
                         </motion.div>
 

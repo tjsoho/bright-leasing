@@ -9,7 +9,11 @@ import { BWestSmallButton } from "../ui/b-west-small";
 // import BubbleMenu from "./BubbleMenu";
 // import BubbleMenuMobile from "./BubbleMenuMobile";
 
-const Header = () => {
+interface HeaderProps {
+	headerButtonText?: string;
+}
+
+const Header = ({ headerButtonText = "Start in 60 Seconds" }: HeaderProps) => {
 	// const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isLoaded, setIsLoaded] = useState(false);
 	const pathname = usePathname();
@@ -81,7 +85,7 @@ const Header = () => {
 					************************************************************/}
 					<div className="hidden lg:flex items-center gap-4 bg-brand-cream rounded-full px-6 py-5">
 						<BWestSmallButton
-							text="Start in 60 seconds"
+							text={headerButtonText}
 							onClick={() => window.location.href = '/contact'}
 						/>
 						{/* <button className=" border border-brand-black rounded-full text-brand-black hover:bg-brand-black hover:text-white transition-colors text-sm px-8 py-2">

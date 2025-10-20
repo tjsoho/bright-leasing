@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/core/Header";
+import HeaderWrapper from "@/components/core/HeaderWrapper";
 import FooterWrapper from "@/components/core/FooterWrapper";
 import { Toaster } from "react-hot-toast";
 
@@ -46,7 +46,7 @@ export default function RootLayout({
 						},
 					}}
 				/>
-				<Header />
+				<HeaderWrapper />
 				<main className="">{children}</main>
 				<FooterWrapper />
 

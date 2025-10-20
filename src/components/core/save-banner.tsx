@@ -14,13 +14,18 @@ interface SaveBannerProps {
 const adminPages = [
   { href: "/admin/home", label: "Home", description: "Homepage content" },
   { href: "/admin/about-us", label: "About Us", description: "Company information" },
+  { href: "/admin/contact", label: "Contact", description: "Contact page content" },
+  { href: "/admin/footer", label: "Footer", description: "Footer content" },
   { href: "/admin/team", label: "Team", description: "Team members" },
   { href: "/admin/blog", label: "Articles", description: "Blog posts" },
+  { href: "/admin/podcasts", label: "Podcasts", description: "Podcast episodes" },
+  { href: "/admin/science", label: "Science", description: "Science articles" },
+  { href: "/admin/services", label: "Services", description: "Services content" },
+  { href: "/admin/work", label: "Work", description: "Work portfolio" },
   { href: "/admin/faqs", label: "FAQs", description: "Frequently asked questions" },
   { href: "/admin/privacy-policy", label: "Privacy Policy", description: "Privacy policy content" },
   { href: "/admin/terms-and-conditions", label: "Terms & Conditions", description: "Terms and conditions content" },
   { href: "/admin/terms-of-use", label: "Terms of Use", description: "Terms of use content" },
-
 ];
 
 export function SaveBanner({

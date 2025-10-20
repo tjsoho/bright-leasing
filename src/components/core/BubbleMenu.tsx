@@ -19,12 +19,13 @@ import { BWestSmallButton } from "../ui/b-west-small";
 interface BubbleMenuProps {
     isOpen: boolean;
     onClose: () => void;
+    headerButtonText?: string;
 }
 
 /* ************************************************************
                         COMPONENTS
 ************************************************************ */
-const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
+const BubbleMenu = ({ isOpen, onClose, headerButtonText = "Start In 60 Seconds" }: BubbleMenuProps) => {
     return (
         <AnimatePresence>
             {isOpen && (
@@ -216,7 +217,7 @@ const BubbleMenu = ({ isOpen, onClose }: BubbleMenuProps) => {
                                 exit={{ opacity: 0, scale: 0.8, transition: { delay: 0.1, duration: 0.2 } }}
                                 transition={{ delay: 0.7, duration: 0.3 }}
                             >
-                                <BWestSmallButton text="Start In 60 Seconds" variant="inverted" onClick={() => window.location.href = '/contact'}/>
+                                <BWestSmallButton text={headerButtonText} variant="inverted" onClick={() => window.location.href = '/contact'} />
                             </motion.div>
                         </motion.div>
 

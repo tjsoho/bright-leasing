@@ -108,7 +108,7 @@ export default function Hero({ content }: HeroProps) {
                             className="flex flex-col gap-4 max-w-xs"
                         >
                             <BWestButton
-                                text='Start in 60 Seconds'
+                                text={content.headerButtonText}
                                 onClick={() => window.location.href = '/contact'}
                             />
                         </motion.div>
