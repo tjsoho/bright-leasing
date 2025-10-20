@@ -54,12 +54,12 @@ export default function Section2({ content }: Section2Props) {
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
 				>
-					<p className="text-small uppercase tracking-wide mb-4 text-left">
+					<h2 className={`text-gray-900 leading-tight text-left ${content.section2titleBold ? 'h2-bold' : 'h2'}`}>
 						{content.section2title}
-					</p>
-					<h2 className=" text-gray-900 leading-tight text-left">
-						{content.section2paragraph}
 					</h2>
+					<p className={`text-gray-600 leading-relaxed text-left ${content.section2paragraphBold ? 'p-bold' : 'p'}`}>
+						{content.section2paragraph}
+					</p>
 				</motion.div>
 			</div>
 		</section>

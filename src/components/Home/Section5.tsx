@@ -106,13 +106,13 @@ export default function Section5({ content }: Section5Props) {
 					<div className="max-w-lg">
 						<motion.h2
 							variants={titleVariants}
-							className=" text-gray-800 mb-4"
+							className={`text-gray-800 mb-4 ${content.section5titleBold ? 'h2-bold' : ''}`}
 						>
 							{content.section5title}
 						</motion.h2>
 						<motion.p
 							variants={paragraphVariants}
-							className="text-gray-600 text-left w-full leading-relaxed mb-6"
+							className={`text-gray-600 text-left w-full leading-relaxed mb-6 ${content.section5descriptionBold ? 'p-bold' : ''}`}
 						>
 							{content.section5description}
 						</motion.p>

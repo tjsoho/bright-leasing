@@ -70,21 +70,29 @@ export default function Section7({ content }: Section7Props) {
 			question: content.section7faq1question,
 			answer: content.section7faq1answer,
 			number: "01",
+			questionBold: content.section7faq1questionBold,
+			answerBold: content.section7faq1answerBold,
 		},
 		{
 			question: content.section7faq2question,
 			answer: content.section7faq2answer,
 			number: "02",
+			questionBold: content.section7faq2questionBold,
+			answerBold: content.section7faq2answerBold,
 		},
 		{
 			question: content.section7faq3question,
 			answer: content.section7faq3answer,
 			number: "03",
+			questionBold: content.section7faq3questionBold,
+			answerBold: content.section7faq3answerBold,
 		},
 		{
 			question: content.section7faq4question,
 			answer: content.section7faq4answer,
 			number: "04",
+			questionBold: content.section7faq4questionBold,
+			answerBold: content.section7faq4answerBold,
 		},
 	];
 
@@ -93,7 +101,7 @@ export default function Section7({ content }: Section7Props) {
 			<div className="max-w-4xl mx-auto px-4">
 				{/* Section Title */}
 				<motion.h2
-					className=" text-gray-800 mb-12"
+					className={`text-gray-800 mb-12 ${content.section7titleBold ? 'h2-bold' : ''}`}
 					variants={titleVariants}
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
@@ -122,14 +130,14 @@ export default function Section7({ content }: Section7Props) {
 											<span className="text-brand-yellow font-bold text-lg">
 												{faq.number}
 											</span>
-											<h4 className=" text-gray-800">
+											<h4 className={`text-gray-800 ${faq.questionBold ? 'h4-bold' : ''}`}>
 												{faq.question}
 											</h4>
 										</div>
 									</AccordionTrigger>
 									<AccordionContent className="text-muted-foreground">
 										<div className="ml-12">
-											<p className="text-gray-600 leading-relaxed">
+											<p className={`text-gray-600 leading-relaxed ${faq.answerBold ? 'p-bold' : ''}`}>
 												{faq.answer}
 											</p>
 										</div>

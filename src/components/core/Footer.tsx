@@ -26,10 +26,28 @@ interface FooterColumn {
     links: FooterLink[];
 }
 
+interface FooterProps {
+    content: {
+        logoImage: string;
+        tagline: string;
+        taglineBold: boolean;
+        phone: string;
+        phoneBold: boolean;
+        address: string;
+        addressBold: boolean;
+        abn: string;
+        abnBold: boolean;
+        acn: string;
+        acnBold: boolean;
+        copyright: string;
+        copyrightBold: boolean;
+    };
+}
+
 /* ************************************************************
                         COMPONENTS
 ************************************************************ */
-const Footer = () => {
+const Footer = ({ content }: FooterProps) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { amount: 0.3 });
 
@@ -106,7 +124,7 @@ const Footer = () => {
                     >
                         <Link href="/" className="block mb-6">
                             <Image
-                                src="/images/bwlogo.png"
+                                src={content.logoImage}
                                 alt="Bright Leasing Logo"
                                 width={320}
                                 height={240}
@@ -115,10 +133,14 @@ const Footer = () => {
                         </Link>
                         <motion.p
                             variants={itemVariants}
-                            className="text-white/80 leading-relaxed"
+                            className={`text-white/80 leading-relaxed ${content.taglineBold ? 'p-bold' : ''}`}
                         >
-                            Intelligent car ownership<br />
-                            made simple
+                            {content.tagline.split('\n').map((line, index) => (
+                                <span key={index}>
+                                    {line}
+                                    {index < content.tagline.split('\n').length - 1 && <br />}
+                                </span>
+                            ))}
                         </motion.p>
                     </motion.div>
 
@@ -171,16 +193,16 @@ const Footer = () => {
                     className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 text-sm mt-8"
                 >
                     <div className="text-white/70">
-                        <span className="font-semibold text-white">Phone:</span> 1300 988 938
+                        <span className="font-semibold text-white">Phone:</span> <span className={content.phoneBold ? 'text-small-bold' : ''}>{content.phone}</span>
                     </div>
                     <div className="text-white/70">
-                        <span className="font-semibold text-white">Address:</span> PO Box 3107, Putney NSW 2112
+                        <span className="font-semibold text-white">Address:</span> <span className={content.addressBold ? 'text-small-bold' : ''}>{content.address}</span>
                     </div>
                     <div className="text-white/70">
-                        <span className="font-semibold text-white">ABN:</span> 20 688 482 975
+                        <span className="font-semibold text-white">ABN:</span> <span className={content.abnBold ? 'text-small-bold' : ''}>{content.abn}</span>
                     </div>
                     <div className="text-white/70">
-                        <span className="font-semibold text-white">ACN:</span> 688 482 975
+                        <span className="font-semibold text-white">ACN:</span> <span className={content.acnBold ? 'text-small-bold' : ''}>{content.acn}</span>
                     </div>
                 </motion.div>
 
@@ -193,8 +215,8 @@ const Footer = () => {
                     animate={isInView ? "show" : "hidden"}
                     className="mt-12 pt-8 border-t border-white/10"
                 >
-                    <p className="text-white/60 text-sm">
-                        © Bright Leasing Limited. All Rights Reserved.
+                    <p className={`text-white/60 text-sm ${content.copyrightBold ? 'text-small-bold' : ''}`}>
+                        {content.copyright}
                     </p>
                 </motion.div>
             </div>

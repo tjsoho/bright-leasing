@@ -133,7 +133,7 @@ export default function Section3({ content }: Section3Props) {
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
 					>
-						<h2 className="text-brand-black leading-tight lg:pr-72" >
+						<h2 className={`text-brand-black leading-tight lg:pr-72 ${content.section3titleBold ? 'h2-bold' : 'h2'}`} >
 							{content.section3title}
 						</h2>
 					</motion.div>
@@ -152,30 +152,48 @@ export default function Section3({ content }: Section3Props) {
 							heading=""
 							onCarouselApiChange={setCarouselApi}
 							items={[
+								// Static tiles
 								{
 									id: "card-1",
-									title: content.section3tile1description,
-									summary: "",
+									title: content.section3tile1title,
+									titleBold: content.section3tile1titleBold,
+									summary: content.section3tile1description,
+									summaryBold: content.section3tile1descriptionBold,
 									url: "#",
 									image: content.section3tile1image,
 									color: "bg-brand-yellow text-brand-black"
 								},
 								{
 									id: "card-2",
-									title: content.section3tile2description,
-									summary: "",
+									title: content.section3tile2title,
+									titleBold: content.section3tile2titleBold,
+									summary: content.section3tile2description,
+									summaryBold: content.section3tile2descriptionBold,
 									url: "#",
 									image: content.section3tile2image,
 									color: "bg-brand-teal text-white"
 								},
 								{
 									id: "card-3",
-									title: content.section3tile3description,
-									summary: "",
+									title: content.section3tile3title,
+									titleBold: content.section3tile3titleBold,
+									summary: content.section3tile3description,
+									summaryBold: content.section3tile3descriptionBold,
 									url: "#",
 									image: content.section3tile3image,
 									color: "bg-gray-300 text-brand-black"
-								}
+								},
+								// Additional tiles (no image, just background color)
+								...(content.additionalSection3Tiles || []).map(tile => ({
+									id: tile.id,
+									title: tile.title,
+									titleBold: tile.titleBold,
+									summary: tile.description,
+									summaryBold: tile.descriptionBold,
+									url: "#",
+									image: "", // No image for additional tiles
+									color: tile.backgroundColor
+								}))
 							]}
 						/>
 					</motion.div>
@@ -201,7 +219,7 @@ export default function Section3({ content }: Section3Props) {
 					<div className="flex-1 lg:w-1/3 flex justify-center mt-6">
 						<div className="flex items-center gap-2 bg-gray-200 rounded-full p-4">
 							{/* Dynamic Pagination Icons */}
-							{[0, 1, 2].map((index) => (
+							{Array.from({ length: 3 + (content.additionalSection3Tiles?.length || 0) }, (_, index) => (
 								<div
 									key={index}
 									className={`transition-all duration-300 bg ${index === currentSlide

@@ -76,25 +76,39 @@ const AdminTiles = () => {
             color: "bg-brand-yellow text-brand-black"
         },
         {
+            href: "/admin/contact",
+            icon: "📞",
+            title: "Contact",
+            description: "Manage contact page content",
+            color: "bg-brand-teal text-white"
+        },
+        {
+            href: "/admin/footer",
+            icon: "🦶",
+            title: "Footer",
+            description: "Manage footer content",
+            color: "bg-gray-300 text-brand-black"
+        },
+        {
             href: "/admin/about-us",
             icon: "👥",
             title: "About Us",
             description: "Manage company information",
-            color: "bg-brand-teal text-white"
+            color: "bg-gray-300 text-brand-black"
         },
         {
             href: "/admin/team",
             icon: "👥",
             title: "Team",
             description: "Manage team members",
-            color: "bg-gray-300 text-brand-black"
+            color: "bg-brand-yellow text-brand-black"
         },
         {
             href: "/admin/blog",
             icon: "📝",
             title: "Articles",
             description: "Manage blog posts and content",
-            color: "bg-brand-yellow text-brand-black"
+            color: "bg-brand-teal text-white"
         },
 
         {
@@ -146,11 +160,11 @@ const AdminTiles = () => {
                             className={`group flex flex-col justify-center h-64 rounded-2xl p-8 ${tile.color} hover:scale-105 transition-all duration-300 hover:shadow-xl block`}
                         >
                             <div className="text-center">
-                                <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-                                    <span className="text-3xl">{tile.icon}</span>
+                                <div className="w-12 h-12 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
+                                    <span className="text-2xl">{tile.icon}</span>
                                 </div>
-                                <h2 className="text-lg font-semibold mb-2">{tile.title}</h2>
-                                <p className="text-sm opacity-80">{tile.description}</p>
+                                <h2 className="text-md font-semibold mb-2">{tile.title}</h2>
+                                <p className="text-small opacity-80">{tile.description}</p>
                             </div>
                         </Link>
                     </motion.div>

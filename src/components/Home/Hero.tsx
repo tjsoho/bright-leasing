@@ -76,11 +76,11 @@ export default function Hero({ content }: HeroProps) {
     };
 
     return (
-        <section className="min-h-screen mt-0" ref={ref}>
+        <section className="min-h-screen mt-0 " ref={ref}>
             {/* ***************************************************************
                HERO CONTAINER - Flex layout with content left, image right
             ****************************************************************/}
-            <div className="flex flex-col lg:flex-row h-auto lg:h-[600px] w-full items-center bg-white px-2">
+            <div className="flex flex-col lg:flex-row w-full items-center justify-center bg-white px-2">
                 {/* ***************************************************************
                     CONTENT SECTION - Left side
                 ****************************************************************/}
@@ -93,13 +93,13 @@ export default function Hero({ content }: HeroProps) {
                     <div className="max-w-xl">
                         <motion.h1
                             variants={titleVariants}
-                            className=" text-brand-black mb-4 leading-none"
+                            className={`text-brand-black mb-4 leading-none ${content.heroTitleBold ? 'h1-bold' : 'h1'}`}
                         >
                             {content.heroTitle}
                         </motion.h1>
                         <motion.p
                             variants={paragraphVariants}
-                            className="text-left w-full leading-relaxed mb-6"
+                            className={`text-left w-full leading-relaxed mb-6 ${content.heroParagraphBold ? 'p-bold' : 'p'}`}
                         >
                             {content.heroParagraph}
                         </motion.p>
@@ -129,7 +129,7 @@ export default function Hero({ content }: HeroProps) {
                         alt="Hero Image"
                         width={400}
                         height={300}
-                        className="w-[500px] h-[300px] lg:w-full lg:h-full object-cover rounded-2xl"
+                        className="w-[500px] h-[300px] lg:w-full lg:h-full object-contain rounded-2xl"
                     />
                 </motion.div>
             </div>

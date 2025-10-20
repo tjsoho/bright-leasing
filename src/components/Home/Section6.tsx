@@ -3,8 +3,9 @@
 import { HomePageProps } from "@/app/_config";
 import { motion, useInView } from "framer-motion";
 import React from "react";
-import { Gallery6 } from "@/components/blocks/gallery6";
+
 import { CarouselApi } from "@/components/ui/carousel";
+import { Gallery7 } from "../blocks/gallery7";
 
 interface Section6Props {
 	content: HomePageProps["content"];
@@ -104,7 +105,7 @@ export default function Section6({ content }: Section6Props) {
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
 					>
-						<h2 className="text-brand-black leading-tight lg:pr-72">
+						<h2 className={`text-brand-black leading-tight lg:pr-72 ${content.section6titleBold ? 'h2-bold' : ''}`}>
 							{content.section6title}
 						</h2>
 					</motion.div>
@@ -118,18 +119,21 @@ export default function Section6({ content }: Section6Props) {
 						animate={isInView ? "show" : "hidden"}
 						className="flex-1 lg:w-3/4 overflow-hidden"
 					>
-						<Gallery6
+						<Gallery7
 							heading=""
 							titleTag="p"
 							onCarouselApiChange={setCarouselApi}
 							items={[
+								// Static tiles
 								{
 									id: "card-1",
 									title: content.section6tile1title,
 									summary: content.section6tile1description,
 									url: "#",
 									image: content.section6tile1image,
-									color: "bg-brand-yellow text-brand-black"
+									color: "bg-brand-yellow text-brand-black",
+									titleBold: content.section6tile1titleBold,
+									summaryBold: content.section6tile1descriptionBold
 								},
 								{
 									id: "card-2",
@@ -137,7 +141,9 @@ export default function Section6({ content }: Section6Props) {
 									summary: content.section6tile2description,
 									url: "#",
 									image: content.section6tile2image,
-									color: "bg-brand-teal text-white"
+									color: "bg-brand-teal text-white",
+									titleBold: content.section6tile2titleBold,
+									summaryBold: content.section6tile2descriptionBold
 								},
 								{
 									id: "card-3",
@@ -145,8 +151,21 @@ export default function Section6({ content }: Section6Props) {
 									summary: content.section6tile3description,
 									url: "#",
 									image: content.section6tile3image,
-									color: "bg-gray-300 text-brand-black"
-								}
+									color: "bg-gray-300 text-brand-black",
+									titleBold: content.section6tile3titleBold,
+									summaryBold: content.section6tile3descriptionBold
+								},
+								// Additional tiles (no image, just background color)
+								...(content.additionalSection6Tiles || []).map(tile => ({
+									id: tile.id,
+									title: tile.title,
+									titleBold: tile.titleBold,
+									summary: tile.description,
+									summaryBold: tile.descriptionBold,
+									url: "#",
+									image: "", // No image for additional tiles
+									color: tile.backgroundColor
+								}))
 							]}
 						/>
 					</motion.div>
@@ -172,7 +191,7 @@ export default function Section6({ content }: Section6Props) {
 					<div className="flex-1 lg:w-1/3 flex justify-center mt-6">
 						<div className="flex items-center gap-2 bg-gray-200 rounded-full p-4">
 							{/* Dynamic Pagination Icons */}
-							{[0, 1, 2].map((index) => (
+							{Array.from({ length: 3 + (content.additionalSection6Tiles?.length || 0) }, (_, index) => (
 								<div
 									key={index}
 									className={`transition-all duration-300 bg ${index === currentSlide

@@ -66,24 +66,32 @@ export default function Section4({ content }: Section4Props) {
 			description: content.section4step1description,
 			icon: content.section4step1icon,
 			number: "01",
+			titleBold: content.section4step1titleBold,
+			descriptionBold: content.section4step1descriptionBold,
 		},
 		{
 			title: content.section4step2title,
 			description: content.section4step2description,
 			icon: content.section4step2icon,
 			number: "02",
+			titleBold: content.section4step2titleBold,
+			descriptionBold: content.section4step2descriptionBold,
 		},
 		{
 			title: content.section4step3title,
 			description: content.section4step3description,
 			icon: content.section4step3icon,
 			number: "03",
+			titleBold: content.section4step3titleBold,
+			descriptionBold: content.section4step3descriptionBold,
 		},
 		{
 			title: content.section4step4title,
 			description: content.section4step4description,
 			icon: content.section4step4icon,
 			number: "04",
+			titleBold: content.section4step4titleBold,
+			descriptionBold: content.section4step4descriptionBold,
 		},
 	];
 
@@ -92,7 +100,7 @@ export default function Section4({ content }: Section4Props) {
 			<div className="max-w-6xl mx-auto px-4">
 				{/* Section Title */}
 				<motion.h2
-					className=" text-black text-left mb-16"
+					className={`text-black text-left mb-16 ${content.section4titleBold ? 'h2-bold' : ''}`}
 					variants={titleVariants}
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
@@ -129,10 +137,10 @@ export default function Section4({ content }: Section4Props) {
 
 								{/* Content */}
 								<div className="flex-1 flex flex-col justify-start">
-									<h4 className=" text-black mb-3">
+									<h4 className={`text-black mb-3 ${step.titleBold ? 'h4-bold' : ''}`}>
 										{step.title}
 									</h4>
-									<p className="lg:text-small text-gray-600 text-left leading-relaxed">
+									<p className={`lg:text-small text-gray-600 text-left leading-relaxed ${step.descriptionBold ? 'p-bold' : ''}`}>
 										{step.description}
 									</p>
 								</div>

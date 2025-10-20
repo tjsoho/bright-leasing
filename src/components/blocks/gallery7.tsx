@@ -22,7 +22,7 @@ interface GalleryItem {
   color?: string;
 }
 
-interface Gallery6Props {
+interface Gallery7Props {
   heading?: string;
   demoUrl?: string;
   items?: GalleryItem[];
@@ -30,7 +30,7 @@ interface Gallery6Props {
   titleTag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 }
 
-const Gallery6 = ({
+const Gallery7 = ({
   onCarouselApiChange,
 
   items = [
@@ -75,7 +75,7 @@ const Gallery6 = ({
       image: "/images/block/placeholder-dark-1.svg",
     },
   ],
-}: Gallery6Props) => {
+}: Gallery7Props) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
 
   useEffect(() => {
@@ -100,15 +100,15 @@ const Gallery6 = ({
           <CarouselContent className="-ml-2">
             {items.map((item) => (
               <CarouselItem key={item.id} className="pl-4 max-w-[300px] sm:max-w-sm mx-auto md:mx-0">
-                <div className={`group flex flex-col justify-start h-80 rounded-2xl p-6 sm:p-8 ${item.color || 'bg-brand-yellow text-brand-black'}`}>
-                  <div>
-                    <h5 className={`leading-relaxed text-left mb-3 ${item.titleBold ? 'font-bold-500' : ''}`}>
-                      {item.title}
-                    </h5>
-                  </div>
+                <div className={`group flex flex-col justify-between h-80 rounded-2xl p-6 sm:p-8 ${item.color || 'bg-brand-yellow text-brand-black'}`}>
                   <div className="flex-1">
                     <h5 className={`leading-relaxed text-left ${item.summaryBold ? 'font-bold-500' : ''}`}>
                       {item.summary}
+                    </h5>
+                  </div>
+                  <div className="mt-auto">
+                    <h5 className={`leading-relaxed text-left ${item.titleBold ? 'font-bold-500' : ''}`}>
+                      {item.title}
                     </h5>
                   </div>
                 </div>
@@ -122,4 +122,4 @@ const Gallery6 = ({
   );
 };
 
-export { Gallery6 };
+export { Gallery7 };

@@ -48,7 +48,7 @@ export default function Admin() {
 	************************************************************ */
 	return (
 		<main className=" bg-white">
-			<div className="max-w-7xl mx-auto px-4 pt-8">
+			<div className="max-w-7xl mx-auto px-4 py-8">
 
 				{/* ************************************************************
                     TITLE SECTION WITH LOGO
