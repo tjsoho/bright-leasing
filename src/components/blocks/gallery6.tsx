@@ -85,8 +85,8 @@ const Gallery6 = ({
     }
   }, [carouselApi, onCarouselApiChange]);
   return (
-    <section className="w-full overflow-hidden">
-      <div className="w-full">
+    <section className="w-full overflow-hidden ">
+      <div className="w-full ">
         <Carousel
           setApi={setCarouselApi}
           opts={{
@@ -94,9 +94,14 @@ const Gallery6 = ({
               "(max-width: 768px)": {
                 dragFree: true,
               },
+              "(min-width: 1024px)": {
+                slidesToScroll: 1,
+                containScroll: "trimSnaps",
+                align: "start",
+              },
             },
           }}
-          className="relative w-full flex justify-center md:justify-start"
+          className="relative w-full flex justify-start "
         >
           <CarouselContent className="-ml-2 w-full">
             {items.map((item) => (

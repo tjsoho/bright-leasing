@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Ai Guy Template",
-	description: "Ai Guy Template",
+	title: "Bright Leasing",
+	description: "The smartest way to own and run a car",
 };
 
 export default function RootLayout({

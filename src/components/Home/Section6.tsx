@@ -106,7 +106,7 @@ export default function Section6({ content }: Section6Props) {
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
 					>
-						<h2 className={`text-brand-black leading-tight lg:pr-72 ${content.section6titleBold ? 'h2-bold' : ''}`}>
+						<h2 className={`text-brand-black leading-tight lg:pr-[25%] ${content.section6titleBold ? 'h2-bold' : 'h2'}`}>
 							<RenderLineBreaks text={content.section6title} />
 						</h2>
 					</motion.div>
@@ -118,7 +118,7 @@ export default function Section6({ content }: Section6Props) {
 						variants={carouselVariants}
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
-						className="flex-1 lg:w-3/4 w-full overflow-hidden"
+						className="flex-1 lg:w-3/4 w-full "
 					>
 						<Gallery7
 							heading=""

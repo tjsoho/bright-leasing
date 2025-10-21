@@ -134,7 +134,7 @@ export default function Section3({ content }: Section3Props) {
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
 					>
-						<h2 className={`text-brand-black leading-tight lg:pr-72 ${content.section3titleBold ? 'h2-bold' : 'h2'}`} >
+						<h2 className={`text-brand-black leading-tight lg:pr-[20%] ${content.section3titleBold ? 'h2-bold' : 'h2'}`} >
 							<RenderLineBreaks text={content.section3title} />
 						</h2>
 					</motion.div>
@@ -146,7 +146,7 @@ export default function Section3({ content }: Section3Props) {
 						variants={carouselVariants}
 						initial="hidden"
 						animate={isInView ? "show" : "hidden"}
-						className="flex-1 lg:w-3/4 w-full overflow-hidden"
+						className="flex-1 lg:w-3/4 w-full "
 
 					>
 						<Gallery6

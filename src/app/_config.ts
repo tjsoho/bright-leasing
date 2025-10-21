@@ -9,6 +9,14 @@ export type AdditionalTile = {
   backgroundColor: string;
 };
 
+export type AdditionalFAQ = {
+  id: string;
+  question: string;
+  questionBold: boolean;
+  answer: string;
+  answerBold: boolean;
+};
+
 export type HomePageContent = {
   heroImage: string;
   heroTitle: string;
@@ -103,6 +111,7 @@ export type HomePageContent = {
   section7faq4questionBold: boolean;
   section7faq4answer: string;
   section7faq4answerBold: boolean;
+  additionalSection7Faqs: AdditionalFAQ[];
 };
 
 export type HomePageProps = BasePage<HomePageContent>;
@@ -296,5 +305,6 @@ export const homePageFallbackData: HomePageProps = {
     section7faq4answer:
       "The setup process usually takes 2-4 weeks from application to vehicle delivery. This includes employer approval, lease documentation, vehicle sourcing, and final delivery arrangements.",
     section7faq4answerBold: false,
+    additionalSection7Faqs: [],
   },
 };

@@ -3,7 +3,7 @@ import { SaveBanner } from "../core/save-banner";
 import { useState } from "react";
 import EditableImage from "@/components/core/editable-image";
 import { EditableElement } from "@/components/core/input";
-import { HomePageContent, HomePageProps, AdditionalTile } from "@/app/_config";
+import { HomePageContent, HomePageProps, AdditionalTile, AdditionalFAQ } from "@/app/_config";
 import useUpdatePage from "@/utils/hooks/useUpdatePage";
 
 export default function HomeAdminInputs(props: HomePageProps) {
@@ -146,6 +146,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 	const [section6tile3descriptionBold, setSection6tile3descriptionBold] = useState(props.content.section6tile3descriptionBold ?? false);
 	const [additionalSection3Tiles, setAdditionalSection3Tiles] = useState<AdditionalTile[]>(props.content.additionalSection3Tiles || []);
 	const [additionalSection6Tiles, setAdditionalSection6Tiles] = useState<AdditionalTile[]>(props.content.additionalSection6Tiles || []);
+	const [additionalSection7Faqs, setAdditionalSection7Faqs] = useState<AdditionalFAQ[]>(props.content.additionalSection7Faqs || []);
 	const [section7title, setSection7title] = useState(
 		props.content.section7title,
 	);
@@ -259,6 +260,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 				section6tile3descriptionBold,
 				additionalSection3Tiles,
 				additionalSection6Tiles,
+				additionalSection7Faqs,
 				section7title,
 				section7titleBold,
 				section7faq1question,
@@ -1813,6 +1815,106 @@ export default function HomeAdminInputs(props: HomePageProps) {
 										</div>
 									</div>
 								</div>
+							</div>
+
+							{/* Additional Section 7 FAQs */}
+							{additionalSection7Faqs.map((faq, index) => (
+								<div key={faq.id} className="bg-brand-black p-3 rounded-lg border border-gray-700">
+									<div className="flex justify-between items-center mb-3">
+										<h4 className="text-white font-medium">Additional FAQ {index + 1}</h4>
+										<button
+											onClick={() => setAdditionalSection7Faqs(additionalSection7Faqs.filter(f => f.id !== faq.id))}
+											className="px-2 py-1 bg-red-600 text-white rounded text-xs hover:bg-red-700 transition-colors"
+										>
+											Remove
+										</button>
+									</div>
+									<div className="grid grid-cols-1 gap-4">
+										<div>
+											<label className="block text-brand-black/70 text-xs mb-1">
+												Question
+											</label>
+											<EditableElement
+												as="textarea"
+												className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+												onTextChange={(value) => {
+													const updatedFaqs = additionalSection7Faqs.map(f =>
+														f.id === faq.id ? { ...f, question: value } : f
+													);
+													setAdditionalSection7Faqs(updatedFaqs);
+												}}
+												defaultValue={faq.question}
+											/>
+											<div className="mt-2">
+												<label className="flex items-center space-x-2 cursor-pointer">
+													<input
+														type="checkbox"
+														checked={faq.questionBold}
+														onChange={(e) => {
+															const updatedFaqs = additionalSection7Faqs.map(f =>
+																f.id === faq.id ? { ...f, questionBold: e.target.checked } : f
+															);
+															setAdditionalSection7Faqs(updatedFaqs);
+														}}
+														className="w-3 h-3 text-brand-yellow border-brand-yellow/30 focus:ring-brand-yellow focus:ring-1"
+													/>
+													<span className="text-brand-black/70 text-xs">Bold</span>
+												</label>
+											</div>
+										</div>
+										<div>
+											<label className="block text-brand-black/70 text-xs mb-1">
+												Answer
+											</label>
+											<EditableElement
+												as="textarea"
+												className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-24"
+												onTextChange={(value) => {
+													const updatedFaqs = additionalSection7Faqs.map(f =>
+														f.id === faq.id ? { ...f, answer: value } : f
+													);
+													setAdditionalSection7Faqs(updatedFaqs);
+												}}
+												defaultValue={faq.answer}
+											/>
+											<div className="mt-2">
+												<label className="flex items-center space-x-2 cursor-pointer">
+													<input
+														type="checkbox"
+														checked={faq.answerBold}
+														onChange={(e) => {
+															const updatedFaqs = additionalSection7Faqs.map(f =>
+																f.id === faq.id ? { ...f, answerBold: e.target.checked } : f
+															);
+															setAdditionalSection7Faqs(updatedFaqs);
+														}}
+														className="w-3 h-3 text-brand-yellow border-brand-yellow/30 focus:ring-brand-yellow focus:ring-1"
+													/>
+													<span className="text-brand-black/70 text-xs">Bold</span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							))}
+
+							{/* Add Another FAQ Button for Section 7 */}
+							<div className="mt-4">
+								<button
+									onClick={() => {
+										const newFaq: AdditionalFAQ = {
+											id: `section7-faq-${Date.now()}`,
+											question: '',
+											questionBold: false,
+											answer: '',
+											answerBold: false
+										};
+										setAdditionalSection7Faqs([...additionalSection7Faqs, newFaq]);
+									}}
+									className="px-4 py-2 bg-brand-yellow text-brand-black rounded-lg font-medium hover:bg-brand-yellow/80 transition-colors"
+								>
+									Add another FAQ
+								</button>
 							</div>
 						</div>
 					</section>

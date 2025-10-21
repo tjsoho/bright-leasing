@@ -47,7 +47,8 @@ export default function ContactClient({ content }: ContactClientProps) {
         subject: '',
         message: '',
         userType: '',
-        companyName: ''
+        companyName: '',
+        state: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -83,6 +84,7 @@ export default function ContactClient({ content }: ContactClientProps) {
                     message: formData.message,
                     userType: formData.userType,
                     companyName: formData.companyName,
+                    state: formData.state,
                     from_name: 'Bright Leasing Contact Form',
                     reply_to: formData.email,
                 }),
@@ -99,7 +101,8 @@ export default function ContactClient({ content }: ContactClientProps) {
                     subject: '',
                     message: '',
                     userType: '',
-                    companyName: ''
+                    companyName: '',
+                    state: ''
                 });
             } else {
                 setSubmitStatus('error');
@@ -205,7 +208,7 @@ export default function ContactClient({ content }: ContactClientProps) {
                                         alt="Bright Leasing"
                                         width={300}
                                         height={200}
-                                        className="w-full max-w-sm h-auto rounded-lg"
+                                        className="w-full max-w-2xl mx-auto h-auto rounded-lg mt-16 lg:mt-32"
                                     />
                                 </div>
                             </div>
@@ -286,6 +289,18 @@ export default function ContactClient({ content }: ContactClientProps) {
                                                 />
                                                 <span className="text-brand-black font-medium">Employer</span>
                                             </label>
+                                            <label className="flex items-center space-x-3 cursor-pointer">
+                                                <input
+                                                    type="radio"
+                                                    name="userType"
+                                                    value="Other"
+                                                    checked={formData.userType === 'Other'}
+                                                    onChange={handleInputChange}
+                                                    required
+                                                    className="w-4 h-4 text-brand-yellow border-brand-yellow/30 focus:ring-brand-yellow focus:ring-2"
+                                                />
+                                                <span className="text-brand-black font-medium">Other</span>
+                                            </label>
                                         </div>
                                     </div>
 
@@ -308,10 +323,37 @@ export default function ContactClient({ content }: ContactClientProps) {
                                         />
                                     </div>
 
+                                    {/* ************************************************************
+                                            STATE FIELD
+                                    ************************************************************ */}
+                                    <div>
+                                        <label htmlFor="state" className="block text-sm font-medium text-brand-black mb-2">
+                                            State *
+                                        </label>
+                                        <select
+                                            id="state"
+                                            name="state"
+                                            value={formData.state}
+                                            onChange={handleInputChange}
+                                            required
+                                            className="w-full px-4 py-3 border border-brand-yellow/30 rounded-xl focus:border-brand-yellow focus:outline-none bg-brand-cream/30 transition-colors"
+                                        >
+                                            <option value="">Select your state</option>
+                                            <option value="NSW">New South Wales</option>
+                                            <option value="VIC">Victoria</option>
+                                            <option value="QLD">Queensland</option>
+                                            <option value="WA">Western Australia</option>
+                                            <option value="SA">South Australia</option>
+                                            <option value="TAS">Tasmania</option>
+                                            <option value="ACT">Australian Capital Territory</option>
+                                            <option value="NT">Northern Territory</option>
+                                        </select>
+                                    </div>
+
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label htmlFor="phone" className="block text-sm font-medium text-brand-black mb-2">
-                                                Phone Number
+                                                Mobile Number *
                                             </label>
                                             <input
                                                 type="tel"
@@ -319,6 +361,7 @@ export default function ContactClient({ content }: ContactClientProps) {
                                                 name="phone"
                                                 value={formData.phone}
                                                 onChange={handleInputChange}
+                                                required
                                                 className="w-full px-4 py-3 border border-brand-yellow/30 rounded-xl focus:border-brand-yellow focus:outline-none bg-brand-cream/30 transition-colors"
                                                 placeholder="0400 000 000"
                                             />
@@ -336,9 +379,9 @@ export default function ContactClient({ content }: ContactClientProps) {
                                                 className="w-full px-4 py-3 border border-brand-yellow/30 rounded-xl focus:border-brand-yellow focus:outline-none bg-brand-cream/30 transition-colors"
                                             >
                                                 <option value="">Select a subject</option>
-                                                <option value="Novated Leasing Inquiry">Novated Leasing Inquiry</option>
+                                                <option value="Existing Customer">Ready</option>
+                                                <option value="Novated Leasing Inquiry">Novated Leasing Enquiry</option>
                                                 <option value="General Question">General Question</option>
-                                                <option value="Existing Customer">Existing Customer</option>
                                                 <option value="Partnership">Partnership</option>
                                                 <option value="Other">Other</option>
                                             </select>
@@ -357,7 +400,7 @@ export default function ContactClient({ content }: ContactClientProps) {
                                             required
                                             rows={5}
                                             className="w-full px-4 py-3 border border-brand-yellow/30 rounded-xl focus:border-brand-yellow focus:outline-none bg-brand-cream/30 transition-colors resize-none"
-                                            placeholder="Tell us about your automotive needs and how we can help..."
+                                            placeholder="Tell us about how we can help"
                                         />
                                     </div>
 

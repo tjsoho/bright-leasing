@@ -66,7 +66,7 @@ export default function Section7({ content }: Section7Props) {
 		},
 	};
 
-	const faqs = [
+	const staticFaqs = [
 		{
 			question: content.section7faq1question,
 			answer: content.section7faq1answer,
@@ -96,6 +96,17 @@ export default function Section7({ content }: Section7Props) {
 			answerBold: content.section7faq4answerBold,
 		},
 	];
+
+	// Add additional FAQs with dynamic numbering
+	const additionalFaqs = (content.additionalSection7Faqs || []).map((faq, index) => ({
+		question: faq.question,
+		answer: faq.answer,
+		number: String(5 + index).padStart(2, '0'),
+		questionBold: faq.questionBold,
+		answerBold: faq.answerBold,
+	}));
+
+	const faqs = [...staticFaqs, ...additionalFaqs];
 
 	return (
 		<section className="py-16 bg-white" ref={ref}>
