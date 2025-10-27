@@ -163,9 +163,13 @@ export default function ContactClient({ content }: ContactClientProps) {
                         animate="show"
                         className="text-center max-w-4xl mx-auto"
                     >
-                        <motion.div variants={itemVariants} className={`inline-flex items-center gap-2 bg-brand-yellow/20 text-brand-yellow px-4 py-2 rounded-full text-sm font-semibold mb-6 ${content.heroSubtitleBold ? 'text-small-bold' : ''}`}>
+                        <motion.div
+                            variants={itemVariants}
+                            className={`inline-flex items-center gap-2 bg-brand-yellow/20 text-brand-yellow px-4 py-2 rounded-full text-sm font-semibold mt-8 mb-6 hover:cursor-pointer hover:bg-brand-yellow/30 transition-colors cursor-pointer ${content.heroSubtitleBold ? 'text-small-bold' : ''}`}
+                            onClick={() => window.open('mailto:info@brightleasing.com.au', '_self')}
+                        >
                             <Mail className="w-4 h-4" />
-                            <span>{content.heroSubtitle}</span>
+                            <span className="hover:underline hover:cursor-pointer">{content.heroSubtitle}</span>
                         </motion.div>
 
                         <motion.h1 variants={itemVariants} className={`text-6xl font-bold mb-6 leading-tight ${content.heroTitleBold ? 'h1-bold' : ''}`}>
@@ -379,10 +383,10 @@ export default function ContactClient({ content }: ContactClientProps) {
                                                 className="w-full px-4 py-3 border border-brand-yellow/30 rounded-xl focus:border-brand-yellow focus:outline-none bg-brand-cream/30 transition-colors"
                                             >
                                                 <option value="">Select a subject</option>
-                                                <option value="Existing Customer">Ready</option>
                                                 <option value="Novated Leasing Inquiry">Novated Leasing Enquiry</option>
+                                                <option value="Existing Customer">Employer Partnership</option>
                                                 <option value="General Question">General Question</option>
-                                                <option value="Partnership">Partnership</option>
+                                            
                                                 <option value="Other">Other</option>
                                             </select>
                                         </div>
@@ -400,7 +404,7 @@ export default function ContactClient({ content }: ContactClientProps) {
                                             required
                                             rows={5}
                                             className="w-full px-4 py-3 border border-brand-yellow/30 rounded-xl focus:border-brand-yellow focus:outline-none bg-brand-cream/30 transition-colors resize-none"
-                                            placeholder="Tell us about how we can help"
+                                            placeholder="Tell us how we can help"
                                         />
                                     </div>
 
