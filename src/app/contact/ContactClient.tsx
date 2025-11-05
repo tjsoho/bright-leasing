@@ -63,8 +63,6 @@ export default function ContactClient({ content }: ContactClientProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setShowSuccessMessage(true);
-    return;
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
