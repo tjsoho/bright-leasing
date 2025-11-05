@@ -164,7 +164,10 @@ export default function Section4({ content }: Props) {
                       titleBold={tile.titleBold}
                       description={tile.description}
                       descriptionBold={tile.descriptionBold}
-                      className={cn(tile.className, `order-1`)}
+                      className={cn(
+                        tile.className,
+                        `order-${index} lg:order-1`,
+                      )}
                     />
                   )),
               )}
@@ -204,7 +207,10 @@ export default function Section4({ content }: Props) {
                       titleBold={tile.titleBold}
                       description={tile.description}
                       descriptionBold={tile.descriptionBold}
-                      className={cn(tile.className, `order-1`)}
+                      className={cn(
+                        tile.className,
+                        `order-${index} lg:order-1`,
+                      )}
                     />
                   )),
               )}
