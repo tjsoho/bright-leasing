@@ -1,0 +1,43 @@
+import Hero from "@/components/empoyers-employees/Hero";
+import Section2 from "@/components/empoyers-employees/Section2";
+import Section3 from "@/components/empoyers-employees/Section3";
+import Section4 from "@/components/empoyers-employees/Section4";
+import Section5 from "@/components/empoyers-employees/Section5";
+import Section6 from "@/components/empoyers-employees/Section6";
+import Section7 from "@/components/empoyers-employees/Section7";
+import Section8 from "@/components/empoyers-employees/Section8";
+import getPage from "@/server-actions/page";
+import {
+  employeesPageFallbackData,
+  EmployersEmployeesPageProps,
+} from "../_config";
+
+export default async function EmployeesPage() {
+  const data = await getPage<EmployersEmployeesPageProps>(
+    "employees",
+    employeesPageFallbackData,
+  );
+
+  return (
+    <main className="min-h-screen">
+      <div className="max-w-[1920px] mx-auto lg:px-8 py-4 pt-24">
+        {/* ***************************************************************
+				   HERO
+        ****************************************************************/}
+        <Hero content={data.content} />
+        <div className="max-w-[1540px] mx-auto">
+          {/* ***************************************************************
+				   SECTION 2
+        ****************************************************************/}
+          <Section2 content={data.content} />
+          <Section3 content={data.content} />
+          <Section4 content={data.content} />
+          <Section5 content={data.content} />
+          <Section6 content={data.content} />
+          <Section7 content={data.content} />
+          <Section8 content={data.content} />
+        </div>
+      </div>
+    </main>
+  );
+}

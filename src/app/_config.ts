@@ -128,6 +128,12 @@ export type ContactPageContent = {
   contactDescription: string;
   contactDescriptionBold: boolean;
   contactImage: string;
+  successTitle: string;
+  successTitleBold: boolean;
+  successMessage: string;
+  successMessageBold: boolean;
+  successImage: string;
+  successLogo: string;
 };
 
 export type ContactPageProps = BasePage<ContactPageContent>;
@@ -168,6 +174,13 @@ export const contactPageFallbackData: ContactPageProps = {
       "Have questions about novated leasing? We're here to help! Send us a message and we'll get back to you within 24 hours.",
     contactDescriptionBold: false,
     contactImage: "/images/brightlogo.png",
+    successTitle: "Thank You!",
+    successTitleBold: false,
+    successMessage:
+      "Your message has been received. We'll get back to you as soon as possible.",
+    successMessageBold: false,
+    successImage: "/images/brightlogo.png",
+    successLogo: "/images/brightlogo.png",
   },
 };
 

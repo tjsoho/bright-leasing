@@ -16,18 +16,16 @@ import { ImageLibraryProvider } from "@/contexts/ImageLibraryContext";
                         COMPONENTS
 ************************************************************ */
 export default async function ContactAdmin() {
-    const contactPage = await getPage<ContactPageProps>("contact", contactPageFallbackData);
+  const contactPage = await getPage<ContactPageProps>(
+    "contact",
+    contactPageFallbackData,
+  );
 
-    return (
-        <ImageLibraryProvider>
-            <div>
-                <ContactAdminInputs
-                    title={contactPage.title}
-                    description={contactPage.description}
-                    slug={contactPage.slug}
-                    content={contactPage.content}
-                />
-            </div>
-        </ImageLibraryProvider>
-    );
+  return (
+    <ImageLibraryProvider>
+      <div>
+        <ContactAdminInputs data={contactPage} />
+      </div>
+    </ImageLibraryProvider>
+  );
 }
