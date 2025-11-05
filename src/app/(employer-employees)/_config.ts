@@ -111,34 +111,35 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
     section2paragraph:
       "We make car leasing simple, transparent, and rewarding — helping your employees take home more pay while your business saves time and costs.",
     section2paragraphBold: false,
-    section2tile1title: "Choose Your Car",
+    section2tile1title: "Service That Spoils",
     section2tile1titleBold: false,
-    section2tile1description: "Bring your dream car or pick from our network.",
+    section2tile1description:
+      "Fast quotes, proactive updates, and real humans, with extensive industry expertise, who pick up the phone when you need support.",
     section2tile1descriptionBold: false,
     section2tile1icon: "/placeholder.jpg",
-    section2tile2title: "Set Up Your Lease",
+    section2tile2title: "Best Employee Outcomes",
     section2tile2titleBold: false,
     section2tile2description:
-      "Three-way agreement between you, your employer, and Bright.",
+      "We optimize total package value — finance, running costs, and tax position — not just sticker price.",
     section2tile2descriptionBold: false,
     section2tile2icon: "/placeholder.jpg",
-    section2tile3title: "Salary Packaging Saves You Money",
+    section2tile3title: "Lowest Possible Cost",
     section2tile3titleBold: false,
     section2tile3description:
-      "Lease + running costs come from your pre-tax pay.",
+      "Fleet buying power, no junk add-ons, and low interest finance keeps costs down.",
     section2tile3descriptionBold: false,
     section2tile3icon: "/placeholder.jpg",
-    section2tile4title: "Drive Away Happy",
+    section2tile4title: "EV Specialists",
     section2tile4titleBold: false,
     section2tile4description:
-      "Pay for your running costs using your Bright digital card and let us handle everything else.",
+      "Plain-English guidance, ATO-aligned methods to maximise tax savings using available EV specific tax legislation.",
     section2tile4descriptionBold: false,
     section2tile4icon: "/placeholder.jpg",
     section3icon: "/placeholder.jpg",
     section3title: "Auto-UX Tip:",
     section3titleBold: true,
     section3paragraph:
-      "Employers can offer novated leasing as a salary packaging benefit with minimal effort. Bright Leasing handles the entire process, from setup to ongoing management, ensuring a seamless experience for both employers and employees.",
+      "Did you know you can get a Novated Lease on new or used cars, or event a car you already own?",
     section3paragraphBold: false,
     section4title: "How it works",
     section4titleBold: false,
@@ -153,7 +154,7 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
     },
     section4tab1items: [
       {
-        title: "Employee Chooses Car",
+        title: "More Take-Home Pay",
         titleBold: false,
         description:
           "Using pre-tax dollars for their car and running costs puts more money in their pockets every pay cycle.",
@@ -161,41 +162,40 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
         image: "/placeholder.jpg",
       },
       {
-        title: "Employer Sets Up Lease",
+        title: "",
         titleBold: false,
-        description:
-          "Three-way agreement between employee, employer, and Bright Leasing.",
+        description: "",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
       {
-        title: "Salary Packaging Saves Money",
+        title: "Less Hassle",
         titleBold: false,
         description:
-          "Lease + running costs come from pre-tax pay, increasing take-home pay.",
+          "One fixed, set-and-forget payment covers most car costs — no juggling multiple bills or suppliers.",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
       {
-        title: "Employee Drives Away Happy",
+        title: "Choice & Transparency",
         titleBold: false,
         description:
-          "Pay for running costs using Bright digital card while Bright Leasing handles everything else.",
+          "We show every dollar with no hidden add-ons, giving employees complete visibility into their expenses.",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
       {
-        title: "Employer Benefits",
+        title: "EV Advantage",
         titleBold: false,
         description:
-          "Attract and retain top talent with a sought-after benefit that costs you nothing to offer.",
+          "Eligible EVs can be FBT-exempt, delivering outsized savings that make electric vehicles incredibly attractive.",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
     ],
     section4tab2items: [
       {
-        title: "Employee Chooses Car",
+        title: "More Take-Home Pay",
         titleBold: false,
         description:
           "Using pre-tax dollars for their car and running costs puts more money in their pockets every pay cycle.",
@@ -203,34 +203,33 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
         image: "/placeholder.jpg",
       },
       {
-        title: "Employer Sets Up Lease",
+        title: "",
         titleBold: false,
-        description:
-          "Three-way agreement between employee, employer, and Bright Leasing.",
+        description: "",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
       {
-        title: "Salary Packaging Saves Money",
+        title: "Less Hassle",
         titleBold: false,
         description:
-          "Lease + running costs come from pre-tax pay, increasing take-home pay.",
+          "One fixed, set-and-forget payment covers most car costs — no juggling multiple bills or suppliers.",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
       {
-        title: "Employee Drives Away Happy",
+        title: "Choice & Transparency",
         titleBold: false,
         description:
-          "Pay for running costs using Bright digital card while Bright Leasing handles everything else.",
+          "We show every dollar with no hidden add-ons, giving employees complete visibility into their expenses.",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
       {
-        title: "Employer Benefits",
+        title: "EV Advantage",
         titleBold: false,
         description:
-          "Attract and retain top talent with a sought-after benefit that costs you nothing to offer.",
+          "Eligible EVs can be FBT-exempt, delivering outsized savings that make electric vehicles incredibly attractive.",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
@@ -238,46 +237,46 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
     section5title: "Why Choose Bright / What’s included",
     section5titleBold: false,
     section5paragraph:
-      "We make car leasing simple, transparent, and rewarding — helping your employees take home more pay while your business saves time and costs.",
+      "Your team members gain significant financial advantages and convenience through our compWe've streamlined novated leasing into five simple steps that require minimal effort from your team while delivering maximum value to your employees.rehensive novated leasing program.",
     section5paragraphBold: false,
     section5tiles: [
       {
-        title: "Employee Chooses Car",
+        title: "Sign & Set",
         titleBold: false,
         description:
-          "Using pre-tax dollars for their car and running costs puts more money in their pockets every pay cycle.",
+          "No lock-in contracts, we simply setup your free account — no lengthy implementation process.",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
       {
-        title: "Employer Sets Up Lease",
+        title: "Onboard Your People",
         titleBold: false,
         description:
-          "Three-way agreement between employee, employer, and Bright Leasing.",
+          "Completely outsourced solution. We run a comprehensive launch, and answer all the questions.",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
       {
-        title: "Salary Packaging Saves Money",
+        title: "Employees Choose",
         titleBold: false,
         description:
-          "Lease + running costs come from pre-tax pay, increasing take-home pay.",
+          "New or used vehicles, we secure fleet pricing, and package all running costs transparently.",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
       {
-        title: "Employee Drives Away Happy",
+        title: "Drive & Save",
         titleBold: false,
         description:
-          "Pay for running costs using Bright digital card while Bright Leasing handles everything else.",
+          "We manage the entire lease lifecycle including all running costs along with compliance and comprehensive reporting.",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
       {
-        title: "Employer Benefits",
+        title: "Payroll Clicks",
         titleBold: false,
         description:
-          "Attract and retain top talent with a sought-after benefit that costs you nothing to offer.",
+          "We send an easy payroll setup file, and deductions start the next pay cycle — seamless integration guaranteed.",
         descriptionBold: false,
         image: "/placeholder.jpg",
       },
@@ -318,4 +317,11 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
     section8faq4answerBold: false,
     additionalSection8Faqs: [],
   },
+};
+
+export const employeesPageFallbackData: EmployersEmployeesPageProps = {
+  title: "Employees",
+  description: "Employees page description",
+  slug: "employees",
+  content: employersPageFallbackData.content,
 };

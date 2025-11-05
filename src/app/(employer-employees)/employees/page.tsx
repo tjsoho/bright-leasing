@@ -1,22 +1,22 @@
-import getPage from "@/server-actions/page";
 import Hero from "@/components/empoyers-employees/Hero";
 import Section2 from "@/components/empoyers-employees/Section2";
 import Section3 from "@/components/empoyers-employees/Section3";
-import {
-  EmployersEmployeesPageProps,
-  employersPageFallbackData,
-} from "../_config";
 import Section4 from "@/components/empoyers-employees/Section4";
 import Section5 from "@/components/empoyers-employees/Section5";
 import Section6 from "@/components/empoyers-employees/Section6";
 import Section7 from "@/components/empoyers-employees/Section7";
 import Section8 from "@/components/empoyers-employees/Section8";
+import getPage from "@/server-actions/page";
+import {
+  employeesPageFallbackData,
+  EmployersEmployeesPageProps,
+} from "../_config";
 
 export default async function EmployeesPage() {
-  const data = await getPage<EmployersEmployeesPageProps>("employees", {
-    ...employersPageFallbackData,
-    slug: "employees",
-  });
+  const data = await getPage<EmployersEmployeesPageProps>(
+    "employees",
+    employeesPageFallbackData,
+  );
 
   return (
     <main className="min-h-screen">
