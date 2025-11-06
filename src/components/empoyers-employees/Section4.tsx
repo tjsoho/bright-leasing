@@ -12,6 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 
 interface Props {
   content: EmployersEmployeesPageProps["content"];
+  isEmployersPage?: boolean;
 }
 
 const fadeUp: Variants = {
@@ -39,7 +40,7 @@ const cardStagger: Variants = {
   },
 };
 
-export default function Section4({ content }: Props) {
+export default function Section4({ content, isEmployersPage = false }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
@@ -102,47 +103,63 @@ export default function Section4({ content }: Props) {
       </motion.p>
 
       <div className="flex justify-center mt-8">
-        <Tabs defaultValue={content.section4tabs.tab1} className="w-full">
-          <div className="flex justify-center mb-8">
-            <TabsList>
-              <TabsTrigger value={content.section4tabs.tab1}>
-                {content.section4tabs.tab1Icon && (
-                  <Image
-                    src={content.section4tabs.tab1Icon}
-                    alt={content.section4tabs.tab1}
-                    width={20}
-                    height={20}
-                  />
-                )}
-                {content.section4tabs.tab1}
-              </TabsTrigger>
-              <TabsTrigger value={content.section4tabs.tab2}>
-                {content.section4tabs.tab2Icon && (
-                  <Image
-                    src={content.section4tabs.tab2Icon}
-                    alt={content.section4tabs.tab2}
-                    width={20}
-                    height={20}
-                  />
-                )}
-                {content.section4tabs.tab2}
-              </TabsTrigger>
-            </TabsList>
-          </div>
+        {isEmployersPage ? (
+          <Tabs defaultValue={content.section4tabs.tab1} className="w-full">
+            <div className="flex justify-center mb-8">
+              <TabsList>
+                <TabsTrigger value={content.section4tabs.tab1}>
+                  {content.section4tabs.tab1Icon && (
+                    <Image
+                      src={content.section4tabs.tab1Icon}
+                      alt={content.section4tabs.tab1}
+                      width={20}
+                      height={20}
+                    />
+                  )}
+                  {content.section4tabs.tab1}
+                </TabsTrigger>
+                <TabsTrigger value={content.section4tabs.tab2}>
+                  {content.section4tabs.tab2Icon && (
+                    <Image
+                      src={content.section4tabs.tab2Icon}
+                      alt={content.section4tabs.tab2}
+                      width={20}
+                      height={20}
+                    />
+                  )}
+                  {content.section4tabs.tab2}
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
-          <TabsContent value={content.section4tabs.tab1}>
-            <motion.div
-              className="grid lg:grid-cols-3 gap-3 lg:h-[700px] w-full"
-              variants={cardStagger}
-              initial="initial"
-              whileInView="animate"
-            >
-              {tab1Tiles.map((tile, index) =>
-                match([tile.image, index])
-                  .when(
-                    ([img, index]) => img && index === 1,
-                    () => (
-                      <CardWithBackground
+            <TabsContent value={content.section4tabs.tab1}>
+              <motion.div
+                className="grid lg:grid-cols-3 gap-3 lg:h-[700px] w-full"
+                variants={cardStagger}
+                initial="initial"
+                whileInView="animate"
+              >
+                {tab1Tiles.map((tile, index) =>
+                  match([tile.image, index])
+                    .when(
+                      ([img, index]) => img && index === 1,
+                      () => (
+                        <CardWithBackground
+                          key={index}
+                          image={tile.image}
+                          title={tile.title}
+                          titleBold={tile.titleBold}
+                          description={tile.description}
+                          descriptionBold={tile.descriptionBold}
+                          className={cn(
+                            tile.className,
+                            "row-span-2 order-2 lg:order-1",
+                          )}
+                        />
+                      ),
+                    )
+                    .otherwise(() => (
+                      <CardWithIcon
                         key={index}
                         image={tile.image}
                         title={tile.title}
@@ -151,41 +168,41 @@ export default function Section4({ content }: Props) {
                         descriptionBold={tile.descriptionBold}
                         className={cn(
                           tile.className,
-                          "row-span-2 order-2 lg:order-1",
+                          `order-${index} lg:order-1`,
                         )}
                       />
-                    ),
-                  )
-                  .otherwise(() => (
-                    <CardWithIcon
-                      key={index}
-                      image={tile.image}
-                      title={tile.title}
-                      titleBold={tile.titleBold}
-                      description={tile.description}
-                      descriptionBold={tile.descriptionBold}
-                      className={cn(
-                        tile.className,
-                        `order-${index} lg:order-1`,
-                      )}
-                    />
-                  )),
-              )}
-            </motion.div>
-          </TabsContent>
-          <TabsContent value={content.section4tabs.tab2}>
-            <motion.div
-              className="grid lg:grid-cols-3 gap-3 lg:h-[700px] w-full"
-              variants={cardStagger}
-              initial="initial"
-              whileInView="animate"
-            >
-              {tab2Tiles.map((tile, index) =>
-                match([tile.image, index])
-                  .when(
-                    ([img, index]) => img && index === 1,
-                    () => (
-                      <CardWithBackground
+                    )),
+                )}
+              </motion.div>
+            </TabsContent>
+            <TabsContent value={content.section4tabs.tab2}>
+              <motion.div
+                className="grid lg:grid-cols-3 gap-3 lg:h-[700px] w-full"
+                variants={cardStagger}
+                initial="initial"
+                whileInView="animate"
+              >
+                {tab2Tiles.map((tile, index) =>
+                  match([tile.image, index])
+                    .when(
+                      ([img, index]) => img && index === 1,
+                      () => (
+                        <CardWithBackground
+                          key={index}
+                          image={tile.image}
+                          title={tile.title}
+                          titleBold={tile.titleBold}
+                          description={tile.description}
+                          descriptionBold={tile.descriptionBold}
+                          className={cn(
+                            tile.className,
+                            "row-span-2 order-2 lg:order-1",
+                          )}
+                        />
+                      ),
+                    )
+                    .otherwise(() => (
+                      <CardWithIcon
                         key={index}
                         image={tile.image}
                         title={tile.title}
@@ -194,13 +211,27 @@ export default function Section4({ content }: Props) {
                         descriptionBold={tile.descriptionBold}
                         className={cn(
                           tile.className,
-                          "row-span-2 order-2 lg:order-1",
+                          `order-${index} lg:order-1`,
                         )}
                       />
-                    ),
-                  )
-                  .otherwise(() => (
-                    <CardWithIcon
+                    )),
+                )}
+              </motion.div>
+            </TabsContent>
+          </Tabs>
+        ) : (
+          <motion.div
+            className="grid lg:grid-cols-3 gap-3 lg:h-[700px] w-full"
+            variants={cardStagger}
+            initial="initial"
+            whileInView="animate"
+          >
+            {tab1Tiles.map((tile, index) =>
+              match([tile.image, index])
+                .when(
+                  ([img, index]) => img && index === 1,
+                  () => (
+                    <CardWithBackground
                       key={index}
                       image={tile.image}
                       title={tile.title}
@@ -209,14 +240,28 @@ export default function Section4({ content }: Props) {
                       descriptionBold={tile.descriptionBold}
                       className={cn(
                         tile.className,
-                        `order-${index} lg:order-1`,
+                        "row-span-2 order-2 lg:order-1",
                       )}
                     />
-                  )),
-              )}
-            </motion.div>
-          </TabsContent>
-        </Tabs>
+                  ),
+                )
+                .otherwise(() => (
+                  <CardWithIcon
+                    key={index}
+                    image={tile.image}
+                    title={tile.title}
+                    titleBold={tile.titleBold}
+                    description={tile.description}
+                    descriptionBold={tile.descriptionBold}
+                    className={cn(
+                      tile.className,
+                      `order-${index} lg:order-1`,
+                    )}
+                  />
+                )),
+            )}
+          </motion.div>
+        )}
       </div>
     </div>
   );

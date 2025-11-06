@@ -112,14 +112,16 @@ export default function AdminTileInput({
       {onImageChange && image && (
         <div className="mt-4">
           <label className="block text-brand-black/70 text-xs mb-1">Icon</label>
-          <EditableImage
-            src={image}
-            alt={`${label} Icon`}
-            width={48}
-            height={48}
-            onImageChange={onImageChange}
-            className="w-16 h-16 rounded-lg object-cover border-2 p-1 border-brand-yellow"
-          />
+          <div className="bg-gray-500 rounded-lg p-1 inline-block">
+            <EditableImage
+              src={image}
+              alt={`${label} Icon`}
+              width={48}
+              height={48}
+              onImageChange={onImageChange}
+              className="w-16 h-16 rounded-lg object-cover border-2 p-1 border-brand-yellow"
+            />
+          </div>
         </div>
       )}
 

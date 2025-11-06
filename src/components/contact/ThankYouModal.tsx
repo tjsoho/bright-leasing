@@ -44,8 +44,9 @@ export default function ThankYouModal({
   /* ************************************************************
                             HOOKS
     ************************************************************ */
-  const [logoError, setLogoError] = useState(false);
-  const [imageError, setImageError] = useState(false);
+  // Error states for image loading (used in onError handlers)
+  const [, setLogoError] = useState(false);
+  const [, setImageError] = useState(false);
 
   // Reset error states when modal opens or image/logo changes
   useEffect(() => {
@@ -73,14 +74,6 @@ export default function ThankYouModal({
     }
 
     return isValid;
-  };
-
-  const isExternalUrl = (url: string): boolean => {
-    return (
-      url.startsWith("http://") ||
-      url.startsWith("https://") ||
-      url.startsWith("//")
-    );
   };
 
   /* ************************************************************

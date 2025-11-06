@@ -11,7 +11,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, Send, CheckCircle, AlertCircle, Phone } from "lucide-react";
 import Image from "next/image";
 import ThankYouModal from "@/components/contact/ThankYouModal";
 import { ContactPageProps } from "../_config";
@@ -213,10 +213,18 @@ export default function ContactClient({ content }: ContactClientProps) {
                   {content.contactTitle}
                 </h2>
                 <p
-                  className={`text-brand-black/70 text-lg leading-relaxed ${content.contactDescriptionBold ? "p-bold" : ""}`}
+                  className={`text-brand-black/70 text-lg mb-8 leading-relaxed ${content.contactDescriptionBold ? "p-bold" : ""}`}
                 >
                   {content.contactDescription}
                 </p>
+                {/* add a link to this number that on click opens the desktop and mobile phone dialer 1300 988 938 */}
+                <p>
+                  {/* add mobile phone icon */}
+                  <Phone className="w-4 h-4 inline-block mr-2" />
+                <a href={`tel:1300988938`} className="text-brand-black/70 hover:underline">1300 988 938</a>
+                </p>
+                {/* add a link to this email that on click opens the default email client with the email address info@brightleasing.com.au */}
+                
 
                 <div className="mt-8">
                   <Image

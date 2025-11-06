@@ -6,15 +6,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { BWestSmallButton } from "../ui/b-west-small";
-// import BubbleMenu from "./BubbleMenu";
-// import BubbleMenuMobile from "./BubbleMenuMobile";
+import BubbleMenu from "./BubbleMenu";
+import BubbleMenuMobile from "./BubbleMenuMobile";
 
 interface HeaderProps {
   headerButtonText?: string;
 }
 
 const Header = ({ headerButtonText = "Start in 60 Seconds" }: HeaderProps) => {
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const pathname = usePathname();
 
@@ -30,8 +30,8 @@ const Header = ({ headerButtonText = "Start in 60 Seconds" }: HeaderProps) => {
   // coding notes format
 
   /************************************************************
-		RENDER
-	************************************************************/
+    RENDER
+  ************************************************************/
 
   return (
     <>
@@ -128,10 +128,7 @@ const Header = ({ headerButtonText = "Start in 60 Seconds" }: HeaderProps) => {
             <div className="relative ">
               <button
                 onClick={() => {
-                  const section3 = document.getElementById("section3");
-                  if (section3) {
-                    section3.scrollIntoView({ behavior: "smooth" });
-                  }
+                  setIsMenuOpen(true);
                 }}
                 className="w-10 h-10 border border-brand-black rounded-full flex items-center justify-center hover:bg-brand-black hover:text-white transition-colors relative z-20"
                 aria-label="Scroll to Section 3"
@@ -151,8 +148,10 @@ const Header = ({ headerButtonText = "Start in 60 Seconds" }: HeaderProps) => {
                 </svg>
               </button>
 
-              {/* Desktop Bubble Menu - Temporarily disabled */}
-              {/* <BubbleMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
+              {/* Desktop Bubble Menu */}
+              <div className="hidden lg:block">
+                <BubbleMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} headerButtonText={headerButtonText} />
+              </div>
             </div>
           </div>
 
@@ -162,13 +161,10 @@ const Header = ({ headerButtonText = "Start in 60 Seconds" }: HeaderProps) => {
           <div className="lg:hidden relative bg-brand-teal rounded-full p-2">
             <button
               onClick={() => {
-                const section3 = document.getElementById("section3");
-                if (section3) {
-                  section3.scrollIntoView({ behavior: "smooth" });
-                }
+                setIsMenuOpen(!isMenuOpen);
               }}
-              className=" p-2 rounded-full  flex items-center justify-center hover:bg-brand-teal/80 transition-colors relative z-20"
-              aria-label="Scroll to Section 3"
+              className="p-2 rounded-full flex items-center justify-center hover:bg-brand-teal/80 transition-colors relative z-20"
+              aria-label="Toggle menu"
             >
               <svg
                 className="w-5 h-5 text-brand-yellow"
@@ -184,9 +180,11 @@ const Header = ({ headerButtonText = "Start in 60 Seconds" }: HeaderProps) => {
                 />
               </svg>
             </button>
+          </div>
 
-            {/* Mobile Bubble Menu - Temporarily disabled */}
-            {/* <BubbleMenuMobile isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} /> */}
+          {/* Mobile Bubble Menu - Rendered outside container for proper z-index */}
+          <div className="lg:hidden">
+            <BubbleMenuMobile isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} headerButtonText={headerButtonText} />
           </div>
         </div>
       </header>

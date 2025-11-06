@@ -4,8 +4,9 @@ import { HomePageProps } from "@/app/_config";
 import { motion, useInView } from "framer-motion";
 import React from "react";
 import Image from "next/image";
-import { BWestSmallButton } from "../ui/b-west-small";
+
 import { RenderLineBreaks } from "@/utils/render-line-breaks";
+import { BWestButton } from "../ui/b-west-button";
 
 interface Section5Props {
 	content: HomePageProps["content"];
@@ -119,10 +120,12 @@ export default function Section5({ content }: Section5Props) {
 						</motion.p>
 						<motion.div
 							variants={buttonVariants}
+							className="w-full"
 						>
-							<BWestSmallButton
+							<BWestButton
 								text={content.section5buttonText}
 								onClick={() => window.location.href = '/contact'}
+								className="w-2/3"
 							/>
 						</motion.div>
 					</div>

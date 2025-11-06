@@ -108,7 +108,7 @@ export default function Hero({ content }: HeroProps) {
             alt="Hero Image"
             width={400}
             height={300}
-            className="w-[500px] h-[300px] lg:w-full lg:h-full object-contain rounded-2xl"
+            className="w-[500px] h-[300px] lg:w-full lg:h-[700px] object-contain rounded-2xl"
           />
         </motion.div>
       </div>

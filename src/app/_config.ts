@@ -7,6 +7,7 @@ export type AdditionalTile = {
   description: string;
   descriptionBold: boolean;
   backgroundColor: string;
+  image?: string;
 };
 
 export type AdditionalFAQ = {

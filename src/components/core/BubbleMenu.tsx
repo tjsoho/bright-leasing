@@ -29,7 +29,7 @@ const BubbleMenu = ({ isOpen, onClose, headerButtonText = "Start In 60 Seconds" 
     return (
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center">
+                <div className="fixed inset-0 z-[100] flex items-center justify-center">
                     {/* Overlay */}
                     <motion.div
                         className="absolute inset-0 bg-black bg-opacity-70"

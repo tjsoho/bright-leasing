@@ -215,173 +215,248 @@ export default function EmployeesEmployersInput({ data }: Props) {
                 }
               />
 
-              <div className="grid grid-cols-2">
-                <AdminImageInput
-                  label="Tab 1 Icon"
-                  value={getData("content.section4tabs.tab1Icon") ?? ""}
-                  onChange={(value) =>
-                    handleChange("content.section4tabs.tab1Icon", value)
-                  }
-                />
-                <AdminTextInput
-                  label="Tab 1 Title"
-                  value={getData("content.section4tabs.tab1") ?? ""}
-                  onChange={(value) =>
-                    handleChange("content.section4tabs.tab1", value)
-                  }
-                />
-              </div>
+              {data.slug === "employers" && (
+                <>
+                  <div className="grid grid-cols-2">
+                    <AdminImageInput
+                      label="Tab 1 Icon"
+                      value={getData("content.section4tabs.tab1Icon") ?? ""}
+                      onChange={(value) =>
+                        handleChange("content.section4tabs.tab1Icon", value)
+                      }
+                    />
+                    <AdminTextInput
+                      label="Tab 1 Title"
+                      value={getData("content.section4tabs.tab1") ?? ""}
+                      onChange={(value) =>
+                        handleChange("content.section4tabs.tab1", value)
+                      }
+                    />
+                  </div>
 
-              {Array.from({ length: 5 }).map((_, index) => (
-                <AdminTileInput
-                  key={index}
-                  label={`Tab 1 - Content ${index + 1}`}
-                  title={
-                    getData(
-                      `content.section4tab1items.${index}.title` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? ""
-                  }
-                  titleBold={
-                    getData(
-                      `content.section4tab1items.${index}.titleBold` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? false
-                  }
-                  description={
-                    getData(
-                      `content.section4tab1items.${index}.description` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? ""
-                  }
-                  descriptionBold={
-                    getData(
-                      `content.section4tab1items.${index}.descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? false
-                  }
-                  image={
-                    getData(
-                      `content.section4tab1items.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? ""
-                  }
-                  onTitleChange={(value) =>
-                    handleChange(
-                      `content.section4tab1items.${index}.title` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  onTitleBoldChange={(value) =>
-                    handleChange(
-                      `content.section4tab1items.${index}.titleBold` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  onDescriptionChange={(value) =>
-                    handleChange(
-                      `content.section4tab1items.${index}.description` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  onDescriptionBoldChange={(value) =>
-                    handleChange(
-                      `content.section4tab1items.${index}.descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  onImageChange={(value) =>
-                    handleChange(
-                      `content.section4tab1items.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  hint={
-                    index === 1
-                      ? "This Content Image will be use as background on center tile"
-                      : ""
-                  }
-                />
-              ))}
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <AdminTileInput
+                      key={index}
+                      label={`Tab 1 - Content ${index + 1}`}
+                      title={
+                        getData(
+                          `content.section4tab1items.${index}.title` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
+                      }
+                      titleBold={
+                        getData(
+                          `content.section4tab1items.${index}.titleBold` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? false
+                      }
+                      description={
+                        getData(
+                          `content.section4tab1items.${index}.description` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
+                      }
+                      descriptionBold={
+                        getData(
+                          `content.section4tab1items.${index}.descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? false
+                      }
+                      image={
+                        getData(
+                          `content.section4tab1items.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
+                      }
+                      onTitleChange={(value) =>
+                        handleChange(
+                          `content.section4tab1items.${index}.title` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onTitleBoldChange={(value) =>
+                        handleChange(
+                          `content.section4tab1items.${index}.titleBold` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onDescriptionChange={(value) =>
+                        handleChange(
+                          `content.section4tab1items.${index}.description` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onDescriptionBoldChange={(value) =>
+                        handleChange(
+                          `content.section4tab1items.${index}.descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onImageChange={(value) =>
+                        handleChange(
+                          `content.section4tab1items.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      hint={
+                        index === 1
+                          ? "This Content Image will be use as background on center tile"
+                          : ""
+                      }
+                    />
+                  ))}
 
-              <div className="grid grid-cols-2">
-                <AdminImageInput
-                  label="Tab 2 Icon"
-                  value={getData("content.section4tabs.tab2Icon") ?? ""}
-                  onChange={(value) =>
-                    handleChange("content.section4tabs.tab2Icon", value)
-                  }
-                />
-                <AdminTextInput
-                  label="Tab 2 Title"
-                  value={getData("content.section4tabs.tab2") ?? ""}
-                  onChange={(value) =>
-                    handleChange("content.section4tabs.tab2", value)
-                  }
-                />
-              </div>
+                  <div className="grid grid-cols-2">
+                    <AdminImageInput
+                      label="Tab 2 Icon"
+                      value={getData("content.section4tabs.tab2Icon") ?? ""}
+                      onChange={(value) =>
+                        handleChange("content.section4tabs.tab2Icon", value)
+                      }
+                    />
+                    <AdminTextInput
+                      label="Tab 2 Title"
+                      value={getData("content.section4tabs.tab2") ?? ""}
+                      onChange={(value) =>
+                        handleChange("content.section4tabs.tab2", value)
+                      }
+                    />
+                  </div>
 
-              {Array.from({ length: 5 }).map((_, index) => (
-                <AdminTileInput
-                  key={index}
-                  label={`Tab 2 - Content ${index + 1}`}
-                  title={
-                    getData(
-                      `content.section4tab2items.${index}.title` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? ""
-                  }
-                  titleBold={
-                    getData(
-                      `content.section4tab2items.${index}.titleBold` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? false
-                  }
-                  description={
-                    getData(
-                      `content.section4tab2items.${index}.description` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? ""
-                  }
-                  descriptionBold={
-                    getData(
-                      `content.section4tab2items.${index}.descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? false
-                  }
-                  image={
-                    getData(
-                      `content.section4tab2items.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? ""
-                  }
-                  onTitleChange={(value) =>
-                    handleChange(
-                      `content.section4tab2items.${index}.title` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  onTitleBoldChange={(value) =>
-                    handleChange(
-                      `content.section4tab2items.${index}.titleBold` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  onDescriptionChange={(value) =>
-                    handleChange(
-                      `content.section4tab2items.${index}.description` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  onDescriptionBoldChange={(value) =>
-                    handleChange(
-                      `content.section4tab2items.${index}.descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  onImageChange={(value) =>
-                    handleChange(
-                      `content.section4tab2items.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  hint={
-                    index === 1
-                      ? "This Content Image will be use as background on center tile"
-                      : ""
-                  }
-                />
-              ))}
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <AdminTileInput
+                      key={index}
+                      label={`Tab 2 - Content ${index + 1}`}
+                      title={
+                        getData(
+                          `content.section4tab2items.${index}.title` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
+                      }
+                      titleBold={
+                        getData(
+                          `content.section4tab2items.${index}.titleBold` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? false
+                      }
+                      description={
+                        getData(
+                          `content.section4tab2items.${index}.description` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
+                      }
+                      descriptionBold={
+                        getData(
+                          `content.section4tab2items.${index}.descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? false
+                      }
+                      image={
+                        getData(
+                          `content.section4tab2items.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
+                      }
+                      onTitleChange={(value) =>
+                        handleChange(
+                          `content.section4tab2items.${index}.title` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onTitleBoldChange={(value) =>
+                        handleChange(
+                          `content.section4tab2items.${index}.titleBold` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onDescriptionChange={(value) =>
+                        handleChange(
+                          `content.section4tab2items.${index}.description` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onDescriptionBoldChange={(value) =>
+                        handleChange(
+                          `content.section4tab2items.${index}.descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onImageChange={(value) =>
+                        handleChange(
+                          `content.section4tab2items.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      hint={
+                        index === 1
+                          ? "This Content Image will be use as background on center tile"
+                          : ""
+                      }
+                    />
+                  ))}
+                </>
+              )}
+
+              {data.slug === "employees" && (
+                <>
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <AdminTileInput
+                      key={index}
+                      label={`Content ${index + 1}`}
+                      title={
+                        getData(
+                          `content.section4tab1items.${index}.title` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
+                      }
+                      titleBold={
+                        getData(
+                          `content.section4tab1items.${index}.titleBold` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? false
+                      }
+                      description={
+                        getData(
+                          `content.section4tab1items.${index}.description` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
+                      }
+                      descriptionBold={
+                        getData(
+                          `content.section4tab1items.${index}.descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? false
+                      }
+                      image={
+                        getData(
+                          `content.section4tab1items.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
+                      }
+                      onTitleChange={(value) =>
+                        handleChange(
+                          `content.section4tab1items.${index}.title` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onTitleBoldChange={(value) =>
+                        handleChange(
+                          `content.section4tab1items.${index}.titleBold` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onDescriptionChange={(value) =>
+                        handleChange(
+                          `content.section4tab1items.${index}.description` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onDescriptionBoldChange={(value) =>
+                        handleChange(
+                          `content.section4tab1items.${index}.descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onImageChange={(value) =>
+                        handleChange(
+                          `content.section4tab1items.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      hint={
+                        index === 1
+                          ? "This Content Image will be use as background on center tile"
+                          : ""
+                      }
+                    />
+                  ))}
+                </>
+              )}
             </div>
           </AdminFormSection>
 
@@ -438,7 +513,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                   }
                   image={
                     getData(
-                      `content.section5tiles.${index}.icon` as DeepKeys<EmployersEmployeesPageProps>,
+                      `content.section5tiles.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
                     ) ?? ""
                   }
                   onTitleChange={(value) =>
@@ -467,7 +542,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                   }
                   onImageChange={(value) =>
                     handleChange(
-                      `content.section5tiles.${index}.icon` as DeepKeys<EmployersEmployeesPageProps>,
+                      `content.section5tiles.${index}.image` as DeepKeys<EmployersEmployeesPageProps>,
                       value,
                     )
                   }

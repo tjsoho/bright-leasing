@@ -14,7 +14,7 @@ export default function AdminImageInput({ value, label, onChange }: Props) {
       </label>
 
       {/* Image Preview */}
-      <div className="aspect-video bg-white rounded-lg overflow-hidden h-48">
+      <div className="aspect-video bg-gray-500 rounded-lg overflow-hidden h-48">
         <EditableImage
           src={value}
           alt={label}

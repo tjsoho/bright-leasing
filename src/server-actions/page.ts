@@ -1,9 +1,9 @@
 import { BasePage } from "@/app/types";
 import { supabase } from "@/utils/supabase";
 
-export default async function getPage<TContent extends BasePage<any>>(
+export default async function getPage<TContent extends BasePage<object>>(
   slug: string,
-  fallbackData: TContent,
+  fallbackData: TContent
 ): Promise<TContent> {
   const response = await supabase
     .from("pages")

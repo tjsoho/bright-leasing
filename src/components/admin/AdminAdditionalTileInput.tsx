@@ -85,7 +85,7 @@ export default function AdminAditionalTileInput({
       ))}
 
       <div className="mt-4">
-        <Button onClick={handleAddTile} variant="dark-outline" disableIcon>
+        <Button onClick={handleAddTile} variant="outline">
           <PlusIcon className="w-4 h-4 mr-2" />
           Add Additional Tile
         </Button>

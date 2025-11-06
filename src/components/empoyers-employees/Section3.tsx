@@ -92,7 +92,7 @@ export default function Section3({ content }: Props) {
   return (
     <motion.section
       ref={ref}
-      className="py-8 px-4 lg:px-8 bg-brand-teal my-6 flex flex-col lg:flex-row lg:items-center gap-8"
+      className="py-8 px-4 lg:px-8 bg-brand-yellow rounded-2xl my-6 flex flex-col lg:flex-row lg:items-center gap-8"
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -109,7 +109,7 @@ export default function Section3({ content }: Props) {
       <motion.div variants={textVariants} className="">
         <motion.h3
           variants={titleVariants}
-          className={cn("text-white text-2xl mb-2", {
+          className={cn("text-black text-2xl mb-2", {
             "h3-bold": content.section3titleBold,
           })}
         >
@@ -117,7 +117,7 @@ export default function Section3({ content }: Props) {
         </motion.h3>
         <motion.p
           variants={paragraphVariants}
-          className={cn("text-white", {
+          className={cn("text-black", {
             "font-bold": content.section3paragraphBold,
           })}
         >
