@@ -3,7 +3,7 @@ import Section2 from "@/components/empoyers-employees/Section2";
 import Section3 from "@/components/empoyers-employees/Section3";
 import Section4 from "@/components/empoyers-employees/Section4";
 import Section5 from "@/components/empoyers-employees/Section5";
-import Section6 from "@/components/empoyers-employees/Section6";
+// import Section6 from "@/components/empoyers-employees/Section6";
 import Section7 from "@/components/empoyers-employees/Section7";
 import Section8 from "@/components/empoyers-employees/Section8";
 import getPage from "@/server-actions/page";
@@ -33,7 +33,7 @@ export default async function EmployeesPage() {
           <Section3 content={data.content} />
           <Section4 content={data.content} isEmployersPage={false} />
           <Section5 content={data.content} />
-          <Section6 content={data.content} />
+          {/* <Section6 content={data.content} /> */}
           <Section7 content={data.content} />
           <Section8 content={data.content} />
         </div>
