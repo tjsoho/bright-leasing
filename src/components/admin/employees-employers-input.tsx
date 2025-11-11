@@ -552,7 +552,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
           </AdminFormSection>
 
           {/* Section 6 - Instant Saving Check */}
-          <AdminFormSection title="Section 6 - Instant Saving Check">
+          {/* <AdminFormSection title="Section 6 - Instant Saving Check">
             <div className="space-y-6">
               <AdminTextInput
                 label="Title"
@@ -578,7 +578,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                 }
               />
             </div>
-          </AdminFormSection>
+          </AdminFormSection> */}
 
           {/* Section 7 - Promotional Banner */}
           <AdminFormSection title="Section 7 - Promotional Banner">

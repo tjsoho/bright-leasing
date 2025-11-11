@@ -8,30 +8,24 @@ export const navigationLinks: NavigationLink[] = [
     href: "/about-us",
     label: "ABOUT US",
   },
-  {
-    href: "/services",
-    label: "SERVICES",
-  },
-  
-  {
-    href: "/reviews",
-    label: "REVIEWS",
-  },
- 
-  {
-    href: "/team",
-    label: "TEAM Page",
-  },
+
   {
     href: "/blog",
-    label: "Blog Page",
+    label: "BRIGHT ARTICLES",
   },
   
+  {
+    href: "/employers",
+    label: "EMPLOYERS",
+  },
+  {
+    href: "/employees",
+    label: "EMPLOYEES",
+  },
   {
     href: "/faqs",
     label: "FAQS",
   },
-
   {
     href: "/admin",
     label: "ADMIN",

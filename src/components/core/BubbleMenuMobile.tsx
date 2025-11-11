@@ -163,9 +163,7 @@ const BubbleMenuMobile = ({ isOpen, onClose, headerButtonText = "Start In 60 Sec
                                 <Link href="/linkedin" className="hover:text-brand-black transition-colors" onClick={onClose}>
                                     LinkedIn
                                 </Link>
-                                <Link href="/twitter" className="hover:text-brand-black transition-colors" onClick={onClose}>
-                                    Twitter
-                                </Link>
+                                
                             </div>
                         </motion.div>
                     </motion.div>

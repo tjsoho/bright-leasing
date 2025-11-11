@@ -147,7 +147,7 @@ const AdminNavigation = () => {
                 {/* ************************************************************
                     DROPDOWN TOGGLE BUTTON
                 ************************************************************ */}
-                <button
+                {/* <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     className="bg-brand-teal text-white px-4 py-3 rounded-full hover:bg-brand-teal/90 transition-colors duration-300 flex items-center gap-2"
                     aria-label="Navigation menu"
@@ -163,7 +163,7 @@ const AdminNavigation = () => {
                     >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </motion.svg>
-                </button>
+                </button> */}
             </div>
 
             {/* ************************************************************
