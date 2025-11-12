@@ -36,12 +36,12 @@ const Header = ({ headerButtonText = "Start in 60 Seconds" }: HeaderProps) => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="max-w-7xl mx-auto flex justify-between items-center w-full">
           {/* ************************************************************
-								Mobile - Logo Only
+								Left Column - Logo (Mobile & Desktop)
 					************************************************************/}
           <motion.div
-            className="flex items-center gap-6 bg-brand-teal rounded-full pl-4 lg:px-6 py-4 justify-center  lg:justify-between relative overflow-hidden"
+            className="flex items-center gap-6 bg-brand-teal rounded-full pl-4 lg:px-6 py-4 justify-center lg:justify-between relative overflow-hidden flex-shrink-0"
             initial={{ scaleX: 0, opacity: 0 }}
             animate={
               isLoaded ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }
@@ -115,9 +115,9 @@ const Header = ({ headerButtonText = "Start in 60 Seconds" }: HeaderProps) => {
           </motion.div>
 
           {/* ************************************************************
-						Right Column - Action Buttons (Hidden on mobile)
+						Right Column - Desktop Action Buttons
 					************************************************************/}
-          <div className="hidden lg:flex items-center gap-4 bg-brand-cream rounded-full px-6 py-5">
+          <div className="hidden lg:flex items-center gap-4 bg-brand-cream rounded-full px-6 py-5 flex-shrink-0">
             <BWestSmallButton
               text={headerButtonText}
               onClick={() => (window.location.href = "/contact")}
@@ -156,9 +156,9 @@ const Header = ({ headerButtonText = "Start in 60 Seconds" }: HeaderProps) => {
           </div>
 
           {/* ************************************************************
-						Mobile Menu Button
+						Right Column - Mobile Menu Button
 					************************************************************/}
-          <div className="lg:hidden relative bg-brand-teal rounded-full p-2">
+          <div className="lg:hidden relative bg-brand-teal rounded-full p-2 flex-shrink-0 ml-auto">
             <button
               onClick={() => {
                 setIsMenuOpen(!isMenuOpen);
