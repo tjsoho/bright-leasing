@@ -5,7 +5,7 @@ import { RenderLineBreaks } from "@/utils/render-line-breaks";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import React from "react";
-import { BWestSmallButton } from "../ui/b-west-small";
+import { BWestButton } from "../ui/b-west-button";
 
 interface Section7Props {
   content: EmployersEmployeesPageProps["content"];
@@ -117,10 +117,11 @@ export default function Section7({ content }: Section7Props) {
             >
               <RenderLineBreaks text={content.section7description} />
             </motion.p>
-            <motion.div variants={buttonVariants}>
-              <BWestSmallButton
+            <motion.div variants={buttonVariants} className="w-full">
+              <BWestButton
                 text={content.section7buttonText}
                 onClick={() => (window.location.href = "/contact")}
+                className="w-3/4"
               />
             </motion.div>
           </div>
@@ -140,7 +141,7 @@ export default function Section7({ content }: Section7Props) {
               src={content.section7image}
               alt="Promotional Image"
               fill
-              className="object-cover rounded-2xl"
+              className="object-contain rounded-2xl"
             />
           </div>
         </motion.div>
