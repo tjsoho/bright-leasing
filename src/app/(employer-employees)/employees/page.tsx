@@ -1,11 +1,13 @@
 import Hero from "@/components/empoyers-employees/Hero";
-import Section2 from "@/components/empoyers-employees/Section2";
+import Section2Employees from "@/components/empoyers-employees/Section2Employees";
 import Section3 from "@/components/empoyers-employees/Section3";
 import Section4 from "@/components/empoyers-employees/Section4";
-import Section5 from "@/components/empoyers-employees/Section5";
+import Section5Employees from "@/components/empoyers-employees/Section5Employees";
 // import Section6 from "@/components/empoyers-employees/Section6";
 import Section7 from "@/components/empoyers-employees/Section7";
+import Section7aEmployees from "@/components/empoyers-employees/Section7aEmployees";
 import Section8 from "@/components/empoyers-employees/Section8";
+import Section9 from "@/components/empoyers-employees/Section9";
 import getPage from "@/server-actions/page";
 import {
   employeesPageFallbackData,
@@ -27,14 +29,16 @@ export default async function EmployeesPage() {
         <Hero content={data.content} />
         <div className="max-w-[1540px] mx-auto">
           {/* ***************************************************************
-				   SECTION 2
+				   SECTION 2 - Employees Only
         ****************************************************************/}
-          <Section2 content={data.content} />
+          <Section2Employees content={data.content} />
+          <Section5Employees content={data.content} />
+          <Section4 content={data.content} />
           <Section3 content={data.content} />
-          <Section4 content={data.content} isEmployersPage={false} />
-          <Section5 content={data.content} />
           {/* <Section6 content={data.content} /> */}
+          <Section7aEmployees content={data.content} />
           <Section7 content={data.content} />
+          <Section9 content={data.content} />
           <Section8 content={data.content} />
         </div>
       </div>

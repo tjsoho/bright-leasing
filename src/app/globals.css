@@ -5,6 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure Next.js Image components respect rounded corners */
+.rounded-image-container img,
+.rounded-image-container span {
+  border-radius: 1rem !important;
+}
+
 @font-face {
   font-family: "Mars Extended Web";
   src: url("/fonts/marsextendedweb-regular.woff2") format("woff2"),

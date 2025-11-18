@@ -14,6 +14,7 @@ export interface EmployersEmployeesPageContent {
   heroTitleBold?: boolean;
   heroParagraph: string;
   heroParagraphBold?: boolean;
+  heroButtonText: string;
   heroImage: string;
   section2title: string;
   section2titleBold: boolean;
@@ -39,6 +40,16 @@ export interface EmployersEmployeesPageContent {
   section2tile4description: string;
   section2tile4descriptionBold: boolean;
   section2tile4icon: string;
+  section2tile5title: string;
+  section2tile5titleBold: boolean;
+  section2tile5description: string;
+  section2tile5descriptionBold: boolean;
+  section2tile5icon: string;
+  section2tile1bgColor: string;
+  section2tile2bgColor: string;
+  section2tile3bgColor: string;
+  section2tile4bgColor: string;
+  section2tile5bgColor: string;
   section3icon: string;
   section3title: string;
   section3titleBold: boolean;
@@ -48,19 +59,47 @@ export interface EmployersEmployeesPageContent {
   section4titleBold: boolean;
   section4paragraph: string;
   section4paragraphBold: boolean;
-  section4tabs: {
+  section4step1title: string;
+  section4step1titleBold: boolean;
+  section4step1description: string;
+  section4step1descriptionBold: boolean;
+  section4step1icon: string;
+  section4step2title: string;
+  section4step2titleBold: boolean;
+  section4step2description: string;
+  section4step2descriptionBold: boolean;
+  section4step2icon: string;
+  section4step3title: string;
+  section4step3titleBold: boolean;
+  section4step3description: string;
+  section4step3descriptionBold: boolean;
+  section4step3icon: string;
+  section4step4title: string;
+  section4step4titleBold: boolean;
+  section4step4description: string;
+  section4step4descriptionBold: boolean;
+  section4step4icon: string;
+  section9title: string;
+  section9titleBold: boolean;
+  section9paragraph: string;
+  section9paragraphBold: boolean;
+  section9tabs: {
     tab1: string;
     tab1Icon?: string;
     tab2: string;
     tab2Icon?: string;
   };
-  section4tab1items: TileItem[];
-  section4tab2items: TileItem[];
+  section9tab1items: TileItem[];
+  section9tab2items: TileItem[];
   section5title: string;
   section5titleBold: boolean;
   section5paragraph: string;
   section5paragraphBold: boolean;
   section5tiles: TileItem[];
+  section5tile1bgColor: string;
+  section5tile2bgColor: string;
+  section5tile3bgColor: string;
+  section5tile4bgColor: string;
   section6title: string;
   section6titleBold: boolean;
   section6paragraph: string;
@@ -73,6 +112,7 @@ export interface EmployersEmployeesPageContent {
   section7image: string;
   section8title: string;
   section8titleBold: boolean;
+  section8image: string;
   section8faq1question: string;
   section8faq1questionBold: boolean;
   section8faq1answer: string;
@@ -90,6 +130,68 @@ export interface EmployersEmployeesPageContent {
   section8faq4answer: string;
   section8faq4answerBold: boolean;
   additionalSection8Faqs: AdditionalFAQ[];
+  // Employees Only Section 2
+  employeesSection2title: string;
+  employeesSection2titleBold: boolean;
+  employeesSection2subheading: string;
+  employeesSection2subheadingBold: boolean;
+  employeesSection2box1title: string;
+  employeesSection2box1titleBold: boolean;
+  employeesSection2box1content: string;
+  employeesSection2box1contentBold: boolean;
+  employeesSection2box1icon: string;
+  employeesSection2box1bgColor: string;
+  employeesSection2box2title: string;
+  employeesSection2box2titleBold: boolean;
+  employeesSection2box2content: string;
+  employeesSection2box2contentBold: boolean;
+  employeesSection2box2icon: string;
+  employeesSection2box2bgColor: string;
+  employeesSection2box3title: string;
+  employeesSection2box3titleBold: boolean;
+  employeesSection2box3content: string;
+  employeesSection2box3contentBold: boolean;
+  employeesSection2box3icon: string;
+  employeesSection2box3bgColor: string;
+  employeesSection2box4title: string;
+  employeesSection2box4titleBold: boolean;
+  employeesSection2box4content: string;
+  employeesSection2box4contentBold: boolean;
+  employeesSection2box4icon: string;
+  employeesSection2box4bgColor: string;
+  employeesSection2box5title: string;
+  employeesSection2box5titleBold: boolean;
+  employeesSection2box5content: string;
+  employeesSection2box5contentBold: boolean;
+  employeesSection2box5icon: string;
+  employeesSection2box5bgColor: string;
+  employeesSection2box6title: string;
+  employeesSection2box6titleBold: boolean;
+  employeesSection2box6content: string;
+  employeesSection2box6contentBold: boolean;
+  employeesSection2box6icon: string;
+  employeesSection2box6bgColor: string;
+  // Employees Only Section 5
+  employeesSection5title: string;
+  employeesSection5titleBold: boolean;
+  employeesSection5paragraph: string;
+  employeesSection5paragraphBold: boolean;
+  employeesSection5tiles: TileItem[];
+  employeesSection5tile1bgColor: string;
+  employeesSection5tile2bgColor: string;
+  employeesSection5tile3bgColor: string;
+  employeesSection5tile4bgColor: string;
+  employeesSection5tile5bgColor: string;
+  employeesSection5tile6bgColor: string;
+  employeesSection5tile7bgColor: string;
+  employeesSection5tile8bgColor: string;
+  // Employees Only Section 7a
+  employeesSection7atitle: string;
+  employeesSection7atitleBold: boolean;
+  employeesSection7asubheading: string;
+  employeesSection7asubheadingBold: boolean;
+  employeesSection7aimage1: string;
+  employeesSection7aimage2: string;
 }
 
 export type EmployersEmployeesPageProps =
@@ -105,6 +207,7 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
     heroParagraph:
       "Give your employees more take-home pay while attracting top talent with zero cost or admin burden to your business.\n\nBright Leasing makes novated leasing simple, transparent, and rewarding for everyone.\n\nOur comprehensive employer pack shows you exactly how to implement a benefit that employees actually use and love - from setup to ongoing management, we handle everything.",
     heroParagraphBold: false,
+    heroButtonText: "Get Started",
     heroImage: "/placeholder.jpg",
     section2title: "Why Offer Novated Leasing",
     section2titleBold: false,
@@ -135,6 +238,16 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
       "Plain-English guidance, ATO-aligned methods to maximise tax savings using available EV specific tax legislation.",
     section2tile4descriptionBold: false,
     section2tile4icon: "/placeholder.jpg",
+    section2tile5title: "Additional Benefit",
+    section2tile5titleBold: false,
+    section2tile5description: "Add your fifth benefit description here.",
+    section2tile5descriptionBold: false,
+    section2tile5icon: "/placeholder.jpg",
+    section2tile1bgColor: "white",
+    section2tile2bgColor: "white",
+    section2tile3bgColor: "white",
+    section2tile4bgColor: "white",
+    section2tile5bgColor: "white",
     section3icon: "/placeholder.jpg",
     section3title: "Auto-UX Tip:",
     section3titleBold: true,
@@ -146,13 +259,42 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
     section4paragraph:
       "We make car leasing simple, transparent, and rewarding — helping your employees take home more pay while your business saves time and costs.",
     section4paragraphBold: false,
-    section4tabs: {
+    section4step1title: "More Take-Home Pay",
+    section4step1titleBold: false,
+    section4step1description:
+      "Using pre-tax dollars for their car and running costs puts more money in their pockets every pay cycle.",
+    section4step1descriptionBold: false,
+    section4step1icon: "/placeholder.jpg",
+    section4step2title: "Less Hassle",
+    section4step2titleBold: false,
+    section4step2description:
+      "One fixed, set-and-forget payment covers most car costs — no juggling multiple bills or suppliers.",
+    section4step2descriptionBold: false,
+    section4step2icon: "/placeholder.jpg",
+    section4step3title: "Choice & Transparency",
+    section4step3titleBold: false,
+    section4step3description:
+      "We show every dollar with no hidden add-ons, giving employees complete visibility into their expenses.",
+    section4step3descriptionBold: false,
+    section4step3icon: "/placeholder.jpg",
+    section4step4title: "EV Advantage",
+    section4step4titleBold: false,
+    section4step4description:
+      "Eligible EVs can be FBT-exempt, delivering outsized savings that make electric vehicles incredibly attractive.",
+    section4step4descriptionBold: false,
+    section4step4icon: "/placeholder.jpg",
+    section9title: "How it works",
+    section9titleBold: false,
+    section9paragraph:
+      "We make car leasing simple, transparent, and rewarding — helping your employees take home more pay while your business saves time and costs.",
+    section9paragraphBold: false,
+    section9tabs: {
       tab1: "Employees",
       tab1Icon: "/placeholder.jpg",
       tab2: "Business",
       tab2Icon: "/placeholder.jpg",
     },
-    section4tab1items: [
+    section9tab1items: [
       {
         title: "More Take-Home Pay",
         titleBold: false,
@@ -193,7 +335,7 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
         image: "/placeholder.jpg",
       },
     ],
-    section4tab2items: [
+    section9tab2items: [
       {
         title: "More Take-Home Pay",
         titleBold: false,
@@ -281,6 +423,10 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
         image: "/placeholder.jpg",
       },
     ],
+    section5tile1bgColor: "yellow",
+    section5tile2bgColor: "teal",
+    section5tile3bgColor: "grey",
+    section5tile4bgColor: "teal",
     section6title: "Instant Savings Check",
     section6titleBold: false,
     section6paragraph:
@@ -295,6 +441,7 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
     section7image: "/placeholder.jpg",
     section8title: "Frequently Asked Questions",
     section8titleBold: false,
+    section8image: "/placeholder.jpg",
     section8faq1question: "Who can salary-package a novated lease?",
     section8faq1questionBold: false,
     section8faq1answer:
@@ -316,6 +463,142 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
       "The setup process usually takes 2-4 weeks from application to vehicle delivery. This includes employer approval, lease documentation, vehicle sourcing, and final delivery arrangements.",
     section8faq4answerBold: false,
     additionalSection8Faqs: [],
+    // Employees Only Section 2
+    employeesSection2title: "Employee Benefits",
+    employeesSection2titleBold: false,
+    employeesSection2subheading:
+      "Discover the advantages of novated leasing for employees",
+    employeesSection2subheadingBold: false,
+    employeesSection2box1title: "More Take-Home Pay",
+    employeesSection2box1titleBold: false,
+    employeesSection2box1content:
+      "Using pre-tax dollars for your car and running costs puts more money in your pocket every pay cycle.",
+    employeesSection2box1contentBold: false,
+    employeesSection2box1icon: "/placeholder.jpg",
+    employeesSection2box1bgColor: "yellow",
+    employeesSection2box2title: "Less Hassle",
+    employeesSection2box2titleBold: false,
+    employeesSection2box2content:
+      "One fixed, set-and-forget payment covers most car costs — no juggling multiple bills or suppliers.",
+    employeesSection2box2contentBold: false,
+    employeesSection2box2icon: "/placeholder.jpg",
+    employeesSection2box2bgColor: "teal",
+    employeesSection2box3title: "Choice & Transparency",
+    employeesSection2box3titleBold: false,
+    employeesSection2box3content:
+      "We show every dollar with no hidden add-ons, giving you complete visibility into your expenses.",
+    employeesSection2box3contentBold: false,
+    employeesSection2box3icon: "/placeholder.jpg",
+    employeesSection2box3bgColor: "grey",
+    employeesSection2box4title: "EV Advantage",
+    employeesSection2box4titleBold: false,
+    employeesSection2box4content:
+      "Eligible EVs can be FBT-exempt, delivering outsized savings that make electric vehicles incredibly attractive.",
+    employeesSection2box4contentBold: false,
+    employeesSection2box4icon: "/placeholder.jpg",
+    employeesSection2box4bgColor: "white",
+    employeesSection2box5title: "Flexible Options",
+    employeesSection2box5titleBold: false,
+    employeesSection2box5content:
+      "Choose from new or used vehicles, with flexible lease terms that suit your lifestyle and budget.",
+    employeesSection2box5contentBold: false,
+    employeesSection2box5icon: "/placeholder.jpg",
+    employeesSection2box5bgColor: "yellow",
+    employeesSection2box6title: "Expert Support",
+    employeesSection2box6titleBold: false,
+    employeesSection2box6content:
+      "Our team of experts guides you through every step, from vehicle selection to ongoing lease management.",
+    employeesSection2box6contentBold: false,
+    employeesSection2box6icon: "/placeholder.jpg",
+    employeesSection2box6bgColor: "teal",
+    // Employees Only Section 5
+    employeesSection5title: "Why Choose Bright / What's included",
+    employeesSection5titleBold: false,
+    employeesSection5paragraph:
+      "Your team members gain significant financial advantages and convenience through our comprehensive novated leasing program.",
+    employeesSection5paragraphBold: false,
+    employeesSection5tiles: [
+      {
+        title: "Sign & Set",
+        titleBold: false,
+        description:
+          "No lock-in contracts, we simply setup your free account — no lengthy implementation process.",
+        descriptionBold: false,
+        image: "/placeholder.jpg",
+      },
+      {
+        title: "Onboard Your People",
+        titleBold: false,
+        description:
+          "Completely outsourced solution. We run a comprehensive launch, and answer all the questions.",
+        descriptionBold: false,
+        image: "/placeholder.jpg",
+      },
+      {
+        title: "Employees Choose",
+        titleBold: false,
+        description:
+          "New or used vehicles, we secure fleet pricing, and package all running costs transparently.",
+        descriptionBold: false,
+        image: "/placeholder.jpg",
+      },
+      {
+        title: "Drive & Save",
+        titleBold: false,
+        description:
+          "We manage the entire lease lifecycle including all running costs along with compliance and comprehensive reporting.",
+        descriptionBold: false,
+        image: "/placeholder.jpg",
+      },
+      {
+        title: "Flexible Options",
+        titleBold: false,
+        description:
+          "Choose from new or used vehicles, with flexible lease terms that suit your lifestyle and budget.",
+        descriptionBold: false,
+        image: "/placeholder.jpg",
+      },
+      {
+        title: "Expert Support",
+        titleBold: false,
+        description:
+          "Our team of experts guides you through every step, from vehicle selection to ongoing lease management.",
+        descriptionBold: false,
+        image: "/placeholder.jpg",
+      },
+      {
+        title: "Transparent Pricing",
+        titleBold: false,
+        description:
+          "We show every dollar with no hidden add-ons, giving you complete visibility into your expenses.",
+        descriptionBold: false,
+        image: "/placeholder.jpg",
+      },
+      {
+        title: "Tax Benefits",
+        titleBold: false,
+        description:
+          "Maximize your tax savings with our comprehensive novated leasing solutions tailored to your needs.",
+        descriptionBold: false,
+        image: "/placeholder.jpg",
+      },
+    ],
+    employeesSection5tile1bgColor: "yellow",
+    employeesSection5tile2bgColor: "teal",
+    employeesSection5tile3bgColor: "grey",
+    employeesSection5tile4bgColor: "teal",
+    employeesSection5tile5bgColor: "yellow",
+    employeesSection5tile6bgColor: "teal",
+    employeesSection5tile7bgColor: "grey",
+    employeesSection5tile8bgColor: "white",
+    // Employees Only Section 7a
+    employeesSection7atitle: "Comparison",
+    employeesSection7atitleBold: false,
+    employeesSection7asubheading:
+      "See the difference between traditional leasing and novated leasing",
+    employeesSection7asubheadingBold: false,
+    employeesSection7aimage1: "/placeholder.jpg",
+    employeesSection7aimage2: "/placeholder.jpg",
   },
 };
 

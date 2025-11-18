@@ -42,6 +42,9 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
             excerpt: initialData?.excerpt || "",
             author: initialData?.author || "",
             content: initialData?.content || "",
+            created_at: initialData?.created_at
+                ? new Date(initialData.created_at).toISOString().split('T')[0]
+                : new Date().toISOString().split('T')[0],
         },
     });
 
@@ -61,6 +64,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                 author: data.author,
                 content: data.content || undefined,
                 slug,
+                created_at: data.created_at ? new Date(data.created_at).toISOString() : new Date().toISOString(),
             };
 
             const { error } = initialData
@@ -92,6 +96,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                         excerpt: "",
                         author: "",
                         content: "",
+                        created_at: new Date().toISOString().split('T')[0],
                     });
                     setSelectedImage("");
                     setValue("content", "", { shouldDirty: false });
@@ -174,7 +179,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                             </div>
                         </div>
 
-                        {/* Right Column - Author & Cover Image */}
+                        {/* Right Column - Author, Date & Cover Image */}
                         <div className="space-y-6">
                             <div>
                                 <label htmlFor="author" className="block text-sm font-medium text-brand-black mb-2">
@@ -190,6 +195,22 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                                 {errors.author && (
                                     <p className="mt-1 text-sm text-red-600">{errors.author.message}</p>
                                 )}
+                            </div>
+
+                            {/* Date Selection */}
+                            <div>
+                                <label htmlFor="created_at" className="block text-sm font-medium text-brand-black mb-2">
+                                    Publication Date
+                                </label>
+                                <input
+                                    {...register("created_at")}
+                                    type="date"
+                                    id="created_at"
+                                    className="w-full px-3 py-2 bg-white border border-brand-black/20 text-brand-black focus:border-brand-teal focus:outline-none transition-colors rounded-lg"
+                                />
+                                <p className="mt-1 text-xs text-brand-black/60">
+                                    Select a date to backdate content if needed
+                                </p>
                             </div>
 
                             {/* Cover Image */}
@@ -212,9 +233,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                                                         openImageLibrary((url) => {
                                                             if (url) {
                                                                 setSelectedImage(url);
-                                                                register("cover_image").onChange({
-                                                                    target: { value: url, name: "cover_image" },
-                                                                });
+                                                                setValue("cover_image", url);
                                                             }
                                                         }, "blog-cover");
                                                     }}
@@ -231,9 +250,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                                                 openImageLibrary((url) => {
                                                     if (url) {
                                                         setSelectedImage(url);
-                                                        register("cover_image").onChange({
-                                                            target: { value: url, name: "cover_image" },
-                                                        });
+                                                        setValue("cover_image", url);
                                                     }
                                                 }, "blog-cover");
                                             }}
@@ -257,7 +274,7 @@ export default function BlogForm({ initialData, onCancel }: BlogFormProps) {
                                             >
                                                 Upload Cover Image
                                             </button>
-                                            
+
                                         </div>
                                     )}
                                 </div>

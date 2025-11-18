@@ -4,7 +4,6 @@ import { EmployersEmployeesPageProps } from "@/app/(employer-employees)/_config"
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import CardWithIcon from "../core/CardWithIcon";
-import { match } from "ts-pattern";
 
 interface Props {
   content: EmployersEmployeesPageProps["content"];
@@ -35,8 +34,31 @@ export default function Section5({ content }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.3 });
 
+  const getBgColorClass = (color: string) => {
+    switch (color) {
+      case "grey":
+        return "bg-gray-200";
+      case "teal":
+        return "bg-brand-teal text-white";
+      case "yellow":
+        return "bg-brand-yellow";
+      default:
+        return "bg-white";
+    }
+  };
+
+  const bgColors = [
+    content.section5tile1bgColor || "yellow",
+    content.section5tile2bgColor || "teal",
+    content.section5tile3bgColor || "grey",
+    content.section5tile4bgColor || "teal",
+  ];
+
+  // Only show first 4 tiles
+  const tiles = content.section5tiles.slice(0, 4);
+
   return (
-    <div className="py-16 px-4" ref={ref}>
+    <div className="py-16 px-4 " ref={ref}>
       <motion.h2
         className={cn("text-center", {
           "h2-bold": content.section5titleBold,
@@ -59,15 +81,11 @@ export default function Section5({ content }: Props) {
       </motion.p>
 
       <motion.div
-        className="grid lg:grid-cols-6 gap-3 mt-12"
+        className="grid lg:grid-cols-4 gap-3 mt-12"
         animate={isInView ? "animate" : "initial"}
         variants={cardContainerVariants}
       >
-        {content.section5tiles.map((item, index) => {
-          const className = match(index)
-            .with(0, () => "bg-brand-yellow")
-            .with(2, 3, () => "bg-gray-300")
-            .otherwise(() => "bg-brand-teal");
+        {tiles.map((item, index) => {
           return (
             <CardWithIcon
               key={index}
@@ -76,9 +94,7 @@ export default function Section5({ content }: Props) {
               titleBold={item.titleBold}
               description={item.description}
               descriptionBold={item.descriptionBold}
-              className={cn("col-span-2", className, {
-                "col-span-3": index >= 3,
-              })}
+              className={cn(getBgColorClass(bgColors[index]))}
             />
           );
         })}

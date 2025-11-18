@@ -10,6 +10,7 @@ export interface FAQ {
   question: string;
   answer: string;
   category_id: string;
+  order_index?: number;
   created_at?: string;
   category?: FAQCategory;
 }

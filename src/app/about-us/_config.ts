@@ -5,6 +5,7 @@ export type AboutNarrativeBlock = {
   title: string;
   description: string;
   image: string;
+  bgColor?: string;
 };
 
 export type AboutDifferentiator = {
@@ -12,19 +13,31 @@ export type AboutDifferentiator = {
   title: string;
   description: string;
   icon: string;
+  bgColor?: string;
 };
 
 export type AboutStat = {
   id: string;
   value: string;
   label: string;
+  bgColor?: string;
+};
+
+export type AboutClosingTile = {
+  title: string;
+  titleBold?: boolean;
+  description: string;
+  descriptionBold?: boolean;
+  image: string;
+  bgColor?: string;
 };
 
 export type AboutClosing = {
   title: string;
-  description: string;
-  emphasis: string;
-  image: string;
+  titleBold?: boolean;
+  paragraph: string;
+  paragraphBold?: boolean;
+  tiles: AboutClosingTile[];
 };
 
 export type AboutValues = {
@@ -53,7 +66,15 @@ export type AboutUsPageContent = {
     ctaLabel: string;
     ctaLink: string;
   };
-  introduction: {
+  section1a: {
+    title: string;
+    titleBold: boolean;
+    description: string;
+    descriptionBold: boolean;
+    image: string;
+    imageAlt: string;
+  };
+  introduction?: {
     eyebrow: string;
     title: string;
     description: string;
@@ -73,7 +94,7 @@ export type AboutUsPageContent = {
   };
   closing: AboutClosing;
   values: AboutValues;
-  section7: AboutSection7;
+  section7?: AboutSection7;
 };
 
 export type AboutUsPageProps = BasePage<AboutUsPageContent>;
@@ -88,11 +109,20 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
       eyebrow: "About Bright Leasing",
       title: "A Brighter Way to Lease",
       description:
-        "Most of us need a car — and the costs are unavoidable. Novated leasing is the smarter way to cover finance, fuel, servicing, insurance, and registration in one tax-effective bundle. It shouldn’t feel complicated.",
+        "Most of us need a car — and the costs are unavoidable. But the way you pay for those costs can make a big difference. Novated leasing is an incredible way to drive the car you love while saving money on everyday expenses like finance, fuel, servicing, insurance and registration.",
       image: "/images/brightlogo.png",
       imageAlt: "Bright Leasing team collaborating",
       ctaLabel: "Talk with a specialist",
       ctaLink: "/contact",
+    },
+    section1a: {
+      title: "It shouldn't feel complicated",
+      titleBold: false,
+      description:
+        "It shouldn't feel complicated. With decades in the industry, we saw the gap between how novated leasing works and how it's often experienced: jargon, complex structures, and sales-first conversations. We built Bright Leasing to change that. What sets us apart is our commitment to clarity, transparency, and putting people first.",
+      descriptionBold: false,
+      image: "/images/brightlogo.png",
+      imageAlt: "Bright Leasing approach",
     },
     introduction: {
       eyebrow: "Our Perspective",
@@ -134,7 +164,7 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
       eyebrow: "Why Bright",
       title: "What sets us apart",
       description:
-        "Great service isn’t an add-on; it’s the standard. If novated leasing isn’t the right fit, we’ll say so.",
+        "Great service isn't an add-on; it's the standard. If novated leasing isn't the right fit, we'll say so.",
       items: [
         {
           id: "clarity",
@@ -142,6 +172,7 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
           description:
             "Plain-language coaching that makes every dollar and decision easy to understand.",
           icon: "/globe.svg",
+          bgColor: "yellow",
         },
         {
           id: "support",
@@ -149,6 +180,7 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
           description:
             "Dedicated specialists who stay with you long after sign-up to keep costs predictable.",
           icon: "/window.svg",
+          bgColor: "teal",
         },
         {
           id: "technology",
@@ -156,6 +188,15 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
           description:
             "Tools that surface the right insights at the right time so every experience feels effortless.",
           icon: "/file.svg",
+          bgColor: "grey",
+        },
+        {
+          id: "transparency",
+          title: "Complete transparency",
+          description:
+            "No hidden fees, no surprises. We believe in honest communication and clear expectations from day one.",
+          icon: "/globe.svg",
+          bgColor: "white",
         },
       ],
     },
@@ -169,21 +210,80 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
           id: "experience-years",
           value: "20+ yrs",
           label: "Combined expertise",
+          bgColor: "yellow",
         },
         {
           id: "leases-managed",
           value: "5K+",
           label: "Leases guided nationally",
+          bgColor: "teal",
         },
-        { id: "savings", value: "$2.5K", label: "Average annual savings*" },
+        {
+          id: "savings",
+          value: "$2.5K",
+          label: "Average annual savings*",
+          bgColor: "grey",
+        },
+        {
+          id: "satisfaction",
+          value: "98%",
+          label: "Customer satisfaction rate",
+          bgColor: "white",
+        },
       ],
     },
     closing: {
-      title: "Love every step",
-      description:
-        "At Bright, we believe people should love the experience of getting their car as much as the car itself.",
-      emphasis: "Let's build your brighter way to lease.",
-      image: "/images/brightlogo.png",
+      title: "How it works",
+      titleBold: false,
+      paragraph:
+        "We make car leasing simple, transparent, and rewarding — helping your employees take home more pay while your business saves time and costs.",
+      paragraphBold: false,
+      tiles: [
+        {
+          title: "More Take-Home Pay",
+          titleBold: false,
+          description:
+            "Using pre-tax dollars for their car and running costs puts more money in their pockets every pay cycle.",
+          descriptionBold: false,
+          image: "/placeholder.jpg",
+          bgColor: "yellow",
+        },
+        {
+          title: "",
+          titleBold: false,
+          description: "",
+          descriptionBold: false,
+          image: "/placeholder.jpg",
+          bgColor: "white",
+        },
+        {
+          title: "Less Hassle",
+          titleBold: false,
+          description:
+            "One fixed, set-and-forget payment covers most car costs — no juggling multiple bills or suppliers.",
+          descriptionBold: false,
+          image: "/placeholder.jpg",
+          bgColor: "teal",
+        },
+        {
+          title: "Choice & Transparency",
+          titleBold: false,
+          description:
+            "We show every dollar with no hidden add-ons, giving employees complete visibility into their expenses.",
+          descriptionBold: false,
+          image: "/placeholder.jpg",
+          bgColor: "teal",
+        },
+        {
+          title: "EV Advantage",
+          titleBold: false,
+          description:
+            "Eligible EVs can be FBT-exempt, delivering outsized savings that make electric vehicles incredibly attractive.",
+          descriptionBold: false,
+          image: "/placeholder.jpg",
+          bgColor: "grey",
+        },
+      ],
     },
     values: {
       title: "Bright Values",
@@ -194,24 +294,28 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
           title: "Simplicity",
           description: "Simplicity in every step.",
           image: "/globe.svg",
+          bgColor: "yellow",
         },
         {
           id: "excellence",
           title: "Excellence",
           description: "Excellence in everything we do.",
           image: "/window.svg",
+          bgColor: "teal",
         },
         {
           id: "partnership",
           title: "Partnership",
           description: "Partnership built on trust.",
           image: "/file.svg",
+          bgColor: "teal",
         },
         {
           id: "integrity",
           title: "Integrity",
           description: "Integrity always.",
           image: "/globe.svg",
+          bgColor: "grey",
         },
       ],
     },

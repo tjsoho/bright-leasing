@@ -96,16 +96,6 @@ export default async function Post(props: Params) {
 									})}</span>
 								</div>
 							</div>
-
-							{/* ************************************************************
-												READ TIME BADGE
-							************************************************************ */}
-							<div className="inline-flex items-center gap-2 bg-brand-yellow/20 text-brand-black px-4 py-2 rounded-full text-sm font-semibold">
-								<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-								</svg>
-								<span>2 min read</span>
-							</div>
 						</div>
 
 					</div>

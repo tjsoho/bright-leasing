@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { navigationLinks } from "@/components/core/navigation";
-import { BWestSmallButton } from "../ui/b-west-small";
+import { BWestButton } from "../ui/b-west-button";
 
 /* ************************************************************
                         INTERFACES
@@ -133,37 +133,46 @@ const BubbleMenuMobile = ({ isOpen, onClose, headerButtonText = "Start In 60 Sec
 
                             {/* Action Button - Mobile */}
                             <motion.div
-                                className="mt-8"
+                                className="mt-8 w-4/5 flex justify-center items-center"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: 20, transition: { delay: 0.1, duration: 0.2 } }}
                                 transition={{ delay: 0.8, duration: 0.3 }}
                             >
-                                <BWestSmallButton text={headerButtonText} variant="inverted" onClick={() => window.location.href = '/contact'} />
+                                <BWestButton text={headerButtonText} variant="inverted" onClick={() => window.location.href = '/contact'} className="w-full" />
                             </motion.div>
                         </motion.div>
 
                         {/* Legal Links - Bottom */}
                         <motion.div
-                            className="absolute bottom-4 left-4 right-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-brand-black/70"
+                            className="absolute bottom-4 left-4 right-4 flex flex-col items-center gap-3 text-sm text-brand-black/70"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0, transition: { delay: 0.1, duration: 0.2 } }}
                             transition={{ delay: 0.9, duration: 0.3 }}
                         >
-                            <div className="flex gap-4">
-                                <Link href="/privacy" className="hover:text-brand-black transition-colors" onClick={onClose}>
+                            <div className="flex flex-wrap justify-center gap-4">
+                                <Link href="/privacy-policy" className="hover:text-brand-black transition-colors" onClick={onClose}>
                                     Privacy Policy
                                 </Link>
-                                <Link href="/terms" className="hover:text-brand-black transition-colors" onClick={onClose}>
-                                    Terms of Service
+                                <Link href="/terms-and-conditions" className="hover:text-brand-black transition-colors" onClick={onClose}>
+                                    Terms & Conditions
                                 </Link>
                             </div>
-                            <div className="flex gap-4">
-                                <Link href="/linkedin" className="hover:text-brand-black transition-colors" onClick={onClose}>
-                                    LinkedIn
+
+                            {/* Designed By Section - Center */}
+                            <div className="flex items-center justify-center gap-2 text-brand-black/70">
+                                <span>Designed By</span>
+                                <Link href="https://www.ai-guy.co" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                                    <Image
+                                        src="/images/ai.png"
+                                        alt="Ai Guy Business Solutions"
+                                        width={80}
+                                        height={30}
+                                        className="h-5 w-auto"
+                                    />
                                 </Link>
-                                
+                                <span>Ai Guy Business Solutions</span>
                             </div>
                         </motion.div>
                     </motion.div>

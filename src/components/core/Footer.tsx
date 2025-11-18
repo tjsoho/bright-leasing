@@ -218,11 +218,28 @@ const Footer = ({ content }: FooterProps) => {
           animate={isInView ? "show" : "hidden"}
           className="mt-12 pt-8 border-t border-white/10"
         >
-          <p
-            className={`text-white/60 text-sm ${content.copyrightBold ? "text-small-bold" : ""}`}
-          >
-            {content.copyright}
-          </p>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p
+              className={`text-white/60 text-sm ${content.copyrightBold ? "text-small-bold" : ""}`}
+            >
+              {content.copyright}
+            </p>
+
+            {/* Designed By Section */}
+            <div className="flex items-center gap-2 text-white/60 text-sm">
+              <span>Designed By</span>
+              <Link href="https://www.ai-guy.co" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity bg-white rounded-full p-1">
+                <Image
+                  src="/images/ai.png"
+                  alt="Ai Guy Business Solutions"
+                  width={80}
+                  height={30}
+                  className="h-6 w-auto"
+                />
+              </Link>
+              <span>Ai Guy Business Solutions</span>
+            </div>
+          </div>
         </motion.div>
       </div>
     </footer>

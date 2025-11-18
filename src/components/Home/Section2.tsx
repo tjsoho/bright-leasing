@@ -50,12 +50,12 @@ export default function Section2({ content }: Section2Props) {
 		<section className="py-16 bg-brand-cream rounded-2xl" ref={ref}>
 			<div className="max-w-5xl mx-auto px-4">
 				<motion.div
-					className="text-center"
+					className="text-center "
 					variants={titleVariants}
 					initial="hidden"
 					animate={isInView ? "show" : "hidden"}
 				>
-					<h5 className={`text-black/50 leading-tight text-left uppercase ${content.section2titleBold ? 'h5-bold' : 'h5'}`}>
+					<h5 className={`text-brand-teal uppercase tracking-[0.3em] text-small text-left w-full mb-4 ${content.section2titleBold ? 'h5-bold' : 'h5'}`}>
 						<RenderLineBreaks text={content.section2title} />
 					</h5>
 					<p className={`text-black leading-relaxed text-left ${content.section2paragraphBold ? 'p-bold' : 'p'}`}>

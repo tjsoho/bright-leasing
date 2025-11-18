@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
+import { Calendar, User, ArrowRight } from 'lucide-react';
 
 interface BlogCardProps {
     title: string;
@@ -56,16 +56,6 @@ export default function BlogCard({
                     <span className="bg-brand-yellow text-brand-black px-2 py-1 rounded-full text-xs font-bold shadow-lg">
                         Article
                     </span>
-                </div>
-
-                {/* ************************************************************
-                                    READ TIME BADGE
-                ************************************************************ */}
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                    <div className="bg-brand-teal text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
-                        <span>5 min</span>
-                    </div>
                 </div>
             </div>
 

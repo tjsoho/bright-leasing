@@ -62,12 +62,24 @@ export default function FAQsPage() {
                     return a.name.localeCompare(b.name);
                 });
 
-                // Sort FAQs to ensure General category FAQs appear first
+                // Sort FAQs by order_index within each category
+                // The getFAQs function already orders by order_index, so we just need to maintain that order
+                // Group by category and maintain order_index order
                 const sortedFaqs = safeFaqs.sort((a, b) => {
+                    // First, sort by category (General first)
                     const aIsGeneral = a.category?.slug === 'general';
                     const bIsGeneral = b.category?.slug === 'general';
                     if (aIsGeneral && !bIsGeneral) return -1;
                     if (!aIsGeneral && bIsGeneral) return 1;
+
+                    // If same category, sort by order_index
+                    if (a.category_id === b.category_id) {
+                        const aOrder = a.order_index ?? 0;
+                        const bOrder = b.order_index ?? 0;
+                        return aOrder - bOrder;
+                    }
+
+                    // Different categories, maintain category order
                     return 0;
                 });
 

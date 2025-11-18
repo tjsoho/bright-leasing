@@ -5,6 +5,7 @@ import { RenderLineBreaks } from "@/utils/render-line-breaks";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import React from "react";
+import { BWestButton } from "@/components/ui/b-west-button";
 
 interface HeroProps {
   content: EmployersEmployeesPageProps["content"];
@@ -63,6 +64,19 @@ export default function Hero({ content }: HeroProps) {
     },
   };
 
+  const buttonVariants = {
+    initial: { opacity: 0, y: 10 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: [0.4, 0, 0.2, 1] as const,
+        delay: 0.2,
+      },
+    },
+  };
+
   return (
     <section className="min-h-screen mt-0 " ref={ref}>
       {/* ***************************************************************
@@ -91,6 +105,15 @@ export default function Hero({ content }: HeroProps) {
             >
               <RenderLineBreaks text={content.heroParagraph} />
             </motion.p>
+            <motion.div
+              variants={buttonVariants}
+              className="flex flex-col gap-4 max-w-xs"
+            >
+              <BWestButton
+                text={content.heroButtonText || "Get Started"}
+                onClick={() => window.location.href = '/contact'}
+              />
+            </motion.div>
           </div>
         </motion.div>
 

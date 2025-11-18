@@ -4,18 +4,19 @@
                         NOTES
 ************************************************************ */
 // About Section 5 - Closing statement
-// Matches hero design with text left, image right, and button
-// White background with flex layout
+// 5 squares with tall image card in the middle
+// Matches Section9 design from employers/employees
 
 /* ************************************************************
                         IMPORTS
 ************************************************************ */
 import { useRef } from "react";
-import Image from "next/image";
 import { motion, useInView, Variants } from "framer-motion";
 import { AboutUsPageContent } from "@/app/about-us/_config";
-import { BWestButton } from "@/components/ui/b-west-button";
-import { RenderLineBreaks } from "@/utils/render-line-breaks";
+import { cn } from "@/lib/utils";
+import CardWithBackground from "@/components/core/CardWithBackground";
+import CardWithIcon from "@/components/core/CardWithIcon";
+import { match } from "ts-pattern";
 
 /* ************************************************************
                         INTERFACES
@@ -35,63 +36,49 @@ export default function Section5({ closing }: Section5Props) {
     const isInView = useInView(ref, { amount: 0.3 });
 
     /* ************************************************************
+                            FUNCTIONS
+    ************************************************************ */
+    const tiles = (closing?.tiles || []).map((tile, index) => {
+        const className = match(index)
+            .with(0, () => "bg-brand-yellow")
+            .with(1, 2, 3, () => "bg-brand-teal text-white")
+            .with(4, () => "bg-gray-300")
+            .otherwise(() => "");
+
+        return {
+            title: tile.title,
+            titleBold: tile.titleBold,
+            description: tile.description,
+            descriptionBold: tile.descriptionBold,
+            image: tile.image,
+            className,
+        };
+    });
+
+    /* ************************************************************
                             ANIMATION VARIANTS
     ************************************************************ */
-    const textVariants: Variants = {
-        initial: { opacity: 0, y: 10 },
-        animate: {
+    const fadeUp: Variants = {
+        initial: {
+            opacity: 0,
+            y: 30,
+        },
+        animate: (delay) => ({
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.3,
-                ease: [0.4, 0, 0.2, 1] as const,
+                duration: 0.8,
+                ease: "easeOut",
+                delay: delay || 0,
             },
-        },
+        }),
     };
 
-    const titleVariants: Variants = {
-        initial: { opacity: 0, y: 10 },
+    const cardStagger: Variants = {
+        initial: {},
         animate: {
-            opacity: 1,
-            y: 0,
             transition: {
-                duration: 0.3,
-                ease: [0.4, 0, 0.2, 1] as const,
-            },
-        },
-    };
-
-    const paragraphVariants: Variants = {
-        initial: { opacity: 0, y: 10 },
-        animate: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.3,
-                ease: [0.4, 0, 0.2, 1] as const,
-            },
-        },
-    };
-
-    const buttonVariants: Variants = {
-        initial: { opacity: 0, y: 10 },
-        animate: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.3,
-                ease: [0.4, 0, 0.2, 1] as const,
-            },
-        },
-    };
-
-    const imageVariants: Variants = {
-        initial: { opacity: 0 },
-        animate: {
-            opacity: 1,
-            transition: {
-                duration: 0.3,
-                ease: [0.4, 0, 0.2, 1] as const,
+                staggerChildren: 0.1,
             },
         },
     };
@@ -100,72 +87,73 @@ export default function Section5({ closing }: Section5Props) {
                             RENDER
     ************************************************************ */
     return (
-        <section className="min-h-screen mt-0 pt-16" ref={ref}>
-            {/* ***************************************************************
-               HERO CONTAINER - Flex layout with content left, image right
-            ****************************************************************/}
-            <div className="flex flex-col lg:flex-row w-full items-center justify-center bg-white px-2">
-                {/* ***************************************************************
-                    CONTENT SECTION - Left side
-                ****************************************************************/}
-                <motion.div
-                    initial="initial"
-                    animate={isInView ? "animate" : "initial"}
-                    variants={textVariants}
-                    className="flex-1 flex items-center justify-center px-4 md:p-12 order-2 lg:order-1 mb-12 lg:mb-0"
-                >
-                    <div className="max-w-xl">
-                        <motion.h1
-                            variants={titleVariants}
-                            className="text-brand-black mb-4 leading-none h1"
-                        >
-                            <RenderLineBreaks text={closing?.title || ""} />
-                        </motion.h1>
-                        <motion.p
-                            variants={paragraphVariants}
-                            className="text-left w-full leading-relaxed mb-6 p"
-                        >
-                            <RenderLineBreaks text={closing?.description || ""} />
-                        </motion.p>
-                        {closing?.emphasis && (
-                            <motion.p
-                                variants={paragraphVariants}
-                                className="text-left w-full leading-relaxed mb-6 h4"
-                            >
-                                <RenderLineBreaks text={closing.emphasis} />
-                            </motion.p>
-                        )}
-                        <motion.div
-                            variants={buttonVariants}
-                            className="flex flex-col gap-4 max-w-xs"
-                        >
-                            <BWestButton
-                                text="Get Started"
-                                onClick={() => window.location.href = '/contact'}
-                            />
-                        </motion.div>
-                    </div>
-                </motion.div>
+        <div className="py-16 px-4" ref={ref}>
+            <motion.h2
+                className={cn("text-center", {
+                    "h2-bold": closing?.titleBold,
+                })}
+                variants={fadeUp}
+                initial="initial"
+                animate={isInView ? "animate" : "initial"}
+            >
+                {closing?.title}
+            </motion.h2>
+            <motion.p
+                className={cn("text-center max-w-4xl mx-auto mt-4", {
+                    "p-bold": closing?.paragraphBold,
+                })}
+                variants={fadeUp}
+                initial="initial"
+                animate={isInView ? "animate" : "initial"}
+                custom={0.2}
+            >
+                {closing?.paragraph}
+            </motion.p>
 
-                {/* ***************************************************************
-                    IMAGE SECTION - Right side
-                ****************************************************************/}
+            <div className="flex justify-center mt-8">
                 <motion.div
+                    className="grid lg:grid-cols-3 gap-3 lg:h-[700px] w-full"
+                    variants={cardStagger}
                     initial="initial"
-                    animate={isInView ? "animate" : "initial"}
-                    variants={imageVariants}
-                    className="flex-1 relative h-64 sm:h-80 md:h-96 lg:h-full order-2 w-full flex justify-center items-center rounded-2xl"
+                    whileInView="animate"
                 >
-                    <Image
-                        src={closing?.image || "/images/brightlogo.png"}
-                        alt={closing?.title || "Bright Leasing customer experience"}
-                        width={400}
-                        height={300}
-                        className="w-[500px] h-[300px] lg:w-full lg:h-full object-contain rounded-2xl"
-                    />
+                    {tiles.map((tile, index) =>
+                        match([tile.image, index])
+                            .when(
+                                ([img, idx]) => img && idx === 1,
+                                () => (
+                                    <CardWithBackground
+                                        key={index}
+                                        image={tile.image}
+                                        title={tile.title}
+                                        titleBold={tile.titleBold}
+                                        description={tile.description}
+                                        descriptionBold={tile.descriptionBold}
+                                        className={cn(
+                                            tile.className,
+                                            "row-span-2 order-2 lg:order-1",
+                                        )}
+                                    />
+                                ),
+                            )
+                            .otherwise(() => (
+                                <CardWithIcon
+                                    key={index}
+                                    image={tile.image}
+                                    title={tile.title}
+                                    titleBold={tile.titleBold}
+                                    description={tile.description}
+                                    descriptionBold={tile.descriptionBold}
+                                    className={cn(
+                                        tile.className,
+                                        `order-${index} lg:order-1`,
+                                    )}
+                                />
+                            )),
+                    )}
                 </motion.div>
             </div>
-        </section>
+        </div>
     );
 }
 

@@ -4,8 +4,9 @@
                         NOTES
 ************************************************************ */
 // About Section 3 - Differentiators
-// Gray background with white cards matching Section2 styling
-// Uses same spacing, text sizes, and icon styling
+// Gray background with colored cards
+// Layout: Icon at top, title below icon, description below title
+// User can select background color for each card
 
 /* ************************************************************
                         IMPORTS
@@ -15,6 +16,7 @@ import Image from "next/image";
 import { motion, useInView, Variants } from "framer-motion";
 import { AboutUsPageContent, AboutDifferentiator } from "@/app/about-us/_config";
 import { RenderLineBreaks } from "@/utils/render-line-breaks";
+import { cn } from "@/lib/utils";
 
 /* ************************************************************
                         INTERFACES
@@ -36,6 +38,21 @@ export default function Section3({ differentiators }: Section3Props) {
     /* ************************************************************
                             FUNCTIONS
     ************************************************************ */
+    const getBgColorClass = (color: string) => {
+        switch (color) {
+            case "grey":
+                return "bg-gray-200";
+            case "teal":
+                return "bg-brand-teal text-white";
+            case "yellow":
+                return "bg-brand-yellow";
+            case "white":
+                return "bg-white";
+            default:
+                return "bg-white";
+        }
+    };
+
     const items: AboutDifferentiator[] = differentiators?.items || [];
 
     /* ************************************************************
@@ -92,9 +109,9 @@ export default function Section3({ differentiators }: Section3Props) {
     return (
         <section className="py-16 bg-gray-100 rounded-2xl" ref={ref}>
             <div className="max-w-6xl mx-auto px-4">
-                {/* Section Title */}
+                {/* Section Title - Centered */}
                 <motion.h2
-                    className="text-black text-left mb-5 h2"
+                    className="text-black text-center mb-5 h2"
                     variants={titleVariants}
                     initial="hidden"
                     animate={isInView ? "show" : "hidden"}
@@ -102,8 +119,9 @@ export default function Section3({ differentiators }: Section3Props) {
                     <RenderLineBreaks text={differentiators?.title || ""} />
                 </motion.h2>
 
+                {/* Subheading - Centered */}
                 <motion.p
-                    className="text-black text-left mb-12 lg:max-w-3xl p"
+                    className="text-black text-center mb-12 max-w-4xl mx-auto p"
                     variants={titleVariants}
                     initial="hidden"
                     animate={isInView ? "show" : "hidden"}
@@ -113,7 +131,7 @@ export default function Section3({ differentiators }: Section3Props) {
 
                 {/* Cards Container */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
                     variants={containerVariants}
                     initial="hidden"
                     animate={isInView ? "show" : "hidden"}
@@ -121,33 +139,34 @@ export default function Section3({ differentiators }: Section3Props) {
                     {items.map((item) => (
                         <motion.div
                             key={item.id}
-                            className="bg-white rounded-2xl p-6 relative overflow-hidden h-[400px] w-[300px] lg:w-full mx-auto"
+                            className={cn(
+                                "rounded-2xl p-6 relative overflow-hidden min-h-[350px] flex flex-col",
+                                getBgColorClass(item.bgColor || "white")
+                            )}
                             variants={stepVariants}
                         >
-                            <div className="flex flex-col justify-between h-full">
-                                {/* Icon */}
-                                <div className="mb-4">
-                                    <div className="size-14 bg-yellow-400 rounded-full flex items-center justify-center overflow-hidden">
-                                        <Image
-                                            src={item.icon || "/globe.svg"}
-                                            alt={`${item.title} icon`}
-                                            width={26}
-                                            height={26}
-                                            className="object-contain"
-                                        />
-                                    </div>
-                                </div>
-
-                                {/* Content */}
-                                <div className="flex flex-col justify-start mt-auto h-fit">
-                                    <h5 className="text-black mb-3 h5">
-                                        <RenderLineBreaks text={item.title} />
-                                    </h5>
-                                    <p className="lg:text-small text-left leading-relaxed p">
-                                        <RenderLineBreaks text={item.description} />
-                                    </p>
+                            {/* Icon at top */}
+                            <div className="mb-4">
+                                <div className="size-14 rounded-full bg-white flex items-center justify-center border border-black">
+                                    <Image
+                                        src={item.icon || "/globe.svg"}
+                                        alt={`${item.title} icon`}
+                                        width={26}
+                                        height={26}
+                                        className="object-contain"
+                                    />
                                 </div>
                             </div>
+
+                            {/* Title below icon */}
+                            <h5 className="mb-3 h5">
+                                <RenderLineBreaks text={item.title} />
+                            </h5>
+
+                            {/* Description below title */}
+                            <p className="lg:text-small text-left leading-relaxed p flex-grow">
+                                <RenderLineBreaks text={item.description} />
+                            </p>
                         </motion.div>
                     ))}
                 </motion.div>

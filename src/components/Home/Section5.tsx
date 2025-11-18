@@ -125,7 +125,7 @@ export default function Section5({ content }: Section5Props) {
 							<BWestButton
 								text={content.section5buttonText}
 								onClick={() => window.location.href = '/contact'}
-								className="w-2/3"
+								className="lg:w-2/3 w-full"
 							/>
 						</motion.div>
 					</div>

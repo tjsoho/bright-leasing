@@ -112,14 +112,15 @@ export default function AdminTileInput({
       {onImageChange && image && (
         <div className="mt-4">
           <label className="block text-brand-black/70 text-xs mb-1">Icon</label>
-          <div className="bg-gray-500 rounded-lg p-1 inline-block">
+          <div className="bg-gray-400 rounded-lg p-1 inline-block">
             <EditableImage
               src={image}
               alt={`${label} Icon`}
-              width={48}
-              height={48}
+              width={64}
+              height={64}
               onImageChange={onImageChange}
-              className="w-16 h-16 rounded-lg object-cover border-2 p-1 border-brand-yellow"
+              className="w-12 h-12 rounded-lg object-contain border-2 p-1 border-brand-yellow"
+              usage={`${label.toLowerCase().replace(/\s+/g, '-')}-icon`}
             />
           </div>
         </div>

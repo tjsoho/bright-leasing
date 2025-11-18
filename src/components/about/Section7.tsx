@@ -34,6 +34,10 @@ export default function Section7({ section7 }: Section7Props) {
     const ref = useRef(null);
     const isInView = useInView(ref, { amount: 0.3 });
 
+    if (!section7) {
+        return null;
+    }
+
     /* ************************************************************
                             ANIMATION VARIANTS
     ************************************************************ */

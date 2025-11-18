@@ -6,6 +6,7 @@
 // About Section 6 - Bright Values
 // Displays title/description and grid of value cards
 // Uses colored background cards with icons matching Section2 styling
+// Layout: Icon at top, title below icon, description below title
 
 /* ************************************************************
                         IMPORTS
@@ -14,8 +15,8 @@ import { useRef } from "react";
 import { motion, useInView, Variants } from "framer-motion";
 import { AboutUsPageContent } from "@/app/about-us/_config";
 import { cn } from "@/lib/utils";
-import CardWithIcon from "@/components/core/CardWithIcon";
-import { match } from "ts-pattern";
+import Image from "next/image";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 /* ************************************************************
                         INTERFACES
@@ -37,18 +38,22 @@ export default function Section6({ values }: Section6Props) {
     /* ************************************************************
                             FUNCTIONS
     ************************************************************ */
-    const blocks = (values?.blocks || []).map((block, index) => {
-        const className = match(index)
-            .with(0, () => "bg-brand-yellow")
-            .with(1, 2, () => "bg-brand-teal text-white")
-            .with(3, () => "bg-gray-300")
-            .otherwise(() => "bg-brand-yellow");
+    const getBgColorClass = (color: string) => {
+        switch (color) {
+            case "grey":
+                return "bg-gray-200";
+            case "teal":
+                return "bg-brand-teal text-white";
+            case "yellow":
+                return "bg-brand-yellow";
+            case "white":
+                return "bg-white";
+            default:
+                return "bg-white";
+        }
+    };
 
-        return {
-            ...block,
-            className,
-        };
-    });
+    const blocks = values?.blocks || [];
 
     /* ************************************************************
                             ANIMATION VARIANTS
@@ -74,6 +79,23 @@ export default function Section6({ values }: Section6Props) {
         animate: {
             transition: {
                 staggerChildren: 0.1,
+            },
+        },
+    };
+
+    const cardReveal: Variants = {
+        initial: {
+            opacity: 0,
+            y: 30,
+            scale: 0.95,
+        },
+        animate: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: {
+                duration: 0.8,
+                ease: "easeOut",
             },
         },
     };
@@ -109,13 +131,37 @@ export default function Section6({ values }: Section6Props) {
                     whileInView="animate"
                 >
                     {blocks.map((block) => (
-                        <CardWithIcon
+                        <motion.div
                             key={block.id}
-                            image={block.image}
-                            title={block.title}
-                            description={block.description}
-                            className={cn(block.className)}
-                        />
+                            className={cn(
+                                "flex flex-col p-6 rounded-2xl relative z-0 min-h-[350px]",
+                                getBgColorClass(block.bgColor || "white")
+                            )}
+                            variants={cardReveal}
+                        >
+                            {/* Icon at top */}
+                            <div className="mb-4">
+                                <div className="size-14 rounded-full bg-white flex items-center justify-center">
+                                    <Image
+                                        src={block.image || "/placeholder.jpg"}
+                                        alt={`${block.title} icon`}
+                                        width={26}
+                                        height={26}
+                                        className="object-contain"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Title below icon */}
+                            <h4 className="mb-3">
+                                <RenderLineBreaks text={block.title} />
+                            </h4>
+
+                            {/* Description below title */}
+                            <p className="!text-base flex-grow">
+                                <RenderLineBreaks text={block.description} />
+                            </p>
+                        </motion.div>
                     ))}
                 </motion.div>
             </div>

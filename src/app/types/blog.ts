@@ -4,6 +4,7 @@ export type BlogFormData = {
   excerpt: string;
   author: string;
   content: string;
+  created_at?: string;
 };
 
 export type BlogPost = {

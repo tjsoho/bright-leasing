@@ -61,6 +61,19 @@ export default function Section2({ content }: Section2Props) {
     },
   };
 
+  const getBgColorClass = (color: string) => {
+    switch (color) {
+      case "grey":
+        return "bg-gray-200";
+      case "teal":
+        return "bg-brand-teal";
+      case "yellow":
+        return "bg-brand-yellow";
+      default:
+        return "bg-white";
+    }
+  };
+
   const steps = [
     {
       title: content.section2tile1title,
@@ -69,6 +82,7 @@ export default function Section2({ content }: Section2Props) {
       number: "01",
       titleBold: content.section2tile1titleBold,
       descriptionBold: content.section2tile1descriptionBold,
+      bgColor: content.section2tile1bgColor || "white",
     },
     {
       title: content.section2tile2title,
@@ -77,6 +91,7 @@ export default function Section2({ content }: Section2Props) {
       number: "02",
       titleBold: content.section2tile2titleBold,
       descriptionBold: content.section2tile2descriptionBold,
+      bgColor: content.section2tile2bgColor || "white",
     },
     {
       title: content.section2tile3title,
@@ -85,6 +100,7 @@ export default function Section2({ content }: Section2Props) {
       number: "03",
       titleBold: content.section2tile3titleBold,
       descriptionBold: content.section2tile3descriptionBold,
+      bgColor: content.section2tile3bgColor || "white",
     },
     {
       title: content.section2tile4title,
@@ -93,15 +109,25 @@ export default function Section2({ content }: Section2Props) {
       number: "04",
       titleBold: content.section2tile4titleBold,
       descriptionBold: content.section2tile4descriptionBold,
+      bgColor: content.section2tile4bgColor || "white",
+    },
+    {
+      title: content.section2tile5title,
+      description: content.section2tile5description,
+      icon: content.section2tile5icon,
+      number: "05",
+      titleBold: content.section2tile5titleBold,
+      descriptionBold: content.section2tile5descriptionBold,
+      bgColor: content.section2tile5bgColor || "white",
     },
   ];
 
   return (
     <section className="py-16 bg-gray-100 rounded-2xl" ref={ref}>
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Section Title */}
         <motion.h2
-          className={`text-black text-left mb-5 ${content.section2titleBold ? "h2-bold" : ""}`}
+          className={`text-black text-center mb-5 ${content.section2titleBold ? "h2-bold" : ""}`}
           variants={titleVariants}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
@@ -110,7 +136,7 @@ export default function Section2({ content }: Section2Props) {
         </motion.h2>
 
         <motion.p
-          className={`text-black text-left mb-12 lg:max-w-3xl ${content.section2paragraphBold ? "p-bold" : ""}`}
+          className={`text-black text-center mb-12  ${content.section2paragraphBold ? "p-bold" : ""}`}
           variants={titleVariants}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
@@ -120,7 +146,7 @@ export default function Section2({ content }: Section2Props) {
 
         {/* Steps Container */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6  "
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6  "
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
@@ -128,13 +154,13 @@ export default function Section2({ content }: Section2Props) {
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-2xl p-6 relative overflow-hidden h-[400px] w-[300px] lg:w-full mx-auto"
+              className={`${getBgColorClass(step.bgColor)} rounded-2xl p-6 relative overflow-hidden h-[400px] w-[300px] lg:w-full mx-auto`}
               variants={stepVariants}
             >
-              <div className="flex flex-col justify-between h-full">
+              <div className="flex flex-col h-full">
                 {/* Icon */}
                 <div className="mb-4">
-                  <div className="size-14 bg-yellow-400 rounded-full flex items-center justify-center overflow-hidden">
+                  <div className="size-14 border border-black rounded-full flex items-center justify-center overflow-hidden bg-transparent">
                     <Image
                       src={step.icon}
                       alt={`${step.title} icon`}
@@ -145,19 +171,19 @@ export default function Section2({ content }: Section2Props) {
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="flex flex-col justify-start mt-auto h-fit">
-                  <h5
-                    className={`text-black mb-3 ${step.titleBold ? "h5-bold" : ""}`}
-                  >
-                    <RenderLineBreaks text={step.title} />
-                  </h5>
-                  <p
-                    className={`lg:text-small text-left leading-relaxed ${step.descriptionBold ? "p-bold" : ""}`}
-                  >
-                    <RenderLineBreaks text={step.description} />
-                  </p>
-                </div>
+                {/* Heading */}
+                <h5
+                  className={`text-black mb-3 ${step.titleBold ? "h5-bold" : ""}`}
+                >
+                  <RenderLineBreaks text={step.title} />
+                </h5>
+
+                {/* Description */}
+                <p
+                  className={`lg:text-small text-left leading-relaxed ${step.descriptionBold ? "p-bold" : ""}`}
+                >
+                  <RenderLineBreaks text={step.description} />
+                </p>
               </div>
             </motion.div>
           ))}

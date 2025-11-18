@@ -11,6 +11,7 @@ import Section5 from "@/components/empoyers-employees/Section5";
 // import Section6 from "@/components/empoyers-employees/Section6";
 import Section7 from "@/components/empoyers-employees/Section7";
 import Section8 from "@/components/empoyers-employees/Section8";
+import Section9 from "@/components/empoyers-employees/Section9";
 
 export default async function EmployersPage() {
   const data = await getPage<EmployersEmployeesPageProps>(
@@ -31,10 +32,11 @@ export default async function EmployersPage() {
         ****************************************************************/}
           <Section2 content={data.content} />
           <Section3 content={data.content} />
-          <Section4 content={data.content} isEmployersPage={true} />
+          <Section4 content={data.content} />
           <Section5 content={data.content} />
           {/* <Section6 content={data.content} /> */}
           <Section7 content={data.content} />
+          <Section9 content={data.content} />
           <Section8 content={data.content} />
         </div>
       </div>

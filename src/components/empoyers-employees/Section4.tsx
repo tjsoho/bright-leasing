@@ -1,268 +1,191 @@
 "use client";
 
 import { EmployersEmployeesPageProps } from "@/app/(employer-employees)/_config";
-import { cn } from "@/lib/utils";
-import { motion, useInView, Variants } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import React from "react";
 import Image from "next/image";
-import { useRef } from "react";
-import { match } from "ts-pattern";
-import CardWithBackground from "../core/CardWithBackground";
-import CardWithIcon from "../core/CardWithIcon";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
-interface Props {
+interface Section4Props {
   content: EmployersEmployeesPageProps["content"];
-  isEmployersPage?: boolean;
 }
 
-const fadeUp: Variants = {
-  initial: {
-    opacity: 0,
-    y: 30,
-  },
-  animate: (delay) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-      delay: delay || 0,
-    },
-  }),
-};
-
-const cardStagger: Variants = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-export default function Section4({ content, isEmployersPage = false }: Props) {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
-
-  const tab1Tiles = content.section4tab1items.map((item, index) => {
-    const className = match(index)
-      .with(0, () => "bg-brand-yellow")
-      .with(1, 2, 3, () => "bg-brand-teal text-white")
-      .with(4, () => "bg-gray-300")
-      .otherwise(() => "");
-
-    return {
-      title: item.title,
-      titleBold: item.titleBold,
-      description: item.description,
-      descriptionBold: item.descriptionBold,
-      image: item.image,
-      className,
-    };
+export default function Section4({ content }: Section4Props) {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, {
+    amount: 0.3,
   });
 
-  const tab2Tiles = content.section4tab2items.map((item, index) => {
-    const className = match(index)
-      .with(0, () => "bg-brand-yellow")
-      .with(1, 2, 3, () => "bg-brand-teal text-white")
-      .with(4, () => "bg-gray-300")
-      .otherwise(() => "");
+  const titleVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+      scale: 0.95,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 1.2,
+        ease: [0.4, 0, 0.2, 1] as const,
+      },
+    },
+  };
 
-    return {
-      title: item.title,
-      titleBold: item.titleBold,
-      description: item.description,
-      descriptionBold: item.descriptionBold,
-      image: item.image,
-      className,
-    };
-  });
+  const stepVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+      scale: 0.8,
+      rotateX: -15,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotateX: 0,
+      transition: {
+        duration: 1.0,
+        ease: [0.4, 0, 0.2, 1] as const,
+      },
+    },
+  };
+
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  // Map original icons from section9tab1items if step icons aren't set
+  // Original structure: index 0, 2, 3, 4 were the 4 content boxes (index 1 was center image)
+  const getStepIcon = (stepIndex: number) => {
+    const stepIcons = [
+      content.section4step1icon,
+      content.section4step2icon,
+      content.section4step3icon,
+      content.section4step4icon,
+    ];
+    const originalIndices = [0, 2, 3, 4]; // Original indices in section9tab1items
+
+    // Use step icon if set, otherwise fall back to original icon from section9tab1items
+    if (stepIcons[stepIndex] && stepIcons[stepIndex] !== "/placeholder.jpg") {
+      return stepIcons[stepIndex];
+    }
+
+    // Fall back to original icon from section9tab1items
+    const originalItem = content.section9tab1items?.[originalIndices[stepIndex]];
+    return originalItem?.image || stepIcons[stepIndex] || "/placeholder.jpg";
+  };
+
+  const steps = [
+    {
+      title: content.section4step1title,
+      description: content.section4step1description,
+      icon: getStepIcon(0),
+      number: "01",
+      titleBold: content.section4step1titleBold,
+      descriptionBold: content.section4step1descriptionBold,
+    },
+    {
+      title: content.section4step2title,
+      description: content.section4step2description,
+      icon: getStepIcon(1),
+      number: "02",
+      titleBold: content.section4step2titleBold,
+      descriptionBold: content.section4step2descriptionBold,
+    },
+    {
+      title: content.section4step3title,
+      description: content.section4step3description,
+      icon: getStepIcon(2),
+      number: "03",
+      titleBold: content.section4step3titleBold,
+      descriptionBold: content.section4step3descriptionBold,
+    },
+    {
+      title: content.section4step4title,
+      description: content.section4step4description,
+      icon: getStepIcon(3),
+      number: "04",
+      titleBold: content.section4step4titleBold,
+      descriptionBold: content.section4step4descriptionBold,
+    },
+  ];
 
   return (
-    <div className="py-16 px-4" ref={ref}>
-      <motion.h2
-        className={cn("text-center", {
-          "h2-bold": content.section4titleBold,
-        })}
-        variants={fadeUp}
-        initial="initial"
-        animate={isInView ? "animate" : "initial"}
-      >
-        {content.section4title}
-      </motion.h2>
-      <motion.p
-        className={cn("text-center max-w-4xl mx-auto mt-4", {
-          "p-bold": content.section5paragraphBold,
-        })}
-        variants={fadeUp}
-        initial="initial"
-        animate={isInView ? "animate" : "initial"}
-        custom={0.2}
-      >
-        {content.section4paragraph}
-      </motion.p>
+    <section className="py-16 bg-gray-100 rounded-2xl" ref={ref}>
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Section Title */}
+        <motion.h2
+          className={`text-black text-center mb-4 ${content.section4titleBold ? 'h2-bold' : ''}`}
+          variants={titleVariants}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+        >
+          <RenderLineBreaks text={content.section4title} />
+        </motion.h2>
 
-      <div className="flex justify-center mt-8">
-        {isEmployersPage ? (
-          <Tabs defaultValue={content.section4tabs.tab1} className="w-full">
-            <div className="flex justify-center mb-8">
-              <TabsList>
-                <TabsTrigger value={content.section4tabs.tab1}>
-                  {content.section4tabs.tab1Icon && (
-                    <Image
-                      src={content.section4tabs.tab1Icon}
-                      alt={content.section4tabs.tab1}
-                      width={20}
-                      height={20}
-                    />
-                  )}
-                  {content.section4tabs.tab1}
-                </TabsTrigger>
-                <TabsTrigger value={content.section4tabs.tab2}>
-                  {content.section4tabs.tab2Icon && (
-                    <Image
-                      src={content.section4tabs.tab2Icon}
-                      alt={content.section4tabs.tab2}
-                      width={20}
-                      height={20}
-                    />
-                  )}
-                  {content.section4tabs.tab2}
-                </TabsTrigger>
-              </TabsList>
-            </div>
+        {/* Section Paragraph */}
+        <motion.p
+          className={`text-black text-center mb-16 ${content.section4paragraphBold ? 'p-bold' : ''}`}
+          variants={titleVariants}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+        >
+          <RenderLineBreaks text={content.section4paragraph} />
+        </motion.p>
 
-            <TabsContent value={content.section4tabs.tab1}>
-              <motion.div
-                className="grid lg:grid-cols-3 gap-3 lg:h-[700px] w-full"
-                variants={cardStagger}
-                initial="initial"
-                whileInView="animate"
-              >
-                {tab1Tiles.map((tile, index) =>
-                  match([tile.image, index])
-                    .when(
-                      ([img, index]) => img && index === 1,
-                      () => (
-                        <CardWithBackground
-                          key={index}
-                          image={tile.image}
-                          title={tile.title}
-                          titleBold={tile.titleBold}
-                          description={tile.description}
-                          descriptionBold={tile.descriptionBold}
-                          className={cn(
-                            tile.className,
-                            "row-span-2 order-2 lg:order-1",
-                          )}
-                        />
-                      ),
-                    )
-                    .otherwise(() => (
-                      <CardWithIcon
-                        key={index}
-                        image={tile.image}
-                        title={tile.title}
-                        titleBold={tile.titleBold}
-                        description={tile.description}
-                        descriptionBold={tile.descriptionBold}
-                        className={cn(
-                          tile.className,
-                          `order-${index} lg:order-1`,
-                        )}
-                      />
-                    )),
-                )}
-              </motion.div>
-            </TabsContent>
-            <TabsContent value={content.section4tabs.tab2}>
-              <motion.div
-                className="grid lg:grid-cols-3 gap-3 lg:h-[700px] w-full"
-                variants={cardStagger}
-                initial="initial"
-                whileInView="animate"
-              >
-                {tab2Tiles.map((tile, index) =>
-                  match([tile.image, index])
-                    .when(
-                      ([img, index]) => img && index === 1,
-                      () => (
-                        <CardWithBackground
-                          key={index}
-                          image={tile.image}
-                          title={tile.title}
-                          titleBold={tile.titleBold}
-                          description={tile.description}
-                          descriptionBold={tile.descriptionBold}
-                          className={cn(
-                            tile.className,
-                            "row-span-2 order-2 lg:order-1",
-                          )}
-                        />
-                      ),
-                    )
-                    .otherwise(() => (
-                      <CardWithIcon
-                        key={index}
-                        image={tile.image}
-                        title={tile.title}
-                        titleBold={tile.titleBold}
-                        description={tile.description}
-                        descriptionBold={tile.descriptionBold}
-                        className={cn(
-                          tile.className,
-                          `order-${index} lg:order-1`,
-                        )}
-                      />
-                    )),
-                )}
-              </motion.div>
-            </TabsContent>
-          </Tabs>
-        ) : (
-          <motion.div
-            className="grid lg:grid-cols-3 gap-3 lg:h-[700px] w-full"
-            variants={cardStagger}
-            initial="initial"
-            whileInView="animate"
-          >
-            {tab1Tiles.map((tile, index) =>
-              match([tile.image, index])
-                .when(
-                  ([img, index]) => img && index === 1,
-                  () => (
-                    <CardWithBackground
-                      key={index}
-                      image={tile.image}
-                      title={tile.title}
-                      titleBold={tile.titleBold}
-                      description={tile.description}
-                      descriptionBold={tile.descriptionBold}
-                      className={cn(
-                        tile.className,
-                        "row-span-2 order-2 lg:order-1",
-                      )}
+        {/* Steps Container */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6  "
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+        >
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-2xl p-6 relative overflow-hidden h-[400px] w-[300px] lg:w-full mx-auto"
+              variants={stepVariants}
+            >
+              <div className="flex flex-col items-center text-center h-[300px]">
+                {/* Icon */}
+                <div className="mb-4">
+                  <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={step.icon}
+                      alt={`${step.title} icon`}
+                      width={32}
+                      height={32}
+                      className="object-contain"
                     />
-                  ),
-                )
-                .otherwise(() => (
-                  <CardWithIcon
-                    key={index}
-                    image={tile.image}
-                    title={tile.title}
-                    titleBold={tile.titleBold}
-                    description={tile.description}
-                    descriptionBold={tile.descriptionBold}
-                    className={cn(
-                      tile.className,
-                      `order-${index} lg:order-1`,
-                    )}
-                  />
-                )),
-            )}
-          </motion.div>
-        )}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 flex flex-col justify-start">
+                  <h4 className={`text-black mb-3 ${step.titleBold ? 'h4-bold' : ''}`}>
+                    <RenderLineBreaks text={step.title} />
+                  </h4>
+                  <p className={`lg:text-small text-gray-600 text-left leading-relaxed ${step.descriptionBold ? 'p-bold' : ''}`}>
+                    <RenderLineBreaks text={step.description} />
+                  </p>
+                </div>
+
+                {/* Step Number */}
+                <div className="absolute -bottom-4 -left-3 text-[112px] lg:text-[92px] text-gray-300 leading-none opacity-30" style={{ fontFamily: 'var(--font-avant-garde-bold)', fontWeight: 700 }}>
+                  {step.number}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
