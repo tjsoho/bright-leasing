@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-
 import { Variants, motion } from "framer-motion";
 
 const cardReveal: Variants = {
@@ -45,19 +44,18 @@ export default function CardWithIcon({
       )}
       variants={cardReveal}
     >
-      <div className="size-14 rounded-full bg-white flex items-center justify-center">
-        <Image
-          src={image || "/placeholder.jpg"}
-          alt="{tile.title} icon"
-          width={26}
-          height={26}
-          className="object-contain"
-        />
-      </div>
-
-      <div className="relative z-0 mt-auto">
+      <div className="flex flex-col">
+        <div className="size-14 rounded-full bg-white flex items-center justify-center mb-4">
+          <Image
+            src={image || "/placeholder.jpg"}
+            alt="{tile.title} icon"
+            width={32}
+            height={28}
+            className="object-contain"
+          />
+        </div>
         <h4
-          className={cn("mb-2", {
+          className={cn("mb-4", {
             "font-bold": titleBold,
           })}
         >
@@ -71,6 +69,7 @@ export default function CardWithIcon({
           {description}
         </p>
       </div>
+
     </motion.div>
   );
 }

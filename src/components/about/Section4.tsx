@@ -104,7 +104,7 @@ export default function Section4({ proof }: Section4Props) {
     ************************************************************ */
     return (
         <section className="py-16 overflow-hidden" ref={ref}>
-            <div className="max-w-[1540px] mx-auto px-4">
+            <div className="max-w-[1340px] mx-auto px-4">
                 {/* ************************************************************
                     TOP ROW - 2 Columns
                 ************************************************************ */}
@@ -118,7 +118,7 @@ export default function Section4({ proof }: Section4Props) {
                         initial="hidden"
                         animate={isInView ? "show" : "hidden"}
                     >
-                        <h2 className="text-brand-black leading-tight h2">
+                        <h2 className="text-brand-black leading-tight h2 max-w-md">
                             <RenderLineBreaks text={proof?.title || ""} />
                         </h2>
                     </motion.div>

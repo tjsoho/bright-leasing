@@ -6,7 +6,7 @@ import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 import { match } from "ts-pattern";
 import CardWithBackground from "../core/CardWithBackground";
-import CardWithIcon from "../core/CardWithIcon";
+import CardWithQuoteIcon from "../core/CardWithQuoteIcon";
 
 interface Props {
     content: EmployersEmployeesPageProps["content"];
@@ -109,7 +109,7 @@ export default function Section9({ content }: Props) {
                                 ),
                             )
                             .otherwise(() => (
-                                <CardWithIcon
+                                <CardWithQuoteIcon
                                     key={index}
                                     image={tile.image}
                                     title={tile.title}

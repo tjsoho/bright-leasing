@@ -54,7 +54,7 @@ const Footer = ({ content }: FooterProps) => {
   const footerColumns: FooterColumn[] = [
     {
       title: "Company",
-      links: [{ label: "Blog", href: "/blog" }],
+      links: [{ label: "Bright Articles", href: "/blog" }],
     },
     {
       title: "Services",

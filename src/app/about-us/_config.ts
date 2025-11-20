@@ -56,6 +56,14 @@ export type AboutSection7 = {
 };
 
 export type AboutUsPageContent = {
+  // Admin Section Titles
+  adminSection1Title: string;
+  adminSection1aTitle: string;
+  adminSection2Title: string;
+  adminSection3Title: string;
+  adminSection4Title: string;
+  adminSection4aTitle: string;
+  adminSection5Title: string;
   youtubeVideoId?: string;
   hero: {
     eyebrow: string;
@@ -73,6 +81,14 @@ export type AboutUsPageContent = {
     descriptionBold: boolean;
     image: string;
     imageAlt: string;
+  };
+  section4a: {
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+    ctaLabel: string;
+    ctaLink: string;
   };
   introduction?: {
     eyebrow: string;
@@ -104,6 +120,14 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
   description: "About Bright Leasing",
   slug: "about",
   content: {
+    // Admin Section Titles
+    adminSection1Title: "Hero Section",
+    adminSection1aTitle: "Section 1a - Image Left, Content Right",
+    adminSection2Title: "Section 6 - Bright Values",
+    adminSection3Title: "Section 3 - Differentiators",
+    adminSection4Title: "Section 4 - Proof & Stats",
+    adminSection4aTitle: "Section 4a - Love Every Step",
+    adminSection5Title: "Section 5 - Testimonials",
     youtubeVideoId: "",
     hero: {
       eyebrow: "About Bright Leasing",
@@ -123,6 +147,15 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
       descriptionBold: false,
       image: "/images/brightlogo.png",
       imageAlt: "Bright Leasing approach",
+    },
+    section4a: {
+      title: "Love every step",
+      description:
+        "At Bright, we believe people should love the experience of getting their car as much as the car itself. Let's build your brighter way to lease.",
+      image: "/images/brightlogo.png",
+      imageAlt: "Bright Leasing",
+      ctaLabel: "Get Started",
+      ctaLink: "/contact",
     },
     introduction: {
       eyebrow: "Our Perspective",

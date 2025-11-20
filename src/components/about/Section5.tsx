@@ -15,7 +15,7 @@ import { motion, useInView, Variants } from "framer-motion";
 import { AboutUsPageContent } from "@/app/about-us/_config";
 import { cn } from "@/lib/utils";
 import CardWithBackground from "@/components/core/CardWithBackground";
-import CardWithIcon from "@/components/core/CardWithIcon";
+import CardWithQuoteIcon from "@/components/core/CardWithQuoteIcon";
 import { match } from "ts-pattern";
 
 /* ************************************************************
@@ -137,7 +137,7 @@ export default function Section5({ closing }: Section5Props) {
                                 ),
                             )
                             .otherwise(() => (
-                                <CardWithIcon
+                                <CardWithQuoteIcon
                                     key={index}
                                     image={tile.image}
                                     title={tile.title}

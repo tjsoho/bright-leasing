@@ -107,7 +107,7 @@ export default function Hero({ content }: HeroProps) {
             </motion.p>
             <motion.div
               variants={buttonVariants}
-              className="flex flex-col gap-4 max-w-xs"
+              className="flex flex-col gap-4 lg:max-w-xs"
             >
               <BWestButton
                 text={content.heroButtonText || "Get Started"}
@@ -124,14 +124,14 @@ export default function Hero({ content }: HeroProps) {
           initial="initial"
           animate={isInView ? "animate" : "initial"}
           variants={imageVariants}
-          className="flex-1 relative h-64 sm:h-80 md:h-96 lg:h-full order-2 w-full flex justify-center items-center rounded-2xl"
+          className="flex-1 relative h-64 sm:h-80 md:h-96 lg:h-full order-2 w-full flex justify-center items-center rounded-xl"
         >
           <Image
             src={content.heroImage}
             alt="Hero Image"
-            width={400}
+            width={500}
             height={300}
-            className="w-[500px] h-[300px] lg:w-full lg:h-[700px] object-contain rounded-2xl"
+            className="w-[500px] h-[300px] lg:w-full lg:h-[700px] object-cover rounded-2xl"
           />
         </motion.div>
       </div>

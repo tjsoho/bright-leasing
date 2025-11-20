@@ -2,19 +2,23 @@
 
 import { EmployersEmployeesPageProps } from "@/app/(employer-employees)/_config";
 import { motion, useInView } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { RenderLineBreaks } from "@/utils/render-line-breaks";
+import { cn } from "@/lib/utils";
+import { Briefcase, Users } from "lucide-react";
 
 interface Section4Props {
   content: EmployersEmployeesPageProps["content"];
+  isEmployersPage?: boolean;
 }
 
-export default function Section4({ content }: Section4Props) {
+export default function Section4({ content, isEmployersPage = false }: Section4Props) {
   const ref = React.useRef(null);
   const isInView = useInView(ref, {
-    amount: 0.3,
+    amount: 0.15,
   });
+  const [activeTab, setActiveTab] = useState<"employers" | "employees">("employers");
 
   const titleVariants = {
     hidden: {
@@ -61,61 +65,123 @@ export default function Section4({ content }: Section4Props) {
     },
   };
 
-  // Map original icons from section9tab1items if step icons aren't set
-  // Original structure: index 0, 2, 3, 4 were the 4 content boxes (index 1 was center image)
+  // Get content based on active tab
+  const getParagraph = () => {
+    if (isEmployersPage && activeTab === "employees") {
+      return content.section4employeesParagraph || content.section4paragraph;
+    }
+    return content.section4paragraph;
+  };
+
+  const getParagraphBold = () => {
+    if (isEmployersPage && activeTab === "employees") {
+      return content.section4employeesParagraphBold ?? content.section4paragraphBold;
+    }
+    return content.section4paragraphBold;
+  };
+
   const getStepIcon = (stepIndex: number) => {
+    if (isEmployersPage && activeTab === "employees") {
+      const employeesIcons = [
+        content.section4employeesStep1icon,
+        content.section4employeesStep2icon,
+        content.section4employeesStep3icon,
+        content.section4employeesStep4icon,
+      ];
+      return employeesIcons[stepIndex] || "/placeholder.jpg";
+    }
+
     const stepIcons = [
       content.section4step1icon,
       content.section4step2icon,
       content.section4step3icon,
       content.section4step4icon,
     ];
-    const originalIndices = [0, 2, 3, 4]; // Original indices in section9tab1items
+    const originalIndices = [0, 2, 3, 4];
 
-    // Use step icon if set, otherwise fall back to original icon from section9tab1items
     if (stepIcons[stepIndex] && stepIcons[stepIndex] !== "/placeholder.jpg") {
       return stepIcons[stepIndex];
     }
 
-    // Fall back to original icon from section9tab1items
     const originalItem = content.section9tab1items?.[originalIndices[stepIndex]];
     return originalItem?.image || stepIcons[stepIndex] || "/placeholder.jpg";
   };
 
-  const steps = [
-    {
-      title: content.section4step1title,
-      description: content.section4step1description,
-      icon: getStepIcon(0),
-      number: "01",
-      titleBold: content.section4step1titleBold,
-      descriptionBold: content.section4step1descriptionBold,
-    },
-    {
-      title: content.section4step2title,
-      description: content.section4step2description,
-      icon: getStepIcon(1),
-      number: "02",
-      titleBold: content.section4step2titleBold,
-      descriptionBold: content.section4step2descriptionBold,
-    },
-    {
-      title: content.section4step3title,
-      description: content.section4step3description,
-      icon: getStepIcon(2),
-      number: "03",
-      titleBold: content.section4step3titleBold,
-      descriptionBold: content.section4step3descriptionBold,
-    },
-    {
-      title: content.section4step4title,
-      description: content.section4step4description,
-      icon: getStepIcon(3),
-      number: "04",
-      titleBold: content.section4step4titleBold,
-      descriptionBold: content.section4step4descriptionBold,
-    },
-  ];
+  const getSteps = () => {
+    if (isEmployersPage && activeTab === "employees") {
+      return [
+        {
+          title: content.section4employeesStep1title,
+          description: content.section4employeesStep1description,
+          icon: getStepIcon(0),
+          number: "01",
+          titleBold: content.section4employeesStep1titleBold,
+          descriptionBold: content.section4employeesStep1descriptionBold,
+        },
+        {
+          title: content.section4employeesStep2title,
+          description: content.section4employeesStep2description,
+          icon: getStepIcon(1),
+          number: "02",
+          titleBold: content.section4employeesStep2titleBold,
+          descriptionBold: content.section4employeesStep2descriptionBold,
+        },
+        {
+          title: content.section4employeesStep3title,
+          description: content.section4employeesStep3description,
+          icon: getStepIcon(2),
+          number: "03",
+          titleBold: content.section4employeesStep3titleBold,
+          descriptionBold: content.section4employeesStep3descriptionBold,
+        },
+        {
+          title: content.section4employeesStep4title,
+          description: content.section4employeesStep4description,
+          icon: getStepIcon(3),
+          number: "04",
+          titleBold: content.section4employeesStep4titleBold,
+          descriptionBold: content.section4employeesStep4descriptionBold,
+        },
+      ];
+    }
+
+    return [
+      {
+        title: content.section4step1title,
+        description: content.section4step1description,
+        icon: getStepIcon(0),
+        number: "01",
+        titleBold: content.section4step1titleBold,
+        descriptionBold: content.section4step1descriptionBold,
+      },
+      {
+        title: content.section4step2title,
+        description: content.section4step2description,
+        icon: getStepIcon(1),
+        number: "02",
+        titleBold: content.section4step2titleBold,
+        descriptionBold: content.section4step2descriptionBold,
+      },
+      {
+        title: content.section4step3title,
+        description: content.section4step3description,
+        icon: getStepIcon(2),
+        number: "03",
+        titleBold: content.section4step3titleBold,
+        descriptionBold: content.section4step3descriptionBold,
+      },
+      {
+        title: content.section4step4title,
+        description: content.section4step4description,
+        icon: getStepIcon(3),
+        number: "04",
+        titleBold: content.section4step4titleBold,
+        descriptionBold: content.section4step4descriptionBold,
+      },
+    ];
+  };
+
+  const steps = getSteps();
 
   return (
     <section className="py-16 bg-gray-100 rounded-2xl" ref={ref}>
@@ -130,14 +196,48 @@ export default function Section4({ content }: Section4Props) {
           <RenderLineBreaks text={content.section4title} />
         </motion.h2>
 
+        {/* Toggle Button - Only show on employers page */}
+        {isEmployersPage && (
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex rounded-lg bg-gray-200 p-1">
+              <button
+                onClick={() => setActiveTab("employers")}
+                className={cn(
+                  "px-6 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2",
+                  activeTab === "employers"
+                    ? "bg-brand-yellow text-brand-black shadow-sm"
+                    : "text-gray-600 hover:text-gray-900"
+                )}
+              >
+                <Briefcase size={16} />
+                Employers
+              </button>
+              <button
+                onClick={() => setActiveTab("employees")}
+                className={cn(
+                  "px-6 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2",
+                  activeTab === "employees"
+                    ? "bg-brand-yellow text-brand-black shadow-sm"
+                    : "text-gray-600 hover:text-gray-900"
+                )}
+              >
+                <Users size={16} />
+                Employees
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Section Paragraph */}
         <motion.p
-          className={`text-black text-center mb-16 ${content.section4paragraphBold ? 'p-bold' : ''}`}
+          className={cn("text-black text-center mb-16", {
+            "p-bold": getParagraphBold(),
+          })}
           variants={titleVariants}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
         >
-          <RenderLineBreaks text={content.section4paragraph} />
+          <RenderLineBreaks text={getParagraph()} />
         </motion.p>
 
         {/* Steps Container */}
@@ -160,8 +260,8 @@ export default function Section4({ content }: Section4Props) {
                     <Image
                       src={step.icon}
                       alt={`${step.title} icon`}
-                      width={32}
-                      height={32}
+                      width={36}
+                      height={36}
                       className="object-contain"
                     />
                   </div>

@@ -56,11 +56,11 @@ export default async function Post(props: Params) {
 									DESKTOP CONTENT CONTAINER
 				************************************************************ */}
 				<div className="relative z-10 max-w-7xl mx-auto px-4 py-16 lg:py-24">
-					<div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center min-h-[60vh]">
+					<div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center min-h-[60vh] w-full">
 						{/* ************************************************************
 											LEFT CONTENT (1/3)
 						************************************************************ */}
-						<div className="lg:col-span-1 space-y-8">
+						<div className="lg:col-span-1 space-y-8 w-full">
 							{/* ************************************************************
 												BACK BUTTON
 							************************************************************ */}
@@ -75,9 +75,9 @@ export default async function Post(props: Params) {
 							{/* ************************************************************
 												POST TITLE
 							************************************************************ */}
-							<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-black leading-tight">
+							<h2 className="text-h2 font-bold text-brand-black leading-tight">
 								{post.title}
-							</h1>
+							</h2>
 
 							{/* ************************************************************
 												META INFORMATION

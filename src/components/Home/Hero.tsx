@@ -77,7 +77,7 @@ export default function Hero({ content }: HeroProps) {
     };
 
     return (
-        <section className="min-h-screen mt-0 " ref={ref}>
+        <section className="pb-8 mt-0 " ref={ref}>
             {/* ***************************************************************
                HERO CONTAINER - Flex layout with content left, image right
             ****************************************************************/}
@@ -106,11 +106,12 @@ export default function Hero({ content }: HeroProps) {
                         </motion.p>
                         <motion.div
                             variants={buttonVariants}
-                            className="flex flex-col gap-4 max-w-xs"
+                            className="flex flex-col gap-4 lg:max-w-xs w-full"
                         >
                             <BWestButton
                                 text={content.headerButtonText}
                                 onClick={() => window.location.href = '/contact'}
+                                className="w-full"
                             />
                         </motion.div>
                     </div>
@@ -130,7 +131,7 @@ export default function Hero({ content }: HeroProps) {
                         alt="Hero Image"
                         width={400}
                         height={300}
-                        className="w-[500px] h-[300px] lg:w-full lg:h-full object-contain rounded-2xl"
+                        className="w-[500px] h-[300px] lg:w-full lg:h-full object-cover rounded-2xl"
                     />
                 </motion.div>
             </div>

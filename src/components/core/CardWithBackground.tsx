@@ -51,24 +51,26 @@ export default function CardWithBackground({
         className="abolute object-cover rounded-2xl -z-1 select-none"
       />
 
-      <div className="relative z-0 mt-auto">
-        {title && (
-          <h4
-            className={cn("mb-2", {
-              "font-bold": titleBold,
-            })}
-          >
-            {title}
-          </h4>
-        )}
+      <div className="relative z-0 flex flex-col flex-1">
         {description && (
           <p
-            className={cn("!text-base", {
+            className={cn("!text-base mb-4", {
               "font-bold": descriptionBold,
             })}
           >
             {description}
           </p>
+        )}
+        {title && (
+          <div className="mt-auto">
+            <h4
+              className={cn({
+                "font-bold": titleBold,
+              })}
+            >
+              {title}
+            </h4>
+          </div>
         )}
       </div>
     </motion.div>

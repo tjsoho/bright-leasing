@@ -14,7 +14,7 @@ interface Section7Props {
 export default function Section7({ content }: Section7Props) {
   const ref = React.useRef(null);
   const isInView = useInView(ref, {
-    amount: 0.3,
+    amount: 0.15,
   });
 
   const textVariants = {
@@ -121,7 +121,7 @@ export default function Section7({ content }: Section7Props) {
               <BWestButton
                 text={content.section7buttonText}
                 onClick={() => (window.location.href = "/contact")}
-                className="w-3/4"
+                className="lg:w-3/4 w-full"
               />
             </motion.div>
           </div>

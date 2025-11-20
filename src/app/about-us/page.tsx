@@ -21,6 +21,7 @@ import Section1a from "@/components/about/Section1a";
 
 import Section3 from "@/components/about/Section3";
 import Section4 from "@/components/about/Section4";
+import Section4a from "@/components/about/Section4a";
 import Section5 from "@/components/about/Section5";
 import Section6 from "@/components/about/Section6";
 
@@ -49,6 +50,7 @@ export default function AboutUsPage() {
 
 	const differentiators = aboutPage.content.differentiators;
 	const proof = aboutPage.content.proof;
+	const section4a = aboutPage.content.section4a;
 	const closing = aboutPage.content.closing;
 	const values = aboutPage.content.values;
 
@@ -66,7 +68,9 @@ export default function AboutUsPage() {
 					<Section6 values={values} />
 					<Section3 differentiators={differentiators} />
 					<Section4 proof={proof} />
-
+				</div>
+				<Section4a section4a={section4a} />
+				<div className="max-w-[1540px] mx-auto px-4">
 					<Section5 closing={closing} />
 				</div>
 

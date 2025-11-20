@@ -1,6 +1,6 @@
 import { BasePage } from "@/app/types";
 import { DeepKeys, DeepValue } from "@/types/deep-object";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useUpdatePage from "./useUpdatePage";
 import { getDeepValue } from "../get-deep-value";
 
@@ -9,6 +9,11 @@ const usePageDataManager = <PageProps extends BasePage<any>>(
   data: PageProps,
 ) => {
   const [pageData, setPageData] = useState<PageProps>(data);
+
+  // Sync state when props change (after save/reload)
+  useEffect(() => {
+    setPageData(data);
+  }, [data]);
 
   const { isSaving, updatePage } = useUpdatePage<PageProps>(data.slug);
 

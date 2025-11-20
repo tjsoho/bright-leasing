@@ -10,6 +10,25 @@ interface TileItem {
 }
 
 export interface EmployersEmployeesPageContent {
+  // Admin Section Titles
+  adminSection1TitleEmployers: string;
+  adminSection1TitleEmployees: string;
+  adminSection2TitleEmployers: string;
+  adminSection2TitleEmployees: string;
+  adminSection3TitleEmployers: string;
+  adminSection3TitleEmployees: string;
+  adminSection4TitleEmployers: string;
+  adminSection4TitleEmployees: string;
+  adminSection5TitleEmployers: string;
+  adminSection5TitleEmployees: string;
+  adminSection6TitleEmployers: string;
+  adminSection6TitleEmployees: string;
+  adminSection7TitleEmployers: string;
+  adminSection7TitleEmployees: string;
+  adminSection8TitleEmployers: string;
+  adminSection8TitleEmployees: string;
+  adminSection9TitleEmployers: string;
+  adminSection9TitleEmployees: string;
   heroTitle: string;
   heroTitleBold?: boolean;
   heroParagraph: string;
@@ -57,6 +76,7 @@ export interface EmployersEmployeesPageContent {
   section3paragraphBold: boolean;
   section4title: string;
   section4titleBold: boolean;
+  // Employers content (default)
   section4paragraph: string;
   section4paragraphBold: boolean;
   section4step1title: string;
@@ -79,6 +99,29 @@ export interface EmployersEmployeesPageContent {
   section4step4description: string;
   section4step4descriptionBold: boolean;
   section4step4icon: string;
+  // Employees content (for toggle)
+  section4employeesParagraph: string;
+  section4employeesParagraphBold: boolean;
+  section4employeesStep1title: string;
+  section4employeesStep1titleBold: boolean;
+  section4employeesStep1description: string;
+  section4employeesStep1descriptionBold: boolean;
+  section4employeesStep1icon: string;
+  section4employeesStep2title: string;
+  section4employeesStep2titleBold: boolean;
+  section4employeesStep2description: string;
+  section4employeesStep2descriptionBold: boolean;
+  section4employeesStep2icon: string;
+  section4employeesStep3title: string;
+  section4employeesStep3titleBold: boolean;
+  section4employeesStep3description: string;
+  section4employeesStep3descriptionBold: boolean;
+  section4employeesStep3icon: string;
+  section4employeesStep4title: string;
+  section4employeesStep4titleBold: boolean;
+  section4employeesStep4description: string;
+  section4employeesStep4descriptionBold: boolean;
+  section4employeesStep4icon: string;
   section9title: string;
   section9titleBold: boolean;
   section9paragraph: string;
@@ -202,6 +245,25 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
   description: "Employers page description",
   slug: "employers",
   content: {
+    // Admin Section Titles
+    adminSection1TitleEmployers: "Section 1 - Hero",
+    adminSection1TitleEmployees: "Section 1 - Hero",
+    adminSection2TitleEmployers: "Section 2 - Why It Makes Sense",
+    adminSection2TitleEmployees: "Section 2 Benefits (6 Coloured Boxes)",
+    adminSection3TitleEmployers: "Section 3 - Tip Banner",
+    adminSection3TitleEmployees: "Section 5 - Tip Banner",
+    adminSection4TitleEmployers: "Section 4 - Employers Toggle Content",
+    adminSection4TitleEmployees: "Section 4 - How it Works",
+    adminSection5TitleEmployers: "Section 5 - Why Choose Bright",
+    adminSection5TitleEmployees: "Section 3 - Check Boxes (8 Cards)",
+    adminSection6TitleEmployers: "Section 6 - Promotional Banner",
+    adminSection6TitleEmployees: "Section 6 - Comparison",
+    adminSection7TitleEmployers: "Section 7 - Testimonials",
+    adminSection7TitleEmployees: "Section 7 - Promotional Banner",
+    adminSection8TitleEmployers: "Section 8 - FAQ",
+    adminSection8TitleEmployees: "Section 8 - FAQ",
+    adminSection9TitleEmployers: "",
+    adminSection9TitleEmployees: "Section 9 - Testimonials",
     heroTitle: "Transform Your Employee Benefits with novated leasing.",
     heroTitleBold: true,
     heroParagraph:
@@ -283,6 +345,34 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
       "Eligible EVs can be FBT-exempt, delivering outsized savings that make electric vehicles incredibly attractive.",
     section4step4descriptionBold: false,
     section4step4icon: "/placeholder.jpg",
+    // Employees content (for toggle)
+    section4employeesParagraph:
+      "We make car leasing simple, transparent, and rewarding — helping you take home more pay while saving time and costs.",
+    section4employeesParagraphBold: false,
+    section4employeesStep1title: "More Take-Home Pay",
+    section4employeesStep1titleBold: false,
+    section4employeesStep1description:
+      "Using pre-tax dollars for your car and running costs puts more money in your pocket every pay cycle.",
+    section4employeesStep1descriptionBold: false,
+    section4employeesStep1icon: "/placeholder.jpg",
+    section4employeesStep2title: "Less Hassle",
+    section4employeesStep2titleBold: false,
+    section4employeesStep2description:
+      "One fixed, set-and-forget payment covers most car costs — no juggling multiple bills or suppliers.",
+    section4employeesStep2descriptionBold: false,
+    section4employeesStep2icon: "/placeholder.jpg",
+    section4employeesStep3title: "Choice & Transparency",
+    section4employeesStep3titleBold: false,
+    section4employeesStep3description:
+      "We show every dollar with no hidden add-ons, giving you complete visibility into your expenses.",
+    section4employeesStep3descriptionBold: false,
+    section4employeesStep3icon: "/placeholder.jpg",
+    section4employeesStep4title: "EV Advantage",
+    section4employeesStep4titleBold: false,
+    section4employeesStep4description:
+      "Eligible EVs can be FBT-exempt, delivering outsized savings that make electric vehicles incredibly attractive.",
+    section4employeesStep4descriptionBold: false,
+    section4employeesStep4icon: "/placeholder.jpg",
     section9title: "How it works",
     section9titleBold: false,
     section9paragraph:

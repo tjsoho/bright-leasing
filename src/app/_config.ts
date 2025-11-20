@@ -19,6 +19,14 @@ export type AdditionalFAQ = {
 };
 
 export type HomePageContent = {
+  // Admin Section Titles
+  adminSection1Title: string;
+  adminSection2Title: string;
+  adminSection3Title: string;
+  adminSection4Title: string;
+  adminSection5Title: string;
+  adminSection6Title: string;
+  adminSection7Title: string;
   heroImage: string;
   heroTitle: string;
   heroTitleBold: boolean;
@@ -211,6 +219,14 @@ export const homePageFallbackData: HomePageProps = {
   description: "Home page",
   slug: "home",
   content: {
+    // Admin Section Titles
+    adminSection1Title: "Hero Section",
+    adminSection2Title: "Section 2 - What is Novated Leasing",
+    adminSection3Title: "Section 3 - Why Choose Bright Leasing",
+    adminSection4Title: "Section 4 - How It Works",
+    adminSection5Title: "Section 5 - Promotional Banner",
+    adminSection6Title: "Section 6 - Customer Success Stories",
+    adminSection7Title: "Section 7 - FAQ Accordion",
     heroImage: "/placeholder.jpg",
     heroTitle: "The smartest way to own and run a car",
     heroTitleBold: false,

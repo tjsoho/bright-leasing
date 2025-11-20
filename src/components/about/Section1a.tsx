@@ -76,7 +76,7 @@ export default function Section1a({ section1a }: Section1aProps) {
                             alt={section1a?.imageAlt || "Bright Leasing"}
                             width={800}
                             height={600}
-                            className="w-full h-auto max-h-[600px] object-contain"
+                            className="w-full h-auto max-h-[600px] object-cover rounded-2xl"
                             priority
                         />
                     </div>

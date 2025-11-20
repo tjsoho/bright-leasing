@@ -32,7 +32,7 @@ const cardContainerVariants: Variants = {
 
 export default function Section5({ content }: Props) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.3 });
+  const isInView = useInView(ref, { amount: 0.15 });
 
   const getBgColorClass = (color: string) => {
     switch (color) {

@@ -13,7 +13,7 @@ interface Section2Props {
 export default function Section2({ content }: Section2Props) {
   const ref = React.useRef(null);
   const isInView = useInView(ref, {
-    amount: 0.3,
+    amount: 0.15,
   });
 
   const titleVariants = {
@@ -123,7 +123,7 @@ export default function Section2({ content }: Section2Props) {
   ];
 
   return (
-    <section className="py-16 bg-gray-100 rounded-2xl" ref={ref}>
+    <section className="py-16 bg-gray-100 rounded-2xl overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Title */}
         <motion.h2
@@ -146,7 +146,7 @@ export default function Section2({ content }: Section2Props) {
 
         {/* Steps Container */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6  "
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
@@ -154,7 +154,7 @@ export default function Section2({ content }: Section2Props) {
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className={`${getBgColorClass(step.bgColor)} rounded-2xl p-6 relative overflow-hidden h-[400px] w-[300px] lg:w-full mx-auto`}
+              className={`${getBgColorClass(step.bgColor)} rounded-2xl p-6 relative overflow-hidden min-h-[400px] w-full mx-auto`}
               variants={stepVariants}
             >
               <div className="flex flex-col h-full">
@@ -164,8 +164,8 @@ export default function Section2({ content }: Section2Props) {
                     <Image
                       src={step.icon}
                       alt={`${step.title} icon`}
-                      width={26}
-                      height={26}
+                      width={30}
+                      height={30}
                       className="object-contain"
                     />
                   </div>

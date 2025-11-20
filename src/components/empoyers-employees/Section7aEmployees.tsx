@@ -14,7 +14,7 @@ interface Section7aEmployeesProps {
 export default function Section7aEmployees({ content }: Section7aEmployeesProps) {
     const ref = React.useRef(null);
     const isInView = useInView(ref, {
-        amount: 0.3,
+        amount: 0.15,
     });
 
     const titleVariants = {

@@ -28,12 +28,12 @@ interface SaveBannerProps {
 // ];
 
 export function SaveBanner({
-  
+  pageTitle,
   onSave,
   isSaving = false,
   saveStatus = 'idle',
 }: SaveBannerProps) {
-  
+
 
   return (
     <div className="bg-white border-b border-brand-black/10 shadow-sm z-50 sticky top-0">
@@ -48,33 +48,11 @@ export function SaveBanner({
             Admin
           </Link>
 
-          {/* Page Title with Dropdown */}
-          <div className="relative">
-            <Link
-              href="/"
-              className="flex items-center gap-2 px-6 py-2 bg-brand-teal text-white rounded-lg font-semibold hover:bg-brand-teal/80 transition-colors duration-300 shadow-md"
-            >
-              Back To Website Homepage
-            </Link>
-
-            {/* Dropdown Menu */}
-            {/* {isDropdownOpen && (
-              <div className="absolute top-full mt-2 w-64 bg-white rounded-lg shadow-lg overflow-hidden z-10 right-0">
-                <div className="py-2">
-                  {adminPages.map((page) => (
-                    <Link
-                      key={page.href}
-                      href={page.href}
-                      onClick={() => setIsDropdownOpen(false)}
-                      className="block px-4 py-3 text-brand-black hover:bg-brand-yellow/50 transition-colors duration-200 border-b"
-                    >
-                      <span className="font-medium">{page.label}<br></br></span>
-                      <span className="text-[14px] text-brand-black/70">{page.description}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )} */}
+          {/* Page Title */}
+          <div className="flex-1 text-center">
+            <h3 className="text-xl font-semibold text-brand-black">
+              {pageTitle}
+            </h3>
           </div>
 
           {/* Save Button */}

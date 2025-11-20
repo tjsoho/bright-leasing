@@ -14,7 +14,7 @@ interface Section2EmployeesProps {
 export default function Section2Employees({ content }: Section2EmployeesProps) {
     const ref = React.useRef(null);
     const isInView = useInView(ref, {
-        amount: 0.3,
+        amount: 0.15,
     });
 
     const titleVariants = {

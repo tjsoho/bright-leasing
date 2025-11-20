@@ -62,7 +62,7 @@ export default function Section2({ introduction }: Section2Props) {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.8,
+                duration: 0.2,
                 ease: "easeOut",
                 delay: delay || 0,
             },
@@ -73,6 +73,7 @@ export default function Section2({ introduction }: Section2Props) {
         initial: {},
         animate: {
             transition: {
+                delayChildren: 0.8,
                 staggerChildren: 0.1,
             },
         },
@@ -106,7 +107,7 @@ export default function Section2({ introduction }: Section2Props) {
                     className="grid lg:grid-cols-2 gap-3 w-full"
                     variants={cardStagger}
                     initial="initial"
-                    whileInView="animate"
+                    animate={isInView ? "animate" : "initial"}
                 >
                     {blocks.map((block) => (
                         <CardWithIcon

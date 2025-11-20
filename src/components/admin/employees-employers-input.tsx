@@ -22,13 +22,35 @@ export default function EmployeesEmployersInput({ data }: Props) {
   return (
     <div>
       <SaveBanner
-        pageTitle="Contact Page"
+        pageTitle={data.slug === "employees" ? "Employees Page" : "Employers Page"}
         onSave={handleSave}
         isSaving={isSaving}
       />
       <div className="min-h-screen bg-white">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <AdminFormSection title="Hero Section">
+          <AdminFormSection title={data.slug === "employers" ? (getData("content.adminSection1TitleEmployers") ?? "Section 1 - Hero") : (getData("content.adminSection1TitleEmployees") ?? "Section 1 - Hero")}>
+            <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+              <label className="block text-brand-black text-sm font-medium mb-2">
+                Section Title
+              </label>
+              <EditableElement
+                as="input"
+                className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                onTextChange={(value) =>
+                  handleChange(
+                    data.slug === "employers"
+                      ? "content.adminSection1TitleEmployers"
+                      : "content.adminSection1TitleEmployees",
+                    value
+                  )
+                }
+                defaultValue={
+                  data.slug === "employers"
+                    ? (getData("content.adminSection1TitleEmployers") ?? "Section 1 - Hero")
+                    : (getData("content.adminSection1TitleEmployees") ?? "Section 1 - Hero")
+                }
+              />
+            </div>
             <div className="grid lg:grid-cols-2 gap-6">
               <div className="space-y-6">
                 <AdminTextInput
@@ -70,7 +92,20 @@ export default function EmployeesEmployersInput({ data }: Props) {
 
           {/* Employees Only Section 2 */}
           {data.slug === "employees" && (
-            <AdminFormSection title="Section 2 - Employees Only (6 Colored Boxes)">
+            <AdminFormSection title={getData("content.adminSection2TitleEmployees") ?? "Section 2 Benefits (6 Coloured Boxes)"}>
+              <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+                <label className="block text-brand-black text-sm font-medium mb-2">
+                  Section Title
+                </label>
+                <EditableElement
+                  as="input"
+                  className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                  onTextChange={(value) =>
+                    handleChange("content.adminSection2TitleEmployees", value)
+                  }
+                  defaultValue={getData("content.adminSection2TitleEmployees") ?? "Section 2 Benefits (6 Coloured Boxes)"}
+                />
+              </div>
               <div className="space-y-6">
                 <AdminTextInput
                   label="Title"
@@ -229,125 +264,217 @@ export default function EmployeesEmployersInput({ data }: Props) {
             </AdminFormSection>
           )}
 
-          {/* Section 2 - Company Values */}
-          <AdminFormSection title="Section 2 - Company Values">
-            <div className="space-y-6">
-              <AdminTextInput
-                label="Title"
-                value={getData("content.section2title") ?? ""}
-                bold={getData("content.section2titleBold") ?? false}
-                onChange={(value) =>
-                  handleChange("content.section2title", value)
-                }
-                onBoldChange={(value) =>
-                  handleChange("content.section2titleBold", value)
-                }
-              />
+          {/* Section 2 - Company Values (Employers Only) */}
+          {data.slug === "employers" && (
+            <AdminFormSection title={getData("content.adminSection2TitleEmployers") ?? "Section 2 - Why It Makes Sense"}>
+              <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+                <label className="block text-brand-black text-sm font-medium mb-2">
+                  Section Title
+                </label>
+                <EditableElement
+                  as="input"
+                  className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                  onTextChange={(value) =>
+                    handleChange("content.adminSection2TitleEmployers", value)
+                  }
+                  defaultValue={getData("content.adminSection2TitleEmployers") ?? "Section 2 - Why It Makes Sense"}
+                />
+              </div>
+              <div className="space-y-6">
+                <AdminTextInput
+                  label="Title"
+                  value={getData("content.section2title") ?? ""}
+                  bold={getData("content.section2titleBold") ?? false}
+                  onChange={(value) =>
+                    handleChange("content.section2title", value)
+                  }
+                  onBoldChange={(value) =>
+                    handleChange("content.section2titleBold", value)
+                  }
+                />
 
-              <AdminTextInput
-                label="Paragraph"
-                value={getData("content.section2paragraph") ?? ""}
-                bold={getData("content.section2paragraphBold") ?? false}
-                onChange={(value) =>
-                  handleChange("content.section2paragraph", value)
-                }
-                onBoldChange={(value) =>
-                  handleChange("content.section2paragraphBold", value)
-                }
-              />
+                <AdminTextInput
+                  label="Paragraph"
+                  value={getData("content.section2paragraph") ?? ""}
+                  bold={getData("content.section2paragraphBold") ?? false}
+                  onChange={(value) =>
+                    handleChange("content.section2paragraph", value)
+                  }
+                  onBoldChange={(value) =>
+                    handleChange("content.section2paragraphBold", value)
+                  }
+                />
 
-              {Array.from({ length: 5 }).map((_, index) => (
-                <div key={index} className="space-y-4">
-                  <AdminTileInput
-                    label={`Tile ${index + 1}`}
-                    title={
-                      getData(
-                        `content.section2tile${index + 1}title` as DeepKeys<EmployersEmployeesPageProps>,
-                      ) ?? ""
-                    }
-                    titleBold={
-                      getData(
-                        `content.section2tile${index + 1}titleBold` as DeepKeys<EmployersEmployeesPageProps>,
-                      ) ?? false
-                    }
-                    description={
-                      getData(
-                        `content.section2tile${index + 1}description` as DeepKeys<EmployersEmployeesPageProps>,
-                      ) ?? ""
-                    }
-                    descriptionBold={
-                      getData(
-                        `content.section2tile${index + 1}descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
-                      ) ?? false
-                    }
-                    image={
-                      getData(
-                        `content.section2tile${index + 1}icon` as DeepKeys<EmployersEmployeesPageProps>,
-                      ) ?? ""
-                    }
-                    onTitleChange={(value) =>
-                      handleChange(
-                        `content.section2tile${index + 1}title` as DeepKeys<EmployersEmployeesPageProps>,
-                        value,
-                      )
-                    }
-                    onTitleBoldChange={(value) =>
-                      handleChange(
-                        `content.section2tile${index + 1}titleBold` as DeepKeys<EmployersEmployeesPageProps>,
-                        value,
-                      )
-                    }
-                    onDescriptionChange={(value) =>
-                      handleChange(
-                        `content.section2tile${index + 1}description` as DeepKeys<EmployersEmployeesPageProps>,
-                        value,
-                      )
-                    }
-                    onDescriptionBoldChange={(value) =>
-                      handleChange(
-                        `content.section2tile${index + 1}descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
-                        value,
-                      )
-                    }
-                    onImageChange={(value) =>
-                      handleChange(
-                        `content.section2tile${index + 1}icon` as DeepKeys<EmployersEmployeesPageProps>,
-                        value,
-                      )
-                    }
-                  />
-                  <div className="bg-brand-black p-3 rounded-lg border border-gray-700">
-                    <label className="block text-white text-xs mb-2">
-                      Background Color
-                    </label>
-                    <select
-                      value={
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <div key={index} className="space-y-4">
+                    <AdminTileInput
+                      label={`Tile ${index + 1}`}
+                      title={
                         getData(
-                          `content.section2tile${index + 1}bgColor` as DeepKeys<EmployersEmployeesPageProps>,
-                        ) ?? "white"
+                          `content.section2tile${index + 1}title` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
                       }
-                      onChange={(e) =>
+                      titleBold={
+                        getData(
+                          `content.section2tile${index + 1}titleBold` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? false
+                      }
+                      description={
+                        getData(
+                          `content.section2tile${index + 1}description` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
+                      }
+                      descriptionBold={
+                        getData(
+                          `content.section2tile${index + 1}descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? false
+                      }
+                      image={
+                        getData(
+                          `content.section2tile${index + 1}icon` as DeepKeys<EmployersEmployeesPageProps>,
+                        ) ?? ""
+                      }
+                      onTitleChange={(value) =>
                         handleChange(
-                          `content.section2tile${index + 1}bgColor` as DeepKeys<EmployersEmployeesPageProps>,
-                          e.target.value,
+                          `content.section2tile${index + 1}title` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
                         )
                       }
-                      className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
-                    >
-                      <option value="white">White</option>
-                      <option value="grey">Grey</option>
-                      <option value="teal">Teal</option>
-                      <option value="yellow">Yellow</option>
-                    </select>
+                      onTitleBoldChange={(value) =>
+                        handleChange(
+                          `content.section2tile${index + 1}titleBold` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onDescriptionChange={(value) =>
+                        handleChange(
+                          `content.section2tile${index + 1}description` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onDescriptionBoldChange={(value) =>
+                        handleChange(
+                          `content.section2tile${index + 1}descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                      onImageChange={(value) =>
+                        handleChange(
+                          `content.section2tile${index + 1}icon` as DeepKeys<EmployersEmployeesPageProps>,
+                          value,
+                        )
+                      }
+                    />
+                    <div className="bg-brand-black p-3 rounded-lg border border-gray-700">
+                      <label className="block text-white text-xs mb-2">
+                        Background Color
+                      </label>
+                      <select
+                        value={
+                          getData(
+                            `content.section2tile${index + 1}bgColor` as DeepKeys<EmployersEmployeesPageProps>,
+                          ) ?? "white"
+                        }
+                        onChange={(e) =>
+                          handleChange(
+                            `content.section2tile${index + 1}bgColor` as DeepKeys<EmployersEmployeesPageProps>,
+                            e.target.value,
+                          )
+                        }
+                        className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                      >
+                        <option value="white">White</option>
+                        <option value="grey">Grey</option>
+                        <option value="teal">Teal</option>
+                        <option value="yellow">Yellow</option>
+                      </select>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AdminFormSection>
+          )}
+
+          {/* Section 3 - Tip Banner (Employers Only - appears as Section 3) */}
+          {data.slug === "employers" && (
+            <AdminFormSection title={getData("content.adminSection3TitleEmployers") ?? "Section 3 - Tip Banner"}>
+              <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+                <label className="block text-brand-black text-sm font-medium mb-2">
+                  Section Title
+                </label>
+                <EditableElement
+                  as="input"
+                  className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                  onTextChange={(value) =>
+                    handleChange("content.adminSection3TitleEmployers", value)
+                  }
+                  defaultValue={getData("content.adminSection3TitleEmployers") ?? "Section 3 - Tip Banner"}
+                />
+              </div>
+              <div className="grid lg:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-brand-black text-sm font-medium mb-2">
+                    Icon
+                  </label>
+                  <div className="bg-gray-400 rounded-lg p-1 inline-block">
+                    <EditableImage
+                      src={getData("content.section3icon") ?? ""}
+                      alt="Section 3 Icon"
+                      width={64}
+                      height={64}
+                      onImageChange={(value) =>
+                        handleChange("content.section3icon", value)
+                      }
+                      className="w-12 h-12 rounded-lg object-contain border-2 p-1 border-brand-yellow"
+                      usage="section3-icon"
+                    />
                   </div>
                 </div>
-              ))}
-            </div>
-          </AdminFormSection>
+
+                <div className="space-y-6">
+                  <AdminTextInput
+                    label="Title"
+                    value={getData("content.section3title") ?? ""}
+                    bold={getData("content.section3titleBold") ?? false}
+                    onChange={(value) =>
+                      handleChange("content.section3title", value)
+                    }
+                    onBoldChange={(value) =>
+                      handleChange("content.section3titleBold", value)
+                    }
+                  />
+                  <AdminTextInput
+                    label="Paragraph"
+                    value={getData("content.section3paragraph") ?? ""}
+                    bold={getData("content.section3paragraphBold") ?? false}
+                    onChange={(value) =>
+                      handleChange("content.section3paragraph", value)
+                    }
+                    onBoldChange={(value) =>
+                      handleChange("content.section3paragraphBold", value)
+                    }
+                  />
+                </div>
+              </div>
+            </AdminFormSection>
+          )}
 
           {/* Employees Only Section 5 */}
           {data.slug === "employees" && (
-            <AdminFormSection title="Section 5 - Employees Only (with Tick Icons - 8 Cards)">
+            <AdminFormSection title={getData("content.adminSection5TitleEmployees") ?? "Section 3 - Check Boxes (8 Cards)"}>
+              <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+                <label className="block text-brand-black text-sm font-medium mb-2">
+                  Section Title
+                </label>
+                <EditableElement
+                  as="input"
+                  className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                  onTextChange={(value) =>
+                    handleChange("content.adminSection5TitleEmployees", value)
+                  }
+                  defaultValue={getData("content.adminSection5TitleEmployees") ?? "Section 3 - Check Boxes (8 Cards)"}
+                />
+              </div>
               <div className="space-y-6">
                 <AdminTextInput
                   label="Title"
@@ -509,57 +636,30 @@ export default function EmployeesEmployersInput({ data }: Props) {
             </AdminFormSection>
           )}
 
-          {/* Section 3 - Tip Banner */}
-          <AdminFormSection title="Section 3 - Tip Banner">
-            <div className="grid lg:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-brand-black text-sm font-medium mb-2">
-                  Icon
-                </label>
-                <div className="bg-gray-400 rounded-lg p-1 inline-block">
-                  <EditableImage
-                    src={getData("content.section3icon") ?? ""}
-                    alt="Section 3 Icon"
-                    width={64}
-                    height={64}
-                    onImageChange={(value) =>
-                      handleChange("content.section3icon", value)
-                    }
-                    className="w-12 h-12 rounded-lg object-contain border-2 p-1 border-brand-yellow"
-                    usage="section3-icon"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <AdminTextInput
-                  label="Title"
-                  value={getData("content.section3title") ?? ""}
-                  bold={getData("content.section3titleBold") ?? false}
-                  onChange={(value) =>
-                    handleChange("content.section3title", value)
-                  }
-                  onBoldChange={(value) =>
-                    handleChange("content.section3titleBold", value)
-                  }
-                />
-                <AdminTextInput
-                  label="Paragraph"
-                  value={getData("content.section3paragraph") ?? ""}
-                  bold={getData("content.section3paragraphBold") ?? false}
-                  onChange={(value) =>
-                    handleChange("content.section3paragraph", value)
-                  }
-                  onBoldChange={(value) =>
-                    handleChange("content.section3paragraphBold", value)
-                  }
-                />
-              </div>
-            </div>
-          </AdminFormSection>
-
           {/* Section 4 - How it Works */}
-          <AdminFormSection title="Section 4 - How it Works">
+          <AdminFormSection title={data.slug === "employers" ? (getData("content.adminSection4TitleEmployers") ?? "Section 4 - Employers Toggle Content") : (getData("content.adminSection4TitleEmployees") ?? "Section 4 - How it Works")}>
+            <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+              <label className="block text-brand-black text-sm font-medium mb-2">
+                Section Title
+              </label>
+              <EditableElement
+                as="input"
+                className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                onTextChange={(value) =>
+                  handleChange(
+                    data.slug === "employers"
+                      ? "content.adminSection4TitleEmployers"
+                      : "content.adminSection4TitleEmployees",
+                    value
+                  )
+                }
+                defaultValue={
+                  data.slug === "employers"
+                    ? (getData("content.adminSection4TitleEmployers") ?? "Section 4 - Employers Toggle Content")
+                    : (getData("content.adminSection4TitleEmployees") ?? "Section 4 - How it Works")
+                }
+              />
+            </div>
             <div className="space-y-6">
               <AdminTextInput
                 label="Title"
@@ -672,9 +772,262 @@ export default function EmployeesEmployersInput({ data }: Props) {
             </div>
           </AdminFormSection>
 
+          {/* Section 4 - Employees Content (Employers Page Only) */}
+          {data.slug === "employers" && (
+            <AdminFormSection title={getData("content.adminSection4TitleEmployers") ?? "Section 4 - Employees Toggle Content"}>
+              <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+                <label className="block text-brand-black text-sm font-medium mb-2">
+                  Section Title
+                </label>
+                <EditableElement
+                  as="input"
+                  className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                  onTextChange={(value) =>
+                    handleChange("content.adminSection4TitleEmployers", value)
+                  }
+                  defaultValue={getData("content.adminSection4TitleEmployers") ?? "Section 4 - Employees Toggle Content"}
+                />
+              </div>
+              <div className="space-y-6">
+                <AdminTextInput
+                  label="Employees Paragraph"
+                  value={getData("content.section4employeesParagraph") ?? ""}
+                  bold={getData("content.section4employeesParagraphBold") ?? false}
+                  onChange={(value) =>
+                    handleChange("content.section4employeesParagraph", value)
+                  }
+                  onBoldChange={(value) =>
+                    handleChange("content.section4employeesParagraphBold", value)
+                  }
+                />
+
+                {Array.from({ length: 4 }).map((_, index) => (
+                  <div key={index} className="bg-brand-teal/10 border border-brand-teal/20 p-3 rounded-lg">
+                    <h4 className="text-brand-black font-medium mb-4">Employees Step {index + 1}</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <AdminTextInput
+                          label="Title"
+                          value={
+                            getData(
+                              `content.section4employeesStep${index + 1}title` as DeepKeys<EmployersEmployeesPageProps>,
+                            ) ?? ""
+                          }
+                          bold={
+                            getData(
+                              `content.section4employeesStep${index + 1}titleBold` as DeepKeys<EmployersEmployeesPageProps>,
+                            ) ?? false
+                          }
+                          onChange={(value) =>
+                            handleChange(
+                              `content.section4employeesStep${index + 1}title` as DeepKeys<EmployersEmployeesPageProps>,
+                              value,
+                            )
+                          }
+                          onBoldChange={(value) =>
+                            handleChange(
+                              `content.section4employeesStep${index + 1}titleBold` as DeepKeys<EmployersEmployeesPageProps>,
+                              value,
+                            )
+                          }
+                        />
+                      </div>
+                      <div>
+                        <AdminTextInput
+                          label="Description"
+                          value={
+                            getData(
+                              `content.section4employeesStep${index + 1}description` as DeepKeys<EmployersEmployeesPageProps>,
+                            ) ?? ""
+                          }
+                          bold={
+                            getData(
+                              `content.section4employeesStep${index + 1}descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
+                            ) ?? false
+                          }
+                          onChange={(value) =>
+                            handleChange(
+                              `content.section4employeesStep${index + 1}description` as DeepKeys<EmployersEmployeesPageProps>,
+                              value,
+                            )
+                          }
+                          onBoldChange={(value) =>
+                            handleChange(
+                              `content.section4employeesStep${index + 1}descriptionBold` as DeepKeys<EmployersEmployeesPageProps>,
+                              value,
+                            )
+                          }
+                        />
+                      </div>
+                    </div>
+                    <div className="mt-4">
+                      <label className="block text-brand-black text-xs mb-1">Icon</label>
+                      <div className="bg-gray-400 rounded-lg p-1 inline-block">
+                        <EditableImage
+                          src={
+                            getData(
+                              `content.section4employeesStep${index + 1}icon` as DeepKeys<EmployersEmployeesPageProps>,
+                            ) ?? ""
+                          }
+                          alt={`Employees Step ${index + 1} Icon`}
+                          width={64}
+                          height={64}
+                          onImageChange={(value) =>
+                            handleChange(
+                              `content.section4employeesStep${index + 1}icon` as DeepKeys<EmployersEmployeesPageProps>,
+                              value,
+                            )
+                          }
+                          className="w-12 h-12 rounded-lg object-contain border-2 p-1 border-brand-yellow"
+                          usage={`section4-employees-step-${index + 1}-icon`}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AdminFormSection>
+          )}
+
+          {/* Section 3 - Tip Banner (Employees Only - appears after Section 4 and before Section 6 Comparison) */}
+          {data.slug === "employees" && (
+            <AdminFormSection title={getData("content.adminSection3TitleEmployees") ?? "Section 6 - Tip Banner"}>
+              <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+                <label className="block text-brand-black text-sm font-medium mb-2">
+                  Section Title
+                </label>
+                <EditableElement
+                  as="input"
+                  className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                  onTextChange={(value) =>
+                    handleChange("content.adminSection3TitleEmployees", value)
+                  }
+                  defaultValue={getData("content.adminSection3TitleEmployees") ?? "Section 6 - Tip Banner"}
+                />
+              </div>
+              <div className="grid lg:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-brand-black text-sm font-medium mb-2">
+                    Icon
+                  </label>
+                  <div className="bg-gray-400 rounded-lg p-1 inline-block">
+                    <EditableImage
+                      src={getData("content.section3icon") ?? ""}
+                      alt="Section 3 Icon"
+                      width={64}
+                      height={64}
+                      onImageChange={(value) =>
+                        handleChange("content.section3icon", value)
+                      }
+                      className="w-12 h-12 rounded-lg object-contain border-2 p-1 border-brand-yellow"
+                      usage="section3-icon"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <AdminTextInput
+                    label="Title"
+                    value={getData("content.section3title") ?? ""}
+                    bold={getData("content.section3titleBold") ?? false}
+                    onChange={(value) =>
+                      handleChange("content.section3title", value)
+                    }
+                    onBoldChange={(value) =>
+                      handleChange("content.section3titleBold", value)
+                    }
+                  />
+                  <AdminTextInput
+                    label="Paragraph"
+                    value={getData("content.section3paragraph") ?? ""}
+                    bold={getData("content.section3paragraphBold") ?? false}
+                    onChange={(value) =>
+                      handleChange("content.section3paragraph", value)
+                    }
+                    onBoldChange={(value) =>
+                      handleChange("content.section3paragraphBold", value)
+                    }
+                  />
+                </div>
+              </div>
+            </AdminFormSection>
+          )}
+
+          {/* Section 7a - Employees Only (Comparison) */}
+          {data.slug === "employees" && (
+            <AdminFormSection title={getData("content.adminSection6TitleEmployees") ?? "Section 5 - Comparison"}>
+              <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+                <label className="block text-brand-black text-sm font-medium mb-2">
+                  Section Title
+                </label>
+                <EditableElement
+                  as="input"
+                  className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                  onTextChange={(value) =>
+                    handleChange("content.adminSection6TitleEmployees", value)
+                  }
+                  defaultValue={getData("content.adminSection6TitleEmployees") ?? "Section 6 - Comparison"}
+                />
+              </div>
+              <div className="space-y-6">
+                <AdminTextInput
+                  label="Title"
+                  value={getData("content.employeesSection7atitle") ?? ""}
+                  bold={getData("content.employeesSection7atitleBold") ?? false}
+                  onChange={(value) =>
+                    handleChange("content.employeesSection7atitle", value)
+                  }
+                  onBoldChange={(value) =>
+                    handleChange("content.employeesSection7atitleBold", value)
+                  }
+                />
+                <AdminTextInput
+                  label="Subheading"
+                  value={getData("content.employeesSection7asubheading") ?? ""}
+                  bold={getData("content.employeesSection7asubheadingBold") ?? false}
+                  onChange={(value) =>
+                    handleChange("content.employeesSection7asubheading", value)
+                  }
+                  onBoldChange={(value) =>
+                    handleChange("content.employeesSection7asubheadingBold", value)
+                  }
+                />
+                <div className="grid lg:grid-cols-2 gap-6">
+                  <AdminImageInput
+                    label="Image 1"
+                    value={getData("content.employeesSection7aimage1") ?? ""}
+                    onChange={(value) =>
+                      handleChange("content.employeesSection7aimage1", value)
+                    }
+                  />
+                  <AdminImageInput
+                    label="Image 2"
+                    value={getData("content.employeesSection7aimage2") ?? ""}
+                    onChange={(value) =>
+                      handleChange("content.employeesSection7aimage2", value)
+                    }
+                  />
+                </div>
+              </div>
+            </AdminFormSection>
+          )}
+
           {/* Section 5 - Benefits (Employers Only) */}
           {data.slug === "employers" && (
-            <AdminFormSection title="Section 5 - Benefits">
+            <AdminFormSection title={getData("content.adminSection5TitleEmployers") ?? "Section 5 - Why Choose Bright"}>
+              <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+                <label className="block text-brand-black text-sm font-medium mb-2">
+                  Section Title
+                </label>
+                <EditableElement
+                  as="input"
+                  className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                  onTextChange={(value) =>
+                    handleChange("content.adminSection5TitleEmployers", value)
+                  }
+                  defaultValue={getData("content.adminSection5TitleEmployers") ?? "Section 5 - Why Choose Bright"}
+                />
+              </div>
               <div className="space-y-6">
                 <AdminTextInput
                   label="Title"
@@ -837,7 +1190,29 @@ export default function EmployeesEmployersInput({ data }: Props) {
           )}
 
           {/* Section 7 - Promotional Banner */}
-          <AdminFormSection title="Section 7 - Promotional Banner">
+          <AdminFormSection title={data.slug === "employers" ? (getData("content.adminSection6TitleEmployers") ?? "Section 6 - Promotional Banner") : (getData("content.adminSection7TitleEmployees") ?? "Section 7 - Promotional Banner")}>
+            <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+              <label className="block text-brand-black text-sm font-medium mb-2">
+                Section Title
+              </label>
+              <EditableElement
+                as="input"
+                className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                onTextChange={(value) =>
+                  handleChange(
+                    data.slug === "employers"
+                      ? "content.adminSection6TitleEmployers"
+                      : "content.adminSection7TitleEmployees",
+                    value
+                  )
+                }
+                defaultValue={
+                  data.slug === "employers"
+                    ? (getData("content.adminSection6TitleEmployers") ?? "Section 6 - Promotional Banner")
+                    : (getData("content.adminSection7TitleEmployees") ?? "Section 7 - Promotional Banner")
+                }
+              />
+            </div>
             <div className="grid lg:grid-cols-2 gap-6">
               <div className="space-y-6">
                 <AdminTextInput
@@ -883,7 +1258,29 @@ export default function EmployeesEmployersInput({ data }: Props) {
           </AdminFormSection>
 
           {/* Section 9 - How it Works (with Tabs) */}
-          <AdminFormSection title="Section 9 - How it Works (with Tabs)">
+          <AdminFormSection title={data.slug === "employers" ? (getData("content.adminSection7TitleEmployers") ?? "Section 7 - Testimonials") : (getData("content.adminSection9TitleEmployees") ?? "Section 8 - Testimonials")}>
+            <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+              <label className="block text-brand-black text-sm font-medium mb-2">
+                Section Title
+              </label>
+              <EditableElement
+                as="input"
+                className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                onTextChange={(value) =>
+                  handleChange(
+                    data.slug === "employers"
+                      ? "content.adminSection7TitleEmployers"
+                      : "content.adminSection9TitleEmployees",
+                    value
+                  )
+                }
+                defaultValue={
+                  data.slug === "employers"
+                    ? (getData("content.adminSection7TitleEmployers") ?? "Section 7 - Testimonials")
+                    : (getData("content.adminSection9TitleEmployees") ?? "Section 9 - Testimonials")
+                }
+              />
+            </div>
             <div className="space-y-6">
               <AdminTextInput
                 label="Title"
@@ -1177,7 +1574,29 @@ export default function EmployeesEmployersInput({ data }: Props) {
           </AdminFormSection>
 
           {/* Section 8 - FAQ */}
-          <AdminFormSection title="Section 8 - FAQ">
+          <AdminFormSection title={data.slug === "employers" ? (getData("content.adminSection8TitleEmployers") ?? "Section 8 - FAQ") : (getData("content.adminSection8TitleEmployees") ?? "Section 9 - FAQ")}>
+            <div className="mb-6 pb-6 border-b border-brand-yellow/30">
+              <label className="block text-brand-black text-sm font-medium mb-2">
+                Section Title
+              </label>
+              <EditableElement
+                as="input"
+                className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                onTextChange={(value) =>
+                  handleChange(
+                    data.slug === "employers"
+                      ? "content.adminSection8TitleEmployers"
+                      : "content.adminSection8TitleEmployees",
+                    value
+                  )
+                }
+                defaultValue={
+                  data.slug === "employers"
+                    ? (getData("content.adminSection8TitleEmployers") ?? "Section 8 - FAQ")
+                    : (getData("content.adminSection8TitleEmployees") ?? "Section 8 - FAQ")
+                }
+              />
+            </div>
             <div className="space-y-6">
               <AdminTextInput
                 label="Title"

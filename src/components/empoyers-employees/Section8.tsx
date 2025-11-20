@@ -19,11 +19,11 @@ interface Section8Props {
 export default function Section8({ content }: Section8Props) {
   const ref = React.useRef(null);
   const isInView = useInView(ref, {
-    amount: 0.3,
+    amount: 0.15,
   });
 
   const titleVariants = {
-    hidden: {
+    hidden: {   
       opacity: 0,
       y: 40,
       scale: 0.95,

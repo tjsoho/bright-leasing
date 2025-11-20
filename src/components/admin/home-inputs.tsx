@@ -1,12 +1,35 @@
 "use client";
 import { SaveBanner } from "../core/save-banner";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import EditableImage from "@/components/core/editable-image";
 import { EditableElement } from "@/components/core/input";
 import { HomePageContent, HomePageProps, AdditionalTile, AdditionalFAQ } from "@/app/_config";
 import useUpdatePage from "@/utils/hooks/useUpdatePage";
+import AdminFormSection from "./AdminFormSection";
 
 export default function HomeAdminInputs(props: HomePageProps) {
+	// Admin Section Titles
+	const [adminSection1Title, setAdminSection1Title] = useState(
+		props.content.adminSection1Title ?? "Hero Section",
+	);
+	const [adminSection2Title, setAdminSection2Title] = useState(
+		props.content.adminSection2Title ?? "Section 2 - What is Novated Leasing",
+	);
+	const [adminSection3Title, setAdminSection3Title] = useState(
+		props.content.adminSection3Title ?? "Section 3 - Why Choose Bright Leasing",
+	);
+	const [adminSection4Title, setAdminSection4Title] = useState(
+		props.content.adminSection4Title ?? "Section 4 - How It Works",
+	);
+	const [adminSection5Title, setAdminSection5Title] = useState(
+		props.content.adminSection5Title ?? "Section 5 - Promotional Banner",
+	);
+	const [adminSection6Title, setAdminSection6Title] = useState(
+		props.content.adminSection6Title ?? "Section 6 - Customer Success Stories",
+	);
+	const [adminSection7Title, setAdminSection7Title] = useState(
+		props.content.adminSection7Title ?? "Section 7 - FAQ Accordion",
+	);
 	const [heroImage, setHeroImage] = useState(
 		props.content.heroImage || "/placeholder.jpg",
 	);
@@ -186,11 +209,29 @@ export default function HomeAdminInputs(props: HomePageProps) {
 
 	const { isSaving, updatePage } = useUpdatePage<HomePageContent>("home");
 
+	// Sync admin section titles when props change (after save/reload)
+	useEffect(() => {
+		setAdminSection1Title(props.content.adminSection1Title ?? "Hero Section");
+		setAdminSection2Title(props.content.adminSection2Title ?? "Section 2 - What is Novated Leasing");
+		setAdminSection3Title(props.content.adminSection3Title ?? "Section 3 - Why Choose Bright Leasing");
+		setAdminSection4Title(props.content.adminSection4Title ?? "Section 4 - How It Works");
+		setAdminSection5Title(props.content.adminSection5Title ?? "Section 5 - Promotional Banner");
+		setAdminSection6Title(props.content.adminSection6Title ?? "Section 6 - Customer Success Stories");
+		setAdminSection7Title(props.content.adminSection7Title ?? "Section 7 - FAQ Accordion");
+	}, [props.content.adminSection1Title, props.content.adminSection2Title, props.content.adminSection3Title, props.content.adminSection4Title, props.content.adminSection5Title, props.content.adminSection6Title, props.content.adminSection7Title]);
+
 	const handleSave = async () => {
 		await updatePage({
 			...props,
 			content: {
 				...props.content,
+				adminSection1Title,
+				adminSection2Title,
+				adminSection3Title,
+				adminSection4Title,
+				adminSection5Title,
+				adminSection6Title,
+				adminSection7Title,
 				heroImage,
 				heroTitle,
 				heroTitleBold,
@@ -299,9 +340,18 @@ export default function HomeAdminInputs(props: HomePageProps) {
 					{/* ***************************************************************
 					   HERO SECTION
 					****************************************************************/}
-					<section className="bg-brand-yellow/10 border border-brand-yellow/20 p-6 rounded-2xl mb-8">
-						<h2 className="text-xl text-brand-black font-bold mb-4">Hero Section</h2>
-
+					<AdminFormSection title={adminSection1Title}>
+						<div className="mb-6 pb-6 border-b border-brand-yellow/30">
+							<label className="block text-brand-black text-sm font-medium mb-2">
+								Section Title
+							</label>
+							<EditableElement
+								as="input"
+								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+								onTextChange={setAdminSection1Title}
+								defaultValue={adminSection1Title}
+							/>
+						</div>
 						{/* Background Images */}
 						<div className="grid md:grid-cols-2 gap-6 mb-6">
 							{/* Desktop Background */}
@@ -430,16 +480,23 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								/>
 							</div>
 						</div>
-					</section>
+					</AdminFormSection>
 
 					{/* ***************************************************************
 						SECTION 2: WHAT IS NOVATED LEASING
 					****************************************************************/}
-					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
-						<h2 className="text-xl text-brand-black font-bold mb-4">
-							Section 2 - What is Novated Leasing
-						</h2>
-
+					<AdminFormSection title={adminSection2Title}>
+						<div className="mb-6 pb-6 border-b border-brand-yellow/30">
+							<label className="block text-brand-black text-sm font-medium mb-2">
+								Section Title
+							</label>
+							<EditableElement
+								as="input"
+								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+								onTextChange={setAdminSection2Title}
+								defaultValue={adminSection2Title}
+							/>
+						</div>
 						<div className="space-y-6">
 							<div>
 								<label className="block text-brand-black text-sm font-medium mb-2">
@@ -495,16 +552,23 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</p>
 							</div>
 						</div>
-					</section>
+					</AdminFormSection>
 
 					{/* ***************************************************************
 						SECTION 3: WHY CHOOSE BRIGHT LEASING TILES
 					****************************************************************/}
-					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
-						<h2 className="text-xl text-brand-black font-bold mb-4">
-							Section 3 - Why Choose Bright Leasing
-						</h2>
-
+					<AdminFormSection title={adminSection3Title}>
+						<div className="mb-6 pb-6 border-b border-brand-yellow/30">
+							<label className="block text-brand-black text-sm font-medium mb-2">
+								Section Title
+							</label>
+							<EditableElement
+								as="input"
+								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+								onTextChange={setAdminSection3Title}
+								defaultValue={adminSection3Title}
+							/>
+						</div>
 						<div className="space-y-6">
 							{/* Section Title */}
 							<div>
@@ -810,16 +874,23 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</button>
 							</div>
 						</div>
-					</section>
+					</AdminFormSection>
 
 					{/* ***************************************************************
 						SECTION 4: HOW IT WORKS
 					****************************************************************/}
-					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
-						<h2 className="text-xl text-brand-black font-bold mb-4">
-							Section 4 - How It Works
-						</h2>
-
+					<AdminFormSection title={adminSection4Title}>
+						<div className="mb-6 pb-6 border-b border-brand-yellow/30">
+							<label className="block text-brand-black text-sm font-medium mb-2">
+								Section Title
+							</label>
+							<EditableElement
+								as="input"
+								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+								onTextChange={setAdminSection4Title}
+								defaultValue={adminSection4Title}
+							/>
+						</div>
 						<div className="space-y-6">
 							{/* Section Title */}
 							<div>
@@ -1107,16 +1178,23 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</div>
 							</div>
 						</div>
-					</section>
+					</AdminFormSection>
 
 					{/* ***************************************************************
 						SECTION 5: PROMOTIONAL BANNER
 					****************************************************************/}
-					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
-						<h2 className="text-xl text-brand-black font-bold mb-4">
-							Section 5 - Promotional Banner
-						</h2>
-
+					<AdminFormSection title={adminSection5Title}>
+						<div className="mb-6 pb-6 border-b border-brand-yellow/30">
+							<label className="block text-brand-black text-sm font-medium mb-2">
+								Section Title
+							</label>
+							<EditableElement
+								as="input"
+								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+								onTextChange={setAdminSection5Title}
+								defaultValue={adminSection5Title}
+							/>
+						</div>
 						<div className="space-y-6">
 							{/* Background Images */}
 							<div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -1257,16 +1335,23 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</div>
 							</div>
 						</div>
-					</section>
+					</AdminFormSection>
 
 					{/* ***************************************************************
 						SECTION 6: CUSTOMER SUCCESS STORIES
 					****************************************************************/}
-					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
-						<h2 className="text-xl text-brand-black font-bold mb-4">
-							Section 6 - Customer Success Stories
-						</h2>
-
+					<AdminFormSection title={adminSection6Title}>
+						<div className="mb-6 pb-6 border-b border-brand-yellow/30">
+							<label className="block text-brand-black text-sm font-medium mb-2">
+								Section Title
+							</label>
+							<EditableElement
+								as="input"
+								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+								onTextChange={setAdminSection6Title}
+								defaultValue={adminSection6Title}
+							/>
+						</div>
 						<div className="space-y-6">
 							{/* Section Title */}
 							<div>
@@ -1572,16 +1657,23 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</button>
 							</div>
 						</div>
-					</section>
+					</AdminFormSection>
 
 					{/* ***************************************************************
 						SECTION 7: FAQ ACCORDION
 					****************************************************************/}
-					<section className="bg-brand-teal/10 border border-brand-teal/20 p-8 rounded-2xl mb-12">
-						<h2 className="text-xl text-brand-black font-bold mb-4">
-							Section 7 - FAQ Accordion
-						</h2>
-
+					<AdminFormSection title={adminSection7Title}>
+						<div className="mb-6 pb-6 border-b border-brand-yellow/30">
+							<label className="block text-brand-black text-sm font-medium mb-2">
+								Section Title
+							</label>
+							<EditableElement
+								as="input"
+								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+								onTextChange={setAdminSection7Title}
+								defaultValue={adminSection7Title}
+							/>
+						</div>
 						<div className="space-y-6">
 							{/* Section Title */}
 							<div>
@@ -1917,7 +2009,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</button>
 							</div>
 						</div>
-					</section>
+					</AdminFormSection>
 
 					{/* ***************************************************************
 						SECTION 1: FEATURES
@@ -1991,7 +2083,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								/>
 							</div>
 						</div>
-					</section> */}
+					</AdminFormSection> */}
 
 					{/* <section className="bg-gray-900 p-8 rounded-lg mb-12">
 						<div className="space-y-6">
@@ -2033,7 +2125,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</div>
 							</div>
 						</div>
-					</section> */}
+					</AdminFormSection> */}
 
 					{/* ***************************************************************
 						SECTION 3: TRUSTED BY THOUSANDS
@@ -2103,7 +2195,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</p>
 							</div>
 						</div>
-					</section> */}
+					</AdminFormSection> */}
 
 					{/* ***************************************************************
 						SECTION 4: DYNAMIC IMAGES
@@ -2137,7 +2229,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</div>
 							</div>
 						</div>
-					</section> */}
+					</AdminFormSection> */}
 
 					{/* ***************************************************************
 						SECTION 5: HOW WE AGE
@@ -2258,7 +2350,7 @@ export default function HomeAdminInputs(props: HomePageProps) {
 								</div>
 							</div>
 						</div>
-					</section> */}
+					</AdminFormSection> */}
 				</div>
 			</div>
 		</div>

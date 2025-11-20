@@ -32,7 +32,7 @@ export default async function EmployersPage() {
         ****************************************************************/}
           <Section2 content={data.content} />
           <Section3 content={data.content} />
-          <Section4 content={data.content} />
+          <Section4 content={data.content} isEmployersPage={true} />
           <Section5 content={data.content} />
           {/* <Section6 content={data.content} /> */}
           <Section7 content={data.content} />
