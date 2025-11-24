@@ -164,7 +164,7 @@ export default function Section2({ content }: Section2Props) {
                     <Image
                       src={step.icon}
                       alt={`${step.title} icon`}
-                      width={30}
+                      width={36}
                       height={30}
                       className="object-contain"
                     />
@@ -173,14 +173,14 @@ export default function Section2({ content }: Section2Props) {
 
                 {/* Heading */}
                 <h5
-                  className={`text-black mb-3 ${step.titleBold ? "h5-bold" : ""}`}
+                  className={`mb-3 ${step.bgColor === "teal" ? "text-white" : "text-black"} ${step.titleBold ? "h5-bold" : ""}`}
                 >
                   <RenderLineBreaks text={step.title} />
                 </h5>
 
                 {/* Description */}
                 <p
-                  className={`lg:text-small text-left leading-relaxed ${step.descriptionBold ? "p-bold" : ""}`}
+                  className={`text-sm lg:text-small text-left leading-relaxed ${step.bgColor === "teal" ? "text-white" : "text-black"} ${step.descriptionBold ? "font-bold" : "font-normal"}`}
                 >
                   <RenderLineBreaks text={step.description} />
                 </p>

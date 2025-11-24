@@ -38,9 +38,6 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 	const [adminSection1Title, setAdminSection1Title] = useState(
 		props.content.adminSection1Title ?? "Hero Section",
 	);
-	const [adminSection1aTitle, setAdminSection1aTitle] = useState(
-		props.content.adminSection1aTitle ?? "Section 1a - Image Left, Content Right",
-	);
 	const [adminSection2Title, setAdminSection2Title] = useState(
 		props.content.adminSection2Title ?? "Section 6 - Bright Values",
 	);
@@ -57,9 +54,6 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 		props.content.adminSection5Title ?? "Section 5 - Testimonials",
 	);
 	const [hero, setHero] = useState(props.content.hero ?? fallbackContent.hero);
-	const [section1a, setSection1a] = useState(
-		props.content.section1a ?? fallbackContent.section1a,
-	);
 	const [values, setValues] = useState(props.content.values ?? fallbackContent.values);
 	const [differentiators, setDifferentiators] = useState(
 		props.content.differentiators ?? fallbackContent.differentiators,
@@ -75,13 +69,12 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 	// Sync admin section titles when props change (after save/reload)
 	useEffect(() => {
 		setAdminSection1Title(props.content.adminSection1Title ?? "Hero Section");
-		setAdminSection1aTitle(props.content.adminSection1aTitle ?? "Section 1a - Image Left, Content Right");
 		setAdminSection2Title(props.content.adminSection2Title ?? "Section 6 - Bright Values");
 		setAdminSection3Title(props.content.adminSection3Title ?? "Section 3 - Differentiators");
 		setAdminSection4Title(props.content.adminSection4Title ?? "Section 4 - Proof & Stats");
 		setAdminSection4aTitle(props.content.adminSection4aTitle ?? "Section 4a - Love Every Step");
 		setAdminSection5Title(props.content.adminSection5Title ?? "Section 5 - Testimonials");
-	}, [props.content.adminSection1Title, props.content.adminSection1aTitle, props.content.adminSection2Title, props.content.adminSection3Title, props.content.adminSection4Title, props.content.adminSection4aTitle, props.content.adminSection5Title]);
+	}, [props.content.adminSection1Title, props.content.adminSection2Title, props.content.adminSection3Title, props.content.adminSection4Title, props.content.adminSection4aTitle, props.content.adminSection5Title]);
 
 	/* ************************************************************
 							FUNCTIONS
@@ -203,14 +196,12 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 			content: {
 				...props.content,
 				adminSection1Title,
-				adminSection1aTitle,
 				adminSection2Title,
 				adminSection3Title,
 				adminSection4Title,
 				adminSection4aTitle,
 				adminSection5Title,
 				hero,
-				section1a,
 				values,
 				differentiators,
 				proof,
@@ -237,7 +228,7 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 								Section Title
 							</label>
 							<EditableElement
-								as="input"
+								as="textarea"
 								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 								onTextChange={setAdminSection1Title}
 								defaultValue={adminSection1Title}
@@ -338,104 +329,6 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 					</AdminFormSection>
 
 					{/* ***************************************************************
-						SECTION 1A: IMAGE LEFT, CONTENT RIGHT
-					****************************************************************/}
-					<AdminFormSection title={adminSection1aTitle}>
-						<div className="mb-6 pb-6 border-b border-brand-yellow/30">
-							<label className="block text-brand-black text-sm font-medium mb-2">
-								Section Title
-							</label>
-							<EditableElement
-								as="input"
-								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
-								onTextChange={setAdminSection1aTitle}
-								defaultValue={adminSection1aTitle}
-							/>
-						</div>
-						<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-							{/* ************************** Text Content **************************/}
-							<div className="space-y-4">
-								<div>
-									<label className="block text-brand-black text-sm font-medium mb-2">
-										Title
-									</label>
-									<EditableElement
-										as="textarea"
-										className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
-										defaultValue={section1a.title}
-										onTextChange={(value) => setSection1a((prev) => ({ ...prev, title: value }))}
-									/>
-									<div className="mt-2">
-										<label className="flex items-center space-x-2 cursor-pointer">
-											<input
-												type="checkbox"
-												checked={section1a.titleBold}
-												onChange={(e) => setSection1a((prev) => ({ ...prev, titleBold: e.target.checked }))}
-												className="w-4 h-4 text-brand-yellow border-brand-yellow/30 focus:ring-brand-yellow focus:ring-2"
-											/>
-											<span className="text-brand-black text-sm">Make title bold</span>
-										</label>
-									</div>
-								</div>
-								<div>
-									<label className="block text-brand-black text-sm font-medium mb-2">
-										Description
-									</label>
-									<EditableElement
-										as="textarea"
-										className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors h-32"
-										defaultValue={section1a.description}
-										onTextChange={(value) => setSection1a((prev) => ({ ...prev, description: value }))}
-									/>
-									<div className="mt-2">
-										<label className="flex items-center space-x-2 cursor-pointer">
-											<input
-												type="checkbox"
-												checked={section1a.descriptionBold}
-												onChange={(e) => setSection1a((prev) => ({ ...prev, descriptionBold: e.target.checked }))}
-												className="w-4 h-4 text-brand-yellow border-brand-yellow/30 focus:ring-brand-yellow focus:ring-2"
-											/>
-											<span className="text-brand-black text-sm">Make description bold</span>
-										</label>
-									</div>
-								</div>
-								<div>
-									<label className="block text-brand-black text-sm font-medium mb-2">
-										Image Alt Text
-									</label>
-									<EditableElement
-										as="input"
-										className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
-										defaultValue={section1a.imageAlt}
-										onTextChange={(value) => setSection1a((prev) => ({ ...prev, imageAlt: value }))}
-									/>
-								</div>
-							</div>
-
-							{/* ************************** Section 1a Image **************************/}
-							<div className="space-y-3">
-								<label className="block text-brand-black text-sm font-medium mb-2">
-									Image
-								</label>
-								<div className="aspect-[4/3] bg-white rounded-lg overflow-hidden">
-									<EditableImage
-										src={section1a.image}
-										alt={section1a.imageAlt || "Section 1a imagery"}
-										width={1600}
-										height={1200}
-										className="w-full h-full object-cover hover:opacity-90 transition-opacity border-2 p-1 border-brand-yellow rounded-lg"
-										onImageChange={(value) => setSection1a((prev) => ({ ...prev, image: value }))}
-										usage="about-section1a-image"
-									/>
-								</div>
-								<p className="text-gray-400 text-xs">
-									Click image to choose from library. Recommended 1600x1200px.
-								</p>
-							</div>
-						</div>
-					</AdminFormSection>
-
-					{/* ***************************************************************
 						SECTION 6: BRIGHT VALUES
 					****************************************************************/}
 					<AdminFormSection title={adminSection2Title}>
@@ -444,7 +337,7 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 								Section Title
 							</label>
 							<EditableElement
-								as="input"
+								as="textarea"
 								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 								onTextChange={setAdminSection2Title}
 								defaultValue={adminSection2Title}
@@ -456,7 +349,7 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 									Title
 								</label>
 								<EditableElement
-									as="input"
+									as="textarea"
 									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									defaultValue={values.title}
 									onTextChange={(value) => setValues((prev) => ({ ...prev, title: value }))}
@@ -542,7 +435,7 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 								Section Title
 							</label>
 							<EditableElement
-								as="input"
+								as="textarea"
 								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 								onTextChange={setAdminSection3Title}
 								defaultValue={adminSection3Title}
@@ -682,7 +575,7 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 								Section Title
 							</label>
 							<EditableElement
-								as="input"
+								as="textarea"
 								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 								onTextChange={setAdminSection4Title}
 								defaultValue={adminSection4Title}
@@ -803,7 +696,7 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 								Section Title
 							</label>
 							<EditableElement
-								as="input"
+								as="textarea"
 								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 								onTextChange={setAdminSection4aTitle}
 								defaultValue={adminSection4aTitle}
@@ -817,7 +710,7 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 										Title
 									</label>
 									<EditableElement
-										as="input"
+										as="textarea"
 										className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 										defaultValue={section4a.title}
 										onTextChange={(value) => setSection4a((prev) => ({ ...prev, title: value }))}
@@ -901,7 +794,7 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 								Section Title
 							</label>
 							<EditableElement
-								as="input"
+								as="textarea"
 								className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
 								onTextChange={setAdminSection5Title}
 								defaultValue={adminSection5Title}
@@ -913,7 +806,7 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 									Title
 								</label>
 								<EditableElement
-									as="input"
+									as="textarea"
 									className="w-full p-3 bg-brand-black text-white rounded-lg border border-gray-700 focus:border-white transition-colors"
 									defaultValue={closing.title}
 									onTextChange={(value) => setClosing((prev) => ({ ...prev, title: value }))}

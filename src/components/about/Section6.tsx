@@ -111,7 +111,7 @@ export default function Section6({ values }: Section6Props) {
                 initial="initial"
                 animate={isInView ? "animate" : "initial"}
             >
-                {values?.title}
+                <RenderLineBreaks text={values?.title || ""} />
             </motion.h2>
             <motion.p
                 className="text-center max-w-4xl mx-auto mt-4 p"
@@ -145,7 +145,7 @@ export default function Section6({ values }: Section6Props) {
                                     <Image
                                         src={block.image || "/placeholder.jpg"}
                                         alt={`${block.title} icon`}
-                                        width={26}
+                                        width={36}
                                         height={26}
                                         className="object-contain"
                                     />

@@ -179,7 +179,7 @@ export default function Section2Employees({ content }: Section2EmployeesProps) {
                                             <Image
                                                 src={box.icon}
                                                 alt={`${box.title} icon`}
-                                                width={26}
+                                                width={36}
                                                 height={26}
                                                 className="object-contain"
                                             />
@@ -188,17 +188,17 @@ export default function Section2Employees({ content }: Section2EmployeesProps) {
                                 )}
 
                                 {/* Title */}
-                                <h5
+                                <h3
                                     className={cn("mb-3", {
-                                        "h5-bold": box.titleBold,
+                                        "h3-bold": box.titleBold,
                                     })}
                                 >
                                     <RenderLineBreaks text={box.title} />
-                                </h5>
+                                </h3>
 
                                 {/* Content */}
                                 <p
-                                    className={cn("text-left leading-relaxed flex-grow", {
+                                    className={cn("text-left leading-relaxed flex-grow text-base", {
                                         "p-bold": box.contentBold,
                                     })}
                                 >

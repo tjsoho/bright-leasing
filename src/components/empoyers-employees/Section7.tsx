@@ -136,12 +136,12 @@ export default function Section7({ content }: Section7Props) {
           variants={imageVariants}
           className="flex-1 relative h-64 sm:h-80 md:h-96 lg:h-full order-2 w-full flex justify-center items-center"
         >
-          <div className="relative w-[500px] h-[300px] lg:w-full lg:h-full">
+          <div className="relative w-[500px] h-[300px] lg:w-full lg:h-full rounded-2xl">
             <Image
               src={content.section7image}
               alt="Promotional Image"
               fill
-              className="object-contain rounded-2xl"
+              className="object-cover rounded-2xl"
             />
           </div>
         </motion.div>

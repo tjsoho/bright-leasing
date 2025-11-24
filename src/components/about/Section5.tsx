@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 import CardWithBackground from "@/components/core/CardWithBackground";
 import CardWithQuoteIcon from "@/components/core/CardWithQuoteIcon";
 import { match } from "ts-pattern";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 /* ************************************************************
                         INTERFACES
@@ -96,7 +97,7 @@ export default function Section5({ closing }: Section5Props) {
                 initial="initial"
                 animate={isInView ? "animate" : "initial"}
             >
-                {closing?.title}
+                <RenderLineBreaks text={closing?.title || ""} />
             </motion.h2>
             <motion.p
                 className={cn("text-center max-w-4xl mx-auto mt-4", {

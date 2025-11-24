@@ -58,7 +58,6 @@ export type AboutSection7 = {
 export type AboutUsPageContent = {
   // Admin Section Titles
   adminSection1Title: string;
-  adminSection1aTitle: string;
   adminSection2Title: string;
   adminSection3Title: string;
   adminSection4Title: string;
@@ -73,14 +72,6 @@ export type AboutUsPageContent = {
     imageAlt: string;
     ctaLabel: string;
     ctaLink: string;
-  };
-  section1a: {
-    title: string;
-    titleBold: boolean;
-    description: string;
-    descriptionBold: boolean;
-    image: string;
-    imageAlt: string;
   };
   section4a: {
     title: string;
@@ -122,7 +113,6 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
   content: {
     // Admin Section Titles
     adminSection1Title: "Hero Section",
-    adminSection1aTitle: "Section 1a - Image Left, Content Right",
     adminSection2Title: "Section 6 - Bright Values",
     adminSection3Title: "Section 3 - Differentiators",
     adminSection4Title: "Section 4 - Proof & Stats",
@@ -138,15 +128,6 @@ export const aboutUsPageFallbackData: AboutUsPageProps = {
       imageAlt: "Bright Leasing team collaborating",
       ctaLabel: "Talk with a specialist",
       ctaLink: "/contact",
-    },
-    section1a: {
-      title: "It shouldn't feel complicated",
-      titleBold: false,
-      description:
-        "It shouldn't feel complicated. With decades in the industry, we saw the gap between how novated leasing works and how it's often experienced: jargon, complex structures, and sales-first conversations. We built Bright Leasing to change that. What sets us apart is our commitment to clarity, transparency, and putting people first.",
-      descriptionBold: false,
-      image: "/images/brightlogo.png",
-      imageAlt: "Bright Leasing approach",
     },
     section4a: {
       title: "Love every step",

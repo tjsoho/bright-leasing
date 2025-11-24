@@ -19,6 +19,7 @@ import Image from "next/image";
 interface FooterLink {
   label: string;
   href: string;
+  external?: boolean;
 }
 
 interface FooterColumn {
@@ -75,9 +76,9 @@ const Footer = ({ content }: FooterProps) => {
     {
       title: "Say Hi",
       links: [
-        { label: "Instagram", href: "https://instagram.com" },
-        { label: "Facebook", href: "https://facebook.com" },
-        { label: "Linked In", href: "https://linkedin.com" },
+        { label: "Instagram", href: "https://www.instagram.com/bright_leasing/", external: true },
+        { label: "Facebook", href: "https://www.facebook.com/profile.php?viewas=100000686899395&id=61584022475229", external: true },
+        { label: "Linked In", href: "https://www.linkedin.com/company/bright-leasing-pty-ltd/?viewAsMember=true", external: true },
         { label: "Contact", href: "/contact" },
       ],
     },
@@ -160,12 +161,23 @@ const Footer = ({ content }: FooterProps) => {
                       key={`${link.label}-${link.href}-${index}`}
                       variants={itemVariants}
                     >
-                      <Link
-                        href={link.href}
-                        className="text-white/70 hover:text-white transition-colors duration-300 block"
-                      >
-                        {link.label}
-                      </Link>
+                      {link.external ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white/70 hover:text-white transition-colors duration-300 block"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-white/70 hover:text-white transition-colors duration-300 block"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </motion.li>
                   ))}
                 </motion.ul>

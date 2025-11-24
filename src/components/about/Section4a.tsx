@@ -74,7 +74,7 @@ export default function Section4a({ section4a }: Section4aProps) {
                     className="space-y-6 max-w-xl flex flex-col justify-center items-center mx-auto"
                 >
                     <h2 className="h2 text-brand-black text-left w-full">
-                        {section4a?.title}
+                        <RenderLineBreaks text={section4a?.title || ""} />
                     </h2>
                     <p className="p text-brand-black/70 max-w-2xl text-left w-full">
                         <RenderLineBreaks text={section4a?.description || ""} />

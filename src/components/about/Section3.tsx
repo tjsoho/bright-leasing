@@ -151,7 +151,7 @@ export default function Section3({ differentiators }: Section3Props) {
                                     <Image
                                         src={item.icon || "/globe.svg"}
                                         alt={`${item.title} icon`}
-                                        width={26}
+                                        width={36}
                                         height={26}
                                         className="object-contain"
                                     />

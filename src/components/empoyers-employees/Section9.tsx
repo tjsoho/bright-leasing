@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { match } from "ts-pattern";
 import CardWithBackground from "../core/CardWithBackground";
 import CardWithQuoteIcon from "../core/CardWithQuoteIcon";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 interface Props {
     content: EmployersEmployeesPageProps["content"];
@@ -68,7 +69,7 @@ export default function Section9({ content }: Props) {
                 initial="initial"
                 animate={isInView ? "animate" : "initial"}
             >
-                {content.section9title}
+                <RenderLineBreaks text={content.section9title || ""} />
             </motion.h2>
             <motion.p
                 className={cn("text-center max-w-4xl mx-auto mt-4", {

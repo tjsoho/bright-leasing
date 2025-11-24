@@ -9,10 +9,10 @@
 ************************************************************ */
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { FAQ, FAQCategory } from '@/app/types/faq';
 import { getFAQs, getFAQCategories } from '@/server-actions/faq';
-import { motion, useInView, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import {
     Accordion,
     AccordionContent,
@@ -20,6 +20,8 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { RenderLineBreaks } from "@/utils/render-line-breaks";
+import { FAQsPageProps, faqsPageFallbackData } from './_config';
+import getPage from '@/server-actions/page';
 
 /* ************************************************************
                         COMPONENTS
@@ -32,24 +34,20 @@ export default function FAQsPage() {
     const [categories, setCategories] = useState<FAQCategory[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [selectedCategory, setSelectedCategory] = useState<string | 'all'>('all');
-
-    const heroRef = useRef(null);
-    const tabsRef = useRef(null);
-    const faqsRef = useRef(null);
-
-    const isHeroInView = useInView(heroRef, { amount: 0.3 });
-    const isTabsInView = useInView(tabsRef, { amount: 0.3 });
-    const isFaqsInView = useInView(faqsRef, { amount: 0.2 });
+    const [pageData, setPageData] = useState<FAQsPageProps>(faqsPageFallbackData);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setIsLoading(true);
 
-                const [faqsData, categoriesData] = await Promise.all([
+                const [faqsData, categoriesData, pageContent] = await Promise.all([
                     getFAQs(),
-                    getFAQCategories()
+                    getFAQCategories(),
+                    getPage<FAQsPageProps>("faqs", faqsPageFallbackData)
                 ]);
+
+                setPageData(pageContent);
 
                 // Handle null/undefined data
                 const safeFaqs = faqsData || [];
@@ -85,6 +83,7 @@ export default function FAQsPage() {
 
                 setFaqs(sortedFaqs);
                 setCategories(sortedCategories);
+                console.log('Categories loaded:', sortedCategories);
             } catch (error) {
                 console.error('Error fetching FAQs:', error);
             } finally {
@@ -185,23 +184,23 @@ export default function FAQsPage() {
                 {/* ************************************************************
                     HERO SECTION
                 ************************************************************ */}
-                <section className="pt-16 pb-8 px-4" ref={heroRef}>
+                <section className="pt-16 pb-8 px-4">
                     <div className="max-w-[1540px] mx-auto">
                         <motion.h1
                             className="h1 text-brand-black text-center mb-6"
                             variants={heroVariants}
                             initial="hidden"
-                            animate={isHeroInView ? "show" : "hidden"}
+                            animate="show"
                         >
-                            Frequently Asked Questions
+                            <RenderLineBreaks text={pageData.content.title || "Frequently Asked Questions"} />
                         </motion.h1>
                         <motion.p
                             className="p text-center max-w-3xl mx-auto text-brand-black/70"
                             variants={heroVariants}
                             initial="hidden"
-                            animate={isHeroInView ? "show" : "hidden"}
+                            animate="show"
                         >
-                            Discover the most intelligent approach to vehicle ownership and unlock smarter ways to drive the car you want.
+                            <RenderLineBreaks text={pageData.content.subheading || "Discover the most intelligent approach to vehicle ownership and unlock smarter ways to drive the car you want."} />
                         </motion.p>
                     </div>
                 </section>
@@ -210,20 +209,20 @@ export default function FAQsPage() {
                     {/* ************************************************************
                         CATEGORY TABS SECTION
                     ************************************************************ */}
-                    {!isLoading && categories.length > 0 && (
-                        <section className="pt-8" ref={tabsRef}>
+                    {categories.length > 0 && (
+                        <section className="pt-8 pb-4">
                             <motion.div
                                 className="flex flex-wrap gap-3 justify-center"
                                 variants={tabsContainerVariants}
                                 initial="hidden"
-                                animate={isTabsInView ? "show" : "hidden"}
+                                animate="show"
                             >
                                 <motion.button
                                     variants={tabVariants}
                                     onClick={() => setSelectedCategory('all')}
                                     className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === 'all'
                                         ? 'bg-brand-yellow text-brand-black shadow-lg scale-105'
-                                        : 'bg-brand-cream text-brand-black hover:bg-brand-teal hover:text-brand-black border border-brand-black/10'
+                                        : 'bg-brand-cream text-brand-black hover:bg-brand-teal hover:text-white border border-brand-black/10'
                                         }`}
                                 >
                                     All
@@ -235,7 +234,7 @@ export default function FAQsPage() {
                                         onClick={() => setSelectedCategory(category.id)}
                                         className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === category.id
                                             ? 'bg-brand-yellow text-brand-black shadow-lg scale-105'
-                                            : 'bg-brand-cream text-brand-black hover:bg-brand-teal hover:text-brand-black border border-brand-black/10'
+                                            : 'bg-brand-cream text-brand-black hover:bg-brand-teal hover:text-white border border-brand-black/10'
                                             }`}
                                     >
                                         {category.name}
@@ -248,7 +247,7 @@ export default function FAQsPage() {
                     {/* ************************************************************
                         FAQS ACCORDION SECTION
                     ************************************************************ */}
-                    <section className=" bg-white" ref={faqsRef}>
+                    <section className=" bg-white">
                         <div className="max-w-4xl mx-auto px-4">
                             {isLoading ? (
                                 <div className="text-center py-16">
@@ -264,7 +263,7 @@ export default function FAQsPage() {
                                 <motion.div
                                     variants={containerVariants}
                                     initial="hidden"
-                                    animate={isFaqsInView ? "show" : "hidden"}
+                                    animate="show"
                                 >
                                     <Accordion type="single" collapsible className="w-full">
                                         {filteredFaqs.map((faq, index) => (

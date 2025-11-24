@@ -8,7 +8,7 @@
 ************************************************************ */
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { FAQ, FAQCategory } from '@/app/types/faq';
 import { createFAQ, updateFAQ } from '@/server-actions/faq';
@@ -32,14 +32,42 @@ export default function FAQForm({ categories, initialData, onSuccess }: FAQFormP
                             HOOKS
     ************************************************************ */
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const formRef = useRef<HTMLDivElement>(null);
+
+    // Get default category (General if available, otherwise first category)
+    const defaultCategoryId = useMemo(() => {
+        if (categories.length === 0) return '';
+        const generalCategory = categories.find(c => c.slug === 'general');
+        return generalCategory?.id || categories[0].id;
+    }, [categories]);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<FAQ>({
         defaultValues: initialData || {
             question: '',
             answer: '',
-            category_id: '00000000-0000-0000-0000-000000000000' // Default to General
-        }
+            category_id: defaultCategoryId,
+        },
     });
+
+    // Reset form when initialData or categories change
+    useEffect(() => {
+        if (initialData) {
+            reset({
+                question: initialData.question || '',
+                answer: initialData.answer || '',
+                category_id: initialData.category_id || defaultCategoryId,
+            });
+            setTimeout(() => {
+                formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        } else if (defaultCategoryId) {
+            reset({
+                question: '',
+                answer: '',
+                category_id: defaultCategoryId,
+            });
+        }
+    }, [initialData, reset, defaultCategoryId]);
 
     /* ************************************************************
                             FUNCTIONS
@@ -68,8 +96,9 @@ export default function FAQForm({ categories, initialData, onSuccess }: FAQFormP
                             RENDER
     ************************************************************ */
     return (
-        <AdminFormSection title={initialData ? 'Edit FAQ' : 'Create New FAQ'}>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <div ref={formRef}>
+            <AdminFormSection title={initialData ? 'Edit FAQ' : 'Create New FAQ'}>
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Category Selection */}
                 <div>
                     <label className="block text-brand-black text-sm font-medium mb-2">
@@ -141,6 +170,7 @@ export default function FAQForm({ categories, initialData, onSuccess }: FAQFormP
                 </div>
             </form>
         </AdminFormSection>
+        </div>
     );
 }
 

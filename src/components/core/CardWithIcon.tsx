@@ -49,7 +49,7 @@ export default function CardWithIcon({
           <Image
             src={image || "/placeholder.jpg"}
             alt="{tile.title} icon"
-            width={32}
+            width={36}
             height={28}
             className="object-contain"
           />

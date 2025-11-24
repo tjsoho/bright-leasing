@@ -10,6 +10,8 @@ import {
 	AccordionTrigger,
 } from "@/components/ui/accordion";
 import { RenderLineBreaks } from "@/utils/render-line-breaks";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 interface Section7Props {
 	content: HomePageProps["content"];
@@ -158,6 +160,23 @@ export default function Section7({ content }: Section7Props) {
 							</motion.div>
 						))}
 					</Accordion>
+
+					{/* View All FAQs Link */}
+					<motion.div
+						variants={faqVariants}
+						className="mt-8 flex justify-center"
+					>
+						<Link
+							href="/faqs"
+							className="group flex items-center gap-2 text-sm text-gray-600 hover:text-brand-teal transition-colors duration-300"
+						>
+							<span>View All FAQs</span>
+							<ArrowRight
+								size={16}
+								className="transition-transform duration-300 group-hover:translate-x-1"
+							/>
+						</Link>
+					</motion.div>
 				</motion.div>
 			</div>
 		</section>

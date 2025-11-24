@@ -27,7 +27,7 @@ export const navigationLinks: NavigationLink[] = [
     label: "FAQS",
   },
   {
-    href: "/admin",
-    label: "ADMIN",
+    href: "/contact",
+    label: "CONTACT US",
   },
 ];

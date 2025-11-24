@@ -74,7 +74,7 @@ export default function Section1({ hero }: Section1Props) {
                         {hero?.eyebrow}
                     </p>
                     <h1 className="h1 text-brand-black">
-                        {hero?.title}
+                        <RenderLineBreaks text={hero?.title || ""} />
                     </h1>
                     {/* render line breaks */}
                     <p className="p text-brand-black/70 max-w-2xl">

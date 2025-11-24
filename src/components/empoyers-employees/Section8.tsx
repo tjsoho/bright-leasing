@@ -11,6 +11,8 @@ import { RenderLineBreaks } from "@/utils/render-line-breaks";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 interface Section8Props {
   content: EmployersEmployeesPageProps["content"];
@@ -67,49 +69,14 @@ export default function Section8({ content }: Section8Props) {
     },
   };
 
-  const staticFaqs = [
-    {
-      question: content.section8faq1question,
-      answer: content.section8faq1answer,
-      number: "01",
-      questionBold: content.section8faq1questionBold,
-      answerBold: content.section8faq1answerBold,
-    },
-    {
-      question: content.section8faq2question,
-      answer: content.section8faq2answer,
-      number: "02",
-      questionBold: content.section8faq2questionBold,
-      answerBold: content.section8faq2answerBold,
-    },
-    {
-      question: content.section8faq3question,
-      answer: content.section8faq3answer,
-      number: "03",
-      questionBold: content.section8faq3questionBold,
-      answerBold: content.section8faq3answerBold,
-    },
-    {
-      question: content.section8faq4question,
-      answer: content.section8faq4answer,
-      number: "04",
-      questionBold: content.section8faq4questionBold,
-      answerBold: content.section8faq4answerBold,
-    },
-  ];
-
-  // Add additional FAQs with dynamic numbering
-  const additionalFaqs = (content.additionalSection8Faqs || []).map(
-    (faq, index) => ({
-      question: faq.question,
-      answer: faq.answer,
-      number: String(5 + index).padStart(2, "0"),
-      questionBold: faq.questionBold,
-      answerBold: faq.answerBold,
-    }),
-  );
-
-  const faqs = [...staticFaqs, ...additionalFaqs];
+  // Use dynamic FAQs array, fallback to empty array if not available
+  const faqs = (content.additionalSection8Faqs || []).map((faq, index) => ({
+    question: faq.question,
+    answer: faq.answer,
+    number: String(index + 1).padStart(2, "0"),
+    questionBold: faq.questionBold,
+    answerBold: faq.answerBold,
+  }));
 
   return (
     <section className="py-16 bg-white" ref={ref}>
@@ -165,6 +132,23 @@ export default function Section8({ content }: Section8Props) {
                 </motion.div>
               ))}
             </Accordion>
+
+            {/* View All FAQs Link */}
+            <motion.div
+              variants={faqVariants}
+              className="mt-8 flex justify-center lg:justify-start"
+            >
+              <Link
+                href="/faqs"
+                className="group flex items-center gap-2 text-sm text-gray-600 hover:text-brand-teal transition-colors duration-300"
+              >
+                <span>View All FAQs</span>
+                <ArrowRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Image - Right Side (Desktop), Above FAQs (Mobile) */}

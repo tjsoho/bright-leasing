@@ -1,6 +1,7 @@
 "use client";
 
 import { EmployersEmployeesPageProps } from "@/app/(employer-employees)/_config";
+import { AdditionalFAQ } from "@/app/_config";
 import { SaveBanner } from "../core/save-banner";
 import usePageDataManager from "@/utils/hooks/usePageDataManager";
 import AdminFormSection from "./AdminFormSection";
@@ -10,6 +11,7 @@ import AdminTileInput from "./AdminTileInput";
 import { EditableElement } from "../core/input";
 import EditableImage from "../core/editable-image";
 import { DeepKeys } from "@/types/deep-object";
+import { useEffect } from "react";
 
 interface Props {
   data: EmployersEmployeesPageProps;
@@ -18,6 +20,32 @@ interface Props {
 export default function EmployeesEmployersInput({ data }: Props) {
   const { isSaving, getData, handleChange, handleSave } =
     usePageDataManager(data);
+
+  // Initialize dynamic FAQs from static FAQs if dynamic array is empty (only on mount)
+  useEffect(() => {
+    const currentFaqs = getData<AdditionalFAQ[]>("content.additionalSection8Faqs") || [];
+    if (currentFaqs.length === 0) {
+      // Migrate static FAQs to dynamic array
+      const staticFaqs: AdditionalFAQ[] = [];
+      for (let i = 1; i <= 4; i++) {
+        const question = getData<string>(`content.section8faq${i}question` as DeepKeys<EmployersEmployeesPageProps>);
+        const answer = getData<string>(`content.section8faq${i}answer` as DeepKeys<EmployersEmployeesPageProps>);
+        if (question || answer) {
+          staticFaqs.push({
+            id: `section8-faq-${i}-migrated`,
+            question: question || '',
+            questionBold: getData<boolean>(`content.section8faq${i}questionBold` as DeepKeys<EmployersEmployeesPageProps>) || false,
+            answer: answer || '',
+            answerBold: getData<boolean>(`content.section8faq${i}answerBold` as DeepKeys<EmployersEmployeesPageProps>) || false,
+          });
+        }
+      }
+      if (staticFaqs.length > 0) {
+        handleChange("content.additionalSection8Faqs", staticFaqs);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
@@ -34,7 +62,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                 Section Title
               </label>
               <EditableElement
-                as="input"
+                as="textarea"
                 className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                 onTextChange={(value) =>
                   handleChange(
@@ -98,7 +126,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                   Section Title
                 </label>
                 <EditableElement
-                  as="input"
+                  as="textarea"
                   className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                   onTextChange={(value) =>
                     handleChange("content.adminSection2TitleEmployees", value)
@@ -272,7 +300,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                   Section Title
                 </label>
                 <EditableElement
-                  as="input"
+                  as="textarea"
                   className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                   onTextChange={(value) =>
                     handleChange("content.adminSection2TitleEmployers", value)
@@ -403,7 +431,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                   Section Title
                 </label>
                 <EditableElement
-                  as="input"
+                  as="textarea"
                   className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                   onTextChange={(value) =>
                     handleChange("content.adminSection3TitleEmployers", value)
@@ -467,7 +495,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                   Section Title
                 </label>
                 <EditableElement
-                  as="input"
+                  as="textarea"
                   className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                   onTextChange={(value) =>
                     handleChange("content.adminSection5TitleEmployees", value)
@@ -643,7 +671,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                 Section Title
               </label>
               <EditableElement
-                as="input"
+                as="textarea"
                 className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                 onTextChange={(value) =>
                   handleChange(
@@ -780,7 +808,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                   Section Title
                 </label>
                 <EditableElement
-                  as="input"
+                  as="textarea"
                   className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                   onTextChange={(value) =>
                     handleChange("content.adminSection4TitleEmployers", value)
@@ -897,7 +925,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                   Section Title
                 </label>
                 <EditableElement
-                  as="input"
+                  as="textarea"
                   className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                   onTextChange={(value) =>
                     handleChange("content.adminSection3TitleEmployees", value)
@@ -961,7 +989,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                   Section Title
                 </label>
                 <EditableElement
-                  as="input"
+                  as="textarea"
                   className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                   onTextChange={(value) =>
                     handleChange("content.adminSection6TitleEmployees", value)
@@ -1020,7 +1048,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                   Section Title
                 </label>
                 <EditableElement
-                  as="input"
+                  as="textarea"
                   className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                   onTextChange={(value) =>
                     handleChange("content.adminSection5TitleEmployers", value)
@@ -1196,7 +1224,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                 Section Title
               </label>
               <EditableElement
-                as="input"
+                as="textarea"
                 className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                 onTextChange={(value) =>
                   handleChange(
@@ -1264,7 +1292,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                 Section Title
               </label>
               <EditableElement
-                as="input"
+                as="textarea"
                 className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                 onTextChange={(value) =>
                   handleChange(
@@ -1580,7 +1608,7 @@ export default function EmployeesEmployersInput({ data }: Props) {
                 Section Title
               </label>
               <EditableElement
-                as="input"
+                as="textarea"
                 className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
                 onTextChange={(value) =>
                   handleChange(
@@ -1616,57 +1644,109 @@ export default function EmployeesEmployersInput({ data }: Props) {
                 onChange={(value) => handleChange("content.section8image", value)}
               />
 
-              {Array.from({ length: 4 }).map((_, index) => (
-                <AdminTileInput
-                  key={index}
-                  label={`FAQ ${index + 1}`}
-                  type="faq"
-                  title={
-                    getData(
-                      `content.section8faq${index + 1}question` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? ""
-                  }
-                  titleBold={
-                    getData(
-                      `content.section8faq${index + 1}questionBold` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? false
-                  }
-                  description={
-                    getData(
-                      `content.section8faq${index + 1}answer` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? ""
-                  }
-                  descriptionBold={
-                    getData(
-                      `content.section8faq${index + 1}answerBold` as DeepKeys<EmployersEmployeesPageProps>,
-                    ) ?? false
-                  }
-                  onTitleChange={(value) =>
-                    handleChange(
-                      `content.section8faq${index + 1}question` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  onTitleBoldChange={(value) =>
-                    handleChange(
-                      `content.section8faq${index + 1}questionBold` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  onDescriptionChange={(value) =>
-                    handleChange(
-                      `content.section8faq${index + 1}answer` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                  onDescriptionBoldChange={(value) =>
-                    handleChange(
-                      `content.section8faq${index + 1}answerBold` as DeepKeys<EmployersEmployeesPageProps>,
-                      value,
-                    )
-                  }
-                />
+              {/* Dynamic FAQs */}
+              {(getData<Array<{ id: string; question: string; questionBold: boolean; answer: string; answerBold: boolean }>>("content.additionalSection8Faqs") || []).map((faq, index) => (
+                <div key={faq.id} className="bg-brand-black p-3 rounded-lg border border-gray-700">
+                  <div className="flex justify-between items-center mb-3">
+                    <h4 className="text-white font-medium">FAQ {index + 1}</h4>
+                    <button
+                      onClick={() => {
+                        const currentFaqs = getData<Array<{ id: string; question: string; questionBold: boolean; answer: string; answerBold: boolean }>>("content.additionalSection8Faqs") || [];
+                        handleChange("content.additionalSection8Faqs", currentFaqs.filter(f => f.id !== faq.id));
+                      }}
+                      className="px-2 py-1 bg-red-600 text-white rounded text-xs hover:bg-red-700 transition-colors"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-1 gap-4">
+                    <div>
+                      <label className="block text-white text-xs mb-1">Question</label>
+                      <EditableElement
+                        as="textarea"
+                        className="w-full p-2 bg-white text-brand-black rounded border border-brand-black/20 focus:border-brand-teal transition-colors text-sm"
+                        onTextChange={(value) => {
+                          const currentFaqs = getData<Array<{ id: string; question: string; questionBold: boolean; answer: string; answerBold: boolean }>>("content.additionalSection8Faqs") || [];
+                          const updatedFaqs = currentFaqs.map(f =>
+                            f.id === faq.id ? { ...f, question: value } : f
+                          );
+                          handleChange("content.additionalSection8Faqs", updatedFaqs);
+                        }}
+                        defaultValue={faq.question}
+                      />
+                      <div className="mt-2">
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={faq.questionBold}
+                            onChange={(e) => {
+                              const currentFaqs = getData<Array<{ id: string; question: string; questionBold: boolean; answer: string; answerBold: boolean }>>("content.additionalSection8Faqs") || [];
+                              const updatedFaqs = currentFaqs.map(f =>
+                                f.id === faq.id ? { ...f, questionBold: e.target.checked } : f
+                              );
+                              handleChange("content.additionalSection8Faqs", updatedFaqs);
+                            }}
+                            className="w-3 h-3 text-brand-yellow border-brand-yellow/30 focus:ring-brand-yellow focus:ring-1"
+                          />
+                          <span className="text-white text-xs">Bold</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-white text-xs mb-1">Answer</label>
+                      <EditableElement
+                        as="textarea"
+                        className="w-full p-2 bg-gray-700 text-white rounded border border-gray-600 focus:border-white transition-colors text-sm h-24"
+                        onTextChange={(value) => {
+                          const currentFaqs = getData<Array<{ id: string; question: string; questionBold: boolean; answer: string; answerBold: boolean }>>("content.additionalSection8Faqs") || [];
+                          const updatedFaqs = currentFaqs.map(f =>
+                            f.id === faq.id ? { ...f, answer: value } : f
+                          );
+                          handleChange("content.additionalSection8Faqs", updatedFaqs);
+                        }}
+                        defaultValue={faq.answer}
+                      />
+                      <div className="mt-2">
+                        <label className="flex items-center space-x-2 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={faq.answerBold}
+                            onChange={(e) => {
+                              const currentFaqs = getData<Array<{ id: string; question: string; questionBold: boolean; answer: string; answerBold: boolean }>>("content.additionalSection8Faqs") || [];
+                              const updatedFaqs = currentFaqs.map(f =>
+                                f.id === faq.id ? { ...f, answerBold: e.target.checked } : f
+                              );
+                              handleChange("content.additionalSection8Faqs", updatedFaqs);
+                            }}
+                            className="w-3 h-3 text-brand-yellow border-brand-yellow/30 focus:ring-brand-yellow focus:ring-1"
+                          />
+                          <span className="text-white text-xs">Bold</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ))}
+
+              {/* Add FAQ Button */}
+              <div className="mt-4">
+                <button
+                  onClick={() => {
+                    const currentFaqs = getData<Array<{ id: string; question: string; questionBold: boolean; answer: string; answerBold: boolean }>>("content.additionalSection8Faqs") || [];
+                    const newFaq = {
+                      id: `section8-faq-${Date.now()}`,
+                      question: '',
+                      questionBold: false,
+                      answer: '',
+                      answerBold: false
+                    };
+                    handleChange("content.additionalSection8Faqs", [...currentFaqs, newFaq]);
+                  }}
+                  className="px-4 py-2 bg-brand-yellow text-brand-black rounded-lg font-medium hover:bg-brand-yellow/80 transition-colors"
+                >
+                  Add FAQ
+                </button>
+              </div>
             </div>
           </AdminFormSection>
         </div>

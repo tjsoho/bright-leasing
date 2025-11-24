@@ -4,6 +4,7 @@ import { EmployersEmployeesPageProps } from "@/app/(employer-employees)/_config"
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import CardWithIcon from "../core/CardWithIcon";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 interface Props {
   content: EmployersEmployeesPageProps["content"];
@@ -67,7 +68,7 @@ export default function Section5({ content }: Props) {
         initial="initial"
         animate={isInView ? "animate" : "initial"}
       >
-        {content.section5title}
+        <RenderLineBreaks text={content.section5title || ""} />
       </motion.h2>
       <motion.p
         className={cn("text-center max-w-4xl mx-auto mt-4", {

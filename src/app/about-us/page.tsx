@@ -17,8 +17,6 @@ import {
 	AboutUsPageProps,
 } from "./_config";
 import Section1 from "@/components/about/Section1";
-import Section1a from "@/components/about/Section1a";
-
 import Section3 from "@/components/about/Section3";
 import Section4 from "@/components/about/Section4";
 import Section4a from "@/components/about/Section4a";
@@ -46,8 +44,6 @@ export default function AboutUsPage() {
 							FUNCTIONS
 	************************************************************ */
 	const hero = aboutPage.content.hero;
-	const section1a = aboutPage.content.section1a;
-
 	const differentiators = aboutPage.content.differentiators;
 	const proof = aboutPage.content.proof;
 	const section4a = aboutPage.content.section4a;
@@ -62,8 +58,6 @@ export default function AboutUsPage() {
 		<main className="min-h-screen bg-white text-brand-black">
 			<div className="max-w-[1920px] mx-auto lg:px-8 py-4 pt-24">
 				<Section1 hero={hero} />
-				<Section1a section1a={section1a} />
-
 				<div className="max-w-[1540px] mx-auto px-4">
 					<Section6 values={values} />
 					<Section3 differentiators={differentiators} />

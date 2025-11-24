@@ -24,36 +24,86 @@ const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => {
+  const triggerRef = React.useRef<HTMLButtonElement>(null);
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  // Combine refs
+  const combinedRef = React.useCallback(
+    (node: HTMLButtonElement | null) => {
+      if (typeof ref === "function") {
+        ref(node);
+      } else if (ref) {
+        ref.current = node;
+      }
+      triggerRef.current = node;
+    },
+    [ref]
+  );
+
+  // Check state from data-state attribute
+  React.useEffect(() => {
+    const checkState = () => {
+      if (triggerRef.current) {
+        const state = triggerRef.current.getAttribute("data-state");
+        setIsOpen(state === "open");
+      }
+    };
+
+    // Check initial state
+    checkState();
+
+    // Use MutationObserver to watch for state changes
+    const observer = new MutationObserver(checkState);
+    if (triggerRef.current) {
+      observer.observe(triggerRef.current, {
+        attributes: true,
+        attributeFilter: ["data-state"],
+      });
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
-        ref={ref}
+        ref={combinedRef}
         className={cn(
-          "flex flex-1 items-center justify-between py-2 text-left text-[15px] font-semibold leading-6 transition-all [&>svg]:transition-all [&>svg]:duration-500 [&>svg]:ease-[cubic-bezier(0.4,0,0.2,1)] hover:[&>svg]:rotate-90",
+          "flex flex-1 items-center justify-between py-2 text-left text-[15px] font-semibold leading-6 transition-all",
           className,
         )}
-        onPointerDown={() => setIsOpen(!isOpen)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         {...props}
       >
         {children}
-        <div className="relative group">
+        <div className="relative">
+          {/* Plus icon - visible when closed, rotates on hover */}
           <Plus
             size={20}
             strokeWidth={2.5}
             className={cn(
-              "shrink-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:rotate-90 text-brand-yellow rounded-full border border-brand-yellow p-2 w-8 h-8",
-              isOpen ? "opacity-0 rotate-90" : "opacity-100 rotate-0"
+              "shrink-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] text-brand-yellow rounded-full border border-brand-yellow p-2 w-8 h-8",
+              isOpen
+                ? "opacity-0 rotate-90 scale-0"
+                : isHovered
+                  ? "opacity-100 rotate-90 scale-100"
+                  : "opacity-100 rotate-0 scale-100"
             )}
             aria-hidden="true"
           />
+          {/* Minus icon - visible when open, rotates on hover */}
           <Minus
             size={20}
             strokeWidth={2.5}
             className={cn(
-              "shrink-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] absolute top-0 left-0 group-hover:rotate-90 text-brand-yellow rounded-full border border-brand-yellow p-2 w-8 h-8",
-              isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-90"
+              "shrink-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] absolute top-0 left-0 text-brand-yellow rounded-full border border-brand-yellow p-2 w-8 h-8",
+              isOpen
+                ? isHovered
+                  ? "opacity-100 rotate-90 scale-100"
+                  : "opacity-100 rotate-0 scale-100"
+                : "opacity-0 rotate-90 scale-0"
             )}
             aria-hidden="true"
           />

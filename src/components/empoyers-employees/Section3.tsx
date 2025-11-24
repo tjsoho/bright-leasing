@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
+import { RenderLineBreaks } from "@/utils/render-line-breaks";
 
 interface Props {
   content: EmployersEmployeesPageProps["content"];
@@ -113,7 +114,7 @@ export default function Section3({ content }: Props) {
             "h3-bold": content.section3titleBold,
           })}
         >
-          {content.section3title}
+          <RenderLineBreaks text={content.section3title || ""} />
         </motion.h3>
         <motion.p
           variants={paragraphVariants}
