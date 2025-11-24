@@ -69,6 +69,13 @@ const AdminTiles = () => {
     ************************************************************ */
   const adminTiles: AdminTile[] = [
     {
+      href: "/admin/seo",
+      icon: "📈",
+      title: "SEO",
+      description: "Control titles, descriptions, keywords",
+      color: "bg-brand-black text-brand-cream",
+    },
+    {
       href: "/admin/home",
       icon: "🏠",
       title: "Home",
