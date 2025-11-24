@@ -61,7 +61,7 @@ export default function Blog() {
             text={pageData.content.title || "Articles."}
           />
         </span>
-        <p className="text-brand-black/70 mx-auto mb-24 max-w-3xl">
+        <p className="text-brand-black/70 mx-auto mb-24 max-w-7xl">
           <RenderLineBreaks
             text={
               pageData.content.subheading ||
