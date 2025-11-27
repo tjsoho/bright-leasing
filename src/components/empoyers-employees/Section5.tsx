@@ -78,7 +78,7 @@ export default function Section5({ content }: Props) {
         initial="initial"
         animate={isInView ? "animate" : "initial"}
       >
-        {content.section5paragraph}
+        <RenderLineBreaks text={content.section5paragraph || ""} />
       </motion.p>
 
       <motion.div

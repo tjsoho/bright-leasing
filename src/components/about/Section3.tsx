@@ -159,7 +159,11 @@ export default function Section3({ differentiators }: Section3Props) {
                             </div>
 
                             {/* Title below icon */}
-                            <h5 className="mb-3 h5">
+                            <h5
+                                className={cn("mb-3 h5", {
+                                    "font-bold-500": item.titleBold,
+                                })}
+                            >
                                 <RenderLineBreaks text={item.title} />
                             </h5>
 

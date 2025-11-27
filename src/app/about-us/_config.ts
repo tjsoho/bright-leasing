@@ -11,6 +11,7 @@ export type AboutNarrativeBlock = {
 export type AboutDifferentiator = {
   id: string;
   title: string;
+  titleBold?: boolean;
   description: string;
   icon: string;
   bgColor?: string;

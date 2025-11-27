@@ -188,22 +188,22 @@ export default function Section2Employees({ content }: Section2EmployeesProps) {
                                 )}
 
                                 {/* Title */}
-                                <h3
-                                    className={cn("mb-3", {
-                                        "h3-bold": box.titleBold,
+                                <h5
+                                    className={cn("leading-relaxed text-left mb-3", {
+                                        "font-bold-500": box.titleBold,
                                     })}
                                 >
                                     <RenderLineBreaks text={box.title} />
-                                </h3>
+                                </h5>
 
                                 {/* Content */}
-                                <p
-                                    className={cn("text-left leading-relaxed flex-grow text-base", {
-                                        "p-bold": box.contentBold,
+                                <h5
+                                    className={cn("leading-relaxed text-left flex-grow", {
+                                        "font-bold-500": box.contentBold,
                                     })}
                                 >
                                     <RenderLineBreaks text={box.content} />
-                                </p>
+                                </h5>
                             </div>
                         </motion.div>
                     ))}

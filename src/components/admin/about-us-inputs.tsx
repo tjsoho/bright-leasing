@@ -92,12 +92,25 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 		});
 	};
 
+	const handleDifferentiatorBooleanChange = (
+		index: number,
+		key: keyof AboutDifferentiator,
+		value: boolean,
+	) => {
+		setDifferentiators((prev) => {
+			const nextItems = [...(prev?.items || [])];
+			nextItems[index] = { ...nextItems[index], [key]: value };
+			return { ...prev, items: nextItems };
+		});
+	};
+
 	const handleAddDifferentiator = () => {
 		setDifferentiators((prev) => {
 			const currentItems = prev?.items || [];
 			const newItem: AboutDifferentiator = {
 				id: `differentiator-${Date.now()}`,
 				title: "New Item",
+				titleBold: false,
 				description: "Add description here",
 				icon: "/placeholder.jpg",
 				bgColor: "white",
@@ -521,6 +534,17 @@ export default function AboutUsAdminInputs(props: AboutUsPageProps) {
 												defaultValue={item.title}
 												onTextChange={(value) => handleDifferentiatorChange(index, "title", value)}
 											/>
+										</div>
+										<div>
+											<label className="flex items-center gap-2 text-white text-xs">
+												<input
+													type="checkbox"
+													checked={item.titleBold || false}
+													onChange={(e) => handleDifferentiatorBooleanChange(index, "titleBold", e.target.checked)}
+													className="w-4 h-4 rounded border-brand-black/20 focus:ring-brand-teal focus:ring-2"
+												/>
+												<span>Title Bold</span>
+											</label>
 										</div>
 										<div>
 											<label className="block text-white text-xs mb-1">Description</label>
