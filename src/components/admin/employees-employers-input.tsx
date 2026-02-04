@@ -108,6 +108,13 @@ export default function EmployeesEmployersInput({ data }: Props) {
                     handleChange("content.heroButtonText", value)
                   }
                 />
+                <AdminTextInput
+                  label="Button Path"
+                  value={getData("content.heroButtonPath") ?? "/contact"}
+                  onChange={(value) =>
+                    handleChange("content.heroButtonPath", value)
+                  }
+                />
               </div>
 
               <AdminImageInput
@@ -1273,6 +1280,13 @@ export default function EmployeesEmployersInput({ data }: Props) {
                     handleChange("content.section7buttonText", value)
                   }
                 />
+                <AdminTextInput
+                  label="Button Path"
+                  value={getData("content.section7buttonPath") ?? "/contact"}
+                  onChange={(value) =>
+                    handleChange("content.section7buttonPath", value)
+                  }
+                />
               </div>
 
               <AdminImageInput
@@ -1642,6 +1656,14 @@ export default function EmployeesEmployersInput({ data }: Props) {
                 label="Section Image"
                 value={getData("content.section8image") ?? ""}
                 onChange={(value) => handleChange("content.section8image", value)}
+              />
+
+              <AdminTextInput
+                label="FAQ Link Path"
+                value={getData("content.section8faqLinkPath") ?? "/faqs"}
+                onChange={(value) =>
+                  handleChange("content.section8faqLinkPath", value)
+                }
               />
 
               {/* Dynamic FAQs */}

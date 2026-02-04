@@ -30,3 +30,4 @@ CREATE TRIGGER set_timestamp_account_setup_submissions
 -- Disable RLS (Row Level Security) for now - adjust based on your security needs
 ALTER TABLE public.account_setup_submissions DISABLE ROW LEVEL SECURITY;
 
+

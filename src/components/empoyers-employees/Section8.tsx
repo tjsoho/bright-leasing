@@ -139,7 +139,7 @@ export default function Section8({ content }: Section8Props) {
               className="mt-8 flex justify-center lg:justify-start"
             >
               <Link
-                href="/faqs"
+                href={content.section8faqLinkPath || "/faqs"}
                 className="group flex items-center gap-2 text-sm text-gray-600 hover:text-brand-teal transition-colors duration-300"
               >
                 <span>View All FAQs</span>

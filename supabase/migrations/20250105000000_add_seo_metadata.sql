@@ -32,3 +32,4 @@ CREATE TRIGGER update_seo_metadata_updated_at
 
 
 
+

@@ -120,7 +120,7 @@ export default function Section7({ content }: Section7Props) {
             <motion.div variants={buttonVariants} className="w-full">
               <BWestButton
                 text={content.section7buttonText}
-                onClick={() => (window.location.href = "/contact")}
+                onClick={() => (window.location.href = content.section7buttonPath || "/contact")}
                 className="lg:w-3/4 w-full"
               />
             </motion.div>

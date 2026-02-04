@@ -200,7 +200,7 @@ const AdminTiles = () => {
                 <div className="w-12 h-12 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
                   <span className="text-2xl">{tile.icon}</span>
                 </div>
-                <h3 className="text-small font-semibold mb-2">{tile.title}</h3>
+                <h3 className=" font-semibold mb-2">{tile.title}</h3>
                 <p className="text-small opacity-80">{tile.description}</p>
               </div>
             </Link>

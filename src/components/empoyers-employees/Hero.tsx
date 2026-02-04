@@ -111,7 +111,7 @@ export default function Hero({ content }: HeroProps) {
             >
               <BWestButton
                 text={content.heroButtonText || "Get Started"}
-                onClick={() => window.location.href = '/contact'}
+                onClick={() => window.location.href = content.heroButtonPath || '/contact'}
               />
             </motion.div>
           </div>

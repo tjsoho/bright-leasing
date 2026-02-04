@@ -34,6 +34,7 @@ export interface EmployersEmployeesPageContent {
   heroParagraph: string;
   heroParagraphBold?: boolean;
   heroButtonText: string;
+  heroButtonPath?: string;
   heroImage: string;
   section2title: string;
   section2titleBold: boolean;
@@ -152,10 +153,12 @@ export interface EmployersEmployeesPageContent {
   section7description: string;
   section7descriptionBold: boolean;
   section7buttonText: string;
+  section7buttonPath?: string;
   section7image: string;
   section8title: string;
   section8titleBold: boolean;
   section8image: string;
+  section8faqLinkPath?: string;
   section8faq1question: string;
   section8faq1questionBold: boolean;
   section8faq1answer: string;
@@ -270,6 +273,7 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
       "Give your employees more take-home pay while attracting top talent with zero cost or admin burden to your business.\n\nBright Leasing makes novated leasing simple, transparent, and rewarding for everyone.\n\nOur comprehensive employer pack shows you exactly how to implement a benefit that employees actually use and love - from setup to ongoing management, we handle everything.",
     heroParagraphBold: false,
     heroButtonText: "Get Started",
+    heroButtonPath: "/contact",
     heroImage: "/placeholder.jpg",
     section2title: "Why Offer Novated Leasing",
     section2titleBold: false,
@@ -528,10 +532,12 @@ export const employersPageFallbackData: EmployersEmployeesPageProps = {
       "Engage and retain talent with a trusted, low-effort benefit. We’ll handle onboarding, payroll setup, and employee education end-to-end. ",
     section7descriptionBold: false,
     section7buttonText: "Book a 15-min intro",
+    section7buttonPath: "/contact",
     section7image: "/placeholder.jpg",
     section8title: "Frequently Asked Questions",
     section8titleBold: false,
     section8image: "/placeholder.jpg",
+    section8faqLinkPath: "/faqs",
     section8faq1question: "Who can salary-package a novated lease?",
     section8faq1questionBold: false,
     section8faq1answer:

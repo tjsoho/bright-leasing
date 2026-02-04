@@ -18,3 +18,4 @@ export default async function AccountSetupLeadsPage() {
 	return <AccountSetupLeadsManager submissions={submissions} />;
 }
 
+
