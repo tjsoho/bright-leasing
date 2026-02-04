@@ -182,6 +182,16 @@ export const seoPages: SeoPageConfig[] = [
       "Hear from Bright Leasing customers and partners about their novated leasing experience.",
     defaultKeywords: "bright leasing reviews, customer stories",
   },
+  {
+    slug: "account-setup",
+    path: "/account-setup",
+    label: "Account Setup Form",
+    defaultTitle: "Account Setup Form | Bright Leasing",
+    defaultDescription:
+      "Complete your account setup with Bright Leasing to get started with novated leasing.",
+    defaultKeywords: "account setup, bright leasing account, novated lease setup",
+  },
 ];
+
 
 

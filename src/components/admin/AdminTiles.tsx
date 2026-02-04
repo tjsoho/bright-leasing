@@ -160,6 +160,20 @@ const AdminTiles = () => {
       description: "Manage terms of use content",
       color: "bg-brand-teal text-white",
     },
+    {
+      href: "/admin/account-setup",
+      icon: "📝",
+      title: "Account Set Up Form",
+      description: "Manage account setup form steps",
+      color: "bg-brand-yellow text-brand-black",
+    },
+    {
+      href: "/admin/account-setup-leads",
+      icon: "📊",
+      title: "Account Setup Leads",
+      description: "View submitted account setup forms",
+      color: "bg-brand-teal text-white",
+    },
   ];
 
   /* ************************************************************
@@ -186,7 +200,7 @@ const AdminTiles = () => {
                 <div className="w-12 h-12 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
                   <span className="text-2xl">{tile.icon}</span>
                 </div>
-                <h2 className="text-md font-semibold mb-2">{tile.title}</h2>
+                <h3 className="text-small font-semibold mb-2">{tile.title}</h3>
                 <p className="text-small opacity-80">{tile.description}</p>
               </div>
             </Link>
