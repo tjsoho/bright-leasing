@@ -1,0 +1,242 @@
+0 verbose cli /Users/tobyj/.nvm/versions/node/v18.19.0/bin/node /Users/tobyj/.nvm/versions/node/v18.19.0/bin/npm
+1 info using npm@10.2.3
+2 info using node@v18.19.0
+3 timing npm:load:whichnode Completed in 1ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:/Users/tobyj/.nvm/versions/node/v18.19.0/lib/node_modules/npm/npmrc Completed in 0ms
+6 timing config:load:builtin Completed in 0ms
+7 timing config:load:cli Completed in 1ms
+8 timing config:load:env Completed in 1ms
+9 timing config:load:file:/Users/tobyj/Develop/bright-leasing/.npmrc Completed in 0ms
+10 timing config:load:project Completed in 1ms
+11 timing config:load:file:/Users/tobyj/.npmrc Completed in 0ms
+12 timing config:load:user Completed in 0ms
+13 timing config:load:file:/Users/tobyj/.nvm/versions/node/v18.19.0/etc/npmrc Completed in 0ms
+14 timing config:load:global Completed in 0ms
+15 timing config:load:setEnvs Completed in 0ms
+16 timing config:load Completed in 4ms
+17 timing npm:load:configload Completed in 4ms
+18 timing config:load:flatten Completed in 1ms
+19 timing npm:load:mkdirpcache Completed in 0ms
+20 timing npm:load:mkdirplogs Completed in 0ms
+21 verbose title npm install next@15.5.11 eslint-config-next@15.5.11
+22 verbose argv "--cache" "./.npm-cache" "install" "--package-lock-only" "--no-audit" "--no-fund" "next@15.5.11" "eslint-config-next@15.5.11"
+23 timing npm:load:setTitle Completed in 1ms
+24 timing npm:load:display Completed in 0ms
+25 verbose logfile logs-max:10 dir:/Users/tobyj/Develop/bright-leasing/.npm-cache/_logs/2026-02-04T07_26_21_386Z-
+26 verbose logfile /Users/tobyj/Develop/bright-leasing/.npm-cache/_logs/2026-02-04T07_26_21_386Z-debug-0.log
+27 timing npm:load:logFile Completed in 4ms
+28 timing npm:load:timers Completed in 0ms
+29 timing npm:load:configScope Completed in 0ms
+30 timing npm:load Completed in 17ms
+31 timing arborist:ctor Completed in 0ms
+32 silly logfile done cleaning log files
+33 timing idealTree:init Completed in 123ms
+34 timing idealTree:userRequests Completed in 1ms
+35 silly idealTree buildDeps
+36 silly fetch manifest next@15.5.11
+37 http fetch GET 200 https://registry.npmjs.org/next 382ms (cache miss)
+38 silly fetch manifest @opentelemetry/api@^1.1.0
+39 http fetch GET 200 https://registry.npmjs.org/@opentelemetry%2fapi 392ms (cache miss)
+40 silly fetch manifest @playwright/test@^1.51.1
+41 http fetch GET 200 https://registry.npmjs.org/@playwright%2ftest 467ms (cache miss)
+42 silly fetch manifest babel-plugin-react-compiler@*
+43 http fetch GET 200 https://registry.npmjs.org/babel-plugin-react-compiler 63ms (cache miss)
+44 silly fetch manifest react@^19.0.0
+45 http fetch GET 200 https://registry.npmjs.org/react 97ms (cache miss)
+46 silly fetch manifest react-dom@^19.0.0
+47 http fetch GET 200 https://registry.npmjs.org/react-dom 107ms (cache miss)
+48 silly fetch manifest sass@^1.3.0
+49 http fetch GET 200 https://registry.npmjs.org/sass 383ms (cache miss)
+50 silly fetch manifest eslint-config-next@15.5.11
+51 http fetch GET 200 https://registry.npmjs.org/eslint-config-next 590ms (cache miss)
+52 silly fetch manifest eslint@^9
+53 http fetch GET 200 https://registry.npmjs.org/eslint 43ms (cache miss)
+54 silly fetch manifest jiti@*
+55 http fetch GET 200 https://registry.npmjs.org/jiti 242ms (cache miss)
+56 silly fetch manifest typescript@^5
+57 http fetch GET 200 https://registry.npmjs.org/typescript 173ms (cache miss)
+58 silly placeDep ROOT eslint-config-next@15.5.11 REPLACE for: updated-template-september@0.1.0 want: 15.5.11
+59 silly fetch manifest @next/eslint-plugin-next@15.5.11
+60 silly placeDep ROOT next@15.5.11 REPLACE for: updated-template-september@0.1.0 want: 15.5.11
+61 silly fetch manifest @next/env@15.5.11
+62 silly fetch manifest sharp@^0.34.3
+63 silly fetch manifest @next/swc-darwin-x64@15.5.7
+64 silly fetch manifest @next/swc-darwin-arm64@15.5.7
+65 silly fetch manifest @next/swc-linux-x64-gnu@15.5.7
+66 silly fetch manifest @next/swc-linux-x64-musl@15.5.7
+67 silly fetch manifest @next/swc-win32-x64-msvc@15.5.7
+68 silly fetch manifest @next/swc-linux-arm64-gnu@15.5.7
+69 silly fetch manifest @next/swc-linux-arm64-musl@15.5.7
+70 silly fetch manifest @next/swc-win32-arm64-msvc@15.5.7
+71 http fetch GET 200 https://registry.npmjs.org/sharp 135ms (cache miss)
+72 http fetch GET 200 https://registry.npmjs.org/@next%2feslint-plugin-next 769ms (cache miss)
+73 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-darwin-x64 862ms (cache miss)
+74 http fetch GET 200 https://registry.npmjs.org/@next%2fenv 870ms (cache miss)
+75 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-x64-musl 877ms (cache miss)
+76 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-win32-x64-msvc 884ms (cache miss)
+77 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-arm64-gnu 890ms (cache miss)
+78 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-darwin-arm64 896ms (cache miss)
+79 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-arm64-musl 906ms (cache miss)
+80 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-win32-arm64-msvc 924ms (cache miss)
+81 http fetch GET 200 https://registry.npmjs.org/@next%2fswc-linux-x64-gnu 1151ms (cache miss)
+82 timing idealTree:#root Completed in 4331ms
+83 silly placeDep ROOT @next/eslint-plugin-next@15.5.11 OK for: eslint-config-next@15.5.11 want: 15.5.11
+84 silly fetch manifest fast-glob@3.3.1
+85 http fetch GET 200 https://registry.npmjs.org/fast-glob 43ms (cache miss)
+86 timing idealTree:node_modules/eslint-config-next Completed in 46ms
+87 silly placeDep ROOT fast-glob@3.3.1 OK for: @next/eslint-plugin-next@15.5.11 want: 3.3.1
+88 silly fetch manifest glob-parent@^5.1.2
+89 http fetch GET 200 https://registry.npmjs.org/glob-parent 45ms (cache miss)
+90 timing idealTree:node_modules/@next/eslint-plugin-next Completed in 48ms
+91 silly placeDep node_modules/fast-glob glob-parent@5.1.2 OK for: fast-glob@3.3.1 want: ^5.1.2
+92 timing idealTree:node_modules/fast-glob Completed in 1ms
+93 silly placeDep ROOT @next/env@15.5.11 OK for: next@15.5.11 want: 15.5.11
+94 silly placeDep ROOT @next/swc-darwin-arm64@15.5.7 OK for: next@15.5.11 want: 15.5.7
+95 silly placeDep ROOT @next/swc-darwin-x64@15.5.7 OK for: next@15.5.11 want: 15.5.7
+96 silly placeDep ROOT @next/swc-linux-arm64-gnu@15.5.7 OK for: next@15.5.11 want: 15.5.7
+97 silly placeDep ROOT @next/swc-linux-arm64-musl@15.5.7 OK for: next@15.5.11 want: 15.5.7
+98 silly placeDep ROOT @next/swc-linux-x64-gnu@15.5.7 OK for: next@15.5.11 want: 15.5.7
+99 silly placeDep ROOT @next/swc-linux-x64-musl@15.5.7 OK for: next@15.5.11 want: 15.5.7
+100 silly placeDep ROOT @next/swc-win32-arm64-msvc@15.5.7 OK for: next@15.5.11 want: 15.5.7
+101 silly placeDep ROOT @next/swc-win32-x64-msvc@15.5.7 OK for: next@15.5.11 want: 15.5.7
+102 silly placeDep ROOT sharp@0.34.5 OK for: next@15.5.11 want: ^0.34.3
+103 silly fetch manifest semver@^7.7.3
+104 silly fetch manifest @img/colour@^1.0.0
+105 silly fetch manifest detect-libc@^2.1.2
+106 silly fetch manifest @img/sharp-wasm32@0.34.5
+107 silly fetch manifest @img/sharp-linux-arm@0.34.5
+108 silly fetch manifest @img/sharp-linux-x64@0.34.5
+109 silly fetch manifest @img/sharp-win32-x64@0.34.5
+110 silly fetch manifest @img/sharp-darwin-x64@0.34.5
+111 silly fetch manifest @img/sharp-win32-ia32@0.34.5
+112 silly fetch manifest @img/sharp-linux-arm64@0.34.5
+113 silly fetch manifest @img/sharp-linux-ppc64@0.34.5
+114 silly fetch manifest @img/sharp-linux-s390x@0.34.5
+115 silly fetch manifest @img/sharp-win32-arm64@0.34.5
+116 silly fetch manifest @img/sharp-darwin-arm64@0.34.5
+117 silly fetch manifest @img/sharp-linux-riscv64@0.34.5
+118 silly fetch manifest @img/sharp-linuxmusl-x64@0.34.5
+119 silly fetch manifest @img/sharp-linuxmusl-arm64@0.34.5
+120 silly fetch manifest @img/sharp-libvips-linux-arm@1.2.4
+121 silly fetch manifest @img/sharp-libvips-linux-x64@1.2.4
+122 silly fetch manifest @img/sharp-libvips-darwin-x64@1.2.4
+123 silly fetch manifest @img/sharp-libvips-linux-arm64@1.2.4
+124 silly fetch manifest @img/sharp-libvips-linux-ppc64@1.2.4
+125 silly fetch manifest @img/sharp-libvips-linux-s390x@1.2.4
+126 silly fetch manifest @img/sharp-libvips-darwin-arm64@1.2.4
+127 silly fetch manifest @img/sharp-libvips-linux-riscv64@1.2.4
+128 silly fetch manifest @img/sharp-libvips-linuxmusl-x64@1.2.4
+129 silly fetch manifest @img/sharp-libvips-linuxmusl-arm64@1.2.4
+130 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-darwin-x64 66ms (cache miss)
+131 http fetch GET 200 https://registry.npmjs.org/semver 69ms (cache miss)
+132 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-linux-arm64 70ms (cache miss)
+133 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-linux-x64 76ms (cache miss)
+134 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-linux-arm 78ms (cache miss)
+135 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-win32-x64 77ms (cache miss)
+136 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-linuxmusl-arm64 109ms (cache miss)
+137 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-libvips-darwin-x64 108ms (cache miss)
+138 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-libvips-linuxmusl-arm64 110ms (cache miss)
+139 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-libvips-linux-arm 113ms (cache miss)
+140 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-libvips-linux-x64 115ms (cache miss)
+141 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-libvips-darwin-arm64 114ms (cache miss)
+142 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-libvips-linux-arm64 116ms (cache miss)
+143 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-linuxmusl-x64 126ms (cache miss)
+144 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-darwin-arm64 129ms (cache miss)
+145 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-libvips-linuxmusl-x64 125ms (cache miss)
+146 http fetch GET 200 https://registry.npmjs.org/detect-libc 223ms (cache miss)
+147 http fetch GET 200 https://registry.npmjs.org/@img%2fcolour 401ms (cache miss)
+148 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-linux-ppc64 421ms (cache miss)
+149 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-libvips-linux-s390x 463ms (cache miss)
+150 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-win32-ia32 719ms (cache miss)
+151 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-wasm32 742ms (cache miss)
+152 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-linux-s390x 760ms (cache miss)
+153 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-win32-arm64 765ms (cache miss)
+154 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-libvips-linux-riscv64 764ms (cache miss)
+155 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-libvips-linux-ppc64 775ms (cache miss)
+156 http fetch GET 200 https://registry.npmjs.org/@img%2fsharp-linux-riscv64 780ms (cache miss)
+157 timing idealTree:node_modules/next Completed in 792ms
+158 timing idealTree:node_modules/@next/env Completed in 0ms
+159 timing idealTree:node_modules/@next/swc-darwin-arm64 Completed in 0ms
+160 timing idealTree:node_modules/@next/swc-darwin-x64 Completed in 0ms
+161 timing idealTree:node_modules/@next/swc-linux-arm64-gnu Completed in 0ms
+162 timing idealTree:node_modules/@next/swc-linux-arm64-musl Completed in 0ms
+163 timing idealTree:node_modules/@next/swc-linux-x64-gnu Completed in 0ms
+164 timing idealTree:node_modules/@next/swc-linux-x64-musl Completed in 0ms
+165 timing idealTree:node_modules/@next/swc-win32-arm64-msvc Completed in 0ms
+166 timing idealTree:node_modules/@next/swc-win32-x64-msvc Completed in 0ms
+167 silly placeDep ROOT @img/colour@1.0.0 OK for: sharp@0.34.5 want: ^1.0.0
+168 silly placeDep ROOT @img/sharp-darwin-arm64@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+169 silly placeDep ROOT @img/sharp-darwin-x64@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+170 silly placeDep ROOT @img/sharp-libvips-darwin-arm64@1.2.4 OK for: sharp@0.34.5 want: 1.2.4
+171 silly placeDep ROOT @img/sharp-libvips-darwin-x64@1.2.4 OK for: sharp@0.34.5 want: 1.2.4
+172 silly placeDep ROOT @img/sharp-libvips-linux-arm@1.2.4 OK for: sharp@0.34.5 want: 1.2.4
+173 silly placeDep ROOT @img/sharp-libvips-linux-arm64@1.2.4 OK for: sharp@0.34.5 want: 1.2.4
+174 silly placeDep ROOT @img/sharp-libvips-linux-ppc64@1.2.4 OK for: sharp@0.34.5 want: 1.2.4
+175 silly placeDep ROOT @img/sharp-libvips-linux-riscv64@1.2.4 OK for: sharp@0.34.5 want: 1.2.4
+176 silly placeDep ROOT @img/sharp-libvips-linux-s390x@1.2.4 OK for: sharp@0.34.5 want: 1.2.4
+177 silly placeDep ROOT @img/sharp-libvips-linux-x64@1.2.4 OK for: sharp@0.34.5 want: 1.2.4
+178 silly placeDep ROOT @img/sharp-libvips-linuxmusl-arm64@1.2.4 OK for: sharp@0.34.5 want: 1.2.4
+179 silly placeDep ROOT @img/sharp-libvips-linuxmusl-x64@1.2.4 OK for: sharp@0.34.5 want: 1.2.4
+180 silly placeDep ROOT @img/sharp-linux-arm@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+181 silly placeDep ROOT @img/sharp-linux-arm64@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+182 silly placeDep ROOT @img/sharp-linux-ppc64@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+183 silly placeDep ROOT @img/sharp-linux-riscv64@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+184 silly placeDep ROOT @img/sharp-linux-s390x@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+185 silly placeDep ROOT @img/sharp-linux-x64@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+186 silly placeDep ROOT @img/sharp-linuxmusl-arm64@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+187 silly placeDep ROOT @img/sharp-linuxmusl-x64@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+188 silly placeDep ROOT @img/sharp-wasm32@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+189 silly fetch manifest @emnapi/runtime@^1.7.0
+190 silly placeDep ROOT @img/sharp-win32-arm64@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+191 silly placeDep ROOT @img/sharp-win32-ia32@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+192 silly placeDep ROOT @img/sharp-win32-x64@0.34.5 OK for: sharp@0.34.5 want: 0.34.5
+193 silly placeDep ROOT detect-libc@2.1.2 OK for: sharp@0.34.5 want: ^2.1.2
+194 silly placeDep ROOT semver@7.7.3 REPLACE for: sharp@0.34.5 want: ^7.7.3
+195 http fetch GET 200 https://registry.npmjs.org/@emnapi%2fruntime 400ms (cache miss)
+196 timing idealTree:node_modules/sharp Completed in 421ms
+197 timing idealTree:node_modules/@img/colour Completed in 0ms
+198 timing idealTree:node_modules/@img/sharp-darwin-arm64 Completed in 0ms
+199 timing idealTree:node_modules/@img/sharp-darwin-x64 Completed in 0ms
+200 timing idealTree:node_modules/@img/sharp-libvips-darwin-arm64 Completed in 0ms
+201 timing idealTree:node_modules/@img/sharp-libvips-darwin-x64 Completed in 0ms
+202 timing idealTree:node_modules/@img/sharp-libvips-linux-arm Completed in 0ms
+203 timing idealTree:node_modules/@img/sharp-libvips-linux-arm64 Completed in 0ms
+204 timing idealTree:node_modules/@img/sharp-libvips-linux-ppc64 Completed in 0ms
+205 timing idealTree:node_modules/@img/sharp-libvips-linux-riscv64 Completed in 0ms
+206 timing idealTree:node_modules/@img/sharp-libvips-linux-s390x Completed in 0ms
+207 timing idealTree:node_modules/@img/sharp-libvips-linux-x64 Completed in 0ms
+208 timing idealTree:node_modules/@img/sharp-libvips-linuxmusl-arm64 Completed in 0ms
+209 timing idealTree:node_modules/@img/sharp-libvips-linuxmusl-x64 Completed in 0ms
+210 timing idealTree:node_modules/@img/sharp-linux-arm Completed in 0ms
+211 timing idealTree:node_modules/@img/sharp-linux-arm64 Completed in 0ms
+212 timing idealTree:node_modules/@img/sharp-linux-ppc64 Completed in 0ms
+213 timing idealTree:node_modules/@img/sharp-linux-riscv64 Completed in 0ms
+214 timing idealTree:node_modules/@img/sharp-linux-s390x Completed in 0ms
+215 timing idealTree:node_modules/@img/sharp-linux-x64 Completed in 0ms
+216 timing idealTree:node_modules/@img/sharp-linuxmusl-arm64 Completed in 0ms
+217 timing idealTree:node_modules/@img/sharp-linuxmusl-x64 Completed in 0ms
+218 silly placeDep ROOT @emnapi/runtime@1.8.1 REPLACE for: @img/sharp-wasm32@0.34.5 want: ^1.7.0
+219 timing idealTree:node_modules/@img/sharp-wasm32 Completed in 2ms
+220 timing idealTree:node_modules/@emnapi/runtime Completed in 0ms
+221 timing idealTree:node_modules/@img/sharp-win32-arm64 Completed in 0ms
+222 timing idealTree:node_modules/@img/sharp-win32-ia32 Completed in 0ms
+223 timing idealTree:node_modules/@img/sharp-win32-x64 Completed in 0ms
+224 timing idealTree:node_modules/detect-libc Completed in 0ms
+225 timing idealTree:node_modules/semver Completed in 0ms
+226 timing idealTree:node_modules/fast-glob/node_modules/glob-parent Completed in 0ms
+227 timing idealTree:buildDeps Completed in 5644ms
+228 timing idealTree:fixDepFlags Completed in 8ms
+229 warn EBADENGINE Unsupported engine {
+229 warn EBADENGINE   package: 'camera-controls@3.1.0',
+229 warn EBADENGINE   required: { node: '>=20.11.0', npm: '>=10.8.2' },
+229 warn EBADENGINE   current: { node: 'v18.19.0', npm: '10.2.3' }
+229 warn EBADENGINE }
+230 timing idealTree Completed in 5782ms
+231 timing reify:loadTrees Completed in 5782ms
+232 timing reify:save Completed in 95ms
+233 timing reify Completed in 5930ms
+234 timing command:install Completed in 5932ms
+235 verbose exit 0
+236 timing npm Completed in 6068ms
+237 info ok
