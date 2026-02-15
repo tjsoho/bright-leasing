@@ -31,3 +31,4 @@ CREATE TRIGGER set_timestamp_account_setup_submissions
 ALTER TABLE public.account_setup_submissions DISABLE ROW LEVEL SECURITY;
 
 
+

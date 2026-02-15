@@ -77,7 +77,7 @@ const Footer = ({ content }: FooterProps) => {
       title: "Say Hi",
       links: [
         { label: "Instagram", href: "https://www.instagram.com/bright_leasing/", external: true },
-        { label: "Facebook", href: "https://www.facebook.com/profile.php?viewas=100000686899395&id=61584022475229", external: true },
+        { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61584022475229", external: true },
         { label: "Linked In", href: "https://www.linkedin.com/company/bright-leasing-pty-ltd/?viewAsMember=true", external: true },
         { label: "Contact", href: "/contact" },
       ],

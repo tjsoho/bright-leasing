@@ -151,7 +151,7 @@ const BubbleMenuMobile = ({ isOpen, onClose, headerButtonText = "Start In 60 Sec
                                 transition={{ delay: 0.85, duration: 0.3 }}
                             >
                                 <a
-                                    href="https://www.facebook.com/profile.php?viewas=100000686899395&id=61584022475229"
+                                    href="https://www.facebook.com/profile.php?id=61584022475229"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="hover:text-brand-teal transition-colors"

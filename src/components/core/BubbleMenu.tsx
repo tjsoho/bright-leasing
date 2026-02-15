@@ -259,7 +259,7 @@ const BubbleMenu = ({ isOpen, onClose, headerButtonText = "Start In 60 Seconds" 
                                 {/* Social Links - Right */}
                                 <div className="flex justify-center md:justify-end gap-4 md:flex-1">
                                     <a
-                                        href="https://www.facebook.com/profile.php?viewas=100000686899395&id=61584022475229"
+                                        href="https://www.facebook.com/profile.php?id=61584022475229"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="hover:text-brand-teal transition-colors"
