@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
+import { uploadImage } from '@/server-actions/upload-image';
 import { X } from 'lucide-react';
 import Image from 'next/image';
 
@@ -122,25 +123,15 @@ export default function MediaLibraryModal({ isOpen, onClose, onSelect, currentUs
 
         try {
             const uploadPromises = Array.from(files).map(async (file) => {
-                const fileExt = file.name.split('.').pop();
-                const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+                const formData = new FormData();
+                formData.append('file', file);
+                const result = await uploadImage(formData);
 
-                const { error: uploadError } = await supabase.storage
-                    .from('site-images')
-                    .upload(fileName, file, {
-                        cacheControl: '3600',
-                        upsert: true
-                    });
-
-                if (uploadError) throw uploadError;
-
-                const { data: { publicUrl } } = supabase.storage
-                    .from('site-images')
-                    .getPublicUrl(fileName);
+                if (!result.success) throw new Error(result.error);
 
                 return {
-                    name: fileName,
-                    url: publicUrl,
+                    name: result.name,
+                    url: result.url,
                     created_at: new Date().toISOString()
                 };
             });
